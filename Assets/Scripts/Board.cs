@@ -8,19 +8,19 @@ public class Board
 
     #region Public
 
-    public void RegisterScorer(Character character)
+    public void RegisterScorer(IScorer scorer)
     {
-        if (!scorers.Contains(character))
+        if (!scorers.Contains(scorer))
         {
-            scorers.Add(character);
+            scorers.Add(scorer);
         }
     }
 
-    public void DeregisterScorer(Character character)
+    public void DeregisterScorer(IScorer scorer)
     {
-        if (scorers.Contains(character))
+        if (scorers.Contains(scorer))
         {
-            scorers.Remove(character);
+            scorers.Remove(scorer);
         }
     }
 
@@ -93,15 +93,12 @@ public class Board
 
             foreach (var entity in match.Entities)
             {
-                if (entity is Character character && character.IsPlayer)
+                if (entity is IScorer || entity == null)
                 {
                     continue;
                 }
 
-                if (entity != null)
-                {
-                    toDestroy.Add(entity);
-                }
+                toDestroy.Add(entity);
             }
         }
 
@@ -123,7 +120,7 @@ public class Board
 
     Dictionary<Vector2Int, Entity> entities = new Dictionary<Vector2Int, Entity>();
 
-    HashSet<Character> scorers = new HashSet<Character>();
+    HashSet<IScorer> scorers = new HashSet<IScorer>();
 
     List<Match> matches = new List<Match>();
 
@@ -139,10 +136,11 @@ public class Board
         }
     }
 
-    List<Match> CheckForWords(Entity entity)
+    List<Match> CheckForWords(IScorer scorer)
     {
-        var origin = entity.BoardPosition;
+        var origin = scorer.BoardPosition;
         var allMatches = new List<Match>();
+        var entity = scorer as Entity;
 
         // Horizontal Sweep
         {
@@ -207,10 +205,10 @@ public class Board
 
             for (var j = 0; j < entities.Count - i; j++)
             {
-                var l = entities[i + j];
-                word += l.Letter;
-                wordEnts.Add(l);
-                containsPlayer ^= (l is Character character && character.IsPlayer);
+                var ent = entities[i + j];
+                word += ent.Letter;
+                wordEnts.Add(ent);
+                containsPlayer ^= ent is IScorer;
 
                 if (word.Length >= MinimumLength &&
                     word.Length > bestLength &&

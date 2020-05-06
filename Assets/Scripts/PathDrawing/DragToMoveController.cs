@@ -53,7 +53,7 @@ namespace Assets.Scripts.PathDrawing
 
     class DragMovement
     {
-        public Character Character;
+        public AWarrior Character;
         public List<Vector2Int> Path;
 
         public Vector2Int From => Path[Path.Count - 1];

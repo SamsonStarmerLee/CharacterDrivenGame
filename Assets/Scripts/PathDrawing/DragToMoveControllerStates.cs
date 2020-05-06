@@ -27,15 +27,12 @@ namespace Assets.Scripts.PathDrawing
                     PathFinder.GetMousePosition(Owner.layerMask, out Vector2Int position, out _))
                 {
                     var entity = Board.Instance.GetAtPosition(position);
-
-                    if (entity != null && 
-                        entity is Character character &&
-                        character.IsPlayer)
+                    if (entity is AWarrior character)
                     {
                         character.Pickup();
                         return new DraggingState
                         {
-                            From = character.BoardPosition,
+                            From = entity.BoardPosition,
                             To = position,
                             Owner = Owner,
                             Character = character,
@@ -58,7 +55,7 @@ namespace Assets.Scripts.PathDrawing
         {
             public Vector2Int From;
             public Vector2Int To;
-            public Character Character;
+            public AWarrior Character;
 
             public override IState Execute()
             {
@@ -92,7 +89,7 @@ namespace Assets.Scripts.PathDrawing
                     var terminus = pf.Terminus;
                     Board.Instance.MoveEntity(Character, terminus);
                     Board.Instance.CheckForMatches();
-                    Character.Position = new Vector3(terminus.x, 0.5f, terminus.y);
+                    Character.WorldPosition = new Vector3(terminus.x, 0.5f, terminus.y);
                 }
 
                 // Release to stop dragging.

@@ -1,7 +1,9 @@
-﻿namespace Assets.Scripts
+﻿using UnityEngine;
+
+namespace Assets.Scripts
 {
     public interface IScorer
     {
-        // Marker Interface. Are we happy with this?
+        Vector2Int BoardPosition { get; set; }
     }
 }

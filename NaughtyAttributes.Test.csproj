@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DF27587E-4707-F0C7-0D1E-95E6F487F51B}</ProjectGuid>
+    <ProjectGuid>{B848A2F1-4B08-F455-25C6-A3D3B23A1D00}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>NaughtyAttributes.Test</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -63,19 +63,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AWarrior.cs" />
-    <Compile Include="Assets\Scripts\Board.cs" />
-    <Compile Include="Assets\Scripts\Character.cs" />
-    <Compile Include="Assets\Scripts\Entity.cs" />
-    <Compile Include="Assets\Scripts\Game.cs" />
-    <Compile Include="Assets\Scripts\IScorer.cs" />
-    <Compile Include="Assets\Scripts\PathDrawing\DragToMoveController.cs" />
-    <Compile Include="Assets\Scripts\PathDrawing\DragToMoveControllerStates.cs" />
-    <Compile Include="Assets\Scripts\StateMachine.cs" />
-    <Compile Include="Assets\Scripts\Terrain.cs" />
-    <Compile Include="Assets\Scripts\WordFinder.cs" />
-    <None Include="Assets\Resources\enable.txt" />
-    <None Include="Assets\Resources\sowpods.txt" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\BoxGroupTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\ButtonTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\CurveRangeTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\DisableIfTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\DropdownTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\EnableIfTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\EnumFlagsTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\HideIfTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\HorizontalLineTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\InfoBoxTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\InputAxisTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\LabelTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\MinMaxSliderTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\MinMaxValueTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\OnValueChangedTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\ProgressBarTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\ReadOnlyTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\ReorderableListTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\RequiredTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\ResizableTextAreaTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\SceneTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\ShowAssetPreviewTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\ShowIfTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\ShowNativePropertyTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\ShowNonSerializedFieldTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\TagTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\ValidateInputTest.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\_NaughtyComponent.cs" />
+    <Compile Include="Assets\NaughtyAttributes\Scripts\Test\_NaughtyScriptableObject.cs" />
+    <None Include="Assets\NaughtyAttributes\Scripts\Test\NaughtyAttributes.Test.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -258,6 +275,21 @@
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.VR">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WebGL.Extensions">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="Priority Queue">
       <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Assets/Plugins/Priority Queue.dll</HintPath>
@@ -607,54 +639,17 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProGrids">
-      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProGrids.Editor">
-      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="NaughtyAttributes.Editor.csproj">
-      <Project>{0C6C58FE-1745-D7ED-ECB2-5A3781C83A14}</Project>
-      <Name>NaughtyAttributes.Editor</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
     <ProjectReference Include="NaughtyAttributes.Core.csproj">
       <Project>{86EE96C2-C12F-EF13-F7CE-682F82F656F9}</Project>
       <Name>NaughtyAttributes.Core</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="NaughtyAttributes.Test.csproj">
-      <Project>{B848A2F1-4B08-F455-25C6-A3D3B23A1D00}</Project>
-      <Name>NaughtyAttributes.Test</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
