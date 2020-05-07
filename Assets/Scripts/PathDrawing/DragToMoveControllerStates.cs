@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Assets.Scripts.Characters;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.PathDrawing
 {
+    using static Utility;
+
     public partial class DragToMoveController
     {
         abstract class BaseState : IState
@@ -24,7 +27,7 @@ namespace Assets.Scripts.PathDrawing
             public override IState Execute()
             {
                 if (Input.GetMouseButtonDown(0) &&
-                    PathFinder.GetMousePosition(Owner.layerMask, out Vector2Int position, out _))
+                    GetMousePosition(Owner.layerMask, out Vector2Int position, out _))
                 {
                     var entity = Board.Instance.GetAtPosition(position);
                     if (entity is AWarrior character)
@@ -59,7 +62,7 @@ namespace Assets.Scripts.PathDrawing
 
             public override IState Execute()
             {
-                if (!PathFinder.GetMousePosition(
+                if (!GetMousePosition(
                     Owner.layerMask, 
                     out Vector2Int Destination, 
                     out Vector3 _))

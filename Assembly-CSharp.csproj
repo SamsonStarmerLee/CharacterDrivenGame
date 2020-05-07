@@ -63,9 +63,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AWarrior.cs" />
     <Compile Include="Assets\Scripts\Board.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
+    <Compile Include="Assets\Scripts\Characters\AWarrior.cs" />
+    <Compile Include="Assets\Scripts\Characters\AWarriorStates.cs" />
     <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\Scripts\IScorer.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets\Scripts\PathDrawing\DragToMoveControllerStates.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Terrain.cs" />
+    <Compile Include="Assets\Scripts\Utility.cs" />
     <Compile Include="Assets\Scripts\WordFinder.cs" />
     <None Include="Assets\Resources\enable.txt" />
     <None Include="Assets\Resources\sowpods.txt" />

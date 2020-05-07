@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7552664787412783075}
   - component: {fileID: 7552664787412783076}
-  m_Layer: 0
+  - component: {fileID: 3162337134817359903}
+  m_Layer: 10
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,9 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Solid: 0
   _letter: 
-  MovementRange: 6
-  Player: 0
-  moveTime: 0.15
   meshAlphabet:
   - {fileID: 6941503453587140970, guid: efb9fc380b28f334bacdfa4dd1f0bb28, type: 3}
   - {fileID: -4547443393339073547, guid: efb9fc380b28f334bacdfa4dd1f0bb28, type: 3}
@@ -102,6 +100,19 @@ MonoBehaviour:
   - {fileID: -7951728556686003152, guid: efb9fc380b28f334bacdfa4dd1f0bb28, type: 3}
   - {fileID: -5633041684971857249, guid: efb9fc380b28f334bacdfa4dd1f0bb28, type: 3}
   - {fileID: -946301928450840285, guid: efb9fc380b28f334bacdfa4dd1f0bb28, type: 3}
+--- !u!65 &3162337134817359903
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552664787412783074}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.1250002, z: 1}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &7552664787629859467
 GameObject:
   m_ObjectHideFlags: 0
