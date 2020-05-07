@@ -110,12 +110,17 @@ namespace Assets.Scripts.Characters
 
                 Board.Instance.MoveEntity(ToThrow, ToBoardPos);
                 fromWorldPos = ToThrow.WorldPosition;
+
+                Board.Instance.CheckForMatches();
             }
 
             public override IState Execute()
             {
                 elapsed += Time.deltaTime;
-                ToThrow.WorldPosition = Vector3.Lerp(fromWorldPos, ToWorldPos, elapsed);
+                ToThrow.WorldPosition = Vector3.Lerp(
+                    fromWorldPos, 
+                    ToWorldPos, 
+                    elapsed / Owner.throwTime);
 
                 if (Vector3.Distance(ToThrow.WorldPosition, ToWorldPos) < 0.01f)
                 {
