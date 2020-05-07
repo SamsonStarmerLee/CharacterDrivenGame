@@ -6,6 +6,8 @@ using UnityEngine;
 public class Character : Entity, IScorer
 {
     protected static char[] Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+    protected static char[] Consonants = "BCDFGHJKLMNPQRSTVWXYZ".ToCharArray();
+    protected static char[] Vowels = "AEIOU".ToCharArray();
 
     [SerializeField]
     protected Mesh[] meshAlphabet;
@@ -17,8 +19,7 @@ public class Character : Entity, IScorer
         // This sucks
         _letter = Alphabet[Random.Range(0, Alphabet.Length)].ToString();
         name = _letter;
-        var @case = Random.Range(0, 2) == 0 ? "Upper" : "Lower";
-        var mesh = meshAlphabet.First(x => x.name == $"{Letter}_{@case}");
+        var mesh = meshAlphabet.First(x => x.name == $"{Letter}_Upper");
         var meshFilter = GetComponentInChildren<MeshFilter>();
         meshFilter.sharedMesh = mesh;
     }

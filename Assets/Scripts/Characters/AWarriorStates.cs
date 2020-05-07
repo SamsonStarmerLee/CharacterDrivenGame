@@ -71,7 +71,7 @@ namespace Assets.Scripts.Characters
                     {
                         // If unoccupied and we have a character to throw, 
                         // pick as destination and trigger the throw.
-                        var worldPos = new Vector3(boardPos.x, 0.25f, boardPos.y);
+                        var worldPos = new Vector3(boardPos.x, 0f, boardPos.y);
                         return new ThrowState
                         {
                             Owner = Owner,
