@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 [SelectionBase]
-public class Character : Entity, IScorer
+public class Character : Entity
 {
     protected static char[] Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
     protected static char[] Consonants = "BCDFGHJKLMNPQRSTVWXYZ".ToCharArray();

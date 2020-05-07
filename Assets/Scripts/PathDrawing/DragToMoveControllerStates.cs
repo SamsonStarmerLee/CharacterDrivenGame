@@ -107,8 +107,6 @@ namespace Assets.Scripts.PathDrawing
                             Character = Character,
                             Path = pf.Path,
                         });
-
-                        Debug.Log(Owner.movement.Count);
                     }
                     
                     return new IdleState

@@ -4,7 +4,7 @@ namespace Assets.Scripts.Characters
 {
     using static Utility;
 
-    public partial class AWarrior
+    public partial class AWarrior : IScorer
     {
         abstract class BaseState : IState
         {

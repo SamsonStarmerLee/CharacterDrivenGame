@@ -70,7 +70,7 @@ public class Board
         foreach (var scorer in scorers)
         {
             var h = CheckForWords(scorer);
-            if (h != null)
+            if (h != null && h.Count != 0)
             {
                 matches.AddRange(h);
             }
@@ -208,7 +208,7 @@ public class Board
                 var ent = entities[i + j];
                 word += ent.Letter;
                 wordEnts.Add(ent);
-                containsPlayer ^= ent is IScorer;
+                containsPlayer |= ent is IScorer;
 
                 if (word.Length >= MinimumLength &&
                     word.Length > bestLength &&
