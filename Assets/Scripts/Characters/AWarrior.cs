@@ -10,6 +10,9 @@ namespace Assets.Scripts.Characters
         [SerializeField]
         float moveTime = 0.25f;
 
+        [SerializeField]
+        int throwRange = 3;
+
         Vector3 fromPosition;
         float progress;
         bool currentlyHeld;

@@ -49,22 +49,28 @@ namespace Assets.Scripts.Characters
 
             public override IState Execute()
             {
+                // TODO: Draw valid targets and throw range.
+
                 if (Input.GetMouseButtonDown(0) &&
                     GetMousePosition(characterLayer, out var boardPos, out _))
                 {
                     var occupant = Board.Instance.GetAtPosition(boardPos);
+                    var distance = ManhattanDistance(Owner.BoardPosition, boardPos);
+                    Debug.Log($"Distance: {distance}.");
 
-                    // If occupied by a character, set as the target for the throw.
-                    if (occupant is Character character)
+                    if (occupant is Character character && distance == 1)
                     {
+                        // If occupied by a character, set as the target for the throw.
                         toThrow = character;
                         Debug.Log($"Selected {character}.");
                     }
 
-                    // If unoccupied and we have a character to throw, 
-                    // pick as destination and trigger the throw.
-                    else if (occupant == null && toThrow != null)
+                    else if (occupant == null && 
+                            toThrow != null &&
+                            distance <= Owner.throwRange)
                     {
+                        // If unoccupied and we have a character to throw, 
+                        // pick as destination and trigger the throw.
                         var worldPos = new Vector3(boardPos.x, 0.25f, boardPos.y);
                         return new ThrowState
                         {
