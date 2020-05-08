@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{DF27587E-4707-F0C7-0D1E-95E6F487F51B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -71,6 +70,10 @@
     <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\Scripts\IScorer.cs" />
+    <Compile Include="Assets\Scripts\LifecycleInterfaces.cs" />
+    <Compile Include="Assets\Scripts\Notifications\IObserve.cs" />
+    <Compile Include="Assets\Scripts\Notifications\NotificationCenter.cs" />
+    <Compile Include="Assets\Scripts\Notifications\ObserverExtentions.cs" />
     <Compile Include="Assets\Scripts\PathDrawing\DragToMoveController.cs" />
     <Compile Include="Assets\Scripts\PathDrawing\DragToMoveControllerStates.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
@@ -643,6 +646,23 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="NaughtyAttributes.Editor.csproj">
+      <Project>{0C6C58FE-1745-D7ED-ECB2-5A3781C83A14}</Project>
+      <Name>NaughtyAttributes.Editor</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="NaughtyAttributes.Core.csproj">
+      <Project>{86EE96C2-C12F-EF13-F7CE-682F82F656F9}</Project>
+      <Name>NaughtyAttributes.Core</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="NaughtyAttributes.Test.csproj">
+      <Project>{B848A2F1-4B08-F455-25C6-A3D3B23A1D00}</Project>
+      <Name>NaughtyAttributes.Test</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
