@@ -11,5 +11,15 @@
         {
             NotificationCenter.Instance.RemoveObserver(handler, notificationName);
         }
+
+        public static void PostNotification(this object @this, string notificationName)
+        {
+            NotificationCenter.Instance.Post(@this, null, notificationName);
+        }
+
+        public static void PostNotification(this object @this, string notificationName, object e)
+        {
+            NotificationCenter.Instance.Post(@this, e, notificationName);
+        }
     }
 }

@@ -66,7 +66,7 @@ namespace Assets.Scripts.Notifications
             }
         }
 
-        public void Post(string notificationName, object sender, object e)
+        public void Post(object sender, object e, string notificationName)
         {
             if (string.IsNullOrWhiteSpace(notificationName))
             {
