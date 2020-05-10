@@ -7,6 +7,6 @@
 
     public interface IDestroy
     {
-        void Init();
+        void Destroy();
     }
 }

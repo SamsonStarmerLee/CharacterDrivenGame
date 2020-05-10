@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Assets.Scripts.PathDrawing
+namespace Assets.Scripts.Controllers
 {
     using static Utility;
 
@@ -12,6 +12,8 @@ namespace Assets.Scripts.PathDrawing
     {
         [SerializeField]
         LayerMask layerMask;
+
+        AWarrior activeCharacter;
 
         StateMachine machine = new StateMachine();
         
@@ -21,9 +23,10 @@ namespace Assets.Scripts.PathDrawing
 
         private void Awake()
         {
-            var idleState = new IdleState();
-            idleState.Owner = this;
-            machine.ChangeState(idleState);
+            machine.ChangeState(new IdleState
+            {
+                Owner = this
+            });
         }
 
         void Update()
@@ -69,8 +72,8 @@ namespace Assets.Scripts.PathDrawing
         const int WallCost = 1000;
 
         Dictionary<Vector2Int, Vector2Int> cameFrom = new Dictionary<Vector2Int, Vector2Int>();
-        Dictionary<Vector2Int, int> costs = new Dictionary<Vector2Int, int>();
-        Dictionary<Vector2Int, int> distFromOrigin = new Dictionary<Vector2Int, int>();
+        Dictionary<Vector2Int, int> costs           = new Dictionary<Vector2Int, int>();
+        Dictionary<Vector2Int, int> distFromOrigin  = new Dictionary<Vector2Int, int>();
         
         public List<Vector2Int> Path = new List<Vector2Int>();
 

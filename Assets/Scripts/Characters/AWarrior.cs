@@ -16,10 +16,6 @@ namespace Assets.Scripts.Characters
         [SerializeField]
         float throwTime = 0.25f;
 
-        Vector3 fromPosition;
-        float progress;
-        bool currentlyHeld;
-
         StateMachine machine = new StateMachine();
 
         public override void Init()
@@ -44,33 +40,13 @@ namespace Assets.Scripts.Characters
         private void Update()
         {
             machine.Execute();
-
-            if (currentlyHeld)
-            {
-                return;
-            }
-
-            var boardPosition3D = new Vector3(BoardPosition.x, 0f, BoardPosition.y);
-            var t = Mathf.SmoothStep(0.0f, 1.0f, progress += (Time.deltaTime / moveTime));
-            WorldPosition = Vector3.Lerp(fromPosition, boardPosition3D, t);
-        }
-
-        public void Pickup()
-        {
-            currentlyHeld = true;
-        }
-
-        public void Drop(Vector2Int newPosition)
-        {
-            currentlyHeld = false;
-            Board.Instance.MoveEntity(this, newPosition);
-            Board.Instance.CheckForMatches();
         }
     }
 }
 
-
-
+//var boardPosition3D = new Vector3(BoardPosition.x, 0f, BoardPosition.y);
+//var t = Mathf.SmoothStep(0.0f, 1.0f, progress += (Time.deltaTime / moveTime));
+//WorldPosition = Vector3.Lerp(fromPosition, boardPosition3D, t);
 
 //if (Input.GetKeyDown(KeyCode.LeftArrow)) Move(Vector2Int.left);
 //if (Input.GetKeyDown(KeyCode.RightArrow)) Move(Vector2Int.right);

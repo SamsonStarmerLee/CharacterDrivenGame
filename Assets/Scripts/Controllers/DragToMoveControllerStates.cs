@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Assets.Scripts.PathDrawing
+namespace Assets.Scripts.Controllers
 {
     using static Utility;
 
@@ -32,19 +32,19 @@ namespace Assets.Scripts.PathDrawing
                     var entity = Board.Instance.GetAtPosition(position);
                     if (entity is AWarrior character)
                     {
-                        character.Pickup();
+                        Owner.activeCharacter = character;
+
                         return new DraggingState
                         {
                             From = entity.BoardPosition,
                             To = position,
                             Owner = Owner,
-                            Character = character,
                         };
                     }
                 }
 
                 // Confirm movement and score matches.
-                if (Input.GetKeyDown(KeyCode.Return))
+                if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
                 {
                     Board.Instance.ScoreMatches();
                     Owner.movement.Clear();
@@ -58,7 +58,6 @@ namespace Assets.Scripts.PathDrawing
         {
             public Vector2Int From;
             public Vector2Int To;
-            public AWarrior Character;
 
             public override IState Execute()
             {
@@ -72,9 +71,10 @@ namespace Assets.Scripts.PathDrawing
 
                 // If there is a previous movement with this character established,
                 // pathfinding must continue from the original position.
+                var character = Owner.activeCharacter;
                 var movement = Owner
                     .movement
-                    .FirstOrDefault(x => x.Character == Character);
+                    .FirstOrDefault(x => x.Character == character);
                 if (movement != null)
                 {
                     From = movement.From;
@@ -82,17 +82,17 @@ namespace Assets.Scripts.PathDrawing
                 }
 
                 var pf = Owner.pathFinder;
-                var ignore = new List<Entity> { Character };
-                pf.Generate(From, Destination, Character.MovementRange, ignore);
+                var ignore = new List<Entity> { character };
+                pf.Generate(From, Destination, character.MovementRange, ignore);
                 DrawPath(pf.Path, Color.blue);
 
                 // TEMP: Move agent into position.
                 if (pf.HasPath)
                 {
                     var terminus = pf.Terminus;
-                    Board.Instance.MoveEntity(Character, terminus);
+                    Board.Instance.MoveEntity(character, terminus);
                     Board.Instance.CheckForMatches();
-                    Character.WorldPosition = new Vector3(terminus.x, 0.5f, terminus.y);
+                    character.WorldPosition = new Vector3(terminus.x, 0.5f, terminus.y);
                 }
 
                 // Release to stop dragging.
@@ -100,11 +100,14 @@ namespace Assets.Scripts.PathDrawing
                 {
                     if (pf.HasPath)
                     {
-                        Character.Drop(pf.Terminus);
+                        var terminus = pf.Terminus;
+                        Board.Instance.MoveEntity(character, terminus);
+                        Board.Instance.CheckForMatches();
+                        character.WorldPosition = new Vector3(terminus.x, 0f, terminus.y);
 
                         Owner.movement.Add(new DragMovement
                         {
-                            Character = Character,
+                            Character = character,
                             Path = pf.Path,
                         });
                     }
