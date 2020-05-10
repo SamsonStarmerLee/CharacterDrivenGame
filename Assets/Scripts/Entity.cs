@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts;
+using UnityEngine;
 
-public abstract class Entity : MonoBehaviour
+public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 {
     public bool Solid;
 

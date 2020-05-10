@@ -30,7 +30,7 @@ namespace Assets.Scripts.Controllers
                     GetMousePosition(Owner.layerMask, out Vector2Int position, out _))
                 {
                     var entity = Board.Instance.GetAtPosition(position);
-                    if (entity is AWarrior character)
+                    if (entity is ICharacter character)
                     {
                         Owner.activeCharacter = character;
 
@@ -75,6 +75,7 @@ namespace Assets.Scripts.Controllers
                 var movement = Owner
                     .movement
                     .FirstOrDefault(x => x.Character == character);
+
                 if (movement != null)
                 {
                     From = movement.From;
@@ -82,7 +83,7 @@ namespace Assets.Scripts.Controllers
                 }
 
                 var pf = Owner.pathFinder;
-                var ignore = new List<Entity> { character };
+                var ignore = new List<ICharacter> { character };
                 pf.Generate(From, Destination, character.MovementRange, ignore);
                 DrawPath(pf.Path, Color.blue);
 
@@ -90,7 +91,7 @@ namespace Assets.Scripts.Controllers
                 if (pf.HasPath)
                 {
                     var terminus = pf.Terminus;
-                    Board.Instance.MoveEntity(character, terminus);
+                    Board.Instance.MoveOccupant(character, terminus);
                     Board.Instance.CheckForMatches();
                     character.WorldPosition = new Vector3(terminus.x, 0.5f, terminus.y);
                 }
@@ -101,7 +102,7 @@ namespace Assets.Scripts.Controllers
                     if (pf.HasPath)
                     {
                         var terminus = pf.Terminus;
-                        Board.Instance.MoveEntity(character, terminus);
+                        Board.Instance.MoveOccupant(character, terminus);
                         Board.Instance.CheckForMatches();
                         character.WorldPosition = new Vector3(terminus.x, 0f, terminus.y);
 

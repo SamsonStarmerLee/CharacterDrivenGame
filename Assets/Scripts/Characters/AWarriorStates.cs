@@ -40,7 +40,7 @@ namespace Assets.Scripts.Characters
         {
             const int characterLayer = 1 << 10;
 
-            Character toThrow;
+            Letter toThrow;
 
             public override void Enter()
             {
@@ -58,7 +58,7 @@ namespace Assets.Scripts.Characters
                     var distance = ManhattanDistance(Owner.BoardPosition, boardPos);
                     Debug.Log($"Distance: {distance}.");
 
-                    if (occupant is Character character && distance == 1)
+                    if (occupant is Letter character && distance == 1)
                     {
                         // If occupied by a character, set as the target for the throw.
                         toThrow = character;
@@ -97,7 +97,7 @@ namespace Assets.Scripts.Characters
 
         class ThrowState : BaseState
         {
-            public Character ToThrow;
+            public Letter ToThrow;
             public Vector2Int ToBoardPos;
             public Vector3 ToWorldPos;
 
@@ -108,7 +108,7 @@ namespace Assets.Scripts.Characters
             {
                 Debug.Log($"Throwing {ToThrow} to {ToBoardPos}!");
 
-                Board.Instance.MoveEntity(ToThrow, ToBoardPos);
+                Board.Instance.MoveOccupant(ToThrow, ToBoardPos);
                 fromWorldPos = ToThrow.WorldPosition;
 
                 Board.Instance.CheckForMatches();

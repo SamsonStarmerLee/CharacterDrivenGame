@@ -1,9 +1,8 @@
-﻿using Assets.Scripts;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 
 [SelectionBase]
-public class Character : Entity
+public class Letter : Entity
 {
     protected static char[] Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
     protected static char[] Consonants = "BCDFGHJKLMNPQRSTVWXYZ".ToCharArray();

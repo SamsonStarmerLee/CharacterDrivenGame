@@ -13,7 +13,7 @@ namespace Assets.Scripts.Controllers
         [SerializeField]
         LayerMask layerMask;
 
-        AWarrior activeCharacter;
+        ICharacter activeCharacter;
 
         StateMachine machine = new StateMachine();
         
@@ -59,7 +59,7 @@ namespace Assets.Scripts.Controllers
 
     class DragMovement
     {
-        public AWarrior Character;
+        public ICharacter Character;
         public List<Vector2Int> Path;
 
         public Vector2Int From => Path[Path.Count - 1];
@@ -81,7 +81,7 @@ namespace Assets.Scripts.Controllers
 
         public Vector2Int Terminus => Path[0];
 
-        public void Generate(Vector2Int origin, Vector2Int goal, int range, IReadOnlyList<Entity> ignore)
+        public void Generate(Vector2Int origin, Vector2Int goal, int range, IReadOnlyList<IOccupant> ignore)
         {
             cameFrom.Clear();
             costs.Clear();
@@ -161,7 +161,7 @@ namespace Assets.Scripts.Controllers
             }
         }
 
-        static int Cost(Vector2Int position, IReadOnlyList<Entity> ignore)
+        static int Cost(Vector2Int position, IReadOnlyList<IOccupant> ignore)
         {
             var occupant = Board.Instance.GetAtPosition(position);
             if (occupant != null && !ignore.Contains(occupant))

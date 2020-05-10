@@ -64,20 +64,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Board.cs" />
-    <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\Characters\AWarrior.cs" />
     <Compile Include="Assets\Scripts\Characters\AWarriorStates.cs" />
+    <Compile Include="Assets\Scripts\Characters\ICharacter.cs" />
     <Compile Include="Assets\Scripts\Controllers\DragToMoveController.cs" />
     <Compile Include="Assets\Scripts\Controllers\DragToMoveControllerStates.cs" />
     <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
+    <Compile Include="Assets\Scripts\IOccupant.cs" />
     <Compile Include="Assets\Scripts\IScorer.cs" />
+    <Compile Include="Assets\Scripts\Letter.cs" />
     <Compile Include="Assets\Scripts\LifecycleInterfaces.cs" />
     <Compile Include="Assets\Scripts\Notifications\IObserve.cs" />
     <Compile Include="Assets\Scripts\Notifications\NotificationCenter.cs" />
     <Compile Include="Assets\Scripts\Notifications\ObserverExtentions.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
-    <Compile Include="Assets\Scripts\Terrain.cs" />
     <Compile Include="Assets\Scripts\Utility.cs" />
     <Compile Include="Assets\Scripts\WordFinder.cs" />
     <None Include="Assets\Resources\enable.txt" />
