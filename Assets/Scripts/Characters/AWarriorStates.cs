@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Assets.Scripts.Characters
 {
@@ -110,28 +111,31 @@ namespace Assets.Scripts.Characters
 
                 Board.Instance.MoveOccupant(ToThrow, ToBoardPos);
                 fromWorldPos = ToThrow.WorldPosition;
-
                 Board.Instance.CheckForMatches();
+
+                Owner.StartCoroutine(ShowProcess());
+
+                Owner.machine.ChangeState(new IdleState
+                {
+                    Owner = Owner,
+                });
             }
 
-            public override IState Execute()
+            IEnumerator ShowProcess()
             {
-                elapsed += Time.deltaTime;
-                ToThrow.WorldPosition = Vector3.Lerp(
-                    fromWorldPos, 
-                    ToWorldPos, 
-                    elapsed / Owner.throwTime);
-
-                if (Vector3.Distance(ToThrow.WorldPosition, ToWorldPos) < 0.01f)
+                while (Vector3.Distance(ToThrow.WorldPosition, ToWorldPos) > 0.01f)
                 {
-                    ToThrow.WorldPosition = ToWorldPos;
-                    return new IdleState
-                    {
-                        Owner = Owner,
-                    };
+                    elapsed += Time.deltaTime;
+                    ToThrow.WorldPosition = Vector3.Lerp(
+                        fromWorldPos,
+                        ToWorldPos,
+                        elapsed / Owner.throwTime);
+
+                    yield return null;
                 }
 
-                return null;
+                // Set position directly to finalize.
+                ToThrow.WorldPosition = ToWorldPos;
             }
         }
     }
