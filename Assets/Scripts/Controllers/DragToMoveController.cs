@@ -21,7 +21,7 @@ namespace Assets.Scripts.Controllers
 
         List<DragMovement> movement = new List<DragMovement>();
 
-        private void Awake()
+        void Awake()
         {
             machine.ChangeState(new IdleState
             {

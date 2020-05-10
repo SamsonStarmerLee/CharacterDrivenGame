@@ -37,7 +37,7 @@ namespace Assets.Scripts.Characters
             Board.Instance.DeregisterScorer(this);
         }
 
-        private void Update()
+        void Update()
         {
             machine.Execute();
         }
