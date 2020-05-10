@@ -40,7 +40,7 @@ namespace Assets.Scripts.Characters
             Board.Instance.DeregisterScorer(this);
         }
 
-        void Update()
+        public void Tick()
         {
             machine.Execute();
         }

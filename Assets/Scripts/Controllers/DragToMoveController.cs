@@ -34,6 +34,7 @@ namespace Assets.Scripts.Controllers
             DrawMovement();
 
             machine.Execute();
+            activeCharacter?.Tick();
         }
 
         void DrawMovement()
