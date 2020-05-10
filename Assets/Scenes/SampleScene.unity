@@ -2040,7 +2040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4190246d0c2a83d48bc226a7d9335f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerMask:
+  movementLayerMask:
     serializedVersion: 2
     m_Bits: 512
 --- !u!4 &1693656326
