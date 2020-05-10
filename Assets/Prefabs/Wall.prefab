@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6292246719731874311}
   - component: {fileID: 6292246719731874310}
   - component: {fileID: 6292246719731874329}
-  - component: {fileID: 616523405435518504}
+  - component: {fileID: 2537609208046739661}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -80,7 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &616523405435518504
+--- !u!114 &2537609208046739661
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,8 +89,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6292246719731874331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c5810bb47093cb42a17f82e0c2ca1ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f164bd7ec1ebde439218bd8caeaa981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Solid: 1
   _letter: W
+  meshAlphabet: []

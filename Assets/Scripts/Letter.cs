@@ -16,10 +16,13 @@ public class Letter : Entity
         base.Init();
 
         // This sucks
-        _letter = Alphabet[Random.Range(0, Alphabet.Length)].ToString();
-        name = _letter;
-        var mesh = meshAlphabet.First(x => x.name == $"{Letter}_Upper");
-        var meshFilter = GetComponentInChildren<MeshFilter>();
-        meshFilter.sharedMesh = mesh;
+        if (string.IsNullOrWhiteSpace(Letter))
+        {
+            _letter = Alphabet[Random.Range(0, Consonants.Length)].ToString();
+            name = _letter;
+            var mesh = meshAlphabet.First(x => x.name == $"{Letter}_Upper");
+            var meshFilter = GetComponentInChildren<MeshFilter>();
+            meshFilter.sharedMesh = mesh;
+        }
     }
 }
