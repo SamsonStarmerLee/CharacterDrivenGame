@@ -7,11 +7,11 @@ namespace Assets.Scripts.Controllers
 {
     using static Utility;
 
-    public partial class DragToMoveController
+    public partial class CharacterController
     {
         abstract class BaseState : IState
         {
-            public DragToMoveController Owner;
+            public CharacterController Owner;
 
             public bool CanTransition() => true;
 
@@ -124,52 +124,3 @@ namespace Assets.Scripts.Controllers
         }
     }
 }
-
-
-
-//class DrawingState : BaseState
-//{
-//    public Vector2Int Origin;
-//    public Vector2Int Destination;
-//    public Character Moving;
-
-//    public override void Execute()
-//    {
-//        if (!PathFinder.GetMousePosition(
-//            Drawer.layerMask,
-//            out Vector2Int Destination,
-//            out Vector3 _))
-//        {
-//            return;
-//        }
-
-//        var pf = Drawer.pathFinder;
-//        var ignore = new List<Entity> { Moving };
-//        pf.Generate(Origin, Destination, Moving.MovementRange, ignore);
-//        pf.DrawPath();
-
-//        // TEMP: Move agent into position.
-//        if (pf.HasPath)
-//        {
-//            var terminus = pf.Terminus;
-//            Board.Instance.MoveEntity(Moving, terminus);
-//            Board.Instance.CheckEntityMatches(Moving.BoardPosition);
-//            Moving.Position = new Vector3(terminus.x, 0.5f, terminus.y);
-//        }
-
-//        // Release to stop dragging.
-//        if (Input.GetMouseButtonUp(0))
-//        {
-//            if (pf.HasPath)
-//            {
-//                Moving.Drop(pf.Terminus);
-//            }
-
-//            Drawer.machine.ChangeState(new IdleState
-//            {
-//                Drawer = Drawer
-//            });
-//            return;
-//        }
-//    }
-//}

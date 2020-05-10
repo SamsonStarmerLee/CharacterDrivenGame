@@ -1,81 +1,20 @@
-﻿using Assets.Scripts.Characters;
-using Priority_Queue;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Priority_Queue;
 using UnityEngine;
 
-namespace Assets.Scripts.Controllers
+namespace Assets.Scripts.Pathfinding
 {
     using static Utility;
 
-    public partial class DragToMoveController : MonoBehaviour
-    {
-        [SerializeField]
-        LayerMask layerMask;
-
-        ICharacter activeCharacter;
-
-        StateMachine machine = new StateMachine();
-        
-        PathFinder pathFinder = new PathFinder();
-
-        List<DragMovement> movement = new List<DragMovement>();
-
-        void Awake()
-        {
-            machine.ChangeState(new IdleState
-            {
-                Owner = this
-            });
-        }
-
-        void Update()
-        {
-            DrawMovement();
-
-            machine.Execute();
-            activeCharacter?.Tick();
-        }
-
-        void DrawMovement()
-        {
-            foreach (var move in movement)
-            {
-                DrawPath(move.Path, Color.grey);
-            }
-        }
-
-        static void DrawPath(IReadOnlyList<Vector2Int> path, Color color)
-        {
-            for (var i = 0; i < path.Count - 1; i++)
-            {
-                var p0 = path[i];
-                var p1 = path[i + 1];
-                var v0 = new Vector3(p0.x, 0f, p0.y);
-                var v1 = new Vector3(p1.x, 0f, p1.y);
-                Debug.DrawLine(v0, v1, color);
-            }
-        }
-    }
-
-    class DragMovement
-    {
-        public ICharacter Character;
-        public List<Vector2Int> Path;
-
-        public Vector2Int From => Path[Path.Count - 1];
-
-        public Vector2Int To => Path[0];
-    }
-
-    class PathFinder
+    public class PathFinder
     {
         const int WallCost = 1000;
 
         Dictionary<Vector2Int, Vector2Int> cameFrom = new Dictionary<Vector2Int, Vector2Int>();
-        Dictionary<Vector2Int, int> costs           = new Dictionary<Vector2Int, int>();
-        Dictionary<Vector2Int, int> distFromOrigin  = new Dictionary<Vector2Int, int>();
-        
+        Dictionary<Vector2Int, int> costs = new Dictionary<Vector2Int, int>();
+        Dictionary<Vector2Int, int> distFromOrigin = new Dictionary<Vector2Int, int>();
+
         public List<Vector2Int> Path = new List<Vector2Int>();
 
         public bool HasPath => Path != null && Path.Count != 0;
@@ -108,7 +47,7 @@ namespace Assets.Scripts.Controllers
                 {
                     var distOrigin = distFromOrigin[current] + 1;
                     var cost = costs[current] + Cost(next, ignore);
-                    
+
                     if (distOrigin > range)
                     {
                         continue;
@@ -146,8 +85,8 @@ namespace Assets.Scripts.Controllers
                 var reachedGoal = distFromOrigin.ContainsKey(goal);
                 var position = reachedGoal ? goal : closest;
 
-                while(
-                    position != origin && 
+                while (
+                    position != origin &&
                     cameFrom.TryGetValue(position, out Vector2Int previous))
                 {
                     if (costs[position] < WallCost)
