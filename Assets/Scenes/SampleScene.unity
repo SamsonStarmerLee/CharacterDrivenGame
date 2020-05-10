@@ -2022,7 +2022,7 @@ GameObject:
   - component: {fileID: 1693656326}
   - component: {fileID: 1693656325}
   m_Layer: 0
-  m_Name: LineDrawer
+  m_Name: CharacterController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

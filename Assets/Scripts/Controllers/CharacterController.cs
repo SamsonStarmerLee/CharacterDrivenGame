@@ -8,7 +8,7 @@ namespace Assets.Scripts.Controllers
     public partial class CharacterController : MonoBehaviour
     {
         [SerializeField]
-        LayerMask layerMask;
+        LayerMask movementLayerMask;
 
         ICharacter activeCharacter;
 

@@ -27,7 +27,7 @@ namespace Assets.Scripts.Controllers
             public override IState Execute()
             {
                 if (Input.GetMouseButtonDown(0) &&
-                    GetMousePosition(Owner.layerMask, out Vector2Int position, out _))
+                    GetMousePosition(Owner.movementLayerMask, out Vector2Int position, out _))
                 {
                     var entity = Board.Instance.GetAtPosition(position);
                     if (entity is ICharacter character)
@@ -62,7 +62,7 @@ namespace Assets.Scripts.Controllers
             public override IState Execute()
             {
                 if (!GetMousePosition(
-                    Owner.layerMask, 
+                    Owner.movementLayerMask, 
                     out Vector2Int Destination, 
                     out Vector3 _))
                 {
