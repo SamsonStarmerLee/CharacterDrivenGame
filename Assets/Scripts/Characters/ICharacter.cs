@@ -4,6 +4,8 @@
     {
         int MovementRange { get; }
 
+        bool HasActed { get; set; }
+
         void Tick();
     }
 }

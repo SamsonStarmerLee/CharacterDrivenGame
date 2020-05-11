@@ -21,23 +21,16 @@ namespace Assets.Scripts.Characters
 
         public int MovementRange => _movementRange;
 
+        public bool HasActed { get; set; }
+
         public override void Init()
         {
             base.Init();
-
-            Board.Instance.RegisterScorer(this);
 
             machine.ChangeState(new IdleState
             {
                 Owner = this
             });
-        }
-
-        public override void Destroy()
-        {
-            base.Destroy();
-
-            Board.Instance.DeregisterScorer(this);
         }
 
         public void Tick()

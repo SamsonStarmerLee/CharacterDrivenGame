@@ -30,7 +30,7 @@ namespace Assets.Scripts.Controllers
                     GetMousePosition(Owner.movementLayerMask, out Vector2Int position, out _))
                 {
                     var entity = Board.Instance.GetAtPosition(position);
-                    if (entity is ICharacter character)
+                    if (entity is ICharacter character && !character.HasActed)
                     {
                         Owner.activeCharacter = character;
 
@@ -46,8 +46,11 @@ namespace Assets.Scripts.Controllers
                 // Confirm movement and score matches.
                 if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
                 {
-                    Board.Instance.ScoreMatches();
                     Owner.movement.Clear();
+                    Owner.activeCharacter = null;
+
+                    Board.Instance.ScoreMatches();
+                    Board.Instance.RefreshCharacters();
                 }
 
                 return null;

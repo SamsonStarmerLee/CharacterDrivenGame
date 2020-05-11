@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts;
+using Assets.Scripts.Characters;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,19 +9,47 @@ public class Board
 
     #region Public
 
-    public void RegisterScorer(IScorer scorer)
+    public void Register(object a)
     {
-        if (!scorers.Contains(scorer))
+        if (a is IScorer scorer && !scorers.Contains(scorer))
         {
             scorers.Add(scorer);
         }
+
+        if (a is ICharacter character && !characters.Contains(character))
+        {
+            characters.Add(character);
+        }
+
+        if (a is Entity entity && !entities.Contains(entity))
+        {
+            entities.Add(entity);
+        }
     }
 
-    public void DeregisterScorer(IScorer scorer)
+    public void Deregister(object a)
     {
-        if (scorers.Contains(scorer))
+        if (a is IScorer scorer && scorers.Contains(scorer))
         {
             scorers.Remove(scorer);
+        }
+
+        if (a is ICharacter character && characters.Contains(character))
+        {
+            characters.Remove(character);
+        }
+
+        if (a is Entity entity && entities.Contains(entity))
+        {
+            entities.Remove(entity);
+        }
+    }
+
+    public void RefreshCharacters()
+    {
+        foreach (var character in characters)
+        {
+            character.HasActed = false;
         }
     }
 
@@ -121,6 +150,8 @@ public class Board
     Dictionary<Vector2Int, IOccupant> occupants = new Dictionary<Vector2Int, IOccupant>();
 
     HashSet<IScorer> scorers = new HashSet<IScorer>();
+    HashSet<ICharacter> characters = new HashSet<ICharacter>();
+    HashSet<Entity> entities = new HashSet<Entity>();
 
     List<Match> matches = new List<Match>();
 

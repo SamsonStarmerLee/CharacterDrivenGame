@@ -114,6 +114,7 @@ namespace Assets.Scripts.Characters
                 Board.Instance.CheckForMatches();
 
                 Owner.StartCoroutine(ShowProcess());
+                Owner.HasActed = true;
 
                 Owner.machine.ChangeState(new IdleState
                 {

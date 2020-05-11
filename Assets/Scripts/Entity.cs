@@ -34,11 +34,14 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
         renderer = GetComponentInChildren<MeshRenderer>();
         block = new MaterialPropertyBlock();
         defaultColor = renderer.material.color;
+
+        Board.Instance.Register(this);
     }
 
     public virtual void Destroy()
     {
         Destroy(gameObject);
+        Board.Instance.Deregister(this);
     }
 
     public virtual void SetHighlight(bool highlight)
