@@ -23,7 +23,7 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 
     private void Awake()
     {
-        // TEMP
+        // TEMP: Perhaps call init from a manager class?
         Init();
     }
 
