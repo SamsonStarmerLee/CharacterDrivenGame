@@ -63,6 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+    <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Scripts\Board.cs" />
     <Compile Include="Assets\Scripts\Characters\AWarrior.cs" />
     <Compile Include="Assets\Scripts\Characters\AWarriorStates.cs" />
@@ -83,6 +90,7 @@
     <Compile Include="Assets\Scripts\Utility.cs" />
     <Compile Include="Assets\Scripts\WordFinder.cs" />
     <None Include="Assets\Resources\enable.txt" />
+    <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\Resources\sowpods.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -269,6 +277,9 @@
     </Reference>
     <Reference Include="Priority Queue">
       <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Assets/Plugins/Priority Queue.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

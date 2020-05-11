@@ -292,6 +292,12 @@
     <Reference Include="Priority Queue">
       <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Assets/Plugins/Priority Queue.dll</HintPath>
     </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>

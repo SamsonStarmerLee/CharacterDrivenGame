@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts.Characters
@@ -107,14 +108,16 @@ namespace Assets.Scripts.Characters
 
             public override void Enter()
             {
+                Owner.HasActed = true;
                 Debug.Log($"Throwing {ToThrow} to {ToBoardPos}!");
 
+                // Move the target and check for new matches.
                 Board.Instance.MoveOccupant(ToThrow, ToBoardPos);
                 fromWorldPos = ToThrow.WorldPosition;
                 Board.Instance.CheckForMatches();
 
-                Owner.StartCoroutine(ShowProcess());
-                Owner.HasActed = true;
+                // Visualize the throw.
+                ToThrow.transform.DOJump(ToWorldPos, 3f, 1, Owner.throwTime);
 
                 Owner.machine.ChangeState(new IdleState
                 {
@@ -122,22 +125,22 @@ namespace Assets.Scripts.Characters
                 });
             }
 
-            IEnumerator ShowProcess()
-            {
-                while (Vector3.Distance(ToThrow.WorldPosition, ToWorldPos) > 0.01f)
-                {
-                    elapsed += Time.deltaTime;
-                    ToThrow.WorldPosition = Vector3.Lerp(
-                        fromWorldPos,
-                        ToWorldPos,
-                        elapsed / Owner.throwTime);
+            //IEnumerator ShowProcess()
+            //{
+            //    while (Vector3.Distance(ToThrow.WorldPosition, ToWorldPos) > 0.01f)
+            //    {
+            //        elapsed += Time.deltaTime;
+            //        ToThrow.WorldPosition = Vector3.Lerp(
+            //            fromWorldPos,
+            //            ToWorldPos,
+            //            elapsed / Owner.throwTime);
 
-                    yield return null;
-                }
+            //        yield return null;
+            //    }
 
-                // Set position directly to finalize.
-                ToThrow.WorldPosition = ToWorldPos;
-            }
+            //    // Set position directly to finalize.
+            //    ToThrow.WorldPosition = ToWorldPos;
+            //}
         }
     }
 }
