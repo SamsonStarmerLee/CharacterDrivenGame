@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Characters;
-using Assets.Scripts.Pathfinding;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,13 +9,11 @@ namespace Assets.Scripts.Controllers
         [SerializeField]
         LayerMask movementLayerMask;
 
-        ICharacter activeCharacter;
-
         StateMachine machine = new StateMachine();
         
-        PathFinder pathFinder = new PathFinder();
-
         List<DragMovement> movement = new List<DragMovement>();
+
+        ICharacter activeCharacter;
 
         void Awake()
         {

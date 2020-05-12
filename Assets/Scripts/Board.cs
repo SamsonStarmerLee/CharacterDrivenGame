@@ -25,6 +25,11 @@ public class Board
         {
             entities.Add(entity);
         }
+
+        if (a is Letter letter && !letters.Contains(letter))
+        {
+            letters.Add(letter);
+        }
     }
 
     public void Deregister(object a)
@@ -43,6 +48,11 @@ public class Board
         {
             entities.Remove(entity);
         }
+
+        if (a is Letter letter && letters.Contains(letter))
+        {
+            letters.Remove(letter);
+        }
     }
 
     public void RefreshCharacters()
@@ -51,6 +61,13 @@ public class Board
         {
             character.HasActed = false;
         }
+
+        foreach (var letter in letters)
+        {
+            letter.Act();
+        }
+
+        CheckForMatches();
     }
 
     public IOccupant GetAtPosition(Vector2Int position)
@@ -149,11 +166,11 @@ public class Board
 
     Dictionary<Vector2Int, IOccupant> occupants = new Dictionary<Vector2Int, IOccupant>();
 
-    HashSet<IScorer> scorers = new HashSet<IScorer>();
-    HashSet<ICharacter> characters = new HashSet<ICharacter>();
-    HashSet<Entity> entities = new HashSet<Entity>();
-
-    List<Match> matches = new List<Match>();
+    HashSet<IScorer>    scorers     = new HashSet<IScorer>();
+    HashSet<ICharacter> characters  = new HashSet<ICharacter>();
+    HashSet<Entity>     entities    = new HashSet<Entity>();
+    HashSet<Letter>     letters     = new HashSet<Letter>();
+    List<Match>         matches     = new List<Match>();
 
     class Match
     {

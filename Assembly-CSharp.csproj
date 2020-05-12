@@ -275,11 +275,11 @@
     <Reference Include="UnityEditor">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="Priority Queue">
-      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Assets/Plugins/Priority Queue.dll</HintPath>
-    </Reference>
     <Reference Include="DOTween">
       <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="Priority Queue">
+      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Assets/Plugins/Priority Queue.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

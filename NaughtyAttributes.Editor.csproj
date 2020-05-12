@@ -289,14 +289,14 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="Priority Queue">
-      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Assets/Plugins/Priority Queue.dll</HintPath>
+    <Reference Include="DOTween">
+      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
       <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween">
-      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+    <Reference Include="Priority Queue">
+      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Assets/Plugins/Priority Queue.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>

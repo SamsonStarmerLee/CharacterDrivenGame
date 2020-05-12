@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Characters;
+using Assets.Scripts.Pathfinding;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -85,15 +86,14 @@ namespace Assets.Scripts.Controllers
                     Owner.movement.Remove(movement);
                 }
 
-                var pf = Owner.pathFinder;
                 var ignore = new List<ICharacter> { character };
-                pf.Generate(From, Destination, character.MovementRange, ignore);
-                DrawPath(pf.Path, Color.blue);
+                var path = PathFinder.GenerateFullDepth(From, Destination, character.MovementRange, ignore);
+                DrawPath(path, Color.blue);
 
                 // TEMP: Move agent into position.
-                if (pf.HasPath)
+                if (path.Count != 0)
                 {
-                    var terminus = pf.Terminus;
+                    var terminus = path[0];
                     Board.Instance.MoveOccupant(character, terminus);
                     Board.Instance.CheckForMatches();
                     character.WorldPosition = new Vector3(terminus.x, 0.5f, terminus.y);
@@ -102,9 +102,9 @@ namespace Assets.Scripts.Controllers
                 // Release to stop dragging.
                 if (Input.GetMouseButtonUp(0))
                 {
-                    if (pf.HasPath)
+                    if (path.Count != 0)
                     {
-                        var terminus = pf.Terminus;
+                        var terminus = path[0];
                         Board.Instance.MoveOccupant(character, terminus);
                         Board.Instance.CheckForMatches();
                         character.WorldPosition = new Vector3(terminus.x, 0f, terminus.y);
@@ -112,7 +112,7 @@ namespace Assets.Scripts.Controllers
                         Owner.movement.Add(new DragMovement
                         {
                             Character = character,
-                            Path = pf.Path,
+                            Path = path,
                         });
                     }
                     
