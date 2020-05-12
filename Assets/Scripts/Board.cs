@@ -9,6 +9,11 @@ public class Board
 
     #region Public
 
+    public IReadOnlyCollection<IScorer>    Scorers => scorers;
+    public IReadOnlyCollection<ICharacter> Characters => characters;
+    public IReadOnlyCollection<Entity>     Entities => entities;
+    public IReadOnlyCollection<Letter>     Letters => letters;
+
     public void Register(object a)
     {
         if (a is IScorer scorer && !scorers.Contains(scorer))

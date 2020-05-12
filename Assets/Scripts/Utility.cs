@@ -21,7 +21,7 @@ namespace Assets.Scripts
             return true;
         }
 
-        public static int ManhattanDistance(Vector2Int a, Vector2Int b) =>
+        public static int ManhattanDist(Vector2Int a, Vector2Int b) =>
             Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
     }
 }

@@ -41,15 +41,13 @@ public class Letter : Entity
             return;
         }
 
-        var target = FindObjectOfType<AWarrior>();
+        var targets = FindObjectsOfType<AWarrior>()
+            .Where(x => !x.Solid && Utility.ManhattanDist(BoardPosition, x.BoardPosition) <= pathfindRange)
+            .Select(x => x.BoardPosition)
+            .ToList();
         var ignore = new List<IOccupant> { this };
-
-        // TODO: New pathfinder for direct paths (not area sweeps).
-        var path = PathFinder.GenerateAStar(
-            BoardPosition,
-            target.BoardPosition,
-            range: pathfindRange,
-            ignore);
+        var path = PathFinder
+            .GenerateAStarClosest(BoardPosition, targets, ignore, pathfindRange);
 
         if (path.Count == 0)
         {
@@ -67,8 +65,11 @@ public class Letter : Entity
             previous = point;
         }
 
-        var terminus = path[0];
-        Board.Instance.MoveOccupant(this, terminus);
-        transform.DOMove(new Vector3(terminus.x, 0f, terminus.y), 0.25f);
+        var moveTo = path[0];
+        if (Board.Instance.GetAtPosition(moveTo) == null)
+        {
+            Board.Instance.MoveOccupant(this, moveTo);
+            transform.DOMove(new Vector3(moveTo.x, 0f, moveTo.y), 0.25f);
+        }
     }
 }

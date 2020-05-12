@@ -9,7 +9,7 @@ namespace Assets.Scripts.Pathfinding
 
     public static class PathFinder
     {
-        const int WallCost = 1000;
+        const int WallCost = 100;
 
         public static List<Vector2Int> GenerateFullDepth(
             Vector2Int origin, 
@@ -52,7 +52,7 @@ namespace Assets.Scripts.Pathfinding
                         costs[next] = cost;
                         distFromOrigin[next] = distOrigin;
 
-                        var estDistToGoal = ManhattanDistance(next, goal);
+                        var estDistToGoal = ManhattanDist(next, goal);
 
                         var fScore = cost + estDistToGoal;
                         frontier.Enqueue(next, fScore);
@@ -144,7 +144,7 @@ namespace Assets.Scripts.Pathfinding
                         costs[next] = cost;
                         distFromOrigin[next] = distOrigin;
 
-                        var estDistToGoal = ManhattanDistance(next, goal);
+                        var estDistToGoal = ManhattanDist(next, goal);
                         var fScore = cost + estDistToGoal;
                         frontier.Enqueue(next, fScore);
 
@@ -179,6 +179,77 @@ namespace Assets.Scripts.Pathfinding
             }
         }
 
+        public static List<Vector2Int> GenerateAStarClosest(
+            Vector2Int origin,
+            IReadOnlyList<Vector2Int> goals,
+            IReadOnlyList<IOccupant> ignore,
+            int range)
+        {
+            var cameFrom = new Dictionary<Vector2Int, Vector2Int>();
+            var cost = new Dictionary<Vector2Int, int>();
+            var estDistOrigin = new Dictionary<Vector2Int, int>();
+            var frontier = new SimplePriorityQueue<Vector2Int>();
+
+            foreach (var goal in goals)
+            {
+                cameFrom[goal] = goal;
+                var dG = cost[goal] = 0;
+                var dO = estDistOrigin[goal] = ManhattanDist(origin, goal);
+                var f = dG + dO;
+                frontier.Enqueue(goal, f);
+            }
+
+            while (frontier.Count > 0)
+            {
+                var current = frontier.Dequeue();
+                if (current == origin)
+                {
+                    // We reached the target.
+                    break;
+                }
+
+                foreach (var next in GetNeighbours(current))
+                {
+                    var dG = cost[current] + Cost(next, ignore);
+                    var dO = ManhattanDist(next, origin);
+
+                    if (dO > range)
+                    {
+                        // Ignore movement outside sweep range.
+                        continue;
+                    }
+
+                    if (!cost.ContainsKey(next) || dG < cost[next])
+                    {
+                        cameFrom[next] = current;
+                        cost[next] = dG;
+                        estDistOrigin[next] = dO;
+                        
+                        var f = dG + dO;
+                        frontier.Enqueue(next, f);
+                    }
+                }
+            }
+
+            if (cameFrom.ContainsKey(origin))
+            {
+                var path = new List<Vector2Int>();
+                var previous = origin;
+
+                while (previous != cameFrom[previous])
+                {
+                    var position = cameFrom[previous];
+
+                    path.Add(position);
+                    previous = position;
+                }
+
+                return path;
+            }
+
+            return new List<Vector2Int>();
+        }
+
         static int Cost(Vector2Int position, IReadOnlyList<IOccupant> ignore)
         {
             var occupant = Board.Instance.GetAtPosition(position);
@@ -198,7 +269,24 @@ namespace Assets.Scripts.Pathfinding
                 Vector2Int.down  + location,
                 Vector2Int.left  + location,
                 Vector2Int.right + location,
-            };
+            }
+            .Shuffle()
+            .ToList();
+        }
+
+        static IList<T> Shuffle<T>(this IList<T> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = Random.Range(0, n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+
+            return list;
         }
     }
 }
