@@ -86,8 +86,17 @@ namespace Assets.Scripts.Controllers
                     Owner.movement.Remove(movement);
                 }
 
+                var range = character.MovementRange;
+                var callbacks = character.MovementCallbacks;
                 var ignore = new List<ICharacter> { character };
-                var path = PathFinder.GenerateFullDepth(From, Destination, character.MovementRange, ignore);
+
+                var path = PathFinder.GenerateFullDepth(
+                    From, 
+                    Destination, 
+                    range, 
+                    ignore,
+                    callbacks);
+                
                 DrawPath(path, Color.blue);
 
                 // TEMP: Move agent into position.

@@ -1,6 +1,4 @@
 ﻿using Assets.Scripts.Pathfinding;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.Characters
@@ -25,6 +23,8 @@ namespace Assets.Scripts.Characters
         public int MovementRange => _movementRange;
 
         public bool HasActed { get; set; }
+
+        public IMovementCallbacks MovementCallbacks { get; } = new LetterMovementCallbacks();
 
         public override void Init()
         {

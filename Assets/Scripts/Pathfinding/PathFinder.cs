@@ -15,7 +15,8 @@ namespace Assets.Scripts.Pathfinding
             Vector2Int origin, 
             Vector2Int goal, 
             int range, 
-            IReadOnlyList<IOccupant> ignore)
+            IReadOnlyList<IOccupant> ignore,
+            IMovementCallbacks movement)
         {
             var cameFrom = new Dictionary<Vector2Int, Vector2Int>();
             var costs = new Dictionary<Vector2Int, int>();
@@ -39,7 +40,7 @@ namespace Assets.Scripts.Pathfinding
                 foreach (var next in GetNeighbours(current))
                 {
                     var distOrigin = distFromOrigin[current] + 1;
-                    var cost = costs[current] + Cost(next, ignore);
+                    var cost = costs[current] + movement.GetCost(next, ignore);
 
                     if (distOrigin > range)
                     {
@@ -100,7 +101,8 @@ namespace Assets.Scripts.Pathfinding
             Vector2Int origin, 
             Vector2Int goal, 
             int range, 
-            IReadOnlyList<IOccupant> ignore)
+            IReadOnlyList<IOccupant> ignore,
+            IMovementCallbacks movement)
         {
             var cameFrom = new Dictionary<Vector2Int, Vector2Int>();
             var costs = new Dictionary<Vector2Int, int>();
@@ -131,7 +133,7 @@ namespace Assets.Scripts.Pathfinding
                 foreach (var next in GetNeighbours(current))
                 {
                     var distOrigin = distFromOrigin[current] + 1;
-                    var cost = costs[current] + Cost(next, ignore);
+                    var cost = costs[current] + movement.GetCost(next, ignore);
 
                     if (distOrigin > range)
                     {
@@ -183,7 +185,8 @@ namespace Assets.Scripts.Pathfinding
             Vector2Int origin,
             IReadOnlyList<Vector2Int> goals,
             IReadOnlyList<IOccupant> ignore,
-            int range)
+            int range,
+            IMovementCallbacks movement)
         {
             var cameFrom = new Dictionary<Vector2Int, Vector2Int>();
             var cost = new Dictionary<Vector2Int, int>();
@@ -210,7 +213,7 @@ namespace Assets.Scripts.Pathfinding
 
                 foreach (var next in GetNeighbours(current))
                 {
-                    var dG = cost[current] + Cost(next, ignore);
+                    var dG = cost[current] + movement.GetCost(next, ignore);
                     var dO = ManhattanDist(next, origin);
 
                     if (dO > range)
@@ -248,17 +251,6 @@ namespace Assets.Scripts.Pathfinding
             }
 
             return new List<Vector2Int>();
-        }
-
-        static int Cost(Vector2Int position, IReadOnlyList<IOccupant> ignore)
-        {
-            var occupant = Board.Instance.GetAtPosition(position);
-            if (occupant != null && !ignore.Contains(occupant))
-            {
-                return WallCost;
-            }
-
-            return 1;
         }
 
         static List<Vector2Int> GetNeighbours(Vector2Int location)

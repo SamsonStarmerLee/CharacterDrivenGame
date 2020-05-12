@@ -81,10 +81,12 @@
     <Compile Include="Assets\Scripts\IOccupant.cs" />
     <Compile Include="Assets\Scripts\IScorer.cs" />
     <Compile Include="Assets\Scripts\Letter.cs" />
+    <Compile Include="Assets\Scripts\LetterMovementCallbacks.cs" />
     <Compile Include="Assets\Scripts\LifecycleInterfaces.cs" />
     <Compile Include="Assets\Scripts\Notifications\IObserve.cs" />
     <Compile Include="Assets\Scripts\Notifications\NotificationCenter.cs" />
     <Compile Include="Assets\Scripts\Notifications\ObserverExtentions.cs" />
+    <Compile Include="Assets\Scripts\Pathfinding\IMovementCallbacks.cs" />
     <Compile Include="Assets\Scripts\Pathfinding\PathFinder.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Utility.cs" />

@@ -1,4 +1,6 @@
-﻿namespace Assets.Scripts.Characters
+﻿using Assets.Scripts.Pathfinding;
+
+namespace Assets.Scripts.Characters
 {
     public interface ICharacter : IOccupant
     {
@@ -7,5 +9,7 @@
         bool HasActed { get; set; }
 
         void Tick();
+
+        IMovementCallbacks MovementCallbacks { get; }
     }
 }

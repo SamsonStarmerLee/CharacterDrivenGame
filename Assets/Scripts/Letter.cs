@@ -19,6 +19,8 @@ public class Letter : Entity
     [SerializeField, Min(1)]
     int pathfindRange = 10;
 
+    public IMovementCallbacks MovementCallbacks { get; } = new LetterMovementCallbacks();
+
     public override void Init()
     {
         base.Init();
@@ -46,8 +48,12 @@ public class Letter : Entity
             .Select(x => x.BoardPosition)
             .ToList();
         var ignore = new List<IOccupant> { this };
-        var path = PathFinder
-            .GenerateAStarClosest(BoardPosition, targets, ignore, pathfindRange);
+        var path = PathFinder.GenerateAStarClosest(
+            BoardPosition, 
+            targets, 
+            ignore, 
+            pathfindRange,
+            MovementCallbacks);
 
         if (path.Count == 0)
         {
