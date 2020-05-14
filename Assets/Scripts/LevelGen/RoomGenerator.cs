@@ -47,11 +47,14 @@ namespace Assets.Scripts.LevelGen
         {
             if (Input.GetKeyDown(KeyCode.G))
             {
-                for (var i = 0; i < 10; i++)
+                for (var x = 0; x < 10; x++)
                 {
-                    var pos = new Vector2Int(i * 10, 10);
-                    var chunk = SpawnChunk(pos);
-                    rooms.Add(pos, chunk);
+                    for (var y = 0; y < 10; y++)
+                    {
+                        var pos = new Vector2Int(x * roomWidth, y * roomHeight);
+                        var chunk = SpawnChunk(pos);
+                        rooms.Add(pos, chunk);
+                    }
                 }
             }
         }
@@ -59,7 +62,7 @@ namespace Assets.Scripts.LevelGen
         Room SpawnChunk(Vector2Int atPosition)
         {
             var template = roomTemplates[0].ToArray();
-            if (template.Length != 100)
+            if (template.Length != roomHeight * roomWidth)
             {
                 Debug.LogError("Room template was the wrong size.");
                 return null;

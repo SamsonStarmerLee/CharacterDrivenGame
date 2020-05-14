@@ -43,11 +43,13 @@ public class Letter : Entity
             return;
         }
 
-        var targets = FindObjectsOfType<AWarrior>()
-            .Where(x => !x.Solid && Utility.ManhattanDist(BoardPosition, x.BoardPosition) <= pathfindRange)
+        var targets = Board.Instance.Characters
+            .Where(x => Utility.ManhattanDist(BoardPosition, x.BoardPosition) <= pathfindRange)
             .Select(x => x.BoardPosition)
             .ToList();
+
         var ignore = new List<IOccupant> { this };
+
         var path = PathFinder.GenerateAStarClosest(
             BoardPosition, 
             targets, 
