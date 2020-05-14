@@ -1,0 +1,1231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.4.0" xmlns="http://www.collada.org/2005/11/COLLADASchema">
+  <asset>
+    <contributor>
+      <authoring_tool>Minddesk Qubicle 3</authoring_tool>
+      <comments>Get Qubicle at www.getqubicle.com</comments>
+    </contributor>
+    <created>2020-04-248:34 PM20:34:25:996</created>
+    <modified>2020-04-248:34 PM20:34:25:996</modified>
+    <unit meter="1.0" />
+  </asset>
+  <library_geometries>
+    <geometry name="Symbol_Dollar" id="Symbol_Dollar-lib">
+      <mesh>
+        <source id="Symbol_Dollar-position">
+          <float_array id="Symbol_Dollar-position-array" count="150">-3.5 -1.5 0.5 -3.5 -2.5 0.5 2.5 -2.5 0.5 2.5 -1.5 0.5 -3.5 0.5 0.5 -3.5 -0.5 0.5 2.5 -0.5 0.5 2.5 0.5 0.5 -3.5 2.5 0.5 -3.5 1.5 0.5 2.5 1.5 0.5 2.5 2.5 0.5 0.5 -0.5 0.5 0.5 -1.5 0.5 3.5 -1.5 0.5 3.5 -0.5 0.5 -1.5 0.5 0.5 -1.5 1.5 0.5 -1.5 -2.5 0.5 -1.5 -3.5 0.5 0.5 -3.5 0.5 0.5 -2.5 0.5 -1.5 3.5 0.5 -1.5 2.5 0.5 0.5 2.5 0.5 0.5 3.5 0.5 -3.5 2.5 -0.5 -3.5 -0.5 -0.5 -3.5 -1.5 -0.5 -3.5 -2.5 -0.5 -1.5 -2.5 -0.5 -1.5 -3.5 -0.5 -1.5 3.5 -0.5 -1.5 2.5 -0.5 0.5 -0.5 -0.5 0.5 -1.5 -0.5 -1.5 0.5 -0.5 -1.5 1.5 -0.5 0.5 -3.5 -0.5 0.5 -2.5 -0.5 0.5 2.5 -0.5 0.5 3.5 -0.5 2.5 -2.5 -0.5 2.5 -1.5 -0.5 2.5 -0.5 -0.5 2.5 0.5 -0.5 2.5 1.5 -0.5 2.5 2.5 -0.5 3.5 -1.5 -0.5 3.5 -0.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Dollar-position-array" stride="3" count="50">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Dollar-normal">
+          <float_array id="Symbol_Dollar-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Dollar-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Dollar-color">
+          <float_array id="Symbol_Dollar-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Dollar-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Dollar-vertex">
+          <input semantic="POSITION" source="#Symbol_Dollar-position" />
+        </vertices>
+        <polylist count="74">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Dollar-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Dollar-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Dollar-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>13 0 0 0 0 0 1 0 0 1 0 0 3 0 0 13 0 0 3 0 0 1 0 0 18 0 0 18 0 0 2 0 0 3 0 0 2 0 0 18 0 0 21 0 0 16 0 0 4 0 0 5 0 0 5 0 0 7 0 0 16 0 0 7 0 0 5 0 0 12 0 0 12 0 0 6 0 0 7 0 0 23 0 0 8 0 0 9 0 0 9 0 0 24 0 0 23 0 0 24 0 0 9 0 0 17 0 0 17 0 0 11 0 0 24 0 0 11 0 0 17 0 0 10 0 0 6 0 0 12 0 0 13 0 0 13 0 0 15 0 0 6 0 0 15 0 0 13 0 0 3 0 0 3 0 0 14 0 0 15 0 0 4 0 0 17 0 0 9 0 0 4 0 0 16 0 0 17 0 0 19 0 0 21 0 0 18 0 0 19 0 0 20 0 0 21 0 0 23 0 0 25 0 0 22 0 0 23 0 0 24 0 0 25 0 0 8 2 0 26 2 0 27 2 0 27 2 0 9 2 0 8 2 0 9 2 0 27 2 0 5 2 0 5 2 0 4 2 0 9 2 0 29 2 0 0 2 0 28 2 0 29 2 0 1 2 0 0 2 0 31 2 0 18 2 0 30 2 0 31 2 0 19 2 0 18 2 0 33 2 0 22 2 0 32 2 0 33 2 0 23 2 0 22 2 0 35 2 0 12 2 0 34 2 0 35 2 0 13 2 0 12 2 0 16 3 0 37 3 0 17 3 0 16 3 0 36 3 0 37 3 0 20 3 0 39 3 0 21 3 0 20 3 0 38 3 0 39 3 0 24 3 0 41 3 0 25 3 0 24 3 0 40 3 0 41 3 0 2 3 0 43 3 0 3 3 0 2 3 0 42 3 0 43 3 0 6 3 0 45 3 0 7 3 0 6 3 0 44 3 0 45 3 0 10 3 0 47 3 0 11 3 0 10 3 0 46 3 0 47 3 0 14 3 0 49 3 0 15 3 0 14 3 0 48 3 0 49 3 0 28 4 0 0 4 0 35 4 0 0 4 0 13 4 0 35 4 0 36 4 0 16 4 0 45 4 0 16 4 0 7 4 0 45 4 0 26 4 0 8 4 0 33 4 0 8 4 0 23 4 0 33 4 0 32 4 0 22 4 0 41 4 0 22 4 0 25 4 0 41 4 0 40 4 0 24 4 0 47 4 0 24 4 0 11 4 0 47 4 0 44 4 0 6 4 0 49 4 0 6 4 0 15 4 0 49 4 0 5 5 0 27 5 0 12 5 0 27 5 0 34 5 0 12 5 0 17 5 0 37 5 0 10 5 0 37 5 0 46 5 0 10 5 0 1 5 0 29 5 0 18 5 0 29 5 0 30 5 0 18 5 0 19 5 0 31 5 0 20 5 0 31 5 0 38 5 0 20 5 0 21 5 0 39 5 0 2 5 0 39 5 0 42 5 0 2 5 0 3 5 0 43 5 0 14 5 0 43 5 0 48 5 0 14 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Cent" id="Symbol_Cent-lib">
+      <mesh>
+        <source id="Symbol_Cent-position">
+          <float_array id="Symbol_Cent-position-array" count="120">-3.0 1.5 0.5 -3.0 -1.5 0.5 -1.0 -1.5 0.5 -1.0 1.5 0.5 -2.0 -1.5 0.5 -2.0 -2.5 0.5 3.0 -2.5 0.5 3.0 -1.5 0.5 -2.0 2.5 0.5 -2.0 1.5 0.5 3.0 1.5 0.5 3.0 2.5 0.5 0.0 -2.5 0.5 0.0 -3.5 0.5 1.0 -3.5 0.5 1.0 -2.5 0.5 0.0 3.5 0.5 0.0 2.5 0.5 1.0 2.5 0.5 1.0 3.5 0.5 -3.0 1.5 -0.5 -3.0 -1.5 -0.5 -2.0 -1.5 -0.5 -2.0 -2.5 -0.5 -2.0 2.5 -0.5 -2.0 1.5 -0.5 0.0 -2.5 -0.5 0.0 -3.5 -0.5 0.0 3.5 -0.5 0.0 2.5 -0.5 -1.0 -1.5 -0.5 -1.0 1.5 -0.5 1.0 -3.5 -0.5 1.0 -2.5 -0.5 1.0 2.5 -0.5 1.0 3.5 -0.5 3.0 -2.5 -0.5 3.0 -1.5 -0.5 3.0 1.5 -0.5 3.0 2.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Cent-position-array" stride="3" count="40">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Cent-normal">
+          <float_array id="Symbol_Cent-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Cent-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Cent-color">
+          <float_array id="Symbol_Cent-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Cent-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Cent-vertex">
+          <input semantic="POSITION" source="#Symbol_Cent-position" />
+        </vertices>
+        <polylist count="58">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Cent-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Cent-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Cent-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>9 0 0 0 0 0 1 0 0 1 0 0 3 0 0 9 0 0 3 0 0 1 0 0 4 0 0 4 0 0 2 0 0 3 0 0 2 0 0 4 0 0 5 0 0 5 0 0 7 0 0 2 0 0 7 0 0 5 0 0 12 0 0 12 0 0 6 0 0 7 0 0 6 0 0 12 0 0 15 0 0 17 0 0 8 0 0 9 0 0 9 0 0 18 0 0 17 0 0 18 0 0 9 0 0 3 0 0 3 0 0 11 0 0 18 0 0 11 0 0 3 0 0 10 0 0 13 0 0 15 0 0 12 0 0 13 0 0 14 0 0 15 0 0 17 0 0 19 0 0 16 0 0 17 0 0 18 0 0 19 0 0 21 2 0 0 2 0 20 2 0 21 2 0 1 2 0 0 2 0 23 2 0 4 2 0 22 2 0 23 2 0 5 2 0 4 2 0 25 2 0 8 2 0 24 2 0 25 2 0 9 2 0 8 2 0 27 2 0 12 2 0 26 2 0 27 2 0 13 2 0 12 2 0 29 2 0 16 2 0 28 2 0 29 2 0 17 2 0 16 2 0 2 3 0 31 3 0 3 3 0 2 3 0 30 3 0 31 3 0 14 3 0 33 3 0 15 3 0 14 3 0 32 3 0 33 3 0 18 3 0 35 3 0 19 3 0 18 3 0 34 3 0 35 3 0 6 3 0 37 3 0 7 3 0 6 3 0 36 3 0 37 3 0 10 3 0 39 3 0 11 3 0 10 3 0 38 3 0 39 3 0 30 4 0 2 4 0 37 4 0 2 4 0 7 4 0 37 4 0 24 4 0 8 4 0 29 4 0 8 4 0 17 4 0 29 4 0 34 4 0 18 4 0 39 4 0 18 4 0 11 4 0 39 4 0 20 4 0 0 4 0 25 4 0 0 4 0 9 4 0 25 4 0 28 4 0 16 4 0 35 4 0 16 4 0 19 4 0 35 4 0 3 5 0 31 5 0 10 5 0 31 5 0 38 5 0 10 5 0 5 5 0 23 5 0 12 5 0 23 5 0 26 5 0 12 5 0 15 5 0 33 5 0 6 5 0 33 5 0 36 5 0 6 5 0 1 5 0 21 5 0 4 5 0 21 5 0 22 5 0 4 5 0 13 5 0 27 5 0 14 5 0 27 5 0 32 5 0 14 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Euro" id="Symbol_Euro-lib">
+      <mesh>
+        <source id="Symbol_Euro-position">
+          <float_array id="Symbol_Euro-position-array" count="168">-2.5 -0.5 0.5 -2.5 -2.5 0.5 -0.5 -2.5 0.5 -0.5 -0.5 0.5 -2.5 2.5 0.5 -2.5 0.5 0.5 -0.5 0.5 0.5 -0.5 2.5 0.5 -3.5 0.5 0.5 -3.5 -0.5 0.5 2.5 -0.5 0.5 2.5 0.5 0.5 -1.5 -2.5 0.5 -1.5 -3.5 0.5 2.5 -3.5 0.5 2.5 -2.5 0.5 -1.5 3.5 0.5 -1.5 2.5 0.5 2.5 2.5 0.5 2.5 3.5 0.5 1.5 -1.5 0.5 1.5 -2.5 0.5 3.5 -2.5 0.5 3.5 -1.5 0.5 1.5 2.5 0.5 1.5 1.5 0.5 3.5 1.5 0.5 3.5 2.5 0.5 -2.5 -0.5 -0.5 -2.5 -2.5 -0.5 -2.5 2.5 -0.5 -2.5 0.5 -0.5 -3.5 0.5 -0.5 -3.5 -0.5 -0.5 -1.5 -2.5 -0.5 -1.5 -3.5 -0.5 -1.5 3.5 -0.5 -1.5 2.5 -0.5 1.5 -1.5 -0.5 1.5 -2.5 -0.5 1.5 2.5 -0.5 1.5 1.5 -0.5 -0.5 -2.5 -0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5 2.5 -0.5 2.5 -3.5 -0.5 2.5 -2.5 -0.5 2.5 -0.5 -0.5 2.5 0.5 -0.5 2.5 2.5 -0.5 2.5 3.5 -0.5 3.5 -2.5 -0.5 3.5 -1.5 -0.5 3.5 1.5 -0.5 3.5 2.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Euro-position-array" stride="3" count="56">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Euro-normal">
+          <float_array id="Symbol_Euro-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Euro-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Euro-color">
+          <float_array id="Symbol_Euro-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Euro-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Euro-vertex">
+          <input semantic="POSITION" source="#Symbol_Euro-position" />
+        </vertices>
+        <polylist count="82">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Euro-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Euro-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Euro-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>3 0 0 0 0 0 1 0 0 1 0 0 2 0 0 3 0 0 2 0 0 1 0 0 12 0 0 17 0 0 4 0 0 5 0 0 5 0 0 7 0 0 17 0 0 7 0 0 5 0 0 6 0 0 5 0 0 8 0 0 9 0 0 9 0 0 6 0 0 5 0 0 6 0 0 9 0 0 0 0 0 0 0 0 11 0 0 6 0 0 11 0 0 0 0 0 3 0 0 3 0 0 10 0 0 11 0 0 2 0 0 12 0 0 13 0 0 13 0 0 21 0 0 2 0 0 21 0 0 13 0 0 14 0 0 14 0 0 15 0 0 21 0 0 19 0 0 16 0 0 17 0 0 17 0 0 18 0 0 19 0 0 18 0 0 17 0 0 7 0 0 7 0 0 24 0 0 18 0 0 23 0 0 20 0 0 21 0 0 21 0 0 22 0 0 23 0 0 22 0 0 21 0 0 15 0 0 18 0 0 24 0 0 25 0 0 25 0 0 27 0 0 18 0 0 27 0 0 25 0 0 26 0 0 29 2 0 0 2 0 28 2 0 29 2 0 1 2 0 0 2 0 31 2 0 4 2 0 30 2 0 31 2 0 5 2 0 4 2 0 33 2 0 8 2 0 32 2 0 33 2 0 9 2 0 8 2 0 35 2 0 12 2 0 34 2 0 35 2 0 13 2 0 12 2 0 37 2 0 16 2 0 36 2 0 37 2 0 17 2 0 16 2 0 39 2 0 20 2 0 38 2 0 39 2 0 21 2 0 20 2 0 41 2 0 24 2 0 40 2 0 41 2 0 25 2 0 24 2 0 2 3 0 43 3 0 3 3 0 2 3 0 42 3 0 43 3 0 6 3 0 45 3 0 7 3 0 6 3 0 44 3 0 45 3 0 14 3 0 47 3 0 15 3 0 14 3 0 46 3 0 47 3 0 10 3 0 49 3 0 11 3 0 10 3 0 48 3 0 49 3 0 18 3 0 51 3 0 19 3 0 18 3 0 50 3 0 51 3 0 22 3 0 53 3 0 23 3 0 22 3 0 52 3 0 53 3 0 26 3 0 55 3 0 27 3 0 26 3 0 54 3 0 55 3 0 36 4 0 16 4 0 51 4 0 16 4 0 19 4 0 51 4 0 44 4 0 6 4 0 49 4 0 6 4 0 11 4 0 49 4 0 42 4 0 2 4 0 39 4 0 2 4 0 21 4 0 39 4 0 38 4 0 20 4 0 53 4 0 20 4 0 23 4 0 53 4 0 32 4 0 8 4 0 31 4 0 8 4 0 5 4 0 31 4 0 30 4 0 4 4 0 37 4 0 4 4 0 17 4 0 37 4 0 50 4 0 18 4 0 55 4 0 18 4 0 27 4 0 55 4 0 13 5 0 35 5 0 14 5 0 35 5 0 46 5 0 14 5 0 3 5 0 43 5 0 10 5 0 43 5 0 48 5 0 10 5 0 7 5 0 45 5 0 24 5 0 45 5 0 40 5 0 24 5 0 25 5 0 41 5 0 26 5 0 41 5 0 54 5 0 26 5 0 9 5 0 33 5 0 0 5 0 33 5 0 28 5 0 0 5 0 1 5 0 29 5 0 12 5 0 29 5 0 34 5 0 12 5 0 15 5 0 47 5 0 22 5 0 47 5 0 52 5 0 22 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Pound" id="Symbol_Pound-lib">
+      <mesh>
+        <source id="Symbol_Pound-position">
+          <float_array id="Symbol_Pound-position-array" count="153">-2.5 -0.5 0.5 -2.5 -2.5 0.5 -0.5 -2.5 0.5 -0.5 -0.5 0.5 -2.5 2.5 0.5 -2.5 0.5 0.5 -0.5 0.5 0.5 -0.5 2.5 0.5 -3.5 -2.5 0.5 -3.5 -3.5 0.5 3.5 -3.5 0.5 3.5 -2.5 0.5 -3.5 0.5 0.5 -3.5 -0.5 0.5 1.5 -0.5 0.5 1.5 0.5 0.5 -1.5 3.5 0.5 -1.5 2.5 0.5 2.5 2.5 0.5 2.5 3.5 0.5 2.5 -1.5 0.5 2.5 -2.5 0.5 3.5 -1.5 0.5 2.5 1.5 0.5 3.5 1.5 0.5 3.5 2.5 0.5 -2.5 -0.5 -0.5 -2.5 -2.5 -0.5 -2.5 2.5 -0.5 -2.5 0.5 -0.5 -3.5 -2.5 -0.5 -3.5 -3.5 -0.5 -3.5 0.5 -0.5 -3.5 -0.5 -0.5 -1.5 3.5 -0.5 -1.5 2.5 -0.5 2.5 -1.5 -0.5 2.5 -2.5 -0.5 2.5 2.5 -0.5 2.5 1.5 -0.5 -0.5 -2.5 -0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5 2.5 -0.5 3.5 -3.5 -0.5 3.5 -1.5 -0.5 1.5 -0.5 -0.5 1.5 0.5 -0.5 2.5 3.5 -0.5 3.5 1.5 -0.5 3.5 2.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Pound-position-array" stride="3" count="51">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Pound-normal">
+          <float_array id="Symbol_Pound-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Pound-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Pound-color">
+          <float_array id="Symbol_Pound-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Pound-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Pound-vertex">
+          <input semantic="POSITION" source="#Symbol_Pound-position" />
+        </vertices>
+        <polylist count="76">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Pound-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Pound-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Pound-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>1 0 0 3 0 0 0 0 0 1 0 0 2 0 0 3 0 0 17 0 0 4 0 0 5 0 0 5 0 0 7 0 0 17 0 0 7 0 0 5 0 0 6 0 0 1 0 0 8 0 0 9 0 0 9 0 0 2 0 0 1 0 0 2 0 0 9 0 0 10 0 0 10 0 0 21 0 0 2 0 0 21 0 0 10 0 0 11 0 0 5 0 0 12 0 0 13 0 0 13 0 0 6 0 0 5 0 0 6 0 0 13 0 0 0 0 0 0 0 0 15 0 0 6 0 0 15 0 0 0 0 0 3 0 0 3 0 0 14 0 0 15 0 0 19 0 0 16 0 0 17 0 0 17 0 0 18 0 0 19 0 0 18 0 0 17 0 0 7 0 0 21 0 0 22 0 0 20 0 0 21 0 0 11 0 0 22 0 0 23 0 0 25 0 0 18 0 0 23 0 0 24 0 0 25 0 0 27 2 0 0 2 0 26 2 0 27 2 0 1 2 0 0 2 0 29 2 0 4 2 0 28 2 0 29 2 0 5 2 0 4 2 0 31 2 0 8 2 0 30 2 0 31 2 0 9 2 0 8 2 0 33 2 0 12 2 0 32 2 0 33 2 0 13 2 0 12 2 0 35 2 0 16 2 0 34 2 0 35 2 0 17 2 0 16 2 0 37 2 0 20 2 0 36 2 0 37 2 0 21 2 0 20 2 0 39 2 0 18 2 0 38 2 0 39 2 0 23 2 0 18 2 0 2 3 0 41 3 0 3 3 0 2 3 0 40 3 0 41 3 0 6 3 0 43 3 0 7 3 0 6 3 0 42 3 0 43 3 0 45 3 0 22 3 0 11 3 0 11 3 0 44 3 0 45 3 0 44 3 0 11 3 0 10 3 0 14 3 0 47 3 0 15 3 0 14 3 0 46 3 0 47 3 0 18 3 0 48 3 0 19 3 0 18 3 0 38 3 0 48 3 0 24 3 0 50 3 0 25 3 0 24 3 0 49 3 0 50 3 0 34 4 0 16 4 0 48 4 0 16 4 0 19 4 0 48 4 0 40 4 0 2 4 0 37 4 0 2 4 0 21 4 0 37 4 0 42 4 0 6 4 0 47 4 0 6 4 0 15 4 0 47 4 0 30 4 0 8 4 0 27 4 0 8 4 0 1 4 0 27 4 0 32 4 0 12 4 0 29 4 0 12 4 0 5 4 0 29 4 0 28 4 0 4 4 0 35 4 0 4 4 0 17 4 0 35 4 0 36 4 0 20 4 0 45 4 0 20 4 0 22 4 0 45 4 0 38 4 0 18 4 0 50 4 0 18 4 0 25 4 0 50 4 0 9 5 0 31 5 0 10 5 0 31 5 0 44 5 0 10 5 0 7 5 0 43 5 0 18 5 0 43 5 0 38 5 0 18 5 0 3 5 0 41 5 0 14 5 0 41 5 0 46 5 0 14 5 0 13 5 0 33 5 0 0 5 0 33 5 0 26 5 0 0 5 0 23 5 0 39 5 0 24 5 0 39 5 0 49 5 0 24 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Yen" id="Symbol_Yen-lib">
+      <mesh>
+        <source id="Symbol_Yen-position">
+          <float_array id="Symbol_Yen-position-array" count="192">-3.0 -1.5 0.5 -3.0 -2.5 0.5 3.0 -2.5 0.5 3.0 -1.5 0.5 -3.0 0.5 0.5 -3.0 -0.5 0.5 3.0 -0.5 0.5 3.0 0.5 0.5 -2.0 2.5 0.5 -2.0 1.5 0.5 2.0 1.5 0.5 2.0 2.5 0.5 -3.0 3.5 0.5 -3.0 2.5 0.5 -1.0 2.5 0.5 -1.0 3.5 0.5 -1.0 -2.5 0.5 -1.0 -3.5 0.5 1.0 -3.5 0.5 1.0 -2.5 0.5 -1.0 -0.5 0.5 -1.0 -1.5 0.5 1.0 -1.5 0.5 1.0 -0.5 0.5 -1.0 1.5 0.5 -1.0 0.5 0.5 1.0 0.5 0.5 1.0 1.5 0.5 1.0 3.5 0.5 1.0 2.5 0.5 3.0 2.5 0.5 3.0 3.5 0.5 -3.0 -1.5 -0.5 -3.0 -2.5 -0.5 -3.0 0.5 -0.5 -3.0 -0.5 -0.5 -3.0 3.5 -0.5 -3.0 2.5 -0.5 -2.0 2.5 -0.5 -2.0 1.5 -0.5 -1.0 -2.5 -0.5 -1.0 -3.5 -0.5 -1.0 -0.5 -0.5 -1.0 -1.5 -0.5 -1.0 1.5 -0.5 -1.0 0.5 -0.5 1.0 3.5 -0.5 1.0 2.5 -0.5 -1.0 2.5 -0.5 -1.0 3.5 -0.5 1.0 -3.5 -0.5 1.0 -2.5 -0.5 1.0 -1.5 -0.5 1.0 -0.5 -0.5 1.0 0.5 -0.5 1.0 1.5 -0.5 2.0 1.5 -0.5 2.0 2.5 -0.5 3.0 -2.5 -0.5 3.0 -1.5 -0.5 3.0 -0.5 -0.5 3.0 0.5 -0.5 3.0 2.5 -0.5 3.0 3.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Yen-position-array" stride="3" count="64">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Yen-normal">
+          <float_array id="Symbol_Yen-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Yen-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Yen-color">
+          <float_array id="Symbol_Yen-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Yen-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Yen-vertex">
+          <input semantic="POSITION" source="#Symbol_Yen-position" />
+        </vertices>
+        <polylist count="94">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Yen-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Yen-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Yen-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>21 0 0 0 0 0 1 0 0 1 0 0 22 0 0 21 0 0 22 0 0 1 0 0 16 0 0 16 0 0 3 0 0 22 0 0 3 0 0 16 0 0 19 0 0 19 0 0 2 0 0 3 0 0 25 0 0 4 0 0 5 0 0 5 0 0 26 0 0 25 0 0 26 0 0 5 0 0 20 0 0 20 0 0 7 0 0 26 0 0 7 0 0 20 0 0 23 0 0 23 0 0 6 0 0 7 0 0 14 0 0 8 0 0 9 0 0 9 0 0 29 0 0 14 0 0 29 0 0 9 0 0 24 0 0 24 0 0 11 0 0 29 0 0 11 0 0 24 0 0 27 0 0 27 0 0 10 0 0 11 0 0 15 0 0 12 0 0 13 0 0 13 0 0 14 0 0 15 0 0 14 0 0 13 0 0 8 0 0 17 0 0 19 0 0 16 0 0 17 0 0 18 0 0 19 0 0 21 0 0 23 0 0 20 0 0 21 0 0 22 0 0 23 0 0 25 0 0 27 0 0 24 0 0 25 0 0 26 0 0 27 0 0 31 0 0 28 0 0 29 0 0 29 0 0 30 0 0 31 0 0 30 0 0 29 0 0 11 0 0 33 2 0 0 2 0 32 2 0 33 2 0 1 2 0 0 2 0 35 2 0 4 2 0 34 2 0 35 2 0 5 2 0 4 2 0 37 2 0 12 2 0 36 2 0 37 2 0 13 2 0 12 2 0 39 2 0 8 2 0 38 2 0 39 2 0 9 2 0 8 2 0 41 2 0 16 2 0 40 2 0 41 2 0 17 2 0 16 2 0 43 2 0 20 2 0 42 2 0 43 2 0 21 2 0 20 2 0 45 2 0 24 2 0 44 2 0 45 2 0 25 2 0 24 2 0 47 2 0 28 2 0 46 2 0 47 2 0 29 2 0 28 2 0 14 3 0 49 3 0 15 3 0 14 3 0 48 3 0 49 3 0 18 3 0 51 3 0 19 3 0 18 3 0 50 3 0 51 3 0 22 3 0 53 3 0 23 3 0 22 3 0 52 3 0 53 3 0 26 3 0 55 3 0 27 3 0 26 3 0 54 3 0 55 3 0 10 3 0 57 3 0 11 3 0 10 3 0 56 3 0 57 3 0 2 3 0 59 3 0 3 3 0 2 3 0 58 3 0 59 3 0 6 3 0 61 3 0 7 3 0 6 3 0 60 3 0 61 3 0 30 3 0 63 3 0 31 3 0 30 3 0 62 3 0 63 3 0 32 4 0 0 4 0 43 4 0 0 4 0 21 4 0 43 4 0 34 4 0 4 4 0 45 4 0 4 4 0 25 4 0 45 4 0 36 4 0 12 4 0 49 4 0 12 4 0 15 4 0 49 4 0 48 4 0 14 4 0 47 4 0 14 4 0 29 4 0 47 4 0 52 4 0 22 4 0 59 4 0 22 4 0 3 4 0 59 4 0 54 4 0 26 4 0 61 4 0 26 4 0 7 4 0 61 4 0 46 4 0 28 4 0 63 4 0 28 4 0 31 4 0 63 4 0 1 5 0 33 5 0 16 5 0 33 5 0 40 5 0 16 5 0 5 5 0 35 5 0 20 5 0 35 5 0 42 5 0 20 5 0 17 5 0 41 5 0 18 5 0 41 5 0 50 5 0 18 5 0 19 5 0 51 5 0 2 5 0 51 5 0 58 5 0 2 5 0 23 5 0 53 5 0 6 5 0 53 5 0 60 5 0 6 5 0 13 5 0 37 5 0 8 5 0 37 5 0 38 5 0 8 5 0 9 5 0 39 5 0 24 5 0 39 5 0 44 5 0 24 5 0 27 5 0 55 5 0 10 5 0 55 5 0 56 5 0 10 5 0 11 5 0 57 5 0 30 5 0 57 5 0 62 5 0 30 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Plus" id="Symbol_Plus-lib">
+      <mesh>
+        <source id="Symbol_Plus-position">
+          <float_array id="Symbol_Plus-position-array" count="72">-3.0 0.5 0.5 -3.0 -1.5 0.5 3.0 -1.5 0.5 3.0 0.5 0.5 -1.0 -1.5 0.5 -1.0 -3.5 0.5 1.0 -3.5 0.5 1.0 -1.5 0.5 -1.0 2.5 0.5 -1.0 0.5 0.5 1.0 0.5 0.5 1.0 2.5 0.5 -3.0 0.5 -0.5 -3.0 -1.5 -0.5 -1.0 -1.5 -0.5 -1.0 -3.5 -0.5 -1.0 2.5 -0.5 -1.0 0.5 -0.5 1.0 -3.5 -0.5 1.0 -1.5 -0.5 1.0 0.5 -0.5 1.0 2.5 -0.5 3.0 -1.5 -0.5 3.0 0.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Plus-position-array" stride="3" count="24">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Plus-normal">
+          <float_array id="Symbol_Plus-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Plus-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Plus-color">
+          <float_array id="Symbol_Plus-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Plus-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Plus-vertex">
+          <input semantic="POSITION" source="#Symbol_Plus-position" />
+        </vertices>
+        <polylist count="34">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Plus-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Plus-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Plus-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>9 0 0 0 0 0 1 0 0 1 0 0 10 0 0 9 0 0 10 0 0 1 0 0 4 0 0 4 0 0 3 0 0 10 0 0 3 0 0 4 0 0 7 0 0 7 0 0 2 0 0 3 0 0 5 0 0 7 0 0 4 0 0 5 0 0 6 0 0 7 0 0 9 0 0 11 0 0 8 0 0 9 0 0 10 0 0 11 0 0 13 2 0 0 2 0 12 2 0 13 2 0 1 2 0 0 2 0 15 2 0 4 2 0 14 2 0 15 2 0 5 2 0 4 2 0 17 2 0 8 2 0 16 2 0 17 2 0 9 2 0 8 2 0 6 3 0 19 3 0 7 3 0 6 3 0 18 3 0 19 3 0 10 3 0 21 3 0 11 3 0 10 3 0 20 3 0 21 3 0 2 3 0 23 3 0 3 3 0 2 3 0 22 3 0 23 3 0 12 4 0 0 4 0 17 4 0 0 4 0 9 4 0 17 4 0 16 4 0 8 4 0 21 4 0 8 4 0 11 4 0 21 4 0 20 4 0 10 4 0 23 4 0 10 4 0 3 4 0 23 4 0 1 5 0 13 5 0 4 5 0 13 5 0 14 5 0 4 5 0 5 5 0 15 5 0 6 5 0 15 5 0 18 5 0 6 5 0 7 5 0 19 5 0 2 5 0 19 5 0 22 5 0 2 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Minus" id="Symbol_Minus-lib">
+      <mesh>
+        <source id="Symbol_Minus-position">
+          <float_array id="Symbol_Minus-position-array" count="24">-3.0 0.5 0.5 -3.0 -1.5 0.5 3.0 -1.5 0.5 3.0 0.5 0.5 -3.0 0.5 -0.5 -3.0 -1.5 -0.5 3.0 -1.5 -0.5 3.0 0.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Minus-position-array" stride="3" count="8">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Minus-normal">
+          <float_array id="Symbol_Minus-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Minus-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Minus-color">
+          <float_array id="Symbol_Minus-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Minus-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Minus-vertex">
+          <input semantic="POSITION" source="#Symbol_Minus-position" />
+        </vertices>
+        <polylist count="10">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Minus-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Minus-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Minus-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>1 0 0 3 0 0 0 0 0 1 0 0 2 0 0 3 0 0 5 2 0 0 2 0 4 2 0 5 2 0 1 2 0 0 2 0 2 3 0 7 3 0 3 3 0 2 3 0 6 3 0 7 3 0 4 4 0 0 4 0 7 4 0 0 4 0 3 4 0 7 4 0 1 5 0 5 5 0 2 5 0 5 5 0 6 5 0 2 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Asterix" id="Symbol_Asterix-lib">
+      <mesh>
+        <source id="Symbol_Asterix-position">
+          <float_array id="Symbol_Asterix-position-array" count="168">-3.5 0.5 0.5 -3.5 -0.5 0.5 3.5 -0.5 0.5 3.5 0.5 0.5 -1.5 -0.5 0.5 -1.5 -1.5 0.5 1.5 -1.5 0.5 1.5 -0.5 0.5 -1.5 1.5 0.5 -1.5 0.5 0.5 1.5 0.5 0.5 1.5 1.5 0.5 -2.5 -1.5 0.5 -2.5 -2.5 0.5 -0.5 -2.5 0.5 -0.5 -1.5 0.5 -2.5 2.5 0.5 -2.5 1.5 0.5 -0.5 1.5 0.5 -0.5 2.5 0.5 0.5 -1.5 0.5 0.5 -2.5 0.5 2.5 -2.5 0.5 2.5 -1.5 0.5 0.5 2.5 0.5 0.5 1.5 0.5 2.5 1.5 0.5 2.5 2.5 0.5 -3.5 0.5 -0.5 -3.5 -0.5 -0.5 -2.5 -1.5 -0.5 -2.5 -2.5 -0.5 -2.5 2.5 -0.5 -2.5 1.5 -0.5 -1.5 -0.5 -0.5 -1.5 -1.5 -0.5 -1.5 1.5 -0.5 -1.5 0.5 -0.5 0.5 -1.5 -0.5 0.5 -2.5 -0.5 0.5 2.5 -0.5 0.5 1.5 -0.5 -0.5 -2.5 -0.5 -0.5 -1.5 -0.5 -0.5 1.5 -0.5 -0.5 2.5 -0.5 1.5 -1.5 -0.5 1.5 -0.5 -0.5 1.5 0.5 -0.5 1.5 1.5 -0.5 2.5 -2.5 -0.5 2.5 -1.5 -0.5 2.5 1.5 -0.5 2.5 2.5 -0.5 3.5 -0.5 -0.5 3.5 0.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Asterix-position-array" stride="3" count="56">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Asterix-normal">
+          <float_array id="Symbol_Asterix-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Asterix-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Asterix-color">
+          <float_array id="Symbol_Asterix-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Asterix-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Asterix-vertex">
+          <input semantic="POSITION" source="#Symbol_Asterix-position" />
+        </vertices>
+        <polylist count="82">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Asterix-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Asterix-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Asterix-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>9 0 0 0 0 0 1 0 0 1 0 0 10 0 0 9 0 0 10 0 0 1 0 0 4 0 0 4 0 0 3 0 0 10 0 0 3 0 0 4 0 0 7 0 0 7 0 0 2 0 0 3 0 0 7 0 0 4 0 0 5 0 0 5 0 0 6 0 0 7 0 0 6 0 0 5 0 0 15 0 0 15 0 0 20 0 0 6 0 0 18 0 0 8 0 0 9 0 0 9 0 0 25 0 0 18 0 0 25 0 0 9 0 0 10 0 0 10 0 0 11 0 0 25 0 0 5 0 0 12 0 0 13 0 0 13 0 0 15 0 0 5 0 0 15 0 0 13 0 0 14 0 0 19 0 0 16 0 0 17 0 0 17 0 0 18 0 0 19 0 0 18 0 0 17 0 0 8 0 0 6 0 0 20 0 0 21 0 0 21 0 0 23 0 0 6 0 0 23 0 0 21 0 0 22 0 0 27 0 0 24 0 0 25 0 0 25 0 0 26 0 0 27 0 0 26 0 0 25 0 0 11 0 0 29 2 0 0 2 0 28 2 0 29 2 0 1 2 0 0 2 0 31 2 0 12 2 0 30 2 0 31 2 0 13 2 0 12 2 0 33 2 0 16 2 0 32 2 0 33 2 0 17 2 0 16 2 0 35 2 0 4 2 0 34 2 0 35 2 0 5 2 0 4 2 0 37 2 0 8 2 0 36 2 0 37 2 0 9 2 0 8 2 0 39 2 0 20 2 0 38 2 0 39 2 0 21 2 0 20 2 0 41 2 0 24 2 0 40 2 0 41 2 0 25 2 0 24 2 0 14 3 0 43 3 0 15 3 0 14 3 0 42 3 0 43 3 0 18 3 0 45 3 0 19 3 0 18 3 0 44 3 0 45 3 0 6 3 0 47 3 0 7 3 0 6 3 0 46 3 0 47 3 0 10 3 0 49 3 0 11 3 0 10 3 0 48 3 0 49 3 0 22 3 0 51 3 0 23 3 0 22 3 0 50 3 0 51 3 0 26 3 0 53 3 0 27 3 0 26 3 0 52 3 0 53 3 0 2 3 0 55 3 0 3 3 0 2 3 0 54 3 0 55 3 0 28 4 0 0 4 0 37 4 0 0 4 0 9 4 0 37 4 0 32 4 0 16 4 0 45 4 0 16 4 0 19 4 0 45 4 0 40 4 0 24 4 0 53 4 0 24 4 0 27 4 0 53 4 0 48 4 0 10 4 0 55 4 0 10 4 0 3 4 0 55 4 0 30 4 0 12 4 0 35 4 0 12 4 0 5 4 0 35 4 0 44 4 0 18 4 0 41 4 0 18 4 0 25 4 0 41 4 0 46 4 0 6 4 0 51 4 0 6 4 0 23 4 0 51 4 0 1 5 0 29 5 0 4 5 0 29 5 0 34 5 0 4 5 0 13 5 0 31 5 0 14 5 0 31 5 0 42 5 0 14 5 0 21 5 0 39 5 0 22 5 0 39 5 0 50 5 0 22 5 0 7 5 0 47 5 0 2 5 0 47 5 0 54 5 0 2 5 0 17 5 0 33 5 0 8 5 0 33 5 0 36 5 0 8 5 0 15 5 0 43 5 0 20 5 0 43 5 0 38 5 0 20 5 0 11 5 0 49 5 0 26 5 0 49 5 0 52 5 0 26 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_ForwardSlash" id="Symbol_ForwardSlash-lib">
+      <mesh>
+        <source id="Symbol_ForwardSlash-position">
+          <float_array id="Symbol_ForwardSlash-position-array" count="144">-3.5 -2.5 0.5 -3.5 -3.5 0.5 -1.5 -3.5 0.5 -1.5 -2.5 0.5 -2.5 -1.5 0.5 -2.5 -2.5 0.5 -0.5 -2.5 0.5 -0.5 -1.5 0.5 -1.5 -0.5 0.5 -1.5 -1.5 0.5 0.5 -1.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 0.5 1.5 -0.5 0.5 1.5 0.5 0.5 0.5 1.5 0.5 0.5 0.5 0.5 2.5 0.5 0.5 2.5 1.5 0.5 1.5 2.5 0.5 1.5 1.5 0.5 3.5 1.5 0.5 3.5 2.5 0.5 -3.5 -2.5 -0.5 -3.5 -3.5 -0.5 -2.5 -1.5 -0.5 -2.5 -2.5 -0.5 -1.5 -0.5 -0.5 -1.5 -1.5 -0.5 -0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 1.5 -0.5 0.5 0.5 -0.5 1.5 2.5 -0.5 1.5 1.5 -0.5 -1.5 -3.5 -0.5 -1.5 -2.5 -0.5 -0.5 -2.5 -0.5 -0.5 -1.5 -0.5 0.5 -1.5 -0.5 0.5 -0.5 -0.5 1.5 -0.5 -0.5 1.5 0.5 -0.5 2.5 0.5 -0.5 2.5 1.5 -0.5 3.5 1.5 -0.5 3.5 2.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_ForwardSlash-position-array" stride="3" count="48">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_ForwardSlash-normal">
+          <float_array id="Symbol_ForwardSlash-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_ForwardSlash-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_ForwardSlash-color">
+          <float_array id="Symbol_ForwardSlash-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_ForwardSlash-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_ForwardSlash-vertex">
+          <input semantic="POSITION" source="#Symbol_ForwardSlash-position" />
+        </vertices>
+        <polylist count="70">
+          <input offset="0" semantic="VERTEX" source="#Symbol_ForwardSlash-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_ForwardSlash-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_ForwardSlash-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>5 0 0 0 0 0 1 0 0 1 0 0 3 0 0 5 0 0 3 0 0 1 0 0 2 0 0 9 0 0 4 0 0 5 0 0 5 0 0 7 0 0 9 0 0 7 0 0 5 0 0 3 0 0 3 0 0 6 0 0 7 0 0 13 0 0 8 0 0 9 0 0 9 0 0 11 0 0 13 0 0 11 0 0 9 0 0 7 0 0 7 0 0 10 0 0 11 0 0 17 0 0 12 0 0 13 0 0 13 0 0 15 0 0 17 0 0 15 0 0 13 0 0 11 0 0 11 0 0 14 0 0 15 0 0 21 0 0 16 0 0 17 0 0 17 0 0 19 0 0 21 0 0 19 0 0 17 0 0 15 0 0 15 0 0 18 0 0 19 0 0 23 0 0 20 0 0 21 0 0 21 0 0 22 0 0 23 0 0 22 0 0 21 0 0 19 0 0 25 2 0 0 2 0 24 2 0 25 2 0 1 2 0 0 2 0 27 2 0 4 2 0 26 2 0 27 2 0 5 2 0 4 2 0 29 2 0 8 2 0 28 2 0 29 2 0 9 2 0 8 2 0 31 2 0 12 2 0 30 2 0 31 2 0 13 2 0 12 2 0 33 2 0 16 2 0 32 2 0 33 2 0 17 2 0 16 2 0 35 2 0 20 2 0 34 2 0 35 2 0 21 2 0 20 2 0 2 3 0 37 3 0 3 3 0 2 3 0 36 3 0 37 3 0 6 3 0 39 3 0 7 3 0 6 3 0 38 3 0 39 3 0 10 3 0 41 3 0 11 3 0 10 3 0 40 3 0 41 3 0 14 3 0 43 3 0 15 3 0 14 3 0 42 3 0 43 3 0 18 3 0 45 3 0 19 3 0 18 3 0 44 3 0 45 3 0 22 3 0 47 3 0 23 3 0 22 3 0 46 3 0 47 3 0 34 4 0 20 4 0 47 4 0 20 4 0 23 4 0 47 4 0 24 4 0 0 4 0 27 4 0 0 4 0 5 4 0 27 4 0 26 4 0 4 4 0 29 4 0 4 4 0 9 4 0 29 4 0 28 4 0 8 4 0 31 4 0 8 4 0 13 4 0 31 4 0 30 4 0 12 4 0 33 4 0 12 4 0 17 4 0 33 4 0 32 4 0 16 4 0 35 4 0 16 4 0 21 4 0 35 4 0 1 5 0 25 5 0 2 5 0 25 5 0 36 5 0 2 5 0 3 5 0 37 5 0 6 5 0 37 5 0 38 5 0 6 5 0 7 5 0 39 5 0 10 5 0 39 5 0 40 5 0 10 5 0 11 5 0 41 5 0 14 5 0 41 5 0 42 5 0 14 5 0 15 5 0 43 5 0 18 5 0 43 5 0 44 5 0 18 5 0 19 5 0 45 5 0 22 5 0 45 5 0 46 5 0 22 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Divide" id="Symbol_Divide-lib">
+      <mesh>
+        <source id="Symbol_Divide-position">
+          <float_array id="Symbol_Divide-position-array" count="72">-1.0 -1.5 0.5 -1.0 -3.5 0.5 1.0 -3.5 0.5 1.0 -1.5 0.5 -1.0 3.5 0.5 -1.0 1.5 0.5 1.0 1.5 0.5 1.0 3.5 0.5 -3.0 0.5 0.5 -3.0 -0.5 0.5 3.0 -0.5 0.5 3.0 0.5 0.5 -1.0 -1.5 -0.5 -1.0 -3.5 -0.5 -1.0 3.5 -0.5 -1.0 1.5 -0.5 -3.0 0.5 -0.5 -3.0 -0.5 -0.5 1.0 -3.5 -0.5 1.0 -1.5 -0.5 1.0 1.5 -0.5 1.0 3.5 -0.5 3.0 -0.5 -0.5 3.0 0.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Divide-position-array" stride="3" count="24">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Divide-normal">
+          <float_array id="Symbol_Divide-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Divide-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Divide-color">
+          <float_array id="Symbol_Divide-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Divide-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Divide-vertex">
+          <input semantic="POSITION" source="#Symbol_Divide-position" />
+        </vertices>
+        <polylist count="30">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Divide-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Divide-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Divide-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>1 0 0 3 0 0 0 0 0 1 0 0 2 0 0 3 0 0 5 0 0 7 0 0 4 0 0 5 0 0 6 0 0 7 0 0 9 0 0 11 0 0 8 0 0 9 0 0 10 0 0 11 0 0 13 2 0 0 2 0 12 2 0 13 2 0 1 2 0 0 2 0 15 2 0 4 2 0 14 2 0 15 2 0 5 2 0 4 2 0 17 2 0 8 2 0 16 2 0 17 2 0 9 2 0 8 2 0 2 3 0 19 3 0 3 3 0 2 3 0 18 3 0 19 3 0 6 3 0 21 3 0 7 3 0 6 3 0 20 3 0 21 3 0 10 3 0 23 3 0 11 3 0 10 3 0 22 3 0 23 3 0 16 4 0 8 4 0 23 4 0 8 4 0 11 4 0 23 4 0 12 4 0 0 4 0 19 4 0 0 4 0 3 4 0 19 4 0 14 4 0 4 4 0 21 4 0 4 4 0 7 4 0 21 4 0 9 5 0 17 5 0 10 5 0 17 5 0 22 5 0 10 5 0 1 5 0 13 5 0 2 5 0 13 5 0 18 5 0 2 5 0 5 5 0 15 5 0 6 5 0 15 5 0 20 5 0 6 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Equals" id="Symbol_Equals-lib">
+      <mesh>
+        <source id="Symbol_Equals-position">
+          <float_array id="Symbol_Equals-position-array" count="48">-3.0 -0.5 0.5 -3.0 -1.5 0.5 3.0 -1.5 0.5 3.0 -0.5 0.5 -3.0 1.5 0.5 -3.0 0.5 0.5 3.0 0.5 0.5 3.0 1.5 0.5 -3.0 -0.5 -0.5 -3.0 -1.5 -0.5 -3.0 1.5 -0.5 -3.0 0.5 -0.5 3.0 -1.5 -0.5 3.0 -0.5 -0.5 3.0 0.5 -0.5 3.0 1.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Equals-position-array" stride="3" count="16">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Equals-normal">
+          <float_array id="Symbol_Equals-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Equals-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Equals-color">
+          <float_array id="Symbol_Equals-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Equals-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Equals-vertex">
+          <input semantic="POSITION" source="#Symbol_Equals-position" />
+        </vertices>
+        <polylist count="20">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Equals-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Equals-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Equals-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>1 0 0 3 0 0 0 0 0 1 0 0 2 0 0 3 0 0 5 0 0 7 0 0 4 0 0 5 0 0 6 0 0 7 0 0 9 2 0 0 2 0 8 2 0 9 2 0 1 2 0 0 2 0 11 2 0 4 2 0 10 2 0 11 2 0 5 2 0 4 2 0 2 3 0 13 3 0 3 3 0 2 3 0 12 3 0 13 3 0 6 3 0 15 3 0 7 3 0 6 3 0 14 3 0 15 3 0 8 4 0 0 4 0 13 4 0 0 4 0 3 4 0 13 4 0 10 4 0 4 4 0 15 4 0 4 4 0 7 4 0 15 4 0 1 5 0 9 5 0 2 5 0 9 5 0 12 5 0 2 5 0 5 5 0 11 5 0 6 5 0 11 5 0 14 5 0 6 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Percent" id="Symbol_Percent-lib">
+      <mesh>
+        <source id="Symbol_Percent-position">
+          <float_array id="Symbol_Percent-position-array" count="198">-3.0 3.5 0.5 -3.0 1.5 0.5 -1.0 1.5 0.5 -1.0 3.5 0.5 1.0 -1.5 0.5 1.0 -3.5 0.5 3.0 -3.5 0.5 3.0 -1.5 0.5 -3.0 -1.5 0.5 -3.0 -2.5 0.5 -1.0 -2.5 0.5 -1.0 -1.5 0.5 -2.0 -0.5 0.5 -2.0 -1.5 0.5 0.0 -1.5 0.5 0.0 -0.5 0.5 -1.0 0.5 0.5 -1.0 -0.5 0.5 1.0 -0.5 0.5 1.0 0.5 0.5 0.0 1.5 0.5 0.0 0.5 0.5 2.0 0.5 0.5 2.0 1.5 0.5 1.0 2.5 0.5 1.0 1.5 0.5 3.0 1.5 0.5 3.0 2.5 0.5 -3.0 -3.5 0.5 -2.0 -3.5 0.5 -2.0 -2.5 0.5 2.0 3.5 0.5 2.0 2.5 0.5 3.0 3.5 0.5 -3.0 -1.5 -0.5 -3.0 -3.5 -0.5 -3.0 3.5 -0.5 -3.0 1.5 -0.5 1.0 -1.5 -0.5 1.0 -3.5 -0.5 -2.0 -0.5 -0.5 -2.0 -1.5 -0.5 -1.0 0.5 -0.5 -1.0 -0.5 -0.5 0.0 1.5 -0.5 0.0 0.5 -0.5 1.0 2.5 -0.5 1.0 1.5 -0.5 2.0 3.5 -0.5 2.0 2.5 -0.5 -1.0 1.5 -0.5 -1.0 3.5 -0.5 3.0 -3.5 -0.5 3.0 -1.5 -0.5 3.0 1.5 -0.5 3.0 3.5 -0.5 -2.0 -3.5 -0.5 -2.0 -2.5 -0.5 -1.0 -2.5 -0.5 -1.0 -1.5 -0.5 0.0 -1.5 -0.5 0.0 -0.5 -0.5 1.0 -0.5 -0.5 1.0 0.5 -0.5 2.0 0.5 -0.5 2.0 1.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Percent-position-array" stride="3" count="66">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Percent-normal">
+          <float_array id="Symbol_Percent-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Percent-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Percent-color">
+          <float_array id="Symbol_Percent-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Percent-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Percent-vertex">
+          <input semantic="POSITION" source="#Symbol_Percent-position" />
+        </vertices>
+        <polylist count="94">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Percent-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Percent-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Percent-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>1 0 0 3 0 0 0 0 0 1 0 0 2 0 0 3 0 0 5 0 0 7 0 0 4 0 0 5 0 0 6 0 0 7 0 0 13 0 0 8 0 0 9 0 0 9 0 0 11 0 0 13 0 0 11 0 0 9 0 0 30 0 0 30 0 0 10 0 0 11 0 0 17 0 0 12 0 0 13 0 0 13 0 0 15 0 0 17 0 0 15 0 0 13 0 0 11 0 0 11 0 0 14 0 0 15 0 0 21 0 0 16 0 0 17 0 0 17 0 0 19 0 0 21 0 0 19 0 0 17 0 0 15 0 0 15 0 0 18 0 0 19 0 0 25 0 0 20 0 0 21 0 0 21 0 0 23 0 0 25 0 0 23 0 0 21 0 0 19 0 0 19 0 0 22 0 0 23 0 0 32 0 0 24 0 0 25 0 0 25 0 0 27 0 0 32 0 0 27 0 0 25 0 0 23 0 0 23 0 0 26 0 0 27 0 0 28 0 0 30 0 0 9 0 0 28 0 0 29 0 0 30 0 0 32 0 0 33 0 0 31 0 0 32 0 0 27 0 0 33 0 0 8 2 0 34 2 0 35 2 0 35 2 0 9 2 0 8 2 0 9 2 0 35 2 0 28 2 0 37 2 0 0 2 0 36 2 0 37 2 0 1 2 0 0 2 0 39 2 0 4 2 0 38 2 0 39 2 0 5 2 0 4 2 0 41 2 0 12 2 0 40 2 0 41 2 0 13 2 0 12 2 0 43 2 0 16 2 0 42 2 0 43 2 0 17 2 0 16 2 0 45 2 0 20 2 0 44 2 0 45 2 0 21 2 0 20 2 0 47 2 0 24 2 0 46 2 0 47 2 0 25 2 0 24 2 0 49 2 0 31 2 0 48 2 0 49 2 0 32 2 0 31 2 0 2 3 0 51 3 0 3 3 0 2 3 0 50 3 0 51 3 0 6 3 0 53 3 0 7 3 0 6 3 0 52 3 0 53 3 0 55 3 0 33 3 0 27 3 0 27 3 0 54 3 0 55 3 0 54 3 0 27 3 0 26 3 0 29 3 0 57 3 0 30 3 0 29 3 0 56 3 0 57 3 0 10 3 0 59 3 0 11 3 0 10 3 0 58 3 0 59 3 0 14 3 0 61 3 0 15 3 0 14 3 0 60 3 0 61 3 0 18 3 0 63 3 0 19 3 0 18 3 0 62 3 0 63 3 0 22 3 0 65 3 0 23 3 0 22 3 0 64 3 0 65 3 0 36 4 0 0 4 0 51 4 0 0 4 0 3 4 0 51 4 0 38 4 0 4 4 0 53 4 0 4 4 0 7 4 0 53 4 0 34 4 0 8 4 0 41 4 0 8 4 0 13 4 0 41 4 0 40 4 0 12 4 0 43 4 0 12 4 0 17 4 0 43 4 0 42 4 0 16 4 0 45 4 0 16 4 0 21 4 0 45 4 0 44 4 0 20 4 0 47 4 0 20 4 0 25 4 0 47 4 0 46 4 0 24 4 0 49 4 0 24 4 0 32 4 0 49 4 0 48 4 0 31 4 0 55 4 0 31 4 0 33 4 0 55 4 0 1 5 0 37 5 0 2 5 0 37 5 0 50 5 0 2 5 0 5 5 0 39 5 0 6 5 0 39 5 0 52 5 0 6 5 0 28 5 0 35 5 0 29 5 0 35 5 0 56 5 0 29 5 0 30 5 0 57 5 0 10 5 0 57 5 0 58 5 0 10 5 0 11 5 0 59 5 0 14 5 0 59 5 0 60 5 0 14 5 0 15 5 0 61 5 0 18 5 0 61 5 0 62 5 0 18 5 0 19 5 0 63 5 0 22 5 0 63 5 0 64 5 0 22 5 0 23 5 0 65 5 0 26 5 0 65 5 0 54 5 0 26 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Hash" id="Symbol_Hash-lib">
+      <mesh>
+        <source id="Symbol_Hash-position">
+          <float_array id="Symbol_Hash-position-array" count="192">0.5 1.0 0.5 0.5 -1.0 0.5 2.5 -1.0 0.5 2.5 1.0 0.5 -2.5 1.0 0.5 -2.5 -1.0 0.5 -1.5 -1.0 0.5 -1.5 1.0 0.5 -3.5 -1.0 0.5 -3.5 -2.0 0.5 3.5 -2.0 0.5 3.5 -1.0 0.5 -3.5 2.0 0.5 -3.5 1.0 0.5 3.5 1.0 0.5 3.5 2.0 0.5 0.5 -2.0 0.5 0.5 -3.0 0.5 2.5 -3.0 0.5 2.5 -2.0 0.5 0.5 3.0 0.5 0.5 2.0 0.5 2.5 2.0 0.5 2.5 3.0 0.5 -2.5 -2.0 0.5 -2.5 -3.0 0.5 -1.5 -3.0 0.5 -1.5 -2.0 0.5 -2.5 3.0 0.5 -2.5 2.0 0.5 -1.5 2.0 0.5 -1.5 3.0 0.5 -2.5 1.0 -0.5 -2.5 -1.0 -0.5 0.5 1.0 -0.5 0.5 -1.0 -0.5 -3.5 -1.0 -0.5 -3.5 -2.0 -0.5 -3.5 2.0 -0.5 -3.5 1.0 -0.5 -2.5 -2.0 -0.5 -2.5 -3.0 -0.5 -2.5 3.0 -0.5 -2.5 2.0 -0.5 0.5 -2.0 -0.5 0.5 -3.0 -0.5 0.5 3.0 -0.5 0.5 2.0 -0.5 -1.5 -1.0 -0.5 -1.5 1.0 -0.5 2.5 -1.0 -0.5 2.5 1.0 -0.5 -1.5 -3.0 -0.5 -1.5 -2.0 -0.5 -1.5 2.0 -0.5 -1.5 3.0 -0.5 2.5 -3.0 -0.5 2.5 -2.0 -0.5 2.5 2.0 -0.5 2.5 3.0 -0.5 3.5 -2.0 -0.5 3.5 -1.0 -0.5 3.5 1.0 -0.5 3.5 2.0 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Hash-position-array" stride="3" count="64">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Hash-normal">
+          <float_array id="Symbol_Hash-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Hash-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Hash-color">
+          <float_array id="Symbol_Hash-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Hash-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Hash-vertex">
+          <input semantic="POSITION" source="#Symbol_Hash-position" />
+        </vertices>
+        <polylist count="96">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Hash-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Hash-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Hash-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>1 0 0 3 0 0 0 0 0 1 0 0 2 0 0 3 0 0 5 0 0 7 0 0 4 0 0 5 0 0 6 0 0 7 0 0 5 0 0 8 0 0 9 0 0 9 0 0 6 0 0 5 0 0 6 0 0 9 0 0 24 0 0 24 0 0 1 0 0 6 0 0 1 0 0 24 0 0 27 0 0 27 0 0 2 0 0 1 0 0 2 0 0 27 0 0 16 0 0 16 0 0 11 0 0 2 0 0 11 0 0 16 0 0 19 0 0 19 0 0 10 0 0 11 0 0 29 0 0 12 0 0 13 0 0 13 0 0 30 0 0 29 0 0 30 0 0 13 0 0 4 0 0 4 0 0 21 0 0 30 0 0 21 0 0 4 0 0 7 0 0 7 0 0 22 0 0 21 0 0 22 0 0 7 0 0 0 0 0 0 0 0 15 0 0 22 0 0 15 0 0 0 0 0 3 0 0 3 0 0 14 0 0 15 0 0 17 0 0 19 0 0 16 0 0 17 0 0 18 0 0 19 0 0 21 0 0 23 0 0 20 0 0 21 0 0 22 0 0 23 0 0 25 0 0 27 0 0 24 0 0 25 0 0 26 0 0 27 0 0 29 0 0 31 0 0 28 0 0 29 0 0 30 0 0 31 0 0 33 2 0 4 2 0 32 2 0 33 2 0 5 2 0 4 2 0 35 2 0 0 2 0 34 2 0 35 2 0 1 2 0 0 2 0 37 2 0 8 2 0 36 2 0 37 2 0 9 2 0 8 2 0 39 2 0 12 2 0 38 2 0 39 2 0 13 2 0 12 2 0 41 2 0 24 2 0 40 2 0 41 2 0 25 2 0 24 2 0 43 2 0 28 2 0 42 2 0 43 2 0 29 2 0 28 2 0 45 2 0 16 2 0 44 2 0 45 2 0 17 2 0 16 2 0 47 2 0 20 2 0 46 2 0 47 2 0 21 2 0 20 2 0 6 3 0 49 3 0 7 3 0 6 3 0 48 3 0 49 3 0 2 3 0 51 3 0 3 3 0 2 3 0 50 3 0 51 3 0 26 3 0 53 3 0 27 3 0 26 3 0 52 3 0 53 3 0 30 3 0 55 3 0 31 3 0 30 3 0 54 3 0 55 3 0 18 3 0 57 3 0 19 3 0 18 3 0 56 3 0 57 3 0 22 3 0 59 3 0 23 3 0 22 3 0 58 3 0 59 3 0 10 3 0 61 3 0 11 3 0 10 3 0 60 3 0 61 3 0 14 3 0 63 3 0 15 3 0 14 3 0 62 3 0 63 3 0 48 4 0 6 4 0 35 4 0 6 4 0 1 4 0 35 4 0 54 4 0 30 4 0 47 4 0 30 4 0 21 4 0 47 4 0 46 4 0 20 4 0 59 4 0 20 4 0 23 4 0 59 4 0 36 4 0 8 4 0 33 4 0 8 4 0 5 4 0 33 4 0 38 4 0 12 4 0 43 4 0 12 4 0 29 4 0 43 4 0 42 4 0 28 4 0 55 4 0 28 4 0 31 4 0 55 4 0 50 4 0 2 4 0 61 4 0 2 4 0 11 4 0 61 4 0 58 4 0 22 4 0 63 4 0 22 4 0 15 4 0 63 4 0 27 5 0 53 5 0 16 5 0 53 5 0 44 5 0 16 5 0 7 5 0 49 5 0 0 5 0 49 5 0 34 5 0 0 5 0 17 5 0 45 5 0 18 5 0 45 5 0 56 5 0 18 5 0 9 5 0 37 5 0 24 5 0 37 5 0 40 5 0 24 5 0 13 5 0 39 5 0 4 5 0 39 5 0 32 5 0 4 5 0 25 5 0 41 5 0 26 5 0 41 5 0 52 5 0 26 5 0 19 5 0 57 5 0 10 5 0 57 5 0 60 5 0 10 5 0 3 5 0 51 5 0 14 5 0 51 5 0 62 5 0 14 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_At" id="Symbol_At-lib">
+      <mesh>
+        <source id="Symbol_At-position">
+          <float_array id="Symbol_At-position-array" count="156">-3.5 2.5 0.5 -3.5 -2.5 0.5 -1.5 -2.5 0.5 -1.5 2.5 0.5 -2.5 -2.5 0.5 -2.5 -3.5 0.5 3.5 -3.5 0.5 3.5 -2.5 0.5 -2.5 3.5 0.5 -2.5 2.5 0.5 2.5 2.5 0.5 2.5 3.5 0.5 -0.5 -0.5 0.5 -0.5 -1.5 0.5 2.5 -1.5 0.5 2.5 -0.5 0.5 -0.5 1.5 0.5 -0.5 0.5 0.5 3.5 0.5 0.5 3.5 1.5 0.5 1.5 0.5 0.5 1.5 -0.5 0.5 3.5 -0.5 0.5 1.5 2.5 0.5 1.5 1.5 0.5 3.5 2.5 0.5 0.5 -0.5 0.5 0.5 0.5 0.5 -3.5 2.5 -0.5 -3.5 -2.5 -0.5 -0.5 1.5 -0.5 -0.5 -1.5 -0.5 -2.5 -2.5 -0.5 -2.5 -3.5 -0.5 -2.5 3.5 -0.5 -2.5 2.5 -0.5 1.5 0.5 -0.5 1.5 -0.5 -0.5 1.5 2.5 -0.5 1.5 1.5 -0.5 -1.5 -2.5 -0.5 -1.5 2.5 -0.5 3.5 -0.5 -0.5 3.5 2.5 -0.5 0.5 -0.5 -0.5 0.5 0.5 -0.5 2.5 -1.5 -0.5 2.5 -0.5 -0.5 2.5 2.5 -0.5 2.5 3.5 -0.5 3.5 -3.5 -0.5 3.5 -2.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_At-position-array" stride="3" count="52">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_At-normal">
+          <float_array id="Symbol_At-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_At-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_At-color">
+          <float_array id="Symbol_At-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_At-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_At-vertex">
+          <input semantic="POSITION" source="#Symbol_At-position" />
+        </vertices>
+        <polylist count="80">
+          <input offset="0" semantic="VERTEX" source="#Symbol_At-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_At-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_At-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>9 0 0 0 0 0 1 0 0 1 0 0 3 0 0 9 0 0 3 0 0 1 0 0 4 0 0 4 0 0 2 0 0 3 0 0 2 0 0 4 0 0 5 0 0 5 0 0 7 0 0 2 0 0 7 0 0 5 0 0 6 0 0 11 0 0 8 0 0 9 0 0 9 0 0 10 0 0 11 0 0 10 0 0 9 0 0 3 0 0 3 0 0 23 0 0 10 0 0 26 0 0 12 0 0 13 0 0 13 0 0 21 0 0 26 0 0 21 0 0 13 0 0 14 0 0 14 0 0 15 0 0 21 0 0 24 0 0 16 0 0 17 0 0 17 0 0 19 0 0 24 0 0 19 0 0 17 0 0 27 0 0 27 0 0 18 0 0 19 0 0 18 0 0 27 0 0 20 0 0 18 0 0 20 0 0 21 0 0 21 0 0 22 0 0 18 0 0 22 0 0 21 0 0 15 0 0 10 0 0 23 0 0 24 0 0 24 0 0 25 0 0 10 0 0 25 0 0 24 0 0 19 0 0 12 0 0 27 0 0 17 0 0 12 0 0 26 0 0 27 0 0 29 2 0 0 2 0 28 2 0 29 2 0 1 2 0 0 2 0 16 2 0 30 2 0 31 2 0 31 2 0 17 2 0 16 2 0 17 2 0 31 2 0 13 2 0 13 2 0 12 2 0 17 2 0 33 2 0 4 2 0 32 2 0 33 2 0 5 2 0 4 2 0 35 2 0 8 2 0 34 2 0 35 2 0 9 2 0 8 2 0 37 2 0 20 2 0 36 2 0 37 2 0 21 2 0 20 2 0 39 2 0 23 2 0 38 2 0 39 2 0 24 2 0 23 2 0 2 3 0 41 3 0 3 3 0 2 3 0 40 3 0 41 3 0 43 3 0 25 3 0 19 3 0 19 3 0 42 3 0 43 3 0 42 3 0 19 3 0 18 3 0 18 3 0 22 3 0 42 3 0 26 3 0 45 3 0 27 3 0 26 3 0 44 3 0 45 3 0 14 3 0 47 3 0 15 3 0 14 3 0 46 3 0 47 3 0 10 3 0 49 3 0 11 3 0 10 3 0 48 3 0 49 3 0 6 3 0 51 3 0 7 3 0 6 3 0 50 3 0 51 3 0 34 4 0 8 4 0 49 4 0 8 4 0 11 4 0 49 4 0 40 4 0 2 4 0 51 4 0 2 4 0 7 4 0 51 4 0 30 4 0 16 4 0 39 4 0 16 4 0 24 4 0 39 4 0 28 4 0 0 4 0 35 4 0 0 4 0 9 4 0 35 4 0 44 4 0 26 4 0 37 4 0 26 4 0 21 4 0 37 4 0 48 4 0 10 4 0 43 4 0 10 4 0 25 4 0 43 4 0 5 5 0 33 5 0 6 5 0 33 5 0 50 5 0 6 5 0 3 5 0 41 5 0 23 5 0 41 5 0 38 5 0 23 5 0 13 5 0 31 5 0 14 5 0 31 5 0 46 5 0 14 5 0 1 5 0 29 5 0 4 5 0 29 5 0 32 5 0 4 5 0 27 5 0 45 5 0 20 5 0 45 5 0 36 5 0 20 5 0 15 5 0 47 5 0 22 5 0 47 5 0 42 5 0 22 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Ampersand" id="Symbol_Ampersand-lib">
+      <mesh>
+        <source id="Symbol_Ampersand-position">
+          <float_array id="Symbol_Ampersand-position-array" count="192">-3.5 -0.5 0.5 -3.5 -2.5 0.5 -1.5 -2.5 0.5 -1.5 -0.5 0.5 -2.5 -2.5 0.5 -2.5 -3.5 0.5 3.5 -3.5 0.5 3.5 -2.5 0.5 -2.5 0.5 0.5 -2.5 -0.5 0.5 0.5 -0.5 0.5 0.5 0.5 0.5 -2.5 1.5 0.5 1.5 0.5 0.5 1.5 1.5 0.5 -2.5 3.5 0.5 -2.5 2.5 0.5 1.5 2.5 0.5 1.5 3.5 0.5 0.5 -1.5 0.5 3.5 -1.5 0.5 3.5 -0.5 0.5 -3.5 2.5 0.5 -3.5 1.5 0.5 -1.5 1.5 0.5 -1.5 2.5 0.5 0.5 -2.5 0.5 2.5 -2.5 0.5 2.5 -1.5 0.5 0.5 2.5 0.5 0.5 1.5 0.5 2.5 1.5 0.5 2.5 2.5 0.5 -3.5 -0.5 -0.5 -3.5 -2.5 -0.5 -2.5 1.5 -0.5 -2.5 -0.5 -0.5 0.5 -0.5 -0.5 0.5 -2.5 -0.5 -3.5 2.5 -0.5 -3.5 1.5 -0.5 -2.5 -2.5 -0.5 -2.5 -3.5 -0.5 -2.5 3.5 -0.5 -2.5 2.5 -0.5 0.5 2.5 -0.5 0.5 1.5 -0.5 -1.5 -2.5 -0.5 -1.5 -0.5 -0.5 -1.5 1.5 -0.5 -1.5 2.5 -0.5 0.5 0.5 -0.5 1.5 0.5 -0.5 1.5 1.5 -0.5 1.5 2.5 -0.5 1.5 3.5 -0.5 2.5 -2.5 -0.5 2.5 -1.5 -0.5 2.5 1.5 -0.5 2.5 2.5 -0.5 3.5 -3.5 -0.5 3.5 -2.5 -0.5 3.5 -1.5 -0.5 3.5 -0.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Ampersand-position-array" stride="3" count="64">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Ampersand-normal">
+          <float_array id="Symbol_Ampersand-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Ampersand-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Ampersand-color">
+          <float_array id="Symbol_Ampersand-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Ampersand-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Ampersand-vertex">
+          <input semantic="POSITION" source="#Symbol_Ampersand-position" />
+        </vertices>
+        <polylist count="100">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Ampersand-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Ampersand-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Ampersand-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>9 0 0 0 0 0 1 0 0 1 0 0 3 0 0 9 0 0 3 0 0 1 0 0 4 0 0 4 0 0 2 0 0 3 0 0 2 0 0 4 0 0 5 0 0 5 0 0 26 0 0 2 0 0 26 0 0 5 0 0 6 0 0 6 0 0 27 0 0 26 0 0 27 0 0 6 0 0 7 0 0 11 0 0 8 0 0 9 0 0 9 0 0 10 0 0 11 0 0 10 0 0 9 0 0 3 0 0 24 0 0 12 0 0 8 0 0 8 0 0 30 0 0 24 0 0 30 0 0 8 0 0 11 0 0 11 0 0 14 0 0 30 0 0 14 0 0 11 0 0 13 0 0 18 0 0 15 0 0 16 0 0 16 0 0 17 0 0 18 0 0 17 0 0 16 0 0 25 0 0 25 0 0 29 0 0 17 0 0 21 0 0 10 0 0 19 0 0 19 0 0 20 0 0 21 0 0 20 0 0 19 0 0 28 0 0 16 0 0 22 0 0 23 0 0 23 0 0 25 0 0 16 0 0 25 0 0 23 0 0 12 0 0 12 0 0 24 0 0 25 0 0 26 0 0 28 0 0 19 0 0 26 0 0 27 0 0 28 0 0 17 0 0 29 0 0 30 0 0 30 0 0 32 0 0 17 0 0 32 0 0 30 0 0 14 0 0 14 0 0 31 0 0 32 0 0 34 2 0 0 2 0 33 2 0 34 2 0 1 2 0 0 2 0 12 2 0 35 2 0 36 2 0 36 2 0 8 2 0 12 2 0 8 2 0 36 2 0 9 2 0 10 2 0 37 2 0 38 2 0 38 2 0 19 2 0 10 2 0 19 2 0 38 2 0 26 2 0 40 2 0 22 2 0 39 2 0 40 2 0 23 2 0 22 2 0 42 2 0 4 2 0 41 2 0 42 2 0 5 2 0 4 2 0 44 2 0 15 2 0 43 2 0 44 2 0 16 2 0 15 2 0 46 2 0 29 2 0 45 2 0 46 2 0 30 2 0 29 2 0 2 3 0 48 3 0 3 3 0 2 3 0 47 3 0 48 3 0 24 3 0 50 3 0 25 3 0 24 3 0 49 3 0 50 3 0 10 3 0 51 3 0 11 3 0 10 3 0 37 3 0 51 3 0 13 3 0 53 3 0 14 3 0 13 3 0 52 3 0 53 3 0 17 3 0 55 3 0 18 3 0 17 3 0 54 3 0 55 3 0 27 3 0 57 3 0 28 3 0 27 3 0 56 3 0 57 3 0 31 3 0 59 3 0 32 3 0 31 3 0 58 3 0 59 3 0 6 3 0 61 3 0 7 3 0 6 3 0 60 3 0 61 3 0 20 3 0 63 3 0 21 3 0 20 3 0 62 3 0 63 3 0 43 4 0 15 4 0 55 4 0 15 4 0 18 4 0 55 4 0 37 4 0 10 4 0 63 4 0 10 4 0 21 4 0 63 4 0 47 4 0 2 4 0 38 4 0 2 4 0 26 4 0 38 4 0 49 4 0 24 4 0 46 4 0 24 4 0 30 4 0 46 4 0 33 4 0 0 4 0 36 4 0 0 4 0 9 4 0 36 4 0 39 4 0 22 4 0 44 4 0 22 4 0 16 4 0 44 4 0 54 4 0 17 4 0 59 4 0 17 4 0 32 4 0 59 4 0 56 4 0 27 4 0 61 4 0 27 4 0 7 4 0 61 4 0 5 5 0 42 5 0 6 5 0 42 5 0 60 5 0 6 5 0 3 5 0 48 5 0 10 5 0 48 5 0 37 5 0 10 5 0 25 5 0 50 5 0 29 5 0 50 5 0 45 5 0 29 5 0 1 5 0 34 5 0 4 5 0 34 5 0 41 5 0 4 5 0 23 5 0 40 5 0 12 5 0 40 5 0 35 5 0 12 5 0 11 5 0 51 5 0 13 5 0 51 5 0 52 5 0 13 5 0 14 5 0 53 5 0 31 5 0 53 5 0 58 5 0 31 5 0 28 5 0 57 5 0 20 5 0 57 5 0 62 5 0 20 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Underscore" id="Symbol_Underscore-lib">
+      <mesh>
+        <source id="Symbol_Underscore-position">
+          <float_array id="Symbol_Underscore-position-array" count="24">-3.0 -2.5 0.5 -3.0 -3.5 0.5 3.0 -3.5 0.5 3.0 -2.5 0.5 -3.0 -2.5 -0.5 -3.0 -3.5 -0.5 3.0 -3.5 -0.5 3.0 -2.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Underscore-position-array" stride="3" count="8">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Underscore-normal">
+          <float_array id="Symbol_Underscore-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Underscore-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Underscore-color">
+          <float_array id="Symbol_Underscore-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Underscore-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Underscore-vertex">
+          <input semantic="POSITION" source="#Symbol_Underscore-position" />
+        </vertices>
+        <polylist count="10">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Underscore-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Underscore-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Underscore-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>1 0 0 3 0 0 0 0 0 1 0 0 2 0 0 3 0 0 5 2 0 0 2 0 4 2 0 5 2 0 1 2 0 0 2 0 2 3 0 7 3 0 3 3 0 2 3 0 6 3 0 7 3 0 4 4 0 0 4 0 7 4 0 0 4 0 3 4 0 7 4 0 1 5 0 5 5 0 2 5 0 5 5 0 6 5 0 2 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_BracketLeft" id="Symbol_BracketLeft-lib">
+      <mesh>
+        <source id="Symbol_BracketLeft-position">
+          <float_array id="Symbol_BracketLeft-position-array" count="120">-2.0 1.5 0.5 -2.0 -1.5 0.5 0.0 -1.5 0.5 0.0 1.5 0.5 -1.0 -1.5 0.5 -1.0 -2.5 0.5 1.0 -2.5 0.5 1.0 -1.5 0.5 -1.0 2.5 0.5 -1.0 1.5 0.5 1.0 1.5 0.5 1.0 2.5 0.5 0.0 -2.5 0.5 0.0 -3.5 0.5 2.0 -3.5 0.5 2.0 -2.5 0.5 0.0 3.5 0.5 0.0 2.5 0.5 2.0 2.5 0.5 2.0 3.5 0.5 -2.0 1.5 -0.5 -2.0 -1.5 -0.5 -1.0 -1.5 -0.5 -1.0 -2.5 -0.5 -1.0 2.5 -0.5 -1.0 1.5 -0.5 0.0 -2.5 -0.5 0.0 -3.5 -0.5 0.0 3.5 -0.5 0.0 2.5 -0.5 0.0 -1.5 -0.5 0.0 1.5 -0.5 1.0 -2.5 -0.5 1.0 -1.5 -0.5 1.0 1.5 -0.5 1.0 2.5 -0.5 2.0 -3.5 -0.5 2.0 -2.5 -0.5 2.0 2.5 -0.5 2.0 3.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_BracketLeft-position-array" stride="3" count="40">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_BracketLeft-normal">
+          <float_array id="Symbol_BracketLeft-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_BracketLeft-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_BracketLeft-color">
+          <float_array id="Symbol_BracketLeft-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_BracketLeft-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_BracketLeft-vertex">
+          <input semantic="POSITION" source="#Symbol_BracketLeft-position" />
+        </vertices>
+        <polylist count="58">
+          <input offset="0" semantic="VERTEX" source="#Symbol_BracketLeft-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_BracketLeft-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_BracketLeft-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>9 0 0 0 0 0 1 0 0 1 0 0 3 0 0 9 0 0 3 0 0 1 0 0 4 0 0 4 0 0 2 0 0 3 0 0 2 0 0 4 0 0 5 0 0 5 0 0 7 0 0 2 0 0 7 0 0 5 0 0 12 0 0 12 0 0 6 0 0 7 0 0 17 0 0 8 0 0 9 0 0 9 0 0 11 0 0 17 0 0 11 0 0 9 0 0 3 0 0 3 0 0 10 0 0 11 0 0 6 0 0 12 0 0 13 0 0 13 0 0 15 0 0 6 0 0 15 0 0 13 0 0 14 0 0 19 0 0 16 0 0 17 0 0 17 0 0 18 0 0 19 0 0 18 0 0 17 0 0 11 0 0 21 2 0 0 2 0 20 2 0 21 2 0 1 2 0 0 2 0 23 2 0 4 2 0 22 2 0 23 2 0 5 2 0 4 2 0 25 2 0 8 2 0 24 2 0 25 2 0 9 2 0 8 2 0 27 2 0 12 2 0 26 2 0 27 2 0 13 2 0 12 2 0 29 2 0 16 2 0 28 2 0 29 2 0 17 2 0 16 2 0 2 3 0 31 3 0 3 3 0 2 3 0 30 3 0 31 3 0 6 3 0 33 3 0 7 3 0 6 3 0 32 3 0 33 3 0 10 3 0 35 3 0 11 3 0 10 3 0 34 3 0 35 3 0 14 3 0 37 3 0 15 3 0 14 3 0 36 3 0 37 3 0 18 3 0 39 3 0 19 3 0 18 3 0 38 3 0 39 3 0 28 4 0 16 4 0 39 4 0 16 4 0 19 4 0 39 4 0 20 4 0 0 4 0 25 4 0 0 4 0 9 4 0 25 4 0 24 4 0 8 4 0 29 4 0 8 4 0 17 4 0 29 4 0 30 4 0 2 4 0 33 4 0 2 4 0 7 4 0 33 4 0 32 4 0 6 4 0 37 4 0 6 4 0 15 4 0 37 4 0 13 5 0 27 5 0 14 5 0 27 5 0 36 5 0 14 5 0 1 5 0 21 5 0 4 5 0 21 5 0 22 5 0 4 5 0 5 5 0 23 5 0 12 5 0 23 5 0 26 5 0 12 5 0 3 5 0 31 5 0 10 5 0 31 5 0 34 5 0 10 5 0 11 5 0 35 5 0 18 5 0 35 5 0 38 5 0 18 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_BracketRight" id="Symbol_BracketRight-lib">
+      <mesh>
+        <source id="Symbol_BracketRight-position">
+          <float_array id="Symbol_BracketRight-position-array" count="120">0.0 1.5 0.5 0.0 -1.5 0.5 2.0 -1.5 0.5 2.0 1.5 0.5 -2.0 -2.5 0.5 -2.0 -3.5 0.5 0.0 -3.5 0.5 0.0 -2.5 0.5 -2.0 3.5 0.5 -2.0 2.5 0.5 0.0 2.5 0.5 0.0 3.5 0.5 -1.0 -1.5 0.5 -1.0 -2.5 0.5 1.0 -2.5 0.5 1.0 -1.5 0.5 -1.0 2.5 0.5 -1.0 1.5 0.5 1.0 1.5 0.5 1.0 2.5 0.5 0.0 1.5 -0.5 0.0 -1.5 -0.5 -2.0 -2.5 -0.5 -2.0 -3.5 -0.5 -2.0 3.5 -0.5 -2.0 2.5 -0.5 -1.0 -1.5 -0.5 -1.0 -2.5 -0.5 -1.0 2.5 -0.5 -1.0 1.5 -0.5 2.0 -1.5 -0.5 2.0 1.5 -0.5 0.0 -3.5 -0.5 0.0 -2.5 -0.5 0.0 2.5 -0.5 0.0 3.5 -0.5 1.0 -2.5 -0.5 1.0 -1.5 -0.5 1.0 1.5 -0.5 1.0 2.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_BracketRight-position-array" stride="3" count="40">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_BracketRight-normal">
+          <float_array id="Symbol_BracketRight-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_BracketRight-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_BracketRight-color">
+          <float_array id="Symbol_BracketRight-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_BracketRight-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_BracketRight-vertex">
+          <input semantic="POSITION" source="#Symbol_BracketRight-position" />
+        </vertices>
+        <polylist count="58">
+          <input offset="0" semantic="VERTEX" source="#Symbol_BracketRight-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_BracketRight-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_BracketRight-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>18 0 0 0 0 0 1 0 0 1 0 0 3 0 0 18 0 0 3 0 0 1 0 0 15 0 0 15 0 0 2 0 0 3 0 0 13 0 0 4 0 0 5 0 0 5 0 0 7 0 0 13 0 0 7 0 0 5 0 0 6 0 0 11 0 0 8 0 0 9 0 0 9 0 0 10 0 0 11 0 0 10 0 0 9 0 0 16 0 0 1 0 0 12 0 0 13 0 0 13 0 0 15 0 0 1 0 0 15 0 0 13 0 0 7 0 0 7 0 0 14 0 0 15 0 0 10 0 0 16 0 0 17 0 0 17 0 0 19 0 0 10 0 0 19 0 0 17 0 0 0 0 0 0 0 0 18 0 0 19 0 0 21 2 0 0 2 0 20 2 0 21 2 0 1 2 0 0 2 0 23 2 0 4 2 0 22 2 0 23 2 0 5 2 0 4 2 0 25 2 0 8 2 0 24 2 0 25 2 0 9 2 0 8 2 0 27 2 0 12 2 0 26 2 0 27 2 0 13 2 0 12 2 0 29 2 0 16 2 0 28 2 0 29 2 0 17 2 0 16 2 0 2 3 0 31 3 0 3 3 0 2 3 0 30 3 0 31 3 0 6 3 0 33 3 0 7 3 0 6 3 0 32 3 0 33 3 0 10 3 0 35 3 0 11 3 0 10 3 0 34 3 0 35 3 0 14 3 0 37 3 0 15 3 0 14 3 0 36 3 0 37 3 0 18 3 0 39 3 0 19 3 0 18 3 0 38 3 0 39 3 0 24 4 0 8 4 0 35 4 0 8 4 0 11 4 0 35 4 0 22 4 0 4 4 0 27 4 0 4 4 0 13 4 0 27 4 0 26 4 0 12 4 0 21 4 0 12 4 0 1 4 0 21 4 0 34 4 0 10 4 0 39 4 0 10 4 0 19 4 0 39 4 0 38 4 0 18 4 0 31 4 0 18 4 0 3 4 0 31 4 0 5 5 0 23 5 0 6 5 0 23 5 0 32 5 0 6 5 0 9 5 0 25 5 0 16 5 0 25 5 0 28 5 0 16 5 0 17 5 0 29 5 0 0 5 0 29 5 0 20 5 0 0 5 0 7 5 0 33 5 0 14 5 0 33 5 0 36 5 0 14 5 0 15 5 0 37 5 0 2 5 0 37 5 0 30 5 0 2 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_QuestionMark" id="Symbol_QuestionMark-lib">
+      <mesh>
+        <source id="Symbol_QuestionMark-position">
+          <float_array id="Symbol_QuestionMark-position-array" count="129">0.0 2.5 0.5 0.0 0.5 0.5 3.0 0.5 0.5 3.0 2.5 0.5 -2.0 3.5 0.5 -2.0 2.5 0.5 2.0 2.5 0.5 2.0 3.5 0.5 -1.0 0.5 0.5 -1.0 -0.5 0.5 2.0 -0.5 0.5 2.0 0.5 0.5 -1.0 -2.5 0.5 -1.0 -3.5 0.5 1.0 -3.5 0.5 1.0 -2.5 0.5 -1.0 -1.5 0.5 1.0 -1.5 0.5 1.0 -0.5 0.5 -3.0 2.5 0.5 -3.0 1.5 0.5 -2.0 1.5 0.5 -1.0 0.5 -0.5 -1.0 -1.5 -0.5 0.0 2.5 -0.5 0.0 0.5 -0.5 -3.0 2.5 -0.5 -3.0 1.5 -0.5 -2.0 3.5 -0.5 -2.0 2.5 -0.5 -1.0 -2.5 -0.5 -1.0 -3.5 -0.5 3.0 0.5 -0.5 3.0 2.5 -0.5 -2.0 1.5 -0.5 1.0 -3.5 -0.5 1.0 -2.5 -0.5 1.0 -1.5 -0.5 1.0 -0.5 -0.5 2.0 -0.5 -0.5 2.0 0.5 -0.5 2.0 2.5 -0.5 2.0 3.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_QuestionMark-position-array" stride="3" count="43">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_QuestionMark-normal">
+          <float_array id="Symbol_QuestionMark-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_QuestionMark-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_QuestionMark-color">
+          <float_array id="Symbol_QuestionMark-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_QuestionMark-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_QuestionMark-vertex">
+          <input semantic="POSITION" source="#Symbol_QuestionMark-position" />
+        </vertices>
+        <polylist count="62">
+          <input offset="0" semantic="VERTEX" source="#Symbol_QuestionMark-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_QuestionMark-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_QuestionMark-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>6 0 0 0 0 0 1 0 0 1 0 0 3 0 0 6 0 0 3 0 0 1 0 0 11 0 0 11 0 0 2 0 0 3 0 0 7 0 0 4 0 0 5 0 0 5 0 0 6 0 0 7 0 0 6 0 0 5 0 0 0 0 0 1 0 0 8 0 0 9 0 0 9 0 0 11 0 0 1 0 0 11 0 0 9 0 0 18 0 0 18 0 0 10 0 0 11 0 0 13 0 0 15 0 0 12 0 0 13 0 0 14 0 0 15 0 0 16 0 0 18 0 0 9 0 0 16 0 0 17 0 0 18 0 0 20 0 0 5 0 0 19 0 0 20 0 0 21 0 0 5 0 0 8 2 0 22 2 0 23 2 0 23 2 0 9 2 0 8 2 0 9 2 0 23 2 0 16 2 0 25 2 0 0 2 0 24 2 0 25 2 0 1 2 0 0 2 0 27 2 0 19 2 0 26 2 0 27 2 0 20 2 0 19 2 0 29 2 0 4 2 0 28 2 0 29 2 0 5 2 0 4 2 0 31 2 0 12 2 0 30 2 0 31 2 0 13 2 0 12 2 0 2 3 0 33 3 0 3 3 0 2 3 0 32 3 0 33 3 0 21 3 0 29 3 0 5 3 0 21 3 0 34 3 0 29 3 0 14 3 0 36 3 0 15 3 0 14 3 0 35 3 0 36 3 0 17 3 0 38 3 0 18 3 0 17 3 0 37 3 0 38 3 0 10 3 0 40 3 0 11 3 0 10 3 0 39 3 0 40 3 0 6 3 0 42 3 0 7 3 0 6 3 0 41 3 0 42 3 0 28 4 0 4 4 0 42 4 0 4 4 0 7 4 0 42 4 0 30 4 0 12 4 0 36 4 0 12 4 0 15 4 0 36 4 0 26 4 0 19 4 0 29 4 0 19 4 0 5 4 0 29 4 0 22 4 0 8 4 0 25 4 0 8 4 0 1 4 0 25 4 0 41 4 0 6 4 0 33 4 0 6 4 0 3 4 0 33 4 0 5 5 0 29 5 0 0 5 0 29 5 0 24 5 0 0 5 0 13 5 0 31 5 0 14 5 0 31 5 0 35 5 0 14 5 0 16 5 0 23 5 0 17 5 0 23 5 0 37 5 0 17 5 0 20 5 0 27 5 0 21 5 0 27 5 0 34 5 0 21 5 0 18 5 0 38 5 0 10 5 0 38 5 0 39 5 0 10 5 0 11 5 0 40 5 0 2 5 0 40 5 0 32 5 0 2 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_QuestionMarkFlipped" id="Symbol_QuestionMarkFlipped-lib">
+      <mesh>
+        <source id="Symbol_QuestionMarkFlipped-position">
+          <float_array id="Symbol_QuestionMarkFlipped-position-array" count="129">-3.0 -0.5 0.5 -3.0 -2.5 0.5 0.0 -2.5 0.5 0.0 -0.5 0.5 -2.0 -2.5 0.5 -2.0 -3.5 0.5 2.0 -3.5 0.5 2.0 -2.5 0.5 -2.0 0.5 0.5 -2.0 -0.5 0.5 1.0 -0.5 0.5 1.0 0.5 0.5 -1.0 1.5 0.5 -1.0 0.5 0.5 1.0 1.5 0.5 -1.0 3.5 0.5 -1.0 2.5 0.5 1.0 2.5 0.5 1.0 3.5 0.5 2.0 -1.5 0.5 3.0 -2.5 0.5 3.0 -1.5 0.5 -3.0 -0.5 -0.5 -3.0 -2.5 -0.5 -2.0 -2.5 -0.5 -2.0 -3.5 -0.5 -2.0 0.5 -0.5 -2.0 -0.5 -0.5 -1.0 1.5 -0.5 -1.0 0.5 -0.5 -1.0 3.5 -0.5 -1.0 2.5 -0.5 2.0 -1.5 -0.5 2.0 -2.5 -0.5 0.0 -2.5 -0.5 0.0 -0.5 -0.5 1.0 -0.5 -0.5 1.0 1.5 -0.5 1.0 2.5 -0.5 1.0 3.5 -0.5 2.0 -3.5 -0.5 3.0 -2.5 -0.5 3.0 -1.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_QuestionMarkFlipped-position-array" stride="3" count="43">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_QuestionMarkFlipped-normal">
+          <float_array id="Symbol_QuestionMarkFlipped-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_QuestionMarkFlipped-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_QuestionMarkFlipped-color">
+          <float_array id="Symbol_QuestionMarkFlipped-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_QuestionMarkFlipped-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_QuestionMarkFlipped-vertex">
+          <input semantic="POSITION" source="#Symbol_QuestionMarkFlipped-position" />
+        </vertices>
+        <polylist count="62">
+          <input offset="0" semantic="VERTEX" source="#Symbol_QuestionMarkFlipped-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_QuestionMarkFlipped-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_QuestionMarkFlipped-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>9 0 0 0 0 0 1 0 0 1 0 0 3 0 0 9 0 0 3 0 0 1 0 0 4 0 0 4 0 0 2 0 0 3 0 0 2 0 0 4 0 0 5 0 0 5 0 0 7 0 0 2 0 0 7 0 0 5 0 0 6 0 0 13 0 0 8 0 0 9 0 0 9 0 0 11 0 0 13 0 0 11 0 0 9 0 0 3 0 0 3 0 0 10 0 0 11 0 0 13 0 0 14 0 0 12 0 0 13 0 0 11 0 0 14 0 0 16 0 0 18 0 0 15 0 0 16 0 0 17 0 0 18 0 0 7 0 0 21 0 0 19 0 0 7 0 0 20 0 0 21 0 0 23 2 0 0 2 0 22 2 0 23 2 0 1 2 0 0 2 0 25 2 0 4 2 0 24 2 0 25 2 0 5 2 0 4 2 0 27 2 0 8 2 0 26 2 0 27 2 0 9 2 0 8 2 0 29 2 0 12 2 0 28 2 0 29 2 0 13 2 0 12 2 0 31 2 0 15 2 0 30 2 0 31 2 0 16 2 0 15 2 0 33 2 0 19 2 0 32 2 0 33 2 0 7 2 0 19 2 0 2 3 0 35 3 0 3 3 0 2 3 0 34 3 0 35 3 0 37 3 0 14 3 0 11 3 0 11 3 0 36 3 0 37 3 0 36 3 0 11 3 0 10 3 0 17 3 0 39 3 0 18 3 0 17 3 0 38 3 0 39 3 0 6 3 0 33 3 0 7 3 0 6 3 0 40 3 0 33 3 0 20 3 0 42 3 0 21 3 0 20 3 0 41 3 0 42 3 0 28 4 0 12 4 0 37 4 0 12 4 0 14 4 0 37 4 0 30 4 0 15 4 0 39 4 0 15 4 0 18 4 0 39 4 0 34 4 0 2 4 0 33 4 0 2 4 0 7 4 0 33 4 0 22 4 0 0 4 0 27 4 0 0 4 0 9 4 0 27 4 0 26 4 0 8 4 0 29 4 0 8 4 0 13 4 0 29 4 0 32 4 0 19 4 0 42 4 0 19 4 0 21 4 0 42 4 0 5 5 0 25 5 0 6 5 0 25 5 0 40 5 0 6 5 0 16 5 0 31 5 0 17 5 0 31 5 0 38 5 0 17 5 0 1 5 0 23 5 0 4 5 0 23 5 0 24 5 0 4 5 0 3 5 0 35 5 0 10 5 0 35 5 0 36 5 0 10 5 0 7 5 0 33 5 0 20 5 0 33 5 0 41 5 0 20 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Backslash" id="Symbol_Backslash-lib">
+      <mesh>
+        <source id="Symbol_Backslash-position">
+          <float_array id="Symbol_Backslash-position-array" count="144">-3.5 2.5 0.5 -3.5 1.5 0.5 -1.5 1.5 0.5 -1.5 2.5 0.5 -2.5 1.5 0.5 -2.5 0.5 0.5 -0.5 0.5 0.5 -0.5 1.5 0.5 -1.5 0.5 0.5 -1.5 -0.5 0.5 0.5 -0.5 0.5 0.5 0.5 0.5 -0.5 -0.5 0.5 -0.5 -1.5 0.5 1.5 -1.5 0.5 1.5 -0.5 0.5 0.5 -1.5 0.5 0.5 -2.5 0.5 2.5 -2.5 0.5 2.5 -1.5 0.5 1.5 -2.5 0.5 1.5 -3.5 0.5 3.5 -3.5 0.5 3.5 -2.5 0.5 -3.5 2.5 -0.5 -3.5 1.5 -0.5 -2.5 1.5 -0.5 -2.5 0.5 -0.5 -1.5 0.5 -0.5 -1.5 -0.5 -0.5 -0.5 -0.5 -0.5 -0.5 -1.5 -0.5 0.5 -1.5 -0.5 0.5 -2.5 -0.5 1.5 -2.5 -0.5 1.5 -3.5 -0.5 -1.5 1.5 -0.5 -1.5 2.5 -0.5 -0.5 0.5 -0.5 -0.5 1.5 -0.5 0.5 -0.5 -0.5 0.5 0.5 -0.5 1.5 -1.5 -0.5 1.5 -0.5 -0.5 2.5 -2.5 -0.5 2.5 -1.5 -0.5 3.5 -3.5 -0.5 3.5 -2.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Backslash-position-array" stride="3" count="48">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Backslash-normal">
+          <float_array id="Symbol_Backslash-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Backslash-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Backslash-color">
+          <float_array id="Symbol_Backslash-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Backslash-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Backslash-vertex">
+          <input semantic="POSITION" source="#Symbol_Backslash-position" />
+        </vertices>
+        <polylist count="70">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Backslash-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Backslash-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Backslash-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>3 0 0 0 0 0 1 0 0 1 0 0 2 0 0 3 0 0 2 0 0 1 0 0 4 0 0 2 0 0 4 0 0 5 0 0 5 0 0 7 0 0 2 0 0 7 0 0 5 0 0 8 0 0 8 0 0 6 0 0 7 0 0 6 0 0 8 0 0 9 0 0 9 0 0 11 0 0 6 0 0 11 0 0 9 0 0 12 0 0 12 0 0 10 0 0 11 0 0 10 0 0 12 0 0 13 0 0 13 0 0 15 0 0 10 0 0 15 0 0 13 0 0 16 0 0 16 0 0 14 0 0 15 0 0 14 0 0 16 0 0 17 0 0 17 0 0 19 0 0 14 0 0 19 0 0 17 0 0 20 0 0 20 0 0 18 0 0 19 0 0 18 0 0 20 0 0 21 0 0 21 0 0 23 0 0 18 0 0 23 0 0 21 0 0 22 0 0 25 2 0 0 2 0 24 2 0 25 2 0 1 2 0 0 2 0 27 2 0 4 2 0 26 2 0 27 2 0 5 2 0 4 2 0 29 2 0 8 2 0 28 2 0 29 2 0 9 2 0 8 2 0 31 2 0 12 2 0 30 2 0 31 2 0 13 2 0 12 2 0 33 2 0 16 2 0 32 2 0 33 2 0 17 2 0 16 2 0 35 2 0 20 2 0 34 2 0 35 2 0 21 2 0 20 2 0 2 3 0 37 3 0 3 3 0 2 3 0 36 3 0 37 3 0 6 3 0 39 3 0 7 3 0 6 3 0 38 3 0 39 3 0 10 3 0 41 3 0 11 3 0 10 3 0 40 3 0 41 3 0 14 3 0 43 3 0 15 3 0 14 3 0 42 3 0 43 3 0 18 3 0 45 3 0 19 3 0 18 3 0 44 3 0 45 3 0 22 3 0 47 3 0 23 3 0 22 3 0 46 3 0 47 3 0 24 4 0 0 4 0 37 4 0 0 4 0 3 4 0 37 4 0 36 4 0 2 4 0 39 4 0 2 4 0 7 4 0 39 4 0 38 4 0 6 4 0 41 4 0 6 4 0 11 4 0 41 4 0 40 4 0 10 4 0 43 4 0 10 4 0 15 4 0 43 4 0 42 4 0 14 4 0 45 4 0 14 4 0 19 4 0 45 4 0 44 4 0 18 4 0 47 4 0 18 4 0 23 4 0 47 4 0 21 5 0 35 5 0 22 5 0 35 5 0 46 5 0 22 5 0 1 5 0 25 5 0 4 5 0 25 5 0 26 5 0 4 5 0 5 5 0 27 5 0 8 5 0 27 5 0 28 5 0 8 5 0 9 5 0 29 5 0 12 5 0 29 5 0 30 5 0 12 5 0 13 5 0 31 5 0 16 5 0 31 5 0 32 5 0 16 5 0 17 5 0 33 5 0 20 5 0 33 5 0 34 5 0 20 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+    <geometry name="Symbol_Heart" id="Symbol_Heart-lib">
+      <mesh>
+        <source id="Symbol_Heart-position">
+          <float_array id="Symbol_Heart-position-array" count="180">-3.5 2.5 0.5 -3.5 -0.5 0.5 -2.5 -0.5 0.5 -2.5 2.5 0.5 2.5 2.5 0.5 2.5 -0.5 0.5 3.5 -0.5 0.5 3.5 2.5 0.5 -2.5 3.5 0.5 -0.5 2.5 0.5 -0.5 3.5 0.5 0.5 3.5 0.5 0.5 2.5 0.5 2.5 3.5 0.5 -2.5 -1.5 0.5 -1.5 -1.5 0.5 -1.5 -0.5 0.5 -1.5 -2.5 0.5 -0.5 -2.5 0.5 -0.5 -1.5 0.5 -0.5 -3.5 0.5 0.5 -3.5 0.5 0.5 -2.5 0.5 -0.5 1.5 0.5 0.5 1.5 0.5 0.5 -1.5 0.5 1.5 -2.5 0.5 1.5 -1.5 0.5 1.5 -0.5 0.5 2.5 -1.5 0.5 -3.5 2.5 -0.5 -3.5 -0.5 -0.5 2.5 2.5 -0.5 2.5 -0.5 -0.5 -2.5 -0.5 -0.5 -2.5 -1.5 -0.5 -2.5 3.5 -0.5 -2.5 2.5 -0.5 -1.5 -1.5 -0.5 -1.5 -2.5 -0.5 -0.5 -2.5 -0.5 -0.5 -3.5 -0.5 -0.5 2.5 -0.5 -0.5 1.5 -0.5 0.5 -1.5 -0.5 0.5 -2.5 -0.5 0.5 3.5 -0.5 0.5 2.5 -0.5 1.5 -0.5 -0.5 1.5 -1.5 -0.5 3.5 -0.5 -0.5 3.5 2.5 -0.5 -1.5 -0.5 -0.5 -0.5 -1.5 -0.5 -0.5 3.5 -0.5 0.5 -3.5 -0.5 0.5 1.5 -0.5 1.5 -2.5 -0.5 2.5 -1.5 -0.5 2.5 3.5 -0.5 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Heart-position-array" stride="3" count="60">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Heart-normal">
+          <float_array id="Symbol_Heart-normal-array" count="18">0.0 0.0 1.0 0.0 0.0 -1.0 -1.0 0.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0 -1.0 0.0</float_array>
+          <technique_common>
+            <accessor source="#Symbol_Heart-normal-array" stride="3" count="6">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Symbol_Heart-color">
+          <float_array id="Symbol_Heart-color-array" count="4">0.918 0.678 0.929 1.0 </float_array>
+          <technique_common>
+            <accessor source="#Symbol_Heart-color-array" stride="4" count="1">
+              <param name="R" type="float" />
+              <param name="G" type="float" />
+              <param name="B" type="float" />
+              <param name="A" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Symbol_Heart-vertex">
+          <input semantic="POSITION" source="#Symbol_Heart-position" />
+        </vertices>
+        <polylist count="100">
+          <input offset="0" semantic="VERTEX" source="#Symbol_Heart-vertex" />
+          <input offset="1" semantic="NORMAL" source="#Symbol_Heart-normal" />
+          <input offset="2" semantic="COLOR" source="#Symbol_Heart-color" />
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>1 0 0 3 0 0 0 0 0 1 0 0 2 0 0 3 0 0 5 0 0 7 0 0 4 0 0 5 0 0 6 0 0 7 0 0 3 0 0 10 0 0 8 0 0 3 0 0 9 0 0 10 0 0 12 0 0 13 0 0 11 0 0 12 0 0 4 0 0 13 0 0 14 0 0 16 0 0 2 0 0 14 0 0 15 0 0 16 0 0 17 0 0 19 0 0 15 0 0 17 0 0 18 0 0 19 0 0 20 0 0 22 0 0 18 0 0 20 0 0 21 0 0 22 0 0 23 0 0 12 0 0 9 0 0 23 0 0 24 0 0 12 0 0 22 0 0 27 0 0 25 0 0 22 0 0 26 0 0 27 0 0 27 0 0 5 0 0 28 0 0 27 0 0 29 0 0 5 0 0 31 2 0 0 2 0 30 2 0 31 2 0 1 2 0 0 2 0 33 2 0 4 2 0 32 2 0 33 2 0 5 2 0 4 2 0 35 2 0 2 2 0 34 2 0 35 2 0 14 2 0 2 2 0 37 2 0 8 2 0 36 2 0 37 2 0 3 2 0 8 2 0 39 2 0 15 2 0 38 2 0 39 2 0 17 2 0 15 2 0 41 2 0 18 2 0 40 2 0 41 2 0 20 2 0 18 2 0 43 2 0 9 2 0 42 2 0 43 2 0 23 2 0 9 2 0 45 2 0 25 2 0 44 2 0 45 2 0 22 2 0 25 2 0 47 2 0 11 2 0 46 2 0 47 2 0 12 2 0 11 2 0 49 2 0 28 2 0 48 2 0 49 2 0 27 2 0 28 2 0 2 3 0 37 3 0 3 3 0 2 3 0 34 3 0 37 3 0 6 3 0 51 3 0 7 3 0 6 3 0 50 3 0 51 3 0 15 3 0 52 3 0 16 3 0 15 3 0 38 3 0 52 3 0 18 3 0 53 3 0 19 3 0 18 3 0 40 3 0 53 3 0 9 3 0 54 3 0 10 3 0 9 3 0 42 3 0 54 3 0 21 3 0 45 3 0 22 3 0 21 3 0 55 3 0 45 3 0 24 3 0 47 3 0 12 3 0 24 3 0 56 3 0 47 3 0 26 3 0 49 3 0 27 3 0 26 3 0 57 3 0 49 3 0 29 3 0 33 3 0 5 3 0 29 3 0 58 3 0 33 3 0 4 3 0 59 3 0 13 3 0 4 3 0 32 3 0 59 3 0 36 4 0 8 4 0 54 4 0 8 4 0 10 4 0 54 4 0 46 4 0 11 4 0 59 4 0 11 4 0 13 4 0 59 4 0 30 4 0 0 4 0 37 4 0 0 4 0 3 4 0 37 4 0 34 4 0 2 4 0 52 4 0 2 4 0 16 4 0 52 4 0 38 4 0 15 4 0 53 4 0 15 4 0 19 4 0 53 4 0 40 4 0 18 4 0 45 4 0 18 4 0 22 4 0 45 4 0 42 4 0 9 4 0 47 4 0 9 4 0 12 4 0 47 4 0 44 4 0 25 4 0 49 4 0 25 4 0 27 4 0 49 4 0 48 4 0 28 4 0 33 4 0 28 4 0 5 4 0 33 4 0 32 4 0 4 4 0 51 4 0 4 4 0 7 4 0 51 4 0 3 5 0 37 5 0 9 5 0 37 5 0 42 5 0 9 5 0 12 5 0 47 5 0 4 5 0 47 5 0 32 5 0 4 5 0 1 5 0 31 5 0 2 5 0 31 5 0 34 5 0 2 5 0 14 5 0 35 5 0 15 5 0 35 5 0 38 5 0 15 5 0 17 5 0 39 5 0 18 5 0 39 5 0 40 5 0 18 5 0 20 5 0 41 5 0 21 5 0 41 5 0 55 5 0 21 5 0 23 5 0 43 5 0 24 5 0 43 5 0 56 5 0 24 5 0 22 5 0 45 5 0 26 5 0 45 5 0 57 5 0 26 5 0 27 5 0 49 5 0 29 5 0 49 5 0 58 5 0 29 5 0 5 5 0 33 5 0 6 5 0 33 5 0 50 5 0 6 5 0 </p>
+        </polylist>
+      </mesh>
+    </geometry>)
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Symbols-scene" name="Symbols-scene">
+      <node sid="Symbol_Dollar" id="Symbol_Dollar" name="Symbol_Dollar">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Dollar-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Cent" id="Symbol_Cent" name="Symbol_Cent">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Cent-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Euro" id="Symbol_Euro" name="Symbol_Euro">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Euro-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Pound" id="Symbol_Pound" name="Symbol_Pound">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Pound-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Yen" id="Symbol_Yen" name="Symbol_Yen">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Yen-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Plus" id="Symbol_Plus" name="Symbol_Plus">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Plus-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Minus" id="Symbol_Minus" name="Symbol_Minus">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Minus-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Asterix" id="Symbol_Asterix" name="Symbol_Asterix">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Asterix-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_ForwardSlash" id="Symbol_ForwardSlash" name="Symbol_ForwardSlash">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_ForwardSlash-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Divide" id="Symbol_Divide" name="Symbol_Divide">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Divide-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Equals" id="Symbol_Equals" name="Symbol_Equals">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Equals-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Percent" id="Symbol_Percent" name="Symbol_Percent">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Percent-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Hash" id="Symbol_Hash" name="Symbol_Hash">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Hash-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_At" id="Symbol_At" name="Symbol_At">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_At-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Ampersand" id="Symbol_Ampersand" name="Symbol_Ampersand">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Ampersand-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Underscore" id="Symbol_Underscore" name="Symbol_Underscore">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Underscore-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_BracketLeft" id="Symbol_BracketLeft" name="Symbol_BracketLeft">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_BracketLeft-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_BracketRight" id="Symbol_BracketRight" name="Symbol_BracketRight">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_BracketRight-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_QuestionMark" id="Symbol_QuestionMark" name="Symbol_QuestionMark">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_QuestionMark-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_QuestionMarkFlipped" id="Symbol_QuestionMarkFlipped" name="Symbol_QuestionMarkFlipped">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_QuestionMarkFlipped-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Backslash" id="Symbol_Backslash" name="Symbol_Backslash">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Backslash-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+      <node sid="Symbol_Heart" id="Symbol_Heart" name="Symbol_Heart">
+        <translate sid="translate">0.00 0.00 0.00</translate>
+        <instance_geometry url="#Symbol_Heart-lib">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Symbols-material" target="#Symbols-material" />
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene name="" sid="" url="#Symbols-scene" />
+  </scene>
+</COLLADA>

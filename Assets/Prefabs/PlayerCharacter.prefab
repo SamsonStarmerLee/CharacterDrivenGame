@@ -38,7 +38,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276007719602345958}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -106,8 +106,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Solid: 0
   _letter: A
-  MovementRange: 6
   moveTime: 0.25
+  throwRange: 3
+  throwTime: 0.25
+  _movementRange: 6
 --- !u!1001 &5936553694941219124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,12 +120,12 @@ PrefabInstance:
     - target: {fileID: 7552664787412783074, guid: cb811748d6433104a8c38f5980f9c6ca,
         type: 3}
       propertyPath: m_Name
-      value: PlayerCharacter
+      value: AWarrior
       objectReference: {fileID: 0}
     - target: {fileID: 7552664787412783075, guid: cb811748d6433104a8c38f5980f9c6ca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7552664787412783075, guid: cb811748d6433104a8c38f5980f9c6ca,
         type: 3}
@@ -133,7 +135,7 @@ PrefabInstance:
     - target: {fileID: 7552664787412783075, guid: cb811748d6433104a8c38f5980f9c6ca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7552664787412783075, guid: cb811748d6433104a8c38f5980f9c6ca,
         type: 3}

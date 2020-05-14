@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts;
-using Assets.Scripts.Characters;
 using Assets.Scripts.Pathfinding;
 using DG.Tweening;
 using System.Collections.Generic;
