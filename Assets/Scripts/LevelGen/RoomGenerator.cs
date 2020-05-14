@@ -76,6 +76,10 @@ namespace Assets.Scripts.LevelGen
                 Array.Reverse(template);
             }
 
+            var roomObject = new GameObject();
+            roomObject.transform.parent = transform;
+            roomObject.name = $"Room {atPosition}";
+
             var room = new Room();
             var board = Board.Instance;
 
@@ -97,7 +101,7 @@ namespace Assets.Scripts.LevelGen
                 }
 
                 var position = new Vector3(x, 0f, y);
-                var obj = Instantiate(tile, position, Quaternion.identity);
+                var obj = Instantiate(tile, position, Quaternion.identity, roomObject.transform);
                 room.Tiles[i] = obj;
             }
 
