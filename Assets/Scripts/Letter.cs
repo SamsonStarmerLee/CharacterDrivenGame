@@ -48,6 +48,11 @@ public class Letter : Entity
             .Select(x => x.BoardPosition)
             .ToList();
 
+        if (targets.Count == 0)
+        {
+            return;
+        }
+
         var ignore = new List<IOccupant> { this };
 
         var path = PathFinder.GenerateAStarClosest(
