@@ -100,6 +100,7 @@ MonoBehaviour:
   - {fileID: -7951728556686003152, guid: efb9fc380b28f334bacdfa4dd1f0bb28, type: 3}
   - {fileID: -5633041684971857249, guid: efb9fc380b28f334bacdfa4dd1f0bb28, type: 3}
   - {fileID: -946301928450840285, guid: efb9fc380b28f334bacdfa4dd1f0bb28, type: 3}
+  pathfindRange: 10
 --- !u!65 &3162337134817359903
 BoxCollider:
   m_ObjectHideFlags: 0

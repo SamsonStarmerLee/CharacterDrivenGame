@@ -28,7 +28,7 @@ public class Letter : Entity
         // This sucks
         if (string.IsNullOrWhiteSpace(Letter))
         {
-            _letter = Alphabet[Random.Range(0, Consonants.Length)].ToString();
+            _letter = Consonants[Random.Range(0, Consonants.Length)].ToString();
             name = _letter;
             var mesh = meshAlphabet.First(x => x.name == $"{Letter}_Upper");
             var meshFilter = GetComponentInChildren<MeshFilter>();
