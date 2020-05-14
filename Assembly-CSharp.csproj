@@ -97,6 +97,15 @@
     <Compile Include="Assets\Scripts\Notifications\ObserverExtentions.cs" />
     <Compile Include="Assets\Scripts\Pathfinding\IMovementCallbacks.cs" />
     <Compile Include="Assets\Scripts\Pathfinding\PathFinder.cs" />
+    <Compile Include="Assets\Scripts\Poolers\GameObjectPoolController.cs" />
+    <Compile Include="Assets\Scripts\Poolers\PoolData.cs" />
+    <Compile Include="Assets\Scripts\Poolers\Poolable.cs" />
+    <Compile Include="Assets\Scripts\Poolers\Poolers\BasePooler.cs" />
+    <Compile Include="Assets\Scripts\Poolers\Poolers\IndexedPooler.cs" />
+    <Compile Include="Assets\Scripts\Poolers\Poolers\IntKeyedPooler.cs" />
+    <Compile Include="Assets\Scripts\Poolers\Poolers\KeyedPooler.cs" />
+    <Compile Include="Assets\Scripts\Poolers\Poolers\SetPooler.cs" />
+    <Compile Include="Assets\Scripts\Poolers\Poolers\StringKeyedPooler.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Utility.cs" />
     <Compile Include="Assets\Scripts\WordFinder.cs" />
