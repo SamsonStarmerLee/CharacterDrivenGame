@@ -211,7 +211,7 @@ namespace Assets.Scripts.Pathfinding
                     break;
                 }
 
-                foreach (var next in GetNeighbours(current))
+                foreach (var next in GetNeighbours(current).Shuffle())
                 {
                     var dG = cost[current] + movement.GetCost(next, ignore);
                     var dO = ManhattanDist(next, origin);
@@ -253,18 +253,14 @@ namespace Assets.Scripts.Pathfinding
             return new List<Vector2Int>();
         }
 
-        static List<Vector2Int> GetNeighbours(Vector2Int location)
-        {
-            return new List<Vector2Int>()
+        static List<Vector2Int> GetNeighbours(Vector2Int location) =>
+            new List<Vector2Int>()
             {
                 Vector2Int.up    + location,
                 Vector2Int.down  + location,
                 Vector2Int.left  + location,
                 Vector2Int.right + location,
-            }
-            .Shuffle()
-            .ToList();
-        }
+            };
 
         static IList<T> Shuffle<T>(this IList<T> list)
         {
