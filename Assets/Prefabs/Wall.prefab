@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6292246719731874310}
   - component: {fileID: 6292246719731874329}
   - component: {fileID: 2537609208046739661}
+  - component: {fileID: 6715861987561341638}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -95,3 +96,17 @@ MonoBehaviour:
   Solid: 1
   _letter: W
   meshAlphabet: []
+  pathfindRange: 10
+--- !u!114 &6715861987561341638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6292246719731874331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc63b1741d8c53c41a644358c5067515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 3

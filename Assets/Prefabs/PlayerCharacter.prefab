@@ -117,10 +117,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2951760689717763389, guid: cb811748d6433104a8c38f5980f9c6ca,
+        type: 3}
+      propertyPath: Id
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7552664787412783074, guid: cb811748d6433104a8c38f5980f9c6ca,
         type: 3}
       propertyPath: m_Name
-      value: AWarrior
+      value: PlayerCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 7552664787412783075, guid: cb811748d6433104a8c38f5980f9c6ca,
         type: 3}

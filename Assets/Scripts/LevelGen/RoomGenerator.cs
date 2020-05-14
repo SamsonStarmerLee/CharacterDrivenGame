@@ -1,4 +1,5 @@
-﻿using RotaryHeart.Lib.SerializableDictionary;
+﻿using Assets.Scripts.Pooling;
+using RotaryHeart.Lib.SerializableDictionary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,11 +7,12 @@ using UnityEngine;
 
 namespace Assets.Scripts.LevelGen
 {
-    [System.Serializable]
+    [Serializable]
     class CharGameObjectDictionary : SerializableDictionaryBase<char, GameObject> { }
 
     class Room
     {
+        public GameObject GameObject;
         public GameObject[] Tiles = new GameObject[100];
     }
 
@@ -21,6 +23,9 @@ namespace Assets.Scripts.LevelGen
 
         [SerializeField]
         CharGameObjectDictionary legend = new CharGameObjectDictionary();
+
+        [SerializeField]
+        Pooler pooler;
 
         List<string> roomTemplates = new List<string>();
 
@@ -47,19 +52,48 @@ namespace Assets.Scripts.LevelGen
         {
             if (Input.GetKeyDown(KeyCode.G))
             {
-                for (var x = 0; x < 10; x++)
+                if (rooms.Count == 0)
                 {
-                    for (var y = 0; y < 10; y++)
+                    for (var x = 0; x < 10; x++)
                     {
-                        var pos = new Vector2Int(x * roomWidth, y * roomHeight) - new Vector2Int(50, 50);
-                        var chunk = SpawnChunk(pos);
-                        rooms.Add(pos, chunk);
+                        for (var y = 0; y < 10; y++)
+                        {
+                            var pos = new Vector2Int(x * roomWidth, y * roomHeight) - new Vector2Int(50, 50);
+                            var room = SpawnRoom(pos);
+                            rooms.Add(pos, room);
+                        }
                     }
+                }
+                else
+                {
+                    // TEMP
+                    for (var x = 0; x < 10; x++)
+                    {
+                        for (var y = 0; y < 10; y++)
+                        {
+                            var pos = new Vector2Int(x * roomWidth, y * roomHeight) - new Vector2Int(50, 50);
+                            var room = rooms[pos];
+                            var tiles = room.Tiles.Where(t => t != null);
+
+                            foreach (var tile in tiles)
+                            {
+                                var poolable = tile.GetComponent<Poolable>();
+                                if (poolable)
+                                {
+                                    pooler.Reclaim(poolable);
+                                }
+                            }
+
+                            Destroy(room.GameObject);
+                        }
+                    }
+                    rooms.Clear();
+                    // TEMP
                 }
             }
         }
 
-        Room SpawnChunk(Vector2Int atPosition)
+        Room SpawnRoom(Vector2Int atPosition)
         {
             var template = roomTemplates[UnityEngine.Random.Range(0, roomTemplates.Count)]
                 .ToArray();
@@ -76,12 +110,14 @@ namespace Assets.Scripts.LevelGen
                 Array.Reverse(template);
             }
 
+            var board = Board.Instance;
+
             var roomObject = new GameObject();
             roomObject.transform.parent = transform;
             roomObject.name = $"Room {atPosition}";
 
             var room = new Room();
-            var board = Board.Instance;
+            room.GameObject = roomObject;
 
             for (var i = 0; i < template.Length; i++)
             {
@@ -101,8 +137,13 @@ namespace Assets.Scripts.LevelGen
                 }
 
                 var position = new Vector3(x, 0f, y);
-                var obj = Instantiate(tile, position, Quaternion.identity, roomObject.transform);
-                room.Tiles[i] = obj;
+                var poolable = tile.GetComponent<Poolable>();
+                var obj = pooler.Get(poolable.Id);
+                obj.transform.position = position;
+                obj.transform.rotation = Quaternion.identity;
+                obj.transform.parent = roomObject.transform;
+
+                room.Tiles[i] = obj.gameObject;
             }
 
             return room;

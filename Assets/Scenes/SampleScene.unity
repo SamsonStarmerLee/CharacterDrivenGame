@@ -521,6 +521,7 @@ MonoBehaviour:
     - {fileID: 6292246719731874331, guid: 10848dbd9f090444fafeb4955dad8344, type: 3}
     - {fileID: 7552664787412783074, guid: cb811748d6433104a8c38f5980f9c6ca, type: 3}
     - {fileID: 6570712612793301155, guid: 7ac46355c1ed1fe46a75f3d206ad7b02, type: 3}
+  pooler: {fileID: 11400000, guid: 8211a22d20513374ea736ecc39df37cc, type: 2}
 --- !u!4 &1483525358
 Transform:
   m_ObjectHideFlags: 0

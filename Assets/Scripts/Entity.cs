@@ -21,7 +21,7 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
     MaterialPropertyBlock block;
     Color defaultColor;
 
-    private void Awake()
+    private void Start()
     {
         // TEMP: Perhaps call init from a manager class?
         Init();
