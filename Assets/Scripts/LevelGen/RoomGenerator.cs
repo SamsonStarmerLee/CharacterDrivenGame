@@ -1,5 +1,7 @@
 ﻿using RotaryHeart.Lib.SerializableDictionary;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.LevelGen
@@ -45,22 +47,32 @@ namespace Assets.Scripts.LevelGen
         {
             if (Input.GetKeyDown(KeyCode.G))
             {
-                var pos = new Vector2Int(10, 10);
-                var chunk = SpawnChunk(pos);
-                rooms.Add(pos, chunk);
+                for (var i = 0; i < 10; i++)
+                {
+                    var pos = new Vector2Int(i * 10, 10);
+                    var chunk = SpawnChunk(pos);
+                    rooms.Add(pos, chunk);
+                }
             }
         }
 
         Room SpawnChunk(Vector2Int atPosition)
         {
-            var template = roomTemplates[0];
+            var template = roomTemplates[0].ToArray();
             if (template.Length != 100)
             {
                 Debug.LogError("Room template was the wrong size.");
                 return null;
             }
 
+            if (UnityEngine.Random.Range(0, 2) == 1)
+            {
+                // 50% chance to flip any template we use vertically.
+                Array.Reverse(template);
+            }
+
             var room = new Room();
+            var board = Board.Instance;
 
             for (var i = 0; i < template.Length; i++)
             {
@@ -73,8 +85,13 @@ namespace Assets.Scripts.LevelGen
                 var tile = legend[key];
                 var x = i % roomWidth + atPosition.x;
                 var y = i / roomHeight + atPosition.y;
-                var position = new Vector3(x, 0f, y);
 
+                if (board.GetAtPosition(new Vector2Int(x, y)) != null)
+                {
+                    continue;
+                }
+
+                var position = new Vector3(x, 0f, y);
                 var obj = Instantiate(tile, position, Quaternion.identity);
                 room.Tiles[i] = obj;
             }
