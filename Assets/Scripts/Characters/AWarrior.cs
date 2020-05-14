@@ -6,16 +6,16 @@ namespace Assets.Scripts.Characters
     [SelectionBase]
     public partial class AWarrior : Entity, ICharacter, IScorer
     {
-        [SerializeField]
+        [SerializeField, Min(0f)]
         float moveTime = 0.25f;
 
-        [SerializeField]
+        [SerializeField, Min(1)]
         int throwRange = 3;
 
-        [SerializeField]
+        [SerializeField, Min(0f)]
         float throwTime = 0.25f;
 
-        [SerializeField]
+        [SerializeField, Min(0)]
         int _movementRange = 6;
 
         StateMachine machine = new StateMachine();
