@@ -101,8 +101,22 @@
     <Compile Include="Assets\Scripts\WordFinder.cs" />
     <None Include="Assets\Resources\enable.txt" />
     <None Include="Assets\Resources\Rooms\r1.txt" />
+    <None Include="Assets\Resources\Rooms\r10.txt" />
     <None Include="Assets\Resources\Rooms\r0.txt" />
+    <None Include="Assets\Resources\Rooms\r11.txt" />
+    <None Include="Assets\Resources\Rooms\r5.txt" />
+    <None Include="Assets\Resources\Rooms\r8.txt" />
+    <None Include="Assets\Resources\Rooms\r4.txt" />
+    <None Include="Assets\Resources\Rooms\r6.txt" />
+    <None Include="Assets\Resources\Rooms\r13.txt" />
+    <None Include="Assets\Resources\Rooms\r3.txt" />
+    <None Include="Assets\Resources\Rooms\r9.txt" />
+    <None Include="Assets\Resources\Rooms\r12.txt" />
+    <None Include="Assets\Resources\Rooms\r7.txt" />
+    <None Include="Assets\Resources\Rooms\r2.txt" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
+    <None Include="Assets\Resources\Rooms\r14.txt" />
+    <None Include="Assets\Resources\Rooms\r15.txt" />
     <None Include="Assets\Resources\sowpods.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

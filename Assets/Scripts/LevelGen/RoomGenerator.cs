@@ -51,7 +51,7 @@ namespace Assets.Scripts.LevelGen
                 {
                     for (var y = 0; y < 10; y++)
                     {
-                        var pos = new Vector2Int(x * roomWidth, y * roomHeight);
+                        var pos = new Vector2Int(x * roomWidth, y * roomHeight) - new Vector2Int(50, 50);
                         var chunk = SpawnChunk(pos);
                         rooms.Add(pos, chunk);
                     }
@@ -61,7 +61,9 @@ namespace Assets.Scripts.LevelGen
 
         Room SpawnChunk(Vector2Int atPosition)
         {
-            var template = roomTemplates[0].ToArray();
+            var template = roomTemplates[UnityEngine.Random.Range(0, roomTemplates.Count)]
+                .ToArray();
+
             if (template.Length != roomHeight * roomWidth)
             {
                 Debug.LogError("Room template was the wrong size.");
