@@ -8,8 +8,8 @@ namespace Assets.Scripts.Characters
 
         bool HasActed { get; set; }
 
-        void Tick();
-
         IMovementCallbacks MovementCallbacks { get; }
+
+        void Tick();
     }
 }
