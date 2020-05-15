@@ -48,55 +48,10 @@ namespace Assets.Scripts.LevelGen
             }
         }
 
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                if (rooms.Count == 0)
-                {
-                    for (var x = 0; x < 10; x++)
-                    {
-                        for (var y = 0; y < 10; y++)
-                        {
-                            var pos = new Vector2Int(x * roomWidth, y * roomHeight) - new Vector2Int(50, 50);
-                            var room = SpawnRoom(pos);
-                            rooms.Add(pos, room);
-                        }
-                    }
-                }
-                else
-                {
-                    // TEMP
-                    for (var x = 0; x < 10; x++)
-                    {
-                        for (var y = 0; y < 10; y++)
-                        {
-                            var pos = new Vector2Int(x * roomWidth, y * roomHeight) - new Vector2Int(50, 50);
-                            var room = rooms[pos];
-                            var tiles = room.Tiles.Where(t => t != null);
-
-                            foreach (var tile in tiles)
-                            {
-                                var poolable = tile.GetComponent<Poolable>();
-                                if (poolable)
-                                {
-                                    pooler.Reclaim(poolable);
-                                }
-                            }
-
-                            Destroy(room.GameObject);
-                        }
-                    }
-                    rooms.Clear();
-                    // TEMP
-                }
-            }
-        }
-
         Room SpawnRoom(Vector2Int atPosition)
         {
-            var template = roomTemplates[UnityEngine.Random.Range(0, roomTemplates.Count)]
-                .ToArray();
+            var index = UnityEngine.Random.Range(0, roomTemplates.Count);
+            var template = roomTemplates[index].ToArray();
 
             if (template.Length != roomHeight * roomWidth)
             {
