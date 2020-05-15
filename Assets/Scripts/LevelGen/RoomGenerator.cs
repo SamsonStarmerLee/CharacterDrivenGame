@@ -48,7 +48,45 @@ namespace Assets.Scripts.LevelGen
             }
         }
 
-        Room SpawnRoom(Vector2Int atPosition)
+        private void Start()
+        {
+            GenerateDungeon(3, 3);
+        }
+
+        private void GenerateDungeon(int width, int height)
+        {
+            if (width % 2 == 0 || height % 2 == 0)
+            {
+                Debug.LogError("GenerateDungeon width and height must be odd.");
+                return;
+            }
+
+            var oX = (width / 2 * roomWidth) + (roomWidth / 2);
+            var oY = (height / 2 * roomHeight) + (roomHeight / 2);
+            var offset = new Vector2Int(oX, oY);
+
+            for (var x = 0; x < width + 2; x++)
+            {
+                for (var y = 0; y < height + 2; y++)
+                {
+                    var pos = new Vector2Int(x * roomWidth, y * roomHeight) - offset;
+
+                    if (x == 0 || y == 0 || x == width + 1 || y == height + 1)
+                    {
+                        // Outer rooms are solid walls.
+                        var room = GenerateBorderRoom(pos);
+                        rooms.Add(pos, room);
+                    }
+                    else
+                    {
+                        var room = GenerateRoom(pos);
+                        rooms.Add(pos, room);
+                    }
+                }
+            }
+        }
+
+        Room GenerateRoom(Vector2Int atPosition)
         {
             var index = UnityEngine.Random.Range(0, roomTemplates.Count);
             var template = roomTemplates[index].ToArray();
@@ -94,6 +132,39 @@ namespace Assets.Scripts.LevelGen
                 var position = new Vector3(x, 0f, y);
                 var poolable = tile.GetComponent<Poolable>();
                 var obj = pooler.Get(poolable.Id);
+                obj.transform.position = position;
+                obj.transform.rotation = Quaternion.identity;
+                obj.transform.parent = roomObject.transform;
+
+                room.Tiles[i] = obj.gameObject;
+            }
+
+            return room;
+        }
+
+        Room GenerateBorderRoom(Vector2Int atPosition)
+        {
+            var board = Board.Instance;
+
+            var roomObject = new GameObject();
+            roomObject.transform.parent = transform;
+            roomObject.name = $"Room {atPosition}";
+
+            var room = new Room();
+            room.GameObject = roomObject;
+
+            for (var i = 0; i < roomWidth * roomHeight; i++)
+            {
+                var x = i % roomWidth + atPosition.x;
+                var y = i / roomHeight + atPosition.y;
+
+                if (board.GetAtPosition(new Vector2Int(x, y)) != null)
+                {
+                    continue;
+                }
+
+                var position = new Vector3(x, 0f, y);
+                var obj = pooler.Get(3);
                 obj.transform.position = position;
                 obj.transform.rotation = Quaternion.identity;
                 obj.transform.parent = roomObject.transform;
