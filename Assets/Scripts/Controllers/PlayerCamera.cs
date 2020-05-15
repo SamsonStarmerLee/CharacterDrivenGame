@@ -22,7 +22,7 @@ namespace Assets.Scripts.Controllers
         [SerializeField]
         float scrollSpeed = 5f;
 
-        Vector3 focusPoint, relativePosition;
+        Vector3 focusPoint, relativePosition, focusOffset;
 
         void Start()
         {
@@ -33,17 +33,17 @@ namespace Assets.Scripts.Controllers
 
         void LateUpdate()
         {
-            //UpdateFocusPoint(focus.position);
+            UpdateFocusPoint(focus.position);
             ScreenEdgeScroll();
 
-            var lookPosition = focusPoint + relativePosition;
+            var lookPosition = focusPoint + relativePosition + focusOffset;
 
             //var toFocus = focusPoint - transform.position;
             //var lookFocus = Quaternion.LookRotation(toFocus);
             //var lookRotation = Quaternion.Slerp(transform.rotation, lookFocus, rotationSpeed);
+            var lookRotation = transform.rotation;
 
-            //transform.SetPositionAndRotation(lookPosition, lookRotation);
-            transform.position = lookPosition;
+            transform.SetPositionAndRotation(lookPosition, lookRotation);
         }
 
         void UpdateFocusPoint(Vector3 targetPoint) 
@@ -79,20 +79,20 @@ namespace Assets.Scripts.Controllers
 
             if (mousePos.x < scrollMargin)
             {
-                relativePosition -= rightAxis * scrollSpeed * Time.deltaTime;
+                focusOffset -= rightAxis * scrollSpeed * Time.deltaTime;
             }
             else if (mousePos.x > Screen.width - scrollMargin)
             {
-                relativePosition += rightAxis * scrollSpeed * Time.deltaTime;
+                focusOffset += rightAxis * scrollSpeed * Time.deltaTime;
             }
 
             if (mousePos.y < scrollMargin) 
             {
-                relativePosition -= forwardAxis * scrollSpeed * Time.deltaTime;
+                focusOffset -= forwardAxis * scrollSpeed * Time.deltaTime;
             }
             else if (mousePos.y > Screen.height - scrollMargin)
             {
-                relativePosition += forwardAxis * scrollSpeed * Time.deltaTime;
+                focusOffset += forwardAxis * scrollSpeed * Time.deltaTime;
             }
         }
     }
