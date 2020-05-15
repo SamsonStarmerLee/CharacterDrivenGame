@@ -437,6 +437,8 @@ MonoBehaviour:
   focusRadius: 10
   focusCentering: 0.5
   rotationSpeed: 0.3
+  scrollMargin: 2
+  scrollSpeed: 10
 --- !u!1 &1297173719
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,35 +511,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95899747ba1c58c4eaf4e3401ba4f6a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  legend:
-    reorderableList:
-      canAdd: 1
-      canRemove: 1
-      draggable: 1
-      expandable: 1
-      multipleSelection: 1
-      isExpanded: 1
-      label:
-        m_Text: Keys
-        m_Image: {fileID: 0}
-        m_Tooltip: 
-      headerHeight: 18
-      footerHeight: 13
-      slideEasing: 0.15
-      verticalSpacing: 2
-      showDefaultBackground: 1
-      elementDisplayType: 0
-      elementNameProperty: 
-      elementNameOverride: 
-      elementIcon: {fileID: 0}
-    reqReferences: {fileID: 0}
-    isExpanded: 1
-    _keyValues: 23004c002400
-    _keys: 23004c002400
-    _values:
-    - {fileID: 6292246719731874331, guid: 10848dbd9f090444fafeb4955dad8344, type: 3}
-    - {fileID: 7552664787412783074, guid: cb811748d6433104a8c38f5980f9c6ca, type: 3}
-    - {fileID: 6570712612793301155, guid: 7ac46355c1ed1fe46a75f3d206ad7b02, type: 3}
   pooler: {fileID: 11400000, guid: 8211a22d20513374ea736ecc39df37cc, type: 2}
 --- !u!4 &1483525358
 Transform:

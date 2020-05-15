@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 namespace Assets.Scripts.Controllers
 {
@@ -17,24 +16,34 @@ namespace Assets.Scripts.Controllers
         [SerializeField]
         float rotationSpeed = 0.1f;
 
+        [SerializeField]
+        float scrollMargin = 1f;
+
+        [SerializeField]
+        float scrollSpeed = 5f;
+
         Vector3 focusPoint, relativePosition;
 
         void Start()
         {
             relativePosition = transform.position - focus.position;
+
+            Cursor.lockState = CursorLockMode.Confined;
         }
 
         void LateUpdate()
         {
-            UpdateFocusPoint(focus.position);
+            //UpdateFocusPoint(focus.position);
+            ScreenEdgeScroll();
 
             var lookPosition = focusPoint + relativePosition;
 
-            var toFocus = focusPoint - transform.position;
-            var lookFocus = Quaternion.LookRotation(toFocus);
-            var lookRotation = Quaternion.Slerp(transform.rotation, lookFocus, rotationSpeed);
+            //var toFocus = focusPoint - transform.position;
+            //var lookFocus = Quaternion.LookRotation(toFocus);
+            //var lookRotation = Quaternion.Slerp(transform.rotation, lookFocus, rotationSpeed);
 
-            transform.SetPositionAndRotation(lookPosition, lookRotation);
+            //transform.SetPositionAndRotation(lookPosition, lookRotation);
+            transform.position = lookPosition;
         }
 
         void UpdateFocusPoint(Vector3 targetPoint) 
@@ -59,6 +68,31 @@ namespace Assets.Scripts.Controllers
                 focusPoint = Vector3.Lerp(
                     targetPoint, focusPoint,
                     Mathf.Pow(1f - focusCentering, Time.unscaledDeltaTime));
+            }
+        }
+
+        void ScreenEdgeScroll()
+        {
+            var mousePos = Input.mousePosition;
+            var rightAxis = Vector3.ProjectOnPlane(transform.right, Vector3.up).normalized;
+            var forwardAxis = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
+
+            if (mousePos.x < scrollMargin)
+            {
+                relativePosition -= rightAxis * scrollSpeed * Time.deltaTime;
+            }
+            else if (mousePos.x > Screen.width - scrollMargin)
+            {
+                relativePosition += rightAxis * scrollSpeed * Time.deltaTime;
+            }
+
+            if (mousePos.y < scrollMargin) 
+            {
+                relativePosition -= forwardAxis * scrollSpeed * Time.deltaTime;
+            }
+            else if (mousePos.y > Screen.height - scrollMargin)
+            {
+                relativePosition += forwardAxis * scrollSpeed * Time.deltaTime;
             }
         }
     }
