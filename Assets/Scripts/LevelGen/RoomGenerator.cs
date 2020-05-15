@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Pooling;
-using RotaryHeart.Lib.SerializableDictionary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +6,6 @@ using UnityEngine;
 
 namespace Assets.Scripts.LevelGen
 {
-    [Serializable]
-    class CharGameObjectDictionary : SerializableDictionaryBase<char, GameObject> { }
-
     class Room
     {
         public GameObject GameObject;
@@ -20,9 +16,6 @@ namespace Assets.Scripts.LevelGen
     {
         const int roomWidth = 10;
         const int roomHeight = 10;
-
-        [SerializeField]
-        CharGameObjectDictionary legend = new CharGameObjectDictionary();
 
         [SerializeField]
         Pooler pooler;
@@ -103,40 +96,26 @@ namespace Assets.Scripts.LevelGen
                 Array.Reverse(template);
             }
 
-            var board = Board.Instance;
-
-            var roomObject = new GameObject();
-            roomObject.transform.parent = transform;
-            roomObject.name = $"Room {atPosition}";
-
-            var room = new Room();
-            room.GameObject = roomObject;
+            var room = CreateEmptyRoom($"Room {atPosition}");
 
             for (var i = 0; i < template.Length; i++)
             {
-                var key = template[i];
-                if (key == '0' || !legend.ContainsKey(key))
-                {
-                    continue;
-                }
-
-                var tile = legend[key];
                 var x = i % roomWidth + atPosition.x;
                 var y = i / roomHeight + atPosition.y;
 
-                if (board.GetAtPosition(new Vector2Int(x, y)) != null)
+                if (Board.Instance.GetAtPosition(new Vector2Int(x, y)) != null)
                 {
                     continue;
                 }
 
-                var position = new Vector3(x, 0f, y);
-                var poolable = tile.GetComponent<Poolable>();
-                var obj = pooler.Get(poolable.Id);
-                obj.transform.position = position;
-                obj.transform.rotation = Quaternion.identity;
-                obj.transform.parent = roomObject.transform;
+                var key = template[i];
+                if (key == '0')
+                {
+                    continue;
+                }
 
-                room.Tiles[i] = obj.gameObject;
+                var tile = CreateRoomTile(room, x, y, key);
+                room.Tiles[i] = tile.gameObject;
             }
 
             return room;
@@ -144,35 +123,45 @@ namespace Assets.Scripts.LevelGen
 
         Room GenerateBorderRoom(Vector2Int atPosition)
         {
-            var board = Board.Instance;
-
-            var roomObject = new GameObject();
-            roomObject.transform.parent = transform;
-            roomObject.name = $"Room {atPosition}";
-
-            var room = new Room();
-            room.GameObject = roomObject;
+            var room = CreateEmptyRoom($"Room {atPosition}");
 
             for (var i = 0; i < roomWidth * roomHeight; i++)
             {
                 var x = i % roomWidth + atPosition.x;
                 var y = i / roomHeight + atPosition.y;
 
-                if (board.GetAtPosition(new Vector2Int(x, y)) != null)
+                if (Board.Instance.GetAtPosition(new Vector2Int(x, y)) != null)
                 {
                     continue;
                 }
 
-                var position = new Vector3(x, 0f, y);
-                var obj = pooler.Get(3);
-                obj.transform.position = position;
-                obj.transform.rotation = Quaternion.identity;
-                obj.transform.parent = roomObject.transform;
-
-                room.Tiles[i] = obj.gameObject;
+                const char key = '#';
+                var tile = CreateRoomTile(room, x, y, key);
+                room.Tiles[i] = tile.gameObject;
             }
 
             return room;
+        }
+
+        Room CreateEmptyRoom(string name)
+        {
+            var roomObject = new GameObject();
+            roomObject.transform.parent = transform;
+            roomObject.name = name;
+
+            var room = new Room();
+            room.GameObject = roomObject;
+            return room;
+        }
+
+        GameObject CreateRoomTile(Room room, int x, int y, char key)
+        {
+            var tile = pooler.Get(key);
+            var position = new Vector3(x, 0f, y);
+            tile.transform.position = position;
+            tile.transform.rotation = Quaternion.identity;
+            tile.transform.parent = room.GameObject.transform;
+            return tile.gameObject;
         }
     }
 }

@@ -1,21 +1,26 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using RotaryHeart.Lib.SerializableDictionary;
+using System;
 
 namespace Assets.Scripts.Pooling
 {
+    [Serializable]
+    class CharGameObjectDictionary : SerializableDictionaryBase<char, GameObject> { }
+
     [CreateAssetMenu]
     public class Pooler : ScriptableObject
     {
         [SerializeField]
-        Poolable[] prefabs;
+        CharGameObjectDictionary prefabs;
 
-        List<Poolable>[] pools;
+        Dictionary<char, List<Poolable>> pools = new Dictionary<char, List<Poolable>>();
 
-        public Poolable Get(int id)
+        public Poolable Get(char id)
         {
-            if (pools == null)
+            if (!pools.ContainsKey(id))
             {
-                CreatePools();
+                CreatePool(id);
             }
 
             Poolable instance;
@@ -39,9 +44,10 @@ namespace Assets.Scripts.Pooling
 
         public void Reclaim(Poolable poolable)
         {
-            if (pools == null)
+            var id = poolable.Id;
+            if (!pools.ContainsKey(id))
             {
-                CreatePools();
+                CreatePool(id);
             }
 
             pools[poolable.Id].Add(poolable);
@@ -49,13 +55,9 @@ namespace Assets.Scripts.Pooling
             poolable.gameObject.SetActive(false);
         }
 
-        void CreatePools()
+        void CreatePool(char id)
         {
-            pools = new List<Poolable>[prefabs.Length];
-            for (int i = 0; i < pools.Length; i++)
-            {
-                pools[i] = new List<Poolable>();
-            }
+            pools.Add(id, new List<Poolable>());
         }
     }
 }
