@@ -37,7 +37,7 @@ namespace Assets.Scripts.Controllers
             transform.SetPositionAndRotation(lookPosition, lookRotation);
         }
 
-        void UpdateFocusPoint(Vector3 targetPoint)
+        void UpdateFocusPoint(Vector3 targetPoint) 
         {
             if (focusRadius > 0f)
             {
