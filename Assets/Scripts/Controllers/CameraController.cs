@@ -26,6 +26,8 @@ namespace Assets.Scripts.Controllers
 
         StateMachine machine = new StateMachine();
 
+        Transform cameraTransform;
+
         public void Track(Transform focus)
         {
             this.focus = focus;
@@ -52,6 +54,7 @@ namespace Assets.Scripts.Controllers
         {
             relativePosition = transform.position - focus.position;
             Cursor.lockState = CursorLockMode.Confined;
+            cameraTransform = transform.Find("Camera");
 
             machine.ChangeState(new TrackingState
             {
@@ -64,13 +67,7 @@ namespace Assets.Scripts.Controllers
             machine.Execute();
 
             var lookPosition = focusPoint + relativePosition + focusOffset;
-
-            //var toFocus = focusPoint - transform.position;
-            //var lookFocus = Quaternion.LookRotation(toFocus);
-            //var lookRotation = Quaternion.Slerp(transform.rotation, lookFocus, rotationSpeed);
-            var lookRotation = transform.rotation;
-
-            transform.SetPositionAndRotation(lookPosition, lookRotation);
+            transform.position = lookPosition;
         }
 
         void UpdateFocusPoint(Vector3 targetPoint) 
