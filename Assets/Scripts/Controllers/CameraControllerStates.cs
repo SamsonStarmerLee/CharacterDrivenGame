@@ -2,11 +2,11 @@
 
 namespace Assets.Scripts.Controllers
 {
-    public partial class PlayerCameraController
+    public partial class CameraController
     {
         abstract class BaseState : IState
         {
-            public PlayerCameraController Owner;
+            public CameraController Owner;
 
             public bool CanTransition() => true;
 

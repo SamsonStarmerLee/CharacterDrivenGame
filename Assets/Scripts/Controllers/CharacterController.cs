@@ -10,7 +10,7 @@ namespace Assets.Scripts.Controllers
         LayerMask movementLayerMask;
 
         [SerializeField]
-        PlayerCameraController cameraController;
+        CameraController cameraController;
 
         StateMachine machine = new StateMachine();
         

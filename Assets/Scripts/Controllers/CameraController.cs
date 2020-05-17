@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Controllers
 {
-    public partial class PlayerCameraController : MonoBehaviour
+    public partial class CameraController : MonoBehaviour
     {
         [SerializeField]
         Transform focus;
