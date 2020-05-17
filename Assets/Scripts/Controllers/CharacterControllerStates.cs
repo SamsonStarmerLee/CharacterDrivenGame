@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Characters;
 using Assets.Scripts.Pathfinding;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -44,8 +45,28 @@ namespace Assets.Scripts.Controllers
                     }
                 }
 
+                // When we press a keyboard key that matches one of our characters, select it.
+                if (Input.anyKeyDown && Input.inputString.Length == 1)
+                {
+                    var pressed = Input.inputString;
+
+                    if (char.IsLetter(pressed[0]))
+                    {
+                        var match = Board.Instance.Characters.FirstOrDefault(x => 
+                            string.Equals(x.Letter, pressed, StringComparison.OrdinalIgnoreCase));
+
+                        if (match != null)
+                        {
+                            var t = (match as MonoBehaviour).transform;
+                            Owner.cameraController.Jump(t);
+                        }
+                    }
+                }
+
                 // Confirm movement and score matches.
-                if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+                if (Input.GetKeyDown(KeyCode.Return) || 
+                    Input.GetKeyDown(KeyCode.KeypadEnter) ||
+                    Input.GetKeyDown(KeyCode.Space))
                 {
                     Owner.movement.Clear();
                     Owner.activeCharacter = null;
@@ -62,6 +83,12 @@ namespace Assets.Scripts.Controllers
         {
             public Vector2Int From;
             public Vector2Int To;
+
+            public override void Enter()
+            {
+                var obj = Owner.activeCharacter as MonoBehaviour;
+                Owner.cameraController.Track(obj.transform);
+            }
 
             public override IState Execute()
             {

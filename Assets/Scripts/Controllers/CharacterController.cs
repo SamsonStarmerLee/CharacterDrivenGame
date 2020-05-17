@@ -9,6 +9,9 @@ namespace Assets.Scripts.Controllers
         [SerializeField]
         LayerMask movementLayerMask;
 
+        [SerializeField]
+        PlayerCameraController cameraController;
+
         StateMachine machine = new StateMachine();
         
         List<DragMovement> movement = new List<DragMovement>();

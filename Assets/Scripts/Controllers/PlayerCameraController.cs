@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Controllers
 {
-    public class PlayerCamera : MonoBehaviour
+    public partial class PlayerCameraController : MonoBehaviour
     {
         [SerializeField]
         Transform focus;
@@ -24,17 +24,44 @@ namespace Assets.Scripts.Controllers
 
         Vector3 focusPoint, relativePosition, focusOffset;
 
+        StateMachine machine = new StateMachine();
+
+        public void Track(Transform focus)
+        {
+            this.focus = focus;
+
+            machine.ChangeState(new TrackingState
+            {
+                Owner = this,
+            });
+        }
+
+        public void Jump(Transform focus)
+        {
+            this.focus = focus;
+            focusPoint = focus.position;
+            focusOffset = Vector3.zero;
+
+            machine.ChangeState(new TrackingState
+            {
+                Owner = this,
+            });
+        }
+
         void Start()
         {
             relativePosition = transform.position - focus.position;
-
             Cursor.lockState = CursorLockMode.Confined;
+
+            machine.ChangeState(new TrackingState
+            {
+                Owner = this
+            });
         }
 
         void LateUpdate()
         {
-            UpdateFocusPoint(focus.position);
-            ScreenEdgeScroll();
+            machine.Execute();
 
             var lookPosition = focusPoint + relativePosition + focusOffset;
 

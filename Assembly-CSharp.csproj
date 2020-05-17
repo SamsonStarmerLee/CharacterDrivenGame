@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{DF27587E-4707-F0C7-0D1E-95E6F487F51B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -83,7 +84,8 @@
     <Compile Include="Assets\Scripts\Characters\ICharacter.cs" />
     <Compile Include="Assets\Scripts\Controllers\CharacterController.cs" />
     <Compile Include="Assets\Scripts\Controllers\CharacterControllerStates.cs" />
-    <Compile Include="Assets\Scripts\Controllers\PlayerCamera.cs" />
+    <Compile Include="Assets\Scripts\Controllers\PlayerCameraController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\PlayerCameraControllerStates.cs" />
     <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\Scripts\IOccupant.cs" />
@@ -698,28 +700,6 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="NaughtyAttributes.Editor.csproj">
-      <Project>{0C6C58FE-1745-D7ED-ECB2-5A3781C83A14}</Project>
-      <Name>NaughtyAttributes.Editor</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="NaughtyAttributes.Core.csproj">
-      <Project>{86EE96C2-C12F-EF13-F7CE-682F82F656F9}</Project>
-      <Name>NaughtyAttributes.Core</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="NaughtyAttributes.Test.csproj">
-      <Project>{B848A2F1-4B08-F455-25C6-A3D3B23A1D00}</Project>
-      <Name>NaughtyAttributes.Test</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="RotaryHeart.csproj">
-      <Project>{F7A7A7A3-4E68-BAB7-17CD-F53FB745684C}</Project>
-      <Name>RotaryHeart</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
