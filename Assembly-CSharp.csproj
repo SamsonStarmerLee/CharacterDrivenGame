@@ -105,12 +105,16 @@
     <Compile Include="Assets\Scripts\Utility.cs" />
     <Compile Include="Assets\Scripts\WordFinder.cs" />
     <None Include="Assets\Resources\enable.txt" />
+    <None Include="Assets\Resources\Rooms\e1.txt" />
     <None Include="Assets\Resources\Rooms\r1.txt" />
     <None Include="Assets\Resources\Rooms\r10.txt" />
     <None Include="Assets\Resources\Rooms\r0.txt" />
     <None Include="Assets\Resources\Rooms\r11.txt" />
+    <None Include="Assets\Resources\Rooms\x1.txt" />
     <None Include="Assets\Resources\Rooms\r5.txt" />
+    <None Include="Assets\Resources\Rooms\x2.txt" />
     <None Include="Assets\Resources\Rooms\r8.txt" />
+    <None Include="Assets\Resources\Rooms\e2.txt" />
     <None Include="Assets\Resources\Rooms\r4.txt" />
     <None Include="Assets\Resources\Rooms\r6.txt" />
     <None Include="Assets\Resources\Rooms\r13.txt" />
