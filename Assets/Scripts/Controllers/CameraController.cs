@@ -22,39 +22,14 @@ namespace Assets.Scripts.Controllers
         [SerializeField]
         float scrollSpeed = 5f;
 
-        Vector3 focusPoint, relativePosition, focusOffset;
+        Vector3 focusPoint, viewPosition, focusOffset;
 
         StateMachine machine = new StateMachine();
 
-        Transform cameraTransform;
-
-        public void Track(Transform focus)
-        {
-            this.focus = focus;
-
-            machine.ChangeState(new TrackingState
-            {
-                Owner = this,
-            });
-        }
-
-        public void Jump(Transform focus)
-        {
-            this.focus = focus;
-            focusPoint = focus.position;
-            focusOffset = Vector3.zero;
-
-            machine.ChangeState(new TrackingState
-            {
-                Owner = this,
-            });
-        }
-
         void Start()
         {
-            relativePosition = transform.position - focus.position;
+            viewPosition = transform.position;
             Cursor.lockState = CursorLockMode.Confined;
-            cameraTransform = transform.Find("Camera");
 
             machine.ChangeState(new TrackingState
             {
@@ -66,7 +41,7 @@ namespace Assets.Scripts.Controllers
         {
             machine.Execute();
 
-            var lookPosition = focusPoint + relativePosition + focusOffset;
+            var lookPosition = focusPoint + viewPosition + focusOffset;
             transform.position = lookPosition;
         }
 
@@ -118,6 +93,28 @@ namespace Assets.Scripts.Controllers
             {
                 focusOffset += forwardAxis * scrollSpeed * Time.deltaTime;
             }
+        }
+
+        public void Track(Transform focus)
+        {
+            this.focus = focus;
+
+            machine.ChangeState(new TrackingState
+            {
+                Owner = this,
+            });
+        }
+
+        public void Jump(Transform focus)
+        {
+            this.focus = focus;
+            focusPoint = focus.position;
+            focusOffset = Vector3.zero;
+
+            machine.ChangeState(new TrackingState
+            {
+                Owner = this,
+            });
         }
     }
 }

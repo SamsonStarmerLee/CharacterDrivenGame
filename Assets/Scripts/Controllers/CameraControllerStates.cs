@@ -21,6 +21,14 @@ namespace Assets.Scripts.Controllers
         {
             public override IState Execute()
             {
+                if (Owner.focus == null)
+                {
+                    return new ScrollingState
+                    {
+                        Owner = Owner
+                    };
+                }
+
                 var pos = Owner.focus.position;
                 Owner.UpdateFocusPoint(pos);
 

@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Pooling;
+﻿using Assets.Scripts.Controllers;
+using Assets.Scripts.Pooling;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,9 @@ namespace Assets.Scripts.LevelGen
         [SerializeField]
         Pooler pooler;
 
+        [SerializeField]
+        GameObject playerPrefab;
+
         List<string> roomTemplates = new List<string>();
         List<string> entryTemplates = new List<string>();
         List<string> exitTemplates = new List<string>();
@@ -33,9 +37,26 @@ namespace Assets.Scripts.LevelGen
             LoadTemplates("x", exitTemplates);
         }
 
-        private void Start()
+        void Start()
         {
             GenerateDungeon(3, 3);
+
+            // TEMP
+            var spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
+            var spawned = new List<Transform>();
+
+            for (var i = 0; i < 3; i++)
+            {
+                var character = Instantiate(
+                    playerPrefab, 
+                    spawnPoints[i].transform.position, 
+                    Quaternion.identity);
+
+                spawned.Add(character.transform);
+            }
+
+            var cameraController = FindObjectOfType<CameraController>();
+            cameraController.Jump(spawned[0]);
         }
 
         static void LoadTemplates(string prefix, List<string> templates)
@@ -52,7 +73,7 @@ namespace Assets.Scripts.LevelGen
             }
         }
 
-        private void GenerateDungeon(int width, int height)
+        void GenerateDungeon(int width, int height)
         {
             if (width % 2 == 0 || height % 2 == 0)
             {
@@ -60,23 +81,23 @@ namespace Assets.Scripts.LevelGen
                 return;
             }
 
-            width = 5;
-            height = 5;
-
             var oX = (width  / 2 * roomWidth)  + (roomWidth  / 2);
             var oY = (height / 2 * roomHeight) + (roomHeight / 2);
             var offset = new Vector2Int(oX, oY);
 
-            // TODO: Static in C#8
-            int RoundTo(float num, int roundTo)
-            {
-                return roundTo * (int)Math.Round((float)num / (float)roundTo);
-            }
+            var ex = UnityEngine.Random.Range(0, width);
+            var ey = UnityEngine.Random.Range(0, height);
+            
+            if (UnityEngine.Random.Range(0, 2) == 0) { ex = 0; }
+            else { ey = 0; }
 
-            var ex = width / 2;
-            var ey = height / 2;
-            var xx = RoundTo(Mathf.Round(UnityEngine.Random.Range(0, width)),  width - 1);
-            var xy = RoundTo(Mathf.Round(UnityEngine.Random.Range(0, height)), height - 1);
+            // TODO: Static in C#8
+            int Flip(int num, int min, int max) => (max + min) - num;
+
+            var xx = Flip(ex, 0, width - 1);
+            var xy = Flip(ey, 0, height - 1);
+
+            Debug.Log($"Entry: {ex},{ey}. Exit: {xx},{xy}.");
 
             // TODO: Static in C#8
             char[] GetTemplate(List<string> templatePool)
