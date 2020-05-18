@@ -39,7 +39,7 @@ namespace Assets.Scripts.LevelGen
 
         void Start()
         {
-            GenerateDungeon(3, 3);
+            GenerateDungeon(2, 2);
 
             // TEMP
             var spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
@@ -75,12 +75,6 @@ namespace Assets.Scripts.LevelGen
 
         void GenerateDungeon(int width, int height)
         {
-            if (width % 2 == 0 || height % 2 == 0)
-            {
-                Debug.LogError("GenerateDungeon width and height must be odd.");
-                return;
-            }
-
             var oX = (width  / 2 * roomWidth)  + (roomWidth  / 2);
             var oY = (height / 2 * roomHeight) + (roomHeight / 2);
             var offset = new Vector2Int(oX, oY);
