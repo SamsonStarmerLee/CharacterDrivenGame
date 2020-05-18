@@ -62,6 +62,7 @@ namespace Assets.Scripts.Controllers
             public override IState Execute()
             {
                 Owner.ScreenEdgeScroll();
+                Owner.KeyboardScroll();
                 return null;
             }
         }

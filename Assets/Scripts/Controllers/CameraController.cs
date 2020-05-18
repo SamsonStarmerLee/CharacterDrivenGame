@@ -95,6 +95,23 @@ namespace Assets.Scripts.Controllers
             }
         }
 
+        void KeyboardScroll()
+        {
+            var h = Input.GetAxis("CameraHorizontal");
+            var v = Input.GetAxis("CameraVertical");
+
+            if (h == 0 && v == 0)
+            {
+                return;
+            }
+
+            var rightAxis = Vector3.ProjectOnPlane(transform.right, Vector3.up).normalized;
+            var forwardAxis = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
+
+            focusOffset += rightAxis * h * scrollSpeed * Time.deltaTime;
+            focusOffset += forwardAxis * v * scrollSpeed * Time.deltaTime;
+        }
+
         public void Track(Transform focus)
         {
             this.focus = focus;
