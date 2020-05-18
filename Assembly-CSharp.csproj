@@ -119,10 +119,12 @@
     <None Include="Assets\Resources\Rooms\r12.txt" />
     <None Include="Assets\Resources\Rooms\r7.txt" />
     <None Include="Assets\Resources\Rooms\r2.txt" />
+    <None Include="Assets\Resources\Rooms\x0.txt" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\Resources\Rooms\r14.txt" />
     <None Include="Assets\Resources\Rooms\r15.txt" />
     <None Include="Assets\Resources\sowpods.txt" />
+    <None Include="Assets\Resources\Rooms\e0.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -698,6 +700,18 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

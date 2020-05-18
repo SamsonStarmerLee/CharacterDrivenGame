@@ -18,6 +18,12 @@ namespace Assets.Scripts.Pooling
 
         public Poolable Get(char id)
         {
+            if (!prefabs.ContainsKey(id))
+            {
+                Debug.LogError($"Tried to spawn poolable item with unrecognized ID: {id}");
+                return null;
+            }
+
             if (!pools.ContainsKey(id))
             {
                 CreatePool(id);
