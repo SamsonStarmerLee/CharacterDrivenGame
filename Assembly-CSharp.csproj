@@ -99,6 +99,7 @@
     <Compile Include="Assets\Scripts\Notifications\ObserverExtentions.cs" />
     <Compile Include="Assets\Scripts\Pathfinding\IMovementCallbacks.cs" />
     <Compile Include="Assets\Scripts\Pathfinding\PathFinder.cs" />
+    <Compile Include="Assets\Scripts\Pooling\LetterDistribution.cs" />
     <Compile Include="Assets\Scripts\Pooling\Poolable.cs" />
     <Compile Include="Assets\Scripts\Pooling\Pooler.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
