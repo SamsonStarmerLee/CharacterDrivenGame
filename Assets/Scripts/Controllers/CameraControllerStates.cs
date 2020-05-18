@@ -21,6 +21,13 @@ namespace Assets.Scripts.Controllers
         {
             public override IState Execute()
             {
+                //TEMP
+                return new ScrollingState
+                {
+                    Owner = Owner
+                };
+                //TEMP
+
                 if (Owner.focus == null)
                 {
                     return new ScrollingState
