@@ -12,7 +12,7 @@ namespace Assets.Scripts.Controllers
 
     public partial class CharacterController
     {
-        abstract class BaseState : IState
+        private abstract class BaseState : IState
         {
             public CharacterController Owner;
 
@@ -80,7 +80,7 @@ namespace Assets.Scripts.Controllers
             }
         }
 
-        class DraggingState : BaseState
+        private class DraggingState : BaseState
         {
             public Vector2Int From;
             public Vector2Int To;

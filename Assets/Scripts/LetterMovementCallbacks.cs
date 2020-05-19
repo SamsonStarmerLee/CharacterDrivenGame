@@ -6,7 +6,7 @@ using UnityEngine;
 
 public sealed class LetterMovementCallbacks : IMovementCallbacks
 {
-    const int WallCost = 100;
+    private const int WallCost = 100;
 
     public int GetCost(Vector2Int destination, IReadOnlyList<IOccupant> ignore)
     {

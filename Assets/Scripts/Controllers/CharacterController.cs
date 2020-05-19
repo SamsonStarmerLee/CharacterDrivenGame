@@ -7,18 +7,15 @@ namespace Assets.Scripts.Controllers
     public partial class CharacterController : MonoBehaviour
     {
         [SerializeField]
-        LayerMask movementLayerMask;
+        private LayerMask movementLayerMask;
 
         [SerializeField]
-        CameraController cameraController;
+        private CameraController cameraController;
+        private StateMachine machine = new StateMachine();
+        private List<DragMovement> movement = new List<DragMovement>();
+        private ICharacter activeCharacter;
 
-        StateMachine machine = new StateMachine();
-        
-        List<DragMovement> movement = new List<DragMovement>();
-
-        ICharacter activeCharacter;
-
-        void Awake()
+        private void Awake()
         {
             machine.ChangeState(new IdleState
             {
@@ -26,7 +23,7 @@ namespace Assets.Scripts.Controllers
             });
         }
 
-        void Update()
+        private void Update()
         {
             DrawMovement();
 
@@ -34,7 +31,7 @@ namespace Assets.Scripts.Controllers
             activeCharacter?.Tick();
         }
 
-        void DrawMovement()
+        private void DrawMovement()
         {
             foreach (var move in movement)
             {
@@ -42,7 +39,7 @@ namespace Assets.Scripts.Controllers
             }
         }
 
-        static void DrawPath(IReadOnlyList<Vector2Int> path, Color color)
+        private static void DrawPath(IReadOnlyList<Vector2Int> path, Color color)
         {
             for (var i = 0; i < path.Count - 1; i++)
             {
@@ -55,7 +52,7 @@ namespace Assets.Scripts.Controllers
         }
     }
 
-    class DragMovement
+    internal class DragMovement
     {
         public ICharacter Character;
         public List<Vector2Int> Path;

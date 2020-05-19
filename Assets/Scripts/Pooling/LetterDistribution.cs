@@ -7,16 +7,16 @@ namespace Assets.Scripts.Pooling
     public class LetterCount
     {
         [SerializeField]
-        string letters;
+        private string letters;
 
         [SerializeField]
-        int count;
+        private int count;
     }
 
     [CreateAssetMenu]
     public class LetterDistribution : ScriptableObject
     {
         [SerializeField]
-        LetterCount[] distribution;
+        private LetterCount[] distribution;
     }
 }

@@ -1,4 +1,4 @@
-﻿interface IState
+﻿internal interface IState
 {
     bool CanTransition();
 
@@ -9,7 +9,7 @@
     void Exit();
 }
 
-class StateMachine
+internal class StateMachine
 {
     public IState CurrentState { get; private set; }
     public IState PreviousState { get; private set; }

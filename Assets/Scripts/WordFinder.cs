@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class WordFinder : MonoBehaviour
 {
-    HashSet<string> wordList;
+    private HashSet<string> wordList;
 
     private void Awake()
     {

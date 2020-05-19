@@ -6,15 +6,14 @@ using System;
 namespace Assets.Scripts.Pooling
 {
     [Serializable]
-    class CharGameObjectDictionary : SerializableDictionaryBase<char, GameObject> { }
+    internal class CharGameObjectDictionary : SerializableDictionaryBase<char, GameObject> { }
 
     [CreateAssetMenu]
     public class Pooler : ScriptableObject
     {
         [SerializeField]
-        CharGameObjectDictionary prefabs;
-
-        Dictionary<char, List<Poolable>> pools = new Dictionary<char, List<Poolable>>();
+        private CharGameObjectDictionary prefabs;
+        private Dictionary<char, List<Poolable>> pools = new Dictionary<char, List<Poolable>>();
 
         public Poolable Get(char id)
         {
@@ -61,7 +60,7 @@ namespace Assets.Scripts.Pooling
             poolable.gameObject.SetActive(false);
         }
 
-        void CreatePool(char id)
+        private void CreatePool(char id)
         {
             pools.Add(id, new List<Poolable>());
         }

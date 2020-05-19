@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.LevelGen
 {
-    class Room
+    internal class Room
     {
         public GameObject GameObject;
         public GameObject[] Tiles = new GameObject[100];
@@ -15,29 +15,27 @@ namespace Assets.Scripts.LevelGen
 
     public class RoomGenerator : MonoBehaviour
     {
-        const int roomWidth = 10;
-        const int roomHeight = 10;
+        private const int roomWidth = 10;
+        private const int roomHeight = 10;
 
         [SerializeField]
-        Pooler pooler;
+        private Pooler pooler;
 
         [SerializeField]
-        GameObject playerPrefab;
+        private GameObject playerPrefab;
+        private List<string> roomTemplates = new List<string>();
+        private List<string> entryTemplates = new List<string>();
+        private List<string> exitTemplates = new List<string>();
+        private Dictionary<Vector2Int, Room> rooms = new Dictionary<Vector2Int, Room>();
 
-        List<string> roomTemplates = new List<string>();
-        List<string> entryTemplates = new List<string>();
-        List<string> exitTemplates = new List<string>();
-
-        Dictionary<Vector2Int, Room> rooms = new Dictionary<Vector2Int, Room>();
-
-        void Awake()
+        private void Awake()
         {
             LoadTemplates("r", roomTemplates); 
             LoadTemplates("e", entryTemplates);
             LoadTemplates("x", exitTemplates);
         }
 
-        void Start()
+        private void Start()
         {
             GenerateDungeon(2, 2);
 
@@ -59,7 +57,7 @@ namespace Assets.Scripts.LevelGen
             cameraController.Jump(spawned[0]);
         }
 
-        static void LoadTemplates(string prefix, List<string> templates)
+        private static void LoadTemplates(string prefix, List<string> templates)
         {
             var i = 0;
             while (true)
@@ -73,7 +71,7 @@ namespace Assets.Scripts.LevelGen
             }
         }
 
-        void GenerateDungeon(int width, int height)
+        private void GenerateDungeon(int width, int height)
         {
             var oX = (width  / 2 * roomWidth)  + (roomWidth  / 2);
             var oY = (height / 2 * roomHeight) + (roomHeight / 2);
@@ -137,7 +135,7 @@ namespace Assets.Scripts.LevelGen
             }
         }
 
-        Room CreateEmptyRoom(string name)
+        private Room CreateEmptyRoom(string name)
         {
             var roomObject = new GameObject();
             roomObject.transform.parent = transform;
@@ -148,7 +146,7 @@ namespace Assets.Scripts.LevelGen
             return room;
         }
 
-        Room GenerateRoom(char[] template, Vector2Int atPosition)
+        private Room GenerateRoom(char[] template, Vector2Int atPosition)
         {
             if (template.Length != roomHeight * roomWidth)
             {
@@ -192,7 +190,7 @@ namespace Assets.Scripts.LevelGen
             return room;
         }
 
-        Room GenerateBorderRoom(Vector2Int atPosition)
+        private Room GenerateBorderRoom(Vector2Int atPosition)
         {
             var room = CreateEmptyRoom($"Room {atPosition}");
 
@@ -214,7 +212,7 @@ namespace Assets.Scripts.LevelGen
             return room;
         }
 
-        GameObject CreateTile(Room room, int x, int y, char key)
+        private GameObject CreateTile(Room room, int x, int y, char key)
         {
             var tile = pooler.Get(key);
             var position = new Vector3(x, 0f, y);

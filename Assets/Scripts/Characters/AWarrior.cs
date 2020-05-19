@@ -7,18 +7,17 @@ namespace Assets.Scripts.Characters
     public partial class AWarrior : Entity, ICharacter, IScorer
     {
         [SerializeField, Min(0f)]
-        float moveTime = 0.25f;
+        private float moveTime = 0.25f;
 
         [SerializeField, Min(1)]
-        int throwRange = 3;
+        private int throwRange = 3;
 
         [SerializeField, Min(0f)]
-        float throwTime = 0.25f;
+        private float throwTime = 0.25f;
 
         [SerializeField, Min(0)]
-        int _movementRange = 6;
-
-        StateMachine machine = new StateMachine();
+        private int _movementRange = 6;
+        private StateMachine machine = new StateMachine();
 
         public int MovementRange => _movementRange;
 

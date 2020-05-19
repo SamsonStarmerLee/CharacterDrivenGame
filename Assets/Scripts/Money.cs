@@ -6,10 +6,10 @@ public class Money : Entity
     protected static char[] Currencies = "YSCEL".ToCharArray();
 
     [SerializeField]
-    Mesh[] currencyMeshes;
+    private Mesh[] currencyMeshes;
 
     [SerializeField]
-    float randomRotation;
+    private float randomRotation;
 
     public override void Init()
     {

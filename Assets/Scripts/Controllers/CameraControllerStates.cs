@@ -4,7 +4,7 @@ namespace Assets.Scripts.Controllers
 {
     public partial class CameraController
     {
-        abstract class BaseState : IState
+        private abstract class BaseState : IState
         {
             public CameraController Owner;
 
@@ -17,7 +17,7 @@ namespace Assets.Scripts.Controllers
             public virtual void Exit() { }
         }
 
-        class TrackingState : BaseState
+        private class TrackingState : BaseState
         {
             public override IState Execute()
             {
@@ -34,7 +34,7 @@ namespace Assets.Scripts.Controllers
                 return null;
             }
 
-            bool CheckScrolling()
+            private bool CheckScrolling()
             {
                 var mousePos = Input.mousePosition;
                 var scrolling = false;
@@ -50,7 +50,7 @@ namespace Assets.Scripts.Controllers
                 return scrolling;
             }
 
-            void TrackFocus()
+            private void TrackFocus()
             {
                 // TEMP
                 var desired = Owner.focus.position;
@@ -58,7 +58,7 @@ namespace Assets.Scripts.Controllers
             }
         }
 
-        class ScrollingState : BaseState
+        private class ScrollingState : BaseState
         {
             public override IState Execute()
             {
@@ -67,7 +67,7 @@ namespace Assets.Scripts.Controllers
                 return null;
             }
 
-            void ScreenEdgeScroll()
+            private void ScreenEdgeScroll()
             {
                 var transform = Owner.transform;
                 var scrollMargin = Owner.scrollMargin;
@@ -97,7 +97,7 @@ namespace Assets.Scripts.Controllers
                 }
             }
 
-            void KeyboardScroll()
+            private void KeyboardScroll()
             {
                 var transform = Owner.transform;
                 var scrollSpeed = Owner.scrollSpeed;

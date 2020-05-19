@@ -9,7 +9,7 @@ namespace Assets.Scripts.Notifications
     {
         public static NotificationCenter Instance { get; } = new NotificationCenter();
 
-        readonly Dictionary<string, List<Handler>> table = 
+        private readonly Dictionary<string, List<Handler>> table = 
             new Dictionary<string, List<Handler>>();
 
         public void AddObserver(Handler handler, string notificationName)

@@ -8,7 +8,7 @@ namespace Assets.Scripts.Pathfinding
 
     public static class PathFinder
     {
-        const int WallCost = 100;
+        private const int WallCost = 100;
 
         public static List<Vector2Int> GenerateFullDepth(
             Vector2Int origin, 
@@ -252,7 +252,7 @@ namespace Assets.Scripts.Pathfinding
             return new List<Vector2Int>();
         }
 
-        static List<Vector2Int> GetNeighbours(Vector2Int location) =>
+        private static List<Vector2Int> GetNeighbours(Vector2Int location) =>
             new List<Vector2Int>()
             {
                 Vector2Int.up    + location,
@@ -261,7 +261,7 @@ namespace Assets.Scripts.Pathfinding
                 Vector2Int.right + location,
             };
 
-        static IList<T> Shuffle<T>(this IList<T> list)
+        private static IList<T> Shuffle<T>(this IList<T> list)
         {
             int n = list.Count;
             while (n > 1)

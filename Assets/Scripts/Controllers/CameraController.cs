@@ -5,19 +5,17 @@ namespace Assets.Scripts.Controllers
     public partial class CameraController : MonoBehaviour
     {
         [SerializeField]
-        Transform focus;
+        private Transform focus;
 
         [SerializeField]
-        float scrollMargin = 1f;
+        private float scrollMargin = 1f;
 
         [SerializeField]
-        float scrollSpeed = 5f;
+        private float scrollSpeed = 5f;
+        private Vector3 focusPoint, viewPosition, focusOffset;
+        private StateMachine machine = new StateMachine();
 
-        Vector3 focusPoint, viewPosition, focusOffset;
-
-        StateMachine machine = new StateMachine();
-
-        void Start()
+        private void Start()
         {
             viewPosition = transform.position;
             Cursor.lockState = CursorLockMode.Confined;
@@ -28,7 +26,7 @@ namespace Assets.Scripts.Controllers
             });
         }
 
-        void LateUpdate()
+        private void LateUpdate()
         {
             machine.Execute();
 

@@ -13,10 +13,10 @@ public class Letter : Entity
     protected static char[] Vowels = "AEIOU".ToCharArray();
 
     [SerializeField]
-    Mesh[] meshAlphabet;
+    private Mesh[] meshAlphabet;
 
     [SerializeField, Min(1)]
-    int pathfindRange = 10;
+    private int pathfindRange = 10;
 
     public IMovementCallbacks MovementCallbacks { get; } = new LetterMovementCallbacks();
 

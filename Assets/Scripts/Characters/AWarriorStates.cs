@@ -8,7 +8,7 @@ namespace Assets.Scripts.Characters
 
     public partial class AWarrior
     {
-        abstract class BaseState : IState
+        private abstract class BaseState : IState
         {
             public AWarrior Owner;
 
@@ -21,7 +21,7 @@ namespace Assets.Scripts.Characters
             public virtual void Exit() { }
         }
 
-        class IdleState : BaseState
+        private class IdleState : BaseState
         {
             public override IState Execute()
             {
@@ -38,11 +38,10 @@ namespace Assets.Scripts.Characters
             }
         }
 
-        class SelectTargetAndDestState : BaseState
+        private class SelectTargetAndDestState : BaseState
         {
-            const int characterLayer = 1 << 10;
-
-            Letter toThrow;
+            private const int characterLayer = 1 << 10;
+            private Letter toThrow;
 
             public override void Enter()
             {
@@ -97,7 +96,7 @@ namespace Assets.Scripts.Characters
             }
         }
 
-        class ThrowState : BaseState
+        private class ThrowState : BaseState
         {
             public Letter ToThrow;
             public Vector2Int ToBoardPos;

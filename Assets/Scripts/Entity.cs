@@ -24,9 +24,9 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 
     public Vector2Int BoardPosition { get; set; }
 
-    new MeshRenderer renderer;
-    MaterialPropertyBlock block;
-    Color defaultColor;
+    private new MeshRenderer renderer;
+    private MaterialPropertyBlock block;
+    private Color defaultColor;
 
     private void Start()
     {

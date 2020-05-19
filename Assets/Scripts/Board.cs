@@ -3,7 +3,7 @@ using Assets.Scripts.Characters;
 using System.Collections.Generic;
 using UnityEngine;
 
-class Cell
+internal class Cell
 {
     public IOccupant Entity = null;
     public IOccupant Item   = null;
@@ -184,17 +184,15 @@ public class Board
 
     #region Private
 
-    const int MinimumLength = 2;
+    private const int MinimumLength = 2;
+    private Dictionary<Vector2Int, Cell> cells = new Dictionary<Vector2Int, Cell>();
+    private HashSet<IScorer>    _scorers     = new HashSet<IScorer>();
+    private HashSet<ICharacter> _characters  = new HashSet<ICharacter>();
+    private HashSet<Entity>     _entities    = new HashSet<Entity>();
+    private HashSet<Letter>     _letters     = new HashSet<Letter>();
+    private List<Match>         _matches     = new List<Match>();
 
-    Dictionary<Vector2Int, Cell> cells = new Dictionary<Vector2Int, Cell>();
-
-    HashSet<IScorer>    _scorers     = new HashSet<IScorer>();
-    HashSet<ICharacter> _characters  = new HashSet<ICharacter>();
-    HashSet<Entity>     _entities    = new HashSet<Entity>();
-    HashSet<Letter>     _letters     = new HashSet<Letter>();
-    List<Match>         _matches     = new List<Match>();
-
-    class Match
+    private class Match
     {
         public string Word;
         public List<IOccupant> Parts;
@@ -243,7 +241,7 @@ public class Board
         return allMatches;
     }
 
-    void SweepLetters(Vector2Int pos, Vector2Int step, List<IOccupant> occsOut)
+    private void SweepLetters(Vector2Int pos, Vector2Int step, List<IOccupant> occsOut)
     {
         // TODO: Static C#8
         bool IsValid(IOccupant o) => 
@@ -268,7 +266,7 @@ public class Board
         }
     }
 
-    void SetMatchHighlighting(bool highlighted)
+    private void SetMatchHighlighting(bool highlighted)
     {
         foreach (var word in _matches)
         {
@@ -279,7 +277,7 @@ public class Board
         }
     }
 
-    int ScoreMatch(Match match)
+    private int ScoreMatch(Match match)
     {
         var word = match.Word;
         var l = word.Length - MinimumLength + 1;
@@ -290,7 +288,7 @@ public class Board
         return triangularScore;
     }
 
-    static bool FindBestMatch(IReadOnlyList<IOccupant> letters, out Match match)
+    private static bool FindBestMatch(IReadOnlyList<IOccupant> letters, out Match match)
     {
         var finder = GameObject.Find("WordFinder").GetComponent<WordFinder>();
 
