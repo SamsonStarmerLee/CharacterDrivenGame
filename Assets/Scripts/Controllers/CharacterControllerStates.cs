@@ -2,6 +2,7 @@
 using Assets.Scripts.Pathfinding;
 using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Linq;
 using UnityEngine;
 
@@ -126,13 +127,21 @@ namespace Assets.Scripts.Controllers
                 
                 DrawPath(path, Color.blue);
 
+                void MoveCharacterToTerminus()
+                {
+                    var terminus = path[0];
+                    if (character.BoardPosition != terminus)
+                    {
+                        Board.Instance.MoveOccupant(character, terminus);
+                        Board.Instance.CheckForMatches();
+                        character.WorldPosition = new Vector3(terminus.x, 0f, terminus.y);
+                    }
+                }
+
                 // TEMP: Move agent into position.
                 if (path.Count != 0)
                 {
-                    var terminus = path[0];
-                    Board.Instance.MoveOccupant(character, terminus);
-                    Board.Instance.CheckForMatches();
-                    character.WorldPosition = new Vector3(terminus.x, 0.5f, terminus.y);
+                    MoveCharacterToTerminus();
                 }
 
                 // Release to stop dragging.
@@ -140,10 +149,7 @@ namespace Assets.Scripts.Controllers
                 {
                     if (path.Count != 0)
                     {
-                        var terminus = path[0];
-                        Board.Instance.MoveOccupant(character, terminus);
-                        Board.Instance.CheckForMatches();
-                        character.WorldPosition = new Vector3(terminus.x, 0f, terminus.y);
+                        MoveCharacterToTerminus();
 
                         Owner.movement.Add(new DragMovement
                         {

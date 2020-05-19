@@ -55,7 +55,7 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
         var x = Mathf.RoundToInt(transform.position.x);
         var y = Mathf.RoundToInt(transform.position.z);
         var pos = new Vector2Int(x, y);
-        Board.Instance.SetPosition(pos, this);
+        Board.Instance.SetPosition(this, pos);
         BoardPosition = new Vector2Int(x, y);
         WorldPosition = new Vector3(x, transform.position.y, y);
     }

@@ -3,71 +3,78 @@ using Assets.Scripts.Characters;
 using System.Collections.Generic;
 using UnityEngine;
 
+class Cell
+{
+    public IOccupant Entity = null;
+    public IOccupant Item   = null;
+    // public Entity Prop;
+}
+
 public class Board
 {
     public static Board Instance { get; } = new Board();
 
     #region Public
 
-    public IReadOnlyCollection<IScorer>    Scorers => scorers;
-    public IReadOnlyCollection<ICharacter> Characters => characters;
-    public IReadOnlyCollection<Entity>     Entities => entities;
-    public IReadOnlyCollection<Letter>     Letters => letters;
+    public IReadOnlyCollection<IScorer>    Scorers => _scorers;
+    public IReadOnlyCollection<ICharacter> Characters => _characters;
+    public IReadOnlyCollection<Entity>     Entities => _entities;
+    public IReadOnlyCollection<Letter>     Letters => _letters;
 
     public void Register(object a)
     {
-        if (a is IScorer scorer && !scorers.Contains(scorer))
+        if (a is IScorer scorer && !_scorers.Contains(scorer))
         {
-            scorers.Add(scorer);
+            _scorers.Add(scorer);
         }
 
-        if (a is ICharacter character && !characters.Contains(character))
+        if (a is ICharacter character && !_characters.Contains(character))
         {
-            characters.Add(character);
+            _characters.Add(character);
         }
 
-        if (a is Entity entity && !entities.Contains(entity))
+        if (a is Entity entity && !_entities.Contains(entity))
         {
-            entities.Add(entity);
+            _entities.Add(entity);
         }
 
-        if (a is Letter letter && !letters.Contains(letter))
+        if (a is Letter letter && !_letters.Contains(letter))
         {
-            letters.Add(letter);
+            _letters.Add(letter);
         }
     }
 
     public void Deregister(object a)
     {
-        if (a is IScorer scorer && scorers.Contains(scorer))
+        if (a is IScorer scorer && _scorers.Contains(scorer))
         {
-            scorers.Remove(scorer);
+            _scorers.Remove(scorer);
         }
 
-        if (a is ICharacter character && characters.Contains(character))
+        if (a is ICharacter character && _characters.Contains(character))
         {
-            characters.Remove(character);
+            _characters.Remove(character);
         }
 
-        if (a is Entity entity && entities.Contains(entity))
+        if (a is Entity entity && _entities.Contains(entity))
         {
-            entities.Remove(entity);
+            _entities.Remove(entity);
         }
 
-        if (a is Letter letter && letters.Contains(letter))
+        if (a is Letter letter && _letters.Contains(letter))
         {
-            letters.Remove(letter);
+            _letters.Remove(letter);
         }
     }
 
     public void RefreshCharacters()
     {
-        foreach (var character in characters)
+        foreach (var character in _characters)
         {
             character.HasActed = false;
         }
 
-        foreach (var letter in letters)
+        foreach (var letter in _letters)
         {
             letter.Act();
         }
@@ -77,38 +84,48 @@ public class Board
 
     public IOccupant GetAtPosition(Vector2Int position)
     {
-        occupants.TryGetValue(position, out IOccupant occupant);
-        return occupant;
+        cells.TryGetValue(position, out Cell cell);
+        return cell?.Entity;
     }
 
-    public bool SetPosition(Vector2Int position, IOccupant p)
+    public bool SetPosition(IOccupant occ, Vector2Int atPos)
     {
-        if (occupants.ContainsKey(position))
+        if (!cells.ContainsKey(atPos))
         {
-            Debug.LogError($"Can't move to {position.x}, {position.y}. {occupants[position]}, occupies that position.");
+            cells[atPos] = new Cell();
+        }
+
+        if (cells[atPos].Entity != null)
+        {
+            Debug.LogError($"Can't move {occ} to {atPos.x}, {atPos.y}. {cells[atPos].Entity} occupies that position.");
             return false;
         }
 
-        occupants.Add(position, p);
+        cells[atPos].Entity = occ;
         return true;
     }
 
     public void ClearPosition(Vector2Int position)
     {
-        occupants.Remove(position);
+        cells.Remove(position);
     }
 
-    public bool MoveOccupant(IOccupant p, Vector2Int to)
+    public bool MoveOccupant(IOccupant occ, Vector2Int toPos)
     {
-        if (occupants.ContainsKey(to) && occupants[to] != p)
+        if (!cells.ContainsKey(toPos))
         {
-            Debug.LogError($"Can't move to {to.x}, {to.y}. {occupants[to]}, occupies that position.");
+            cells[toPos] = new Cell();
+        }
+
+        if (cells[toPos].Entity != null)
+        {
+            Debug.LogError($"Can't move to {toPos.x}, {toPos.y}. {cells[toPos].Entity}, occupies that position.");
             return false;
         }
 
-        ClearPosition(p.BoardPosition);
-        SetPosition(to, p);
-        p.BoardPosition = to;
+        ClearPosition(occ.BoardPosition);
+        SetPosition(occ, toPos);
+        occ.BoardPosition = toPos;
         return true;
     }
 
@@ -116,14 +133,14 @@ public class Board
     {
         // De-highlight and clear existing matches.
         SetMatchHighlighting(false);
-        matches.Clear();
+        _matches.Clear();
 
-        foreach (var scorer in scorers)
+        foreach (var scorer in _scorers)
         {
             var h = CheckForWords(scorer);
             if (h != null && h.Count != 0)
             {
-                matches.AddRange(h);
+                _matches.AddRange(h);
             }
         }
 
@@ -134,7 +151,7 @@ public class Board
     {
         var toDestroy = new List<IOccupant>();
 
-        foreach (var match in matches)
+        foreach (var match in _matches)
         {
             var score = ScoreMatch(match);
             Game.Instance.Score += score;
@@ -160,7 +177,7 @@ public class Board
         }
 
         SetMatchHighlighting(false);
-        matches.Clear();
+        _matches.Clear();
     }
 
     #endregion
@@ -169,13 +186,13 @@ public class Board
 
     const int MinimumLength = 2;
 
-    Dictionary<Vector2Int, IOccupant> occupants = new Dictionary<Vector2Int, IOccupant>();
+    Dictionary<Vector2Int, Cell> cells = new Dictionary<Vector2Int, Cell>();
 
-    HashSet<IScorer>    scorers     = new HashSet<IScorer>();
-    HashSet<ICharacter> characters  = new HashSet<ICharacter>();
-    HashSet<Entity>     entities    = new HashSet<Entity>();
-    HashSet<Letter>     letters     = new HashSet<Letter>();
-    List<Match>         matches     = new List<Match>();
+    HashSet<IScorer>    _scorers     = new HashSet<IScorer>();
+    HashSet<ICharacter> _characters  = new HashSet<ICharacter>();
+    HashSet<Entity>     _entities    = new HashSet<Entity>();
+    HashSet<Letter>     _letters     = new HashSet<Letter>();
+    List<Match>         _matches     = new List<Match>();
 
     class Match
     {
@@ -189,7 +206,7 @@ public class Board
         }
     }
 
-    List<Match> CheckForWords(IScorer scorer)
+    private List<Match> CheckForWords(IScorer scorer)
     {
         var origin = scorer.BoardPosition;
         var allMatches = new List<Match>();
@@ -228,59 +245,32 @@ public class Board
 
     void SweepLetters(Vector2Int pos, Vector2Int step, List<IOccupant> occsOut)
     {
+        // TODO: Static C#8
+        bool IsValid(IOccupant o) => 
+            o is Entity e && 
+            !string.IsNullOrWhiteSpace(e.Letter) && 
+            !e.Solid;
+
         var iterations = 0;
         while (true)
         {
             iterations++;
-            occupants.TryGetValue(pos + step * iterations, out var o);
+            var p = pos + step * iterations;
 
-            var e = o as Entity;
-            if (e == null || string.IsNullOrWhiteSpace(e.Letter) || e.Solid)
+            if (cells.TryGetValue(p, out var cell) && IsValid(cell?.Entity))
+            {
+                occsOut.Add(cell.Entity);
+            }
+            else
             {
                 break;
             }
-
-            occsOut.Add(o);
         }
-    }
-
-    static bool FindBestMatch(IReadOnlyList<IOccupant> occupants, out Match match)
-    {
-        var finder = GameObject.Find("WordFinder").GetComponent<WordFinder>();
-
-        var bestLength = 0;
-        match = null;
-
-        for (var i = 0; i < occupants.Count; ++i)
-        {
-            var word = "";
-            var wordParts = new List<IOccupant>();
-            var containsPlayer = false;
-
-            for (var j = 0; j < occupants.Count - i; j++)
-            {
-                var occ = occupants[i + j];
-                word += occ.Letter;
-                wordParts.Add(occ);
-                containsPlayer |= occ is IScorer;
-
-                if (word.Length >= MinimumLength &&
-                    word.Length > bestLength &&
-                    containsPlayer &&
-                    finder.CheckWord(word))
-                {
-                    bestLength = word.Length;
-                    match = new Match(word, new List<IOccupant>(wordParts));
-                }
-            }
-        }
-
-        return match != null;
     }
 
     void SetMatchHighlighting(bool highlighted)
     {
-        foreach (var word in matches)
+        foreach (var word in _matches)
         {
             foreach (Entity e in word.Parts)
             {
@@ -298,6 +288,40 @@ public class Board
         // TODO: Special characters, abilities, etc.
 
         return triangularScore;
+    }
+
+    static bool FindBestMatch(IReadOnlyList<IOccupant> letters, out Match match)
+    {
+        var finder = GameObject.Find("WordFinder").GetComponent<WordFinder>();
+
+        var bestLength = 0;
+        match = null;
+
+        for (var i = 0; i < letters.Count; ++i)
+        {
+            var word = "";
+            var wordParts = new List<IOccupant>();
+            var containsPlayer = false;
+
+            for (var j = 0; j < letters.Count - i; j++)
+            {
+                var occ = letters[i + j];
+                word += occ.Letter;
+                wordParts.Add(occ);
+                containsPlayer |= occ is IScorer;
+
+                if (word.Length >= MinimumLength &&
+                    word.Length > bestLength &&
+                    containsPlayer &&
+                    finder.CheckWord(word))
+                {
+                    bestLength = word.Length;
+                    match = new Match(word, new List<IOccupant>(wordParts));
+                }
+            }
+        }
+
+        return match != null;
     }
 
     #endregion
