@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc412d91c6397640b2dbdf01fb733c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Solid: 0
   _letter: 
+  Type: 2
   currencyMeshes:
   - {fileID: -1193481069236124594, guid: 110fdd3721b3e5c47a080495b2b15530, type: 3}
   - {fileID: -300185216723997041, guid: 110fdd3721b3e5c47a080495b2b15530, type: 3}
@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 2951760689717763389, guid: cb811748d6433104a8c38f5980f9c6ca,
         type: 3}
       propertyPath: Id
-      value: 1
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 7552664787412783074, guid: cb811748d6433104a8c38f5980f9c6ca,
         type: 3}

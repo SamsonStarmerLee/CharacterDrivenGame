@@ -93,8 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f164bd7ec1ebde439218bd8caeaa981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Solid: 1
   _letter: W
+  Type: 1
   meshAlphabet: []
   pathfindRange: 10
 --- !u!114 &6715861987561341638
@@ -109,4 +109,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63b1741d8c53c41a644358c5067515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 3
+  Id: 35

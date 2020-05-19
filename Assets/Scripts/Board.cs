@@ -249,7 +249,7 @@ public class Board
         bool IsValid(IOccupant o) => 
             o is Entity e && 
             !string.IsNullOrWhiteSpace(e.Letter) && 
-            !e.Solid;
+            e.Type != Entity.EntityType.Solid;
 
         var iterations = 0;
         while (true)

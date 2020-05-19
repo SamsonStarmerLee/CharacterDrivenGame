@@ -3,11 +3,18 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 {
-    public bool Solid;
+    public enum EntityType
+    {
+        Normal,
+        Solid,
+        Item
+    }
 
     [SerializeField]
     protected string _letter;
     public string Letter => _letter;
+    
+    public EntityType Type;
 
     public Vector3 WorldPosition
     {

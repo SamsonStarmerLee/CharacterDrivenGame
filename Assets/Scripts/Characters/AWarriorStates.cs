@@ -103,9 +103,6 @@ namespace Assets.Scripts.Characters
             public Vector2Int ToBoardPos;
             public Vector3 ToWorldPos;
 
-            Vector3 fromWorldPos;
-            float elapsed;
-
             public override void Enter()
             {
                 Owner.HasActed = true;
@@ -113,7 +110,6 @@ namespace Assets.Scripts.Characters
 
                 // Move the target and check for new matches.
                 Board.Instance.MoveOccupant(ToThrow, ToBoardPos);
-                fromWorldPos = ToThrow.WorldPosition;
                 Board.Instance.CheckForMatches();
 
                 // Visualize the throw.
@@ -124,23 +120,6 @@ namespace Assets.Scripts.Characters
                     Owner = Owner,
                 });
             }
-
-            //IEnumerator ShowProcess()
-            //{
-            //    while (Vector3.Distance(ToThrow.WorldPosition, ToWorldPos) > 0.01f)
-            //    {
-            //        elapsed += Time.deltaTime;
-            //        ToThrow.WorldPosition = Vector3.Lerp(
-            //            fromWorldPos,
-            //            ToWorldPos,
-            //            elapsed / Owner.throwTime);
-
-            //        yield return null;
-            //    }
-
-            //    // Set position directly to finalize.
-            //    ToThrow.WorldPosition = ToWorldPos;
-            //}
         }
     }
 }

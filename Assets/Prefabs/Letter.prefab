@@ -59,8 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f164bd7ec1ebde439218bd8caeaa981, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Solid: 0
   _letter: 
+  Type: 0
   meshAlphabet:
   - {fileID: 6941503453587140970, guid: efb9fc380b28f334bacdfa4dd1f0bb28, type: 3}
   - {fileID: -4547443393339073547, guid: efb9fc380b28f334bacdfa4dd1f0bb28, type: 3}
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc63b1741d8c53c41a644358c5067515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 76
 --- !u!1 &7552664787629859467
 GameObject:
   m_ObjectHideFlags: 0
