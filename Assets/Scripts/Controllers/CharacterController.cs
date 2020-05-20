@@ -9,8 +9,6 @@ namespace Assets.Scripts.Controllers
         [SerializeField]
         private LayerMask movementLayerMask;
 
-        [SerializeField]
-        private CameraController cameraController;
         private StateMachine machine = new StateMachine();
         private List<DragMovement> movement = new List<DragMovement>();
         private ICharacter activeCharacter;

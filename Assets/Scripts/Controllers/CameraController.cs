@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.LevelGen;
+using Assets.Scripts.Notifications;
+using System;
+using UnityEngine;
 
 namespace Assets.Scripts.Controllers
 {
@@ -20,10 +23,21 @@ namespace Assets.Scripts.Controllers
             viewPosition = transform.position;
             Cursor.lockState = CursorLockMode.Confined;
 
-            machine.ChangeState(new TrackingState
-            {
-                Owner = this
-            });
+            machine.ChangeState(new TrackingState(this));
+        }
+
+        private void OnEnable()
+        {
+            this.AddObserver(OnJumpToCharacter, CharacterController.JumpSelectNotification);
+            this.AddObserver(OnJumpToCharacter, RoomGenerator.PlayerSpawnedNotification);
+            this.AddObserver(OnDragStart, CharacterController.BeginDragNotification);
+        }
+
+        private void OnDisable()
+        {
+            this.RemoveObserver(OnJumpToCharacter, CharacterController.JumpSelectNotification);
+            this.RemoveObserver(OnJumpToCharacter, RoomGenerator.PlayerSpawnedNotification);
+            this.RemoveObserver(OnDragStart, CharacterController.BeginDragNotification);
         }
 
         private void LateUpdate()
@@ -34,26 +48,22 @@ namespace Assets.Scripts.Controllers
             transform.position = lookPosition;
         }
 
-        public void Track(Transform focus)
+        private void OnJumpToCharacter(object sender, object args)
         {
-            this.focus = focus;
-
-            machine.ChangeState(new TrackingState
-            {
-                Owner = this,
-            });
-        }
-
-        public void Jump(Transform focus)
-        {
-            this.focus = focus;
+            var tf = args as Transform;
+            focus = tf;
             focusPoint = focus.position;
             focusOffset = Vector3.zero;
 
-            machine.ChangeState(new TrackingState
-            {
-                Owner = this,
-            });
+            machine.ChangeState(new TrackingState(this));
+        }
+
+        private void OnDragStart(object sender, object args)
+        {
+            var tf = args as Transform;
+            focus = tf;
+
+            machine.ChangeState(new TrackingState(this));
         }
     }
 }

@@ -1,13 +1,13 @@
 ﻿namespace Assets.Scripts.Notifications
 {
-    public static class ObserverExtentions
+    public static class NotificationExtensions
     {
-        public static void AddObserver(this IObserver _, Handler handler, string notificationName)
+        public static void AddObserver(this object _, Handler handler, string notificationName)
         {
             NotificationCenter.Instance.AddObserver(handler, notificationName);
         }
 
-        public static void RemoveObserver(this IObserver _, Handler handler, string notificationName)
+        public static void RemoveObserver(this object _, Handler handler, string notificationName)
         {
             NotificationCenter.Instance.RemoveObserver(handler, notificationName);
         }

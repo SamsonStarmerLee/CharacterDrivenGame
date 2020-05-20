@@ -95,8 +95,9 @@
     <Compile Include="Assets\Scripts\LifecycleInterfaces.cs" />
     <Compile Include="Assets\Scripts\Money.cs" />
     <Compile Include="Assets\Scripts\Notifications\IObserve.cs" />
+    <Compile Include="Assets\Scripts\Notifications\Notification.cs" />
     <Compile Include="Assets\Scripts\Notifications\NotificationCenter.cs" />
-    <Compile Include="Assets\Scripts\Notifications\ObserverExtentions.cs" />
+    <Compile Include="Assets\Scripts\Notifications\NotificationExtensions.cs" />
     <Compile Include="Assets\Scripts\Pathfinding\IMovementCallbacks.cs" />
     <Compile Include="Assets\Scripts\Pathfinding\PathFinder.cs" />
     <Compile Include="Assets\Scripts\Pooling\LetterDistribution.cs" />

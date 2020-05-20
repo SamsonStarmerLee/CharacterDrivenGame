@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Controllers;
+using Assets.Scripts.Notifications;
 using Assets.Scripts.Pooling;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace Assets.Scripts.LevelGen
 
     public class RoomGenerator : MonoBehaviour
     {
+        public const string PlayerSpawnedNotification = "PlayerSpawned.Notification";
+
         private const int roomWidth = 10;
         private const int roomHeight = 10;
 
@@ -53,8 +56,8 @@ namespace Assets.Scripts.LevelGen
                 spawned.Add(character.transform);
             }
 
-            var cameraController = FindObjectOfType<CameraController>();
-            cameraController.Jump(spawned[0]);
+            var tf = spawned[0];
+            this.PostNotification(PlayerSpawnedNotification, tf);
         }
 
         private static void LoadTemplates(string prefix, List<string> templates)

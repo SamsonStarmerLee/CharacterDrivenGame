@@ -19,6 +19,11 @@ namespace Assets.Scripts.Controllers
 
         private class TrackingState : BaseState
         {
+            public TrackingState(CameraController owner)
+            {
+                Owner = owner;
+            }
+
             public override IState Execute()
             {
                 if (Owner.focus == null || CheckScrolling())
