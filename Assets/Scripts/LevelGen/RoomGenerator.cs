@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.Controllers;
-using Assets.Scripts.Notifications;
+﻿using Assets.Scripts.Notifications;
 using Assets.Scripts.Pooling;
 using System;
 using System.Collections.Generic;
@@ -8,14 +7,14 @@ using UnityEngine;
 
 namespace Assets.Scripts.LevelGen
 {
-    internal class Room
-    {
-        public GameObject GameObject;
-        public GameObject[] Tiles = new GameObject[100];
-    }
-
     public class RoomGenerator : MonoBehaviour
     {
+        private class Room
+        {
+            public GameObject GameObject;
+            public GameObject[] Tiles = new GameObject[100];
+        }
+
         public const string PlayerSpawnedNotification = "PlayerSpawned.Notification";
 
         private const int roomWidth = 10;

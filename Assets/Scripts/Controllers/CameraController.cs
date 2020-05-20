@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.LevelGen;
 using Assets.Scripts.Notifications;
-using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Controllers
