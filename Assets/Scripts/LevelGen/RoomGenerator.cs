@@ -175,7 +175,7 @@ namespace Assets.Scripts.LevelGen
                     CreateTile(room, x, y, '0');
                 }
                 
-                if (Board.Instance.GetAtPosition(new Vector2Int(x, y)) != null)
+                if (Board.Instance.GetAtPosition(new Vector2Int(x, y), Board.OccupantType.Any) != null)
                 {
                     continue;
                 }
@@ -199,7 +199,7 @@ namespace Assets.Scripts.LevelGen
                 var x = i % roomWidth + atPosition.x;
                 var y = i / roomHeight + atPosition.y;
 
-                if (Board.Instance.GetAtPosition(new Vector2Int(x, y)) != null)
+                if (Board.Instance.GetAtPosition(new Vector2Int(x, y), Board.OccupantType.Any) != null)
                 {
                     continue;
                 }

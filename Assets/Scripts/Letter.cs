@@ -78,7 +78,7 @@ public class Letter : Entity
         }
 
         var moveTo = path[0];
-        if (Board.Instance.GetAtPosition(moveTo) == null)
+        if (Board.Instance.GetAtPosition(moveTo, Board.OccupantType.Entity) == null)
         {
             Board.Instance.MoveOccupant(this, moveTo);
             transform.DOMove(new Vector3(moveTo.x, 0f, moveTo.y), 0.25f);

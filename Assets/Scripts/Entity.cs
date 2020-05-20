@@ -5,7 +5,7 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 {
     public enum EntityType
     {
-        Normal,
+        Entity,
         Solid,
         Item
     }

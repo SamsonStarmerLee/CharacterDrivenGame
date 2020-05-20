@@ -10,7 +10,7 @@ public sealed class LetterMovementCallbacks : IMovementCallbacks
 
     public int GetCost(Vector2Int destination, IReadOnlyList<IOccupant> ignore)
     {
-        var occupant = Board.Instance.GetAtPosition(destination);
+        var occupant = Board.Instance.GetAtPosition(destination, Board.OccupantType.Entity);
         if (occupant != null && !ignore.Contains(occupant))
         {
             return WallCost;

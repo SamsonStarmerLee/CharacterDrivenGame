@@ -2,12 +2,23 @@
 using Assets.Scripts.Characters;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
+using static Entity;
 
 internal class Cell
 {
     public IOccupant Entity = null;
     public IOccupant Item   = null;
-    // public Entity Prop;
+    // public Entity Terrain;
+
+    public IOccupant PrimaryOccupant => Entity ?? Item;
+
+    public void ClearOccupant(IOccupant occ)
+    {
+        if (Entity == occ) Entity = null;
+        if (Item == occ) Item = null;
+        // TODO: if (Terrain == occ) Terrain = null;
+    }
 }
 
 public class Board
@@ -19,6 +30,7 @@ public class Board
     public IReadOnlyCollection<IScorer>    Scorers => _scorers;
     public IReadOnlyCollection<ICharacter> Characters => _characters;
     public IReadOnlyCollection<Entity>     Entities => _entities;
+    public IReadOnlyCollection<Entity>     Items => _items;
     public IReadOnlyCollection<Letter>     Letters => _letters;
 
     public void Register(object a)
@@ -33,9 +45,26 @@ public class Board
             _characters.Add(character);
         }
 
-        if (a is Entity entity && !_entities.Contains(entity))
+        if (a is Entity entity)
         {
-            _entities.Add(entity);
+            if (entity.Type == EntityType.Entity && !_entities.Contains(entity))
+            {
+                _entities.Add(entity);
+            }
+            else if (entity.Type == EntityType.Item && !_items.Contains(entity))
+            {
+                _items.Add(entity);
+            }
+            // TEMP. TODO: Action Solid case
+            else if (entity.Type == EntityType.Solid && !_entities.Contains(entity))
+            {
+                _entities.Add(entity);
+            }
+            // TEMP
+            else
+            {
+                Debug.LogError($"Something went wrong trying to register entity {entity}.");
+            }
         }
 
         if (a is Letter letter && !_letters.Contains(letter))
@@ -56,9 +85,21 @@ public class Board
             _characters.Remove(character);
         }
 
-        if (a is Entity entity && _entities.Contains(entity))
+        if (a is Entity entity)
         {
-            _entities.Remove(entity);
+            if (entity.Type == EntityType.Entity && _entities.Contains(entity))
+            {
+                _entities.Remove(entity);
+            }
+            else if (entity.Type == EntityType.Item && _items.Contains(entity))
+            {
+                _items.Remove(entity);
+            }
+            // TODO: Solid case
+            else
+            {
+                Debug.LogError($"Something went wrong trying to deregister entity {entity}.");
+            }
         }
 
         if (a is Letter letter && _letters.Contains(letter))
@@ -82,10 +123,36 @@ public class Board
         CheckForMatches();
     }
 
-    public IOccupant GetAtPosition(Vector2Int position)
+    public enum OccupantType
+    {
+        Any,
+        Entity,
+        Item,
+    }
+
+    public IOccupant GetAtPosition(Vector2Int position, OccupantType type)
     {
         cells.TryGetValue(position, out Cell cell);
-        return cell?.Entity;
+
+        if (cell == null)
+        {
+            return null;
+        }
+
+        switch (type)
+        {
+            case OccupantType.Any:
+                return cell.PrimaryOccupant;
+            case OccupantType.Entity:
+                return cell.Entity;
+            case OccupantType.Item:
+                return cell.Item;
+            default:
+                return null;
+
+                //case OccupantType.Solid: // TODO
+                //    return cell.Solid;
+        };
     }
 
     public bool SetPosition(IOccupant occ, Vector2Int atPos)
@@ -95,19 +162,21 @@ public class Board
             cells[atPos] = new Cell();
         }
 
-        if (cells[atPos].Entity != null)
+        var ent = occ as Entity;
+        switch (ent.Type)
         {
-            Debug.LogError($"Can't move {occ} to {atPos.x}, {atPos.y}. {cells[atPos].Entity} occupies that position.");
-            return false;
+            case EntityType.Solid:
+            case EntityType.Entity:
+                return SetEntityPosition(ent, atPos);
+            case EntityType.Item:
+                return SetItemPosition(ent, atPos);
+            // TODO:
+            //case EntityType.Solid:
+            //    return SetSolidPosition(ent, atPos);
+            default:
+                Debug.Log("Occupant was not an entity, or had an invalid type.");
+                return false;
         }
-
-        cells[atPos].Entity = occ;
-        return true;
-    }
-
-    public void ClearPosition(Vector2Int position)
-    {
-        cells.Remove(position);
     }
 
     public bool MoveOccupant(IOccupant occ, Vector2Int toPos)
@@ -123,9 +192,10 @@ public class Board
             return false;
         }
 
-        ClearPosition(occ.BoardPosition);
+        cells[occ.BoardPosition].ClearOccupant(occ);
         SetPosition(occ, toPos);
         occ.BoardPosition = toPos;
+
         return true;
     }
 
@@ -133,14 +203,14 @@ public class Board
     {
         // De-highlight and clear existing matches.
         SetMatchHighlighting(false);
-        _matches.Clear();
+        matches.Clear();
 
         foreach (var scorer in _scorers)
         {
             var h = CheckForWords(scorer);
             if (h != null && h.Count != 0)
             {
-                _matches.AddRange(h);
+                matches.AddRange(h);
             }
         }
 
@@ -151,7 +221,7 @@ public class Board
     {
         var toDestroy = new List<IOccupant>();
 
-        foreach (var match in _matches)
+        foreach (var match in matches)
         {
             var score = ScoreMatch(match);
             Game.Instance.Score += score;
@@ -173,11 +243,11 @@ public class Board
         foreach (var e in toDestroy)
         {
             e.Destroy();
-            ClearPosition(e.BoardPosition);
+            cells[e.BoardPosition].ClearOccupant(e);
         }
 
         SetMatchHighlighting(false);
-        _matches.Clear();
+        matches.Clear();
     }
 
     #endregion
@@ -185,12 +255,44 @@ public class Board
     #region Private
 
     private const int MinimumLength = 2;
+
     private Dictionary<Vector2Int, Cell> cells = new Dictionary<Vector2Int, Cell>();
-    private HashSet<IScorer>    _scorers     = new HashSet<IScorer>();
-    private HashSet<ICharacter> _characters  = new HashSet<ICharacter>();
-    private HashSet<Entity>     _entities    = new HashSet<Entity>();
-    private HashSet<Letter>     _letters     = new HashSet<Letter>();
-    private List<Match>         _matches     = new List<Match>();
+
+    private HashSet<IScorer> _scorers = new HashSet<IScorer>();
+    private HashSet<ICharacter> _characters = new HashSet<ICharacter>();
+    private HashSet<Entity> _entities = new HashSet<Entity>();
+    private HashSet<Entity> _items = new HashSet<Entity>();
+    private HashSet<Letter> _letters = new HashSet<Letter>();
+
+    private List<Match> matches = new List<Match>();
+
+    private bool SetEntityPosition(Entity ent, Vector2Int position)
+    {
+        if (cells[position].Entity != null)
+        {
+            Debug.LogError(
+                $"Can't move Entity {ent} to {position}. " +
+                $"{cells[position].Entity} occupies that position.");
+            return false;
+        }
+
+        cells[position].Entity = ent;
+        return true;
+    }
+
+    private bool SetItemPosition(Entity itm, Vector2Int position)
+    {
+        if (cells[position].Item != null)
+        {
+            Debug.LogError(
+                $"Can't move Item {itm} to {position}. " +
+                $"{cells[position].Item} occupies that position.");
+            return false;
+        }
+
+        cells[position].Item = itm;
+        return true;
+    }
 
     private class Match
     {
@@ -244,10 +346,10 @@ public class Board
     private void SweepLetters(Vector2Int pos, Vector2Int step, List<IOccupant> occsOut)
     {
         // TODO: Static C#8
-        bool IsValid(IOccupant o) => 
-            o is Entity e && 
-            !string.IsNullOrWhiteSpace(e.Letter) && 
-            e.Type != Entity.EntityType.Solid;
+        bool IsValid(IOccupant occ) => 
+            occ is Entity ent && 
+            !string.IsNullOrWhiteSpace(ent.Letter) && 
+            ent.Type != EntityType.Solid;
 
         var iterations = 0;
         while (true)
@@ -255,10 +357,10 @@ public class Board
             iterations++;
             var p = pos + step * iterations;
 
-            if (cells.TryGetValue(p, out var cell) && IsValid(cell?.Entity))
+            if (cells.TryGetValue(p, out var cell) && IsValid(cell.PrimaryOccupant))
             {
-                occsOut.Add(cell.Entity);
-            }
+                occsOut.Add(cell.PrimaryOccupant);
+            }   
             else
             {
                 break;
@@ -268,7 +370,7 @@ public class Board
 
     private void SetMatchHighlighting(bool highlighted)
     {
-        foreach (var word in _matches)
+        foreach (var word in matches)
         {
             foreach (Entity e in word.Parts)
             {

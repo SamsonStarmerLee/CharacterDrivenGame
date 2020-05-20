@@ -32,7 +32,7 @@ namespace Assets.Scripts.Controllers
                 if (Input.GetMouseButtonDown(0) &&
                     GetMousePosition(Owner.movementLayerMask, out Vector2Int position, out _))
                 {
-                    var entity = Board.Instance.GetAtPosition(position);
+                    var entity = Board.Instance.GetAtPosition(position, Board.OccupantType.Entity);
                     if (entity is ICharacter character && !character.HasActed)
                     {
                         Owner.activeCharacter = character;

@@ -55,7 +55,7 @@ namespace Assets.Scripts.Characters
                 if (Input.GetMouseButtonDown(0) &&
                     GetMousePosition(characterLayer, out var boardPos, out _))
                 {
-                    var occupant = Board.Instance.GetAtPosition(boardPos);
+                    var occupant = Board.Instance.GetAtPosition(boardPos, Board.OccupantType.Entity);
                     var distance = ManhattanDist(Owner.BoardPosition, boardPos);
                     Debug.Log($"Distance: {distance}.");
 
