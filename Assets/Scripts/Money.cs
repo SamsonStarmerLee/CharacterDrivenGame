@@ -56,7 +56,7 @@ public class Money : Entity
         meshFilter.sharedMesh = mesh;
 
         // Shrink and add random rotation to model.
-        modelObj.localScale *= Random.Range(0.7f, 0.9f);
+        modelObj.localScale *= Random.Range(0.5f, 0.7f);
         modelObj.rotation *= Quaternion.Euler(0f, 0f, Random.Range(-randomRotation, randomRotation));
     }
 }
