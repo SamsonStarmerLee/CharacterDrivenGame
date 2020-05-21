@@ -9,6 +9,8 @@ namespace Assets.Scripts
         public const string ScoreChangedNotification = "ScoreChanged.Notification";
         public const string HealthChangedNotification = "HealthChanged.Notification";
 
+        public const int MaxHealth = 3;
+
         public int Health { get; private set; }
 
         public int Score { get; private set; }

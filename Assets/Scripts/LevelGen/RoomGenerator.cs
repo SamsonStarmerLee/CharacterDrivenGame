@@ -91,8 +91,6 @@ namespace Assets.Scripts.LevelGen
             var xx = Flip(ex, 0, width - 1);
             var xy = Flip(ey, 0, height - 1);
 
-            Debug.Log($"Entry: {ex},{ey}. Exit: {xx},{xy}.");
-
             // TODO: Static in C#8
             char[] GetTemplate(List<string> templatePool)
             {
