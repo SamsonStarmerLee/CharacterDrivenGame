@@ -77,6 +77,8 @@
     <Compile Include="Assets\Rotary Heart\SerializableDictionaryLite\References\RequiredReferences.cs" />
     <Compile Include="Assets\Rotary Heart\SerializableDictionaryLite\ReorderableList\ReorderableList.cs" />
     <Compile Include="Assets\Rotary Heart\SerializableDictionaryLite\SerializableDictionaryBase.cs" />
+    <Compile Include="Assets\Scripts\Actions\DamagePlayerAction.cs" />
+    <Compile Include="Assets\Scripts\Actions\ScoreAction.cs" />
     <Compile Include="Assets\Scripts\Board.cs" />
     <Compile Include="Assets\Scripts\Characters\AWarrior.cs" />
     <Compile Include="Assets\Scripts\Characters\AWarriorStates.cs" />
@@ -86,7 +88,8 @@
     <Compile Include="Assets\Scripts\Controllers\CharacterController.cs" />
     <Compile Include="Assets\Scripts\Controllers\CharacterControllerStates.cs" />
     <Compile Include="Assets\Scripts\Entity.cs" />
-    <Compile Include="Assets\Scripts\Game.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\HealthView.cs" />
     <Compile Include="Assets\Scripts\IOccupant.cs" />
     <Compile Include="Assets\Scripts\IScorer.cs" />
     <Compile Include="Assets\Scripts\Letter.cs" />
@@ -95,9 +98,9 @@
     <Compile Include="Assets\Scripts\LifecycleInterfaces.cs" />
     <Compile Include="Assets\Scripts\Money.cs" />
     <Compile Include="Assets\Scripts\Notifications\IObserve.cs" />
-    <Compile Include="Assets\Scripts\Notifications\Notification.cs" />
     <Compile Include="Assets\Scripts\Notifications\NotificationCenter.cs" />
     <Compile Include="Assets\Scripts\Notifications\NotificationExtensions.cs" />
+    <Compile Include="Assets\Scripts\Notifications\Notify.cs" />
     <Compile Include="Assets\Scripts\Pathfinding\IMovementCallbacks.cs" />
     <Compile Include="Assets\Scripts\Pathfinding\PathFinder.cs" />
     <Compile Include="Assets\Scripts\Pooling\LetterDistribution.cs" />

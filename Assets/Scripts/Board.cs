@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts;
+using Assets.Scripts.Actions;
 using Assets.Scripts.Characters;
+using Assets.Scripts.Notifications;
 using System.Collections.Generic;
 using UnityEngine;
 using static Entity;
@@ -223,10 +225,10 @@ public class Board
         foreach (var match in matches)
         {
             var score = ScoreMatch(match);
-            Game.Instance.Score += score;
 
-            Debug.Log($"Matched '{match.Word}', Score: {score}.");
-            Debug.Log($"Total Score: {Game.Instance.Score}.");
+            this.PostNotification(
+                Notify.Action<ScoreAction>(),
+                new ScoreAction(score));
 
             foreach (var entity in match.Parts)
             {
@@ -258,7 +260,7 @@ public class Board
             {
                 // TEMP
                 item.Destroy();
-            }
+            } 
         }
     }
 

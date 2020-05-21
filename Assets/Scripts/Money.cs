@@ -1,9 +1,12 @@
-﻿using Assets.Scripts;
+﻿using Assets.Scripts.Actions;
+using Assets.Scripts.Notifications;
 using System.Linq;
 using UnityEngine;
 
 public class Money : Entity
 {
+    const int value = 1;
+
     protected static char[] Currencies = "YSCEL".ToCharArray();
 
     [SerializeField]
@@ -63,8 +66,11 @@ public class Money : Entity
 
     public override void Destroy()
     {
-        base.Destroy();
+        // TEMP? This should probably not be inside destroy.
+        this.PostNotification(
+            Notify.Action<ScoreAction>(), 
+            new ScoreAction(value));
 
-        Game.Instance.Score += 1;
+        base.Destroy();
     }
 }

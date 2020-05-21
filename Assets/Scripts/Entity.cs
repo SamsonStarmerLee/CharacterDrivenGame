@@ -47,8 +47,8 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 
     public virtual void Destroy()
     {
-        Destroy(gameObject);
         Board.Instance.Deregister(this);
+        Destroy(gameObject);
     }
 
     public virtual void SetHighlight(bool highlight)
