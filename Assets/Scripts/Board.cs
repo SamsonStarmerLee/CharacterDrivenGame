@@ -400,18 +400,21 @@ public class Board
         {
             var word = "";
             var wordParts = new List<IOccupant>();
-            var containsPlayer = false;
+            var containsScorer = false;
+            var containsNonScorer = false;
 
             for (var j = 0; j < letters.Count - i; j++)
             {
                 var occ = letters[i + j];
                 word += occ.Letter;
                 wordParts.Add(occ);
-                containsPlayer |= occ is IScorer;
+                containsScorer |= occ is IScorer;
+                containsNonScorer |= !(occ is IScorer);
 
                 if (word.Length >= MinimumLength &&
-                    word.Length > bestLength &&
-                    containsPlayer &&
+                    word.Length >= bestLength &&
+                    containsScorer &&
+                    containsNonScorer &&
                     finder.CheckWord(word))
                 {
                     bestLength = word.Length;
