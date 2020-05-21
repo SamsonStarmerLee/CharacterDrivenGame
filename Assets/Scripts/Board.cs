@@ -249,6 +249,19 @@ public class Board
         matches.Clear();
     }
 
+    public void CollectItems()
+    {
+        foreach (var chr in Characters)
+        {
+            var item = GetAtPosition(chr.BoardPosition, OccupantType.Item);
+            if (item != null)
+            {
+                // TEMP
+                item.Destroy();
+            }
+        }
+    }
+
     #endregion
 
     #region Private
