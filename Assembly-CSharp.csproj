@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{DF27587E-4707-F0C7-0D1E-95E6F487F51B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -674,9 +675,6 @@
     <Reference Include="UnityScript.Lang">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/UnityScript.Lang.dll</HintPath>
     </Reference>
-    <Reference Include="Boo.Lang">
-      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/samso/Documents/GitHub/CharacterDrivenGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -724,11 +722,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="RotaryHeart.csproj">
-      <Project>{F7A7A7A3-4E68-BAB7-17CD-F53FB745684C}</Project>
-      <Name>RotaryHeart</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
     <ProjectReference Include="NaughtyAttributes.Editor.csproj">
       <Project>{0C6C58FE-1745-D7ED-ECB2-5A3781C83A14}</Project>
       <Name>NaughtyAttributes.Editor</Name>
@@ -742,6 +735,11 @@
     <ProjectReference Include="NaughtyAttributes.Test.csproj">
       <Project>{B848A2F1-4B08-F455-25C6-A3D3B23A1D00}</Project>
       <Name>NaughtyAttributes.Test</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="RotaryHeart.csproj">
+      <Project>{F7A7A7A3-4E68-BAB7-17CD-F53FB745684C}</Project>
+      <Name>RotaryHeart</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
