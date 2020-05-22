@@ -1,4 +1,6 @@
 ﻿using Assets.Scripts;
+using Assets.Scripts.Actions;
+using Assets.Scripts.Notifications;
 using Assets.Scripts.Pathfinding;
 using DG.Tweening;
 using System.Collections.Generic;
@@ -40,6 +42,20 @@ public class Letter : Entity
         if (Type == EntityType.Solid)
         {
             return;
+        }
+
+        foreach (var character in Board.Instance.Characters)
+        {
+            if (Utility.ManhattanDist(BoardPosition, character.BoardPosition) == 1)
+            {
+                var toTarget = (character.WorldPosition - WorldPosition).normalized;
+                var attackSequence = DOTween.Sequence()
+                    .Append(transform.DOMove(WorldPosition - toTarget, 0.2f))
+                    .Append(transform.DOMove(character.WorldPosition - toTarget * 0.3f, 0.15f).SetEase(Ease.InCubic))
+                    .AppendCallback(() => this.PostNotification(Notify.Action<DamagePlayerAction>(), new DamagePlayerAction(1)))
+                    .Append(transform.DOMove(WorldPosition, 0.35f).SetEase(Ease.OutSine));
+                return;
+            }
         }
 
         var targets = Board.Instance.Characters
