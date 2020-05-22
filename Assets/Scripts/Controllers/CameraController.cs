@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Actions;
 using Assets.Scripts.LevelGen;
 using Assets.Scripts.Notifications;
+using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Controllers
@@ -115,7 +116,12 @@ namespace Assets.Scripts.Controllers
 
         private void OnPlayerDamaged(object sender, object args)
         {
-            trauma += traumaOnHit;
+            AddTrauma(traumaOnHit);
+        }
+
+        private void AddTrauma(float amount)
+        {
+            trauma = Mathf.Clamp01(trauma + amount);
         }
 
         private void CameraShake()
