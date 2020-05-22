@@ -16,17 +16,38 @@ namespace Assets.Scripts.Controllers
         [SerializeField]
         private float scrollSpeed = 5f;
 
+        /// <summary>
+        /// Maximum angular/translation offsets for screenshake.
+        /// </summary>
         [SerializeField]
         private float maxYaw, maxPitch, maxRoll, maxOffset;
 
+        /// <summary>
+        /// <see cref="trauma"/> is taken to this power when applied.
+        /// Higher values lead to smoother falloff.
+        /// </summary>
         [SerializeField, Min(1)]
         private float traumaExponent = 2;
 
+        /// <summary>
+        /// How much trauma decays per second.
+        /// <see cref="trauma"/> is in 0-1 range.
+        /// </summary>
         [SerializeField, Min(0f)]
         private float traumaRecoveryPerSecond = 1f;
 
+        /// <summary>
+        /// The frequency of shaking. Higher values result in more violent shaking.
+        /// Controls the frequency of the perlin noise function.
+        /// </summary>
         [SerializeField, Min(1)]
         private float frequency = 25f;
+
+        /// <summary>
+        /// Amount of trauma added when the player is hit by an attack.
+        /// </summary>
+        [SerializeField, Min(0f)]
+        private float traumaOnHit = 0.5f;
 
         private Vector3 focusPoint, viewPosition, focusOffset;
 
@@ -94,9 +115,7 @@ namespace Assets.Scripts.Controllers
 
         private void OnPlayerDamaged(object sender, object args)
         {
-            var atk = args as DamagePlayerAction;
-
-            trauma += 1f;
+            trauma += traumaOnHit;
         }
 
         private void CameraShake()
