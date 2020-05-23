@@ -312,8 +312,8 @@ public class Board
 
     private class Match
     {
-        public string Word;
-        public List<IOccupant> Parts;
+        public readonly string Word;
+        public readonly List<IOccupant> Parts;
 
         public Match(string word, List<IOccupant> parts)
         {
