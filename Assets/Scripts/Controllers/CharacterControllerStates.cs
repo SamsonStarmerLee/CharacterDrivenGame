@@ -63,8 +63,8 @@ namespace Assets.Scripts.Controllers
                     Owner.movement.Clear();
                     Owner.activeCharacter = null;
 
-                    Board.Instance.CollectItems();
                     Board.Instance.ScoreMatches();
+                    Board.Instance.CollectItems();
                     Board.Instance.RefreshCharacters();
                 }
 

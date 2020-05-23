@@ -99,7 +99,8 @@ public class Board
             // TODO: Solid case
             else
             {
-                Debug.LogError($"Something went wrong trying to deregister entity {entity}.");
+                Debug.LogError($"Something went wrong trying to deregister entity {entity}" +
+                    $" of type {entity.Type}.");
             }
         }
 
@@ -243,8 +244,8 @@ public class Board
 
         foreach (var e in toDestroy)
         {
-            e.Destroy();
             cells[e.BoardPosition].ClearOccupant(e);
+            e.Destroy();
         }
 
         SetMatchHighlighting(false);
@@ -259,6 +260,7 @@ public class Board
             if (item != null)
             {
                 // TEMP
+                cells[item.BoardPosition].ClearOccupant(item);
                 item.Destroy();
             } 
         }
