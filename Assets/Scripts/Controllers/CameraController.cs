@@ -64,7 +64,7 @@ namespace Assets.Scripts.Controllers
             viewPosition = transform.position;
             Cursor.lockState = CursorLockMode.Confined;
 
-            seed = Random.value;
+            seed = UnityEngine.Random.value;
             cameraTransform = transform.Find("Camera");
 
             machine.ChangeState(new TrackingState(this));
