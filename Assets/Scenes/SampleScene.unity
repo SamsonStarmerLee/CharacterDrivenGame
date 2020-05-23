@@ -693,6 +693,7 @@ MonoBehaviour:
   traumaExponent: 2
   traumaRecoveryPerSecond: 1
   frequency: 15
+  traumaOnHit: 0.5
 --- !u!4 &987277417
 Transform:
   m_ObjectHideFlags: 0
@@ -701,7 +702,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987277415}
   m_LocalRotation: {x: -0.49666205, y: -0.23049434, z: 0.13878062, w: -0.8251904}
-  m_LocalPosition: {x: -2.76, y: 10.04, z: -4.55}
+  m_LocalPosition: {x: -3.485, y: 12.682, z: -5.747}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963194228}
