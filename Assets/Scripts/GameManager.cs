@@ -35,7 +35,13 @@ namespace Assets.Scripts
         private void OnAttack(object sender, object args)
         {
             var action = args as DamagePlayerAction;
+            
             Health -= action.Damage;
+
+            if (Health == 0)
+            {
+                Debug.Log("YOU DIED!");
+            }
 
             this.PostNotification(HealthChangedNotification, this);
         }
