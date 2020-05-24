@@ -15,6 +15,11 @@ namespace Assets.Scripts
 
         public int Score { get; private set; }
 
+        private void Awake()
+        {
+            Health = MaxHealth;
+        }
+
         private void OnEnable()
         {
             this.AddObserver(OnAttack, Notify.Action<DamagePlayerAction>());

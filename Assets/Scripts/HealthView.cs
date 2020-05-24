@@ -8,9 +8,6 @@ namespace Assets.Scripts
     public class HealthView : MonoBehaviour
     {
         [SerializeField]
-        int maxHealth;
-
-        [SerializeField]
         List<Image> slots;
 
         [SerializeField]
