@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Characters;
+using Assets.Scripts.InputManagement;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,9 @@ namespace Assets.Scripts.Controllers
 {
     public partial class CharacterController : MonoBehaviour
     {
+        [SerializeField]
+        InputSource input;
+
         [SerializeField]
         private LayerMask movementLayerMask;
 
@@ -25,6 +29,7 @@ namespace Assets.Scripts.Controllers
         {
             DrawMovement();
 
+            input.Prime();
             machine.Execute();
             activeCharacter?.Tick();
         }

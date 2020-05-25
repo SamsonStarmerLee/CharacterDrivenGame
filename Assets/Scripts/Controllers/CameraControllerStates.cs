@@ -41,7 +41,8 @@ namespace Assets.Scripts.Controllers
 
             private bool CheckScrolling()
             {
-                var mousePos = Input.mousePosition;
+                var input = Owner.input;
+                var mousePos = input.SelectPosition;
                 var scrolling = false;
 
                 // Scrolling by touching the screen edge
@@ -49,8 +50,7 @@ namespace Assets.Scripts.Controllers
                 scrolling |= mousePos.y < Owner.scrollMargin || mousePos.y > Screen.height - Owner.scrollMargin;
 
                 // Scrolling with arrow keys
-                scrolling |= Input.GetAxis("CameraHorizontal") != 0;
-                scrolling |= Input.GetAxis("CameraVertical") != 0;
+                scrolling |= input.CameraAxis != Vector2.zero;
 
                 return scrolling;
             }
@@ -79,7 +79,7 @@ namespace Assets.Scripts.Controllers
                 var scrollSpeed = Owner.scrollSpeed;
                 ref var focusOffset = ref Owner.focusOffset;
 
-                var mousePos = Input.mousePosition;
+                var mousePos = Owner.input.SelectPosition;
                 var rightAxis = Vector3.ProjectOnPlane(transform.right, Vector3.up).normalized;
                 var forwardAxis = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
 
@@ -108,10 +108,8 @@ namespace Assets.Scripts.Controllers
                 var scrollSpeed = Owner.scrollSpeed;
                 ref var focusOffset = ref Owner.focusOffset;
 
-                var h = Input.GetAxis("CameraHorizontal");
-                var v = Input.GetAxis("CameraVertical");
-
-                if (h == 0 && v == 0)
+                var camera = Owner.input.CameraAxis;
+                if (camera == Vector2.zero)
                 {
                     return;
                 }
@@ -119,8 +117,8 @@ namespace Assets.Scripts.Controllers
                 var rightAxis = Vector3.ProjectOnPlane(transform.right, Vector3.up).normalized;
                 var forwardAxis = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
 
-                focusOffset += rightAxis * h * scrollSpeed * Time.deltaTime;
-                focusOffset += forwardAxis * v * scrollSpeed * Time.deltaTime;
+                focusOffset += rightAxis * camera.x * scrollSpeed * Time.deltaTime;
+                focusOffset += forwardAxis * camera.y * scrollSpeed * Time.deltaTime;
             }
         }
     }

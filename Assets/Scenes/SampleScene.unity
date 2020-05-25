@@ -683,6 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3bc72d29e091c34a9aeed758bb706b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 11400000, guid: 3ef8dbe6eabfc8e4e85141d475d52360, type: 2}
   focus: {fileID: 0}
   scrollMargin: 2
   scrollSpeed: 12
@@ -901,6 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4190246d0c2a83d48bc226a7d9335f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 11400000, guid: 3ef8dbe6eabfc8e4e85141d475d52360, type: 2}
   movementLayerMask:
     serializedVersion: 2
     m_Bits: 512

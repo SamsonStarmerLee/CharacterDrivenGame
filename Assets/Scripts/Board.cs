@@ -282,6 +282,12 @@ public class Board
 
     private List<Match> matches = new List<Match>();
 
+    // TEMP
+    // This is a hacky system for pausing interaction during animations.
+    // Actors can send off a lock, which they responsible for unlocking later.
+    // So long as there is one or more locks, no actions can be taken.
+    private int locks;
+
     private bool SetEntityPosition(Entity ent, Vector2Int position)
     {
         if (cells[position].Entity != null)

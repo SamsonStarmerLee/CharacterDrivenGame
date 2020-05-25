@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.Pathfinding;
+﻿using Assets.Scripts.InputManagement;
+using Assets.Scripts.Pathfinding;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.Characters
@@ -6,6 +8,9 @@ namespace Assets.Scripts.Characters
     [SelectionBase]
     public partial class AWarrior : Entity, ICharacter, IScorer
     {
+        [SerializeField]
+        InputSource input;
+
         [SerializeField, Min(0f)]
         private float moveTime = 0.25f;
 
@@ -28,6 +33,9 @@ namespace Assets.Scripts.Characters
         public override void Init()
         {
             base.Init();
+
+            // TEMP
+            input = Resources.FindObjectsOfTypeAll<InputSource>().FirstOrDefault();
 
             machine.ChangeState(new IdleState
             {

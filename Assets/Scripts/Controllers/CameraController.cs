@@ -1,13 +1,16 @@
 ﻿using Assets.Scripts.Actions;
+using Assets.Scripts.InputManagement;
 using Assets.Scripts.LevelGen;
 using Assets.Scripts.Notifications;
-using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Controllers
 {
     public partial class CameraController : MonoBehaviour
     {
+        [SerializeField]
+        InputSource input;
+
         [SerializeField]
         private Transform focus;
 

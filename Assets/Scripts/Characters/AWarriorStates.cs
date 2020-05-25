@@ -25,7 +25,7 @@ namespace Assets.Scripts.Characters
             public override IState Execute()
             {
                 // TEMP: Ability usage
-                if (Input.GetKeyDown(KeyCode.Alpha1))
+                if (Owner.input.Numbers[1].Down)
                 {
                     return new SelectTargetAndDestState
                     {
@@ -51,7 +51,7 @@ namespace Assets.Scripts.Characters
             {
                 // TODO: Draw valid targets and throw range.
 
-                if (Input.GetMouseButtonDown(0) &&
+                if (Owner.input.Select.Down &&
                     GetMousePosition(characterLayer, out var boardPos, out _))
                 {
                     var occupant = Board.Instance.GetAtPosition(boardPos, Board.OccupantType.Entity);
@@ -82,8 +82,8 @@ namespace Assets.Scripts.Characters
                     }
                 }
 
-                // Right-click to cancel.
-                if (Input.GetMouseButtonDown(1))
+                // Cancel the action.
+                if (Owner.input.Dismiss.Down)
                 {
                     return new IdleState
                     {

@@ -33,7 +33,7 @@ namespace Assets.Scripts.Controllers
         {
             public override IState Execute()
             {
-                if (Input.GetMouseButtonDown(0) &&
+                if (Owner.input.Select.Down &&
                     GetMousePosition(Owner.movementLayerMask, out Vector2Int position, out _))
                 {
                     var entity = Board.Instance.GetAtPosition(position, Board.OccupantType.Entity);
@@ -50,15 +50,13 @@ namespace Assets.Scripts.Controllers
                 }
 
                 // When we press a keyboard key that matches one of our characters, select it.
-                if (Input.anyKeyDown && Input.inputString.Length == 1)
+                if (Owner.input.AnyAlphabeticalKeyDown)
                 {
                     CheckJumpSelect();
                 }
 
                 // Confirm movement and score matches.
-                if (Input.GetKeyDown(KeyCode.Return) || 
-                    Input.GetKeyDown(KeyCode.KeypadEnter) ||
-                    Input.GetKeyDown(KeyCode.Space))
+                if (Owner.input.Submit.Pressed)
                 {
                     Owner.movement.Clear();
                     Owner.activeCharacter = null;
@@ -73,18 +71,14 @@ namespace Assets.Scripts.Controllers
 
             private void CheckJumpSelect()
             {
-                var pressed = Input.inputString;
+                var pressed = Owner.input.AlphabeticalPressed.ToString();
+                var match = Board.Instance.Characters.FirstOrDefault(x =>
+                    string.Equals(x.Letter, pressed, StringComparison.OrdinalIgnoreCase));
 
-                if (char.IsLetter(pressed[0]))
+                if (match != null)
                 {
-                    var match = Board.Instance.Characters.FirstOrDefault(x =>
-                        string.Equals(x.Letter, pressed, StringComparison.OrdinalIgnoreCase));
-
-                    if (match != null)
-                    {
-                        var tf = (match as MonoBehaviour).transform;
-                        this.PostNotification(JumpSelectNotification, tf);
-                    }
+                    var tf = (match as MonoBehaviour).transform;
+                    this.PostNotification(JumpSelectNotification, tf);
                 }
             }
         }
@@ -153,7 +147,7 @@ namespace Assets.Scripts.Controllers
                 }
 
                 // Release to stop dragging.
-                if (Input.GetMouseButtonUp(0))
+                if (Owner.input.Select.Released)
                 {
                     if (path.Count != 0)
                     {

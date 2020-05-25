@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\HealthView.cs" />
     <Compile Include="Assets\Scripts\IOccupant.cs" />
     <Compile Include="Assets\Scripts\IScorer.cs" />
+    <Compile Include="Assets\Scripts\Input\InputSource.cs" />
     <Compile Include="Assets\Scripts\Letter.cs" />
     <Compile Include="Assets\Scripts\LetterMovementCallbacks.cs" />
     <Compile Include="Assets\Scripts\LevelGen\RoomGenerator.cs" />
