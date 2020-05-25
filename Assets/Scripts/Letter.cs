@@ -59,9 +59,10 @@ public class Letter : Entity
         {
             if (Utility.ManhattanDist(BoardPosition, character.BoardPosition) == 1)
             {
+                const float hitOffset = 0.3f;
                 var toTarget = (character.WorldPosition - WorldPosition).normalized;
                 var reelBack = WorldPosition - toTarget;
-                var hitPoint = character.WorldPosition - toTarget * 0.3f;
+                var hitPoint = character.WorldPosition - toTarget * hitOffset;
 
                 var attackSequence = DOTween.Sequence()
                     .Append(transform.DOMove(reelBack, reelBackDuration))
