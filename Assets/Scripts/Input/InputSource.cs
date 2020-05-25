@@ -5,14 +5,14 @@ namespace Assets.Scripts.InputManagement
 {
     public struct ButtonState
     {
-        public readonly bool Down;
-        public readonly bool Pressed;
+        public readonly bool Clicked;
+        public readonly bool Held;
         public readonly bool Released;
 
-        public ButtonState(bool down, bool pressed, bool released)
+        public ButtonState(bool clicked, bool held, bool released)
         {
-            Down = down;
-            Pressed = pressed;
+            Clicked = clicked;
+            Held = held;
             Released = released;
         }
     }
@@ -33,8 +33,8 @@ namespace Assets.Scripts.InputManagement
         public ButtonState[] _numbers = new ButtonState[10];
         public IReadOnlyList<ButtonState> Numbers => _numbers;
 
-        public bool AnyAlphabeticalKeyDown { get; private set; }
-        public char AlphabeticalPressed { get; private set; }
+        public bool AnyAlphabeticalKeyClicked { get; private set; }
+        public char AlphabeticalHeld { get; private set; }
 
         // Keycodes for numbers, ordered 1234567890.
         static int[] numericKeycodes = { 49, 50, 51, 52, 53, 54, 55, 56, 57, 48 };
@@ -44,24 +44,24 @@ namespace Assets.Scripts.InputManagement
             SelectPosition = Input.mousePosition;
             Select = new ButtonState
             (
-                down: Input.GetMouseButtonDown(0),
-                pressed: Input.GetMouseButton(0),
+                clicked: Input.GetMouseButtonDown(0),
+                held: Input.GetMouseButton(0),
                 released: Input.GetMouseButtonUp(0)
             );
 
             DismissPosition = Input.mousePosition;
             Dismiss = new ButtonState
             (
-                down: Input.GetMouseButtonDown(1),
-                pressed: Input.GetMouseButton(1),
+                clicked: Input.GetMouseButtonDown(1),
+                held: Input.GetMouseButton(1),
                 released: Input.GetMouseButtonUp(1)
             );
 
-            var submitDown =
+            var submitClicked =
                 Input.GetKeyDown(KeyCode.Return) ||
                 Input.GetKeyDown(KeyCode.KeypadEnter) ||
                 Input.GetKeyDown(KeyCode.Space);
-            var submitPressed =
+            var submitHeld =
                 Input.GetKey(KeyCode.Return) ||
                 Input.GetKey(KeyCode.KeypadEnter) ||
                 Input.GetKey(KeyCode.Space);
@@ -72,8 +72,8 @@ namespace Assets.Scripts.InputManagement
 
             Submit = new ButtonState
             (
-                down: submitDown,
-                pressed: submitPressed,
+                clicked: submitClicked,
+                held: submitHeld,
                 released: submitReleased
             );
 
@@ -87,17 +87,17 @@ namespace Assets.Scripts.InputManagement
                 var keycode = (KeyCode)numericKeycodes[i];
                 _numbers[i] = new ButtonState
                 (
-                    down: Input.GetKeyDown(keycode),
-                    pressed: Input.GetKey(keycode),
+                    clicked: Input.GetKeyDown(keycode),
+                    held: Input.GetKey(keycode),
                     released: Input.GetKeyUp(keycode)
                 );
             }
 
-            AnyAlphabeticalKeyDown =
+            AnyAlphabeticalKeyClicked =
                 Input.anyKeyDown &&
                 Input.inputString.Length == 1 &&
                 char.IsLetter(Input.inputString[0]);
-            AlphabeticalPressed = AnyAlphabeticalKeyDown
+            AlphabeticalHeld = AnyAlphabeticalKeyClicked
                 ? Input.inputString[0]
                 : '\0';
         }

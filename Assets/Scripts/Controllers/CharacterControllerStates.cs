@@ -33,7 +33,7 @@ namespace Assets.Scripts.Controllers
         {
             public override IState Execute()
             {
-                if (Owner.input.Select.Down &&
+                if (Owner.input.Select.Clicked &&
                     GetMousePosition(Owner.movementLayerMask, out Vector2Int position, out _))
                 {
                     var entity = Board.Instance.GetAtPosition(position, Board.OccupantType.Entity);
@@ -50,13 +50,13 @@ namespace Assets.Scripts.Controllers
                 }
 
                 // When we press a keyboard key that matches one of our characters, select it.
-                if (Owner.input.AnyAlphabeticalKeyDown)
+                if (Owner.input.AnyAlphabeticalKeyClicked)
                 {
                     CheckJumpSelect();
                 }
 
                 // Confirm movement and score matches.
-                if (Owner.input.Submit.Pressed)
+                if (Owner.input.Submit.Clicked)
                 {
                     Owner.movement.Clear();
                     Owner.activeCharacter = null;
@@ -71,7 +71,7 @@ namespace Assets.Scripts.Controllers
 
             private void CheckJumpSelect()
             {
-                var pressed = Owner.input.AlphabeticalPressed.ToString();
+                var pressed = Owner.input.AlphabeticalHeld.ToString();
                 var match = Board.Instance.Characters.FirstOrDefault(x =>
                     string.Equals(x.Letter, pressed, StringComparison.OrdinalIgnoreCase));
 
