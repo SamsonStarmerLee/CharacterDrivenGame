@@ -33,6 +33,11 @@ namespace Assets.Scripts.Controllers
         {
             public override IState Execute()
             {
+                if (Owner.input.Locked)
+                {
+                    return null;
+                }
+
                 if (Owner.input.Select.Clicked &&
                     GetMousePosition(Owner.movementLayerMask, out Vector2Int position, out _))
                 {
@@ -95,6 +100,11 @@ namespace Assets.Scripts.Controllers
 
             public override IState Execute()
             {
+                if (Owner.input.Locked)
+                {
+                    return null;
+                }
+
                 if (!GetMousePosition(
                     Owner.movementLayerMask, 
                     out Vector2Int Destination, 

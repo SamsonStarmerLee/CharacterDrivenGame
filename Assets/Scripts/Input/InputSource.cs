@@ -36,6 +36,14 @@ namespace Assets.Scripts.InputManagement
         public bool AnyAlphabeticalKeyClicked { get; private set; }
         public char AlphabeticalHeld { get; private set; }
 
+        /// <summary>
+        /// The InputSource can be 'locked' any number of times. Those locking sources are responsible for unlocking.
+        /// As long as one lock remains, the whole InputProvider is considered locked.
+        /// Being locked does not affect input. Consumers choose how to interpret it.
+        /// </summary>
+        public bool Locked => locks > 0;
+        private int locks;
+
         // Keycodes for numbers, ordered 1234567890.
         static int[] numericKeycodes = { 49, 50, 51, 52, 53, 54, 55, 56, 57, 48 };
 
@@ -95,11 +103,21 @@ namespace Assets.Scripts.InputManagement
 
             AnyAlphabeticalKeyClicked =
                 Input.anyKeyDown &&
-                Input.inputString.Length == 1 &&
+                Input.inputString.Length == 1 && 
                 char.IsLetter(Input.inputString[0]);
             AlphabeticalHeld = AnyAlphabeticalKeyClicked
                 ? Input.inputString[0]
                 : '\0';
+        }
+
+        public void Lock()
+        {
+            locks = Mathf.Clamp(locks + 1, 0, int.MaxValue);
+        }
+
+        public void Unlock()
+        {
+            locks = Mathf.Clamp(locks - 1, 0, int.MaxValue);
         }
     }
 }

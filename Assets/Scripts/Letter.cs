@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts;
 using Assets.Scripts.Actions;
+using Assets.Scripts.InputManagement;
 using Assets.Scripts.Notifications;
 using Assets.Scripts.Pathfinding;
 using DG.Tweening;
@@ -64,11 +65,17 @@ public class Letter : Entity
                 var reelBack = WorldPosition - toTarget;
                 var hitPoint = character.WorldPosition - toTarget * hitOffset;
 
+                // TEMP
+                // Lock input while the animation plays out.
+                var input = Resources.FindObjectsOfTypeAll<InputSource>().FirstOrDefault();
+                input.Lock();
+
                 var attackSequence = DOTween.Sequence()
                     .Append(transform.DOMove(reelBack, reelBackDuration))
                     .Append(transform.DOMove(hitPoint, attackDuration).SetEase(Ease.InCubic))
                     .AppendCallback(() => this.PostNotification(Notify.Action<DamagePlayerAction>(), new DamagePlayerAction(1)))
-                    .Append(transform.DOMove(WorldPosition, returnDuration).SetEase(Ease.OutSine));
+                    .Append(transform.DOMove(WorldPosition, returnDuration).SetEase(Ease.OutSine))
+                    .AppendCallback(() => input.Unlock());
                 
                 return;
             }

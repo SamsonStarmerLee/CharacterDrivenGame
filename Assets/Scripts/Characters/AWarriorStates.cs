@@ -24,6 +24,11 @@ namespace Assets.Scripts.Characters
         {
             public override IState Execute()
             {
+                if (Owner.input.Locked)
+                {
+                    return null;
+                }
+
                 // TEMP: Ability usage
                 if (Owner.input.Numbers[1].Clicked)
                 {
@@ -49,6 +54,11 @@ namespace Assets.Scripts.Characters
 
             public override IState Execute()
             {
+                if (Owner.input.Locked)
+                {
+                    return null;
+                }
+
                 // TODO: Draw valid targets and throw range.
 
                 if (Owner.input.Select.Clicked &&
