@@ -1,4 +1,6 @@
 ﻿using Assets.Scripts;
+using DG.Tweening;
+using System.Net.Sockets;
 using UnityEngine;
 
 public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
@@ -27,6 +29,7 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 
     public Vector2Int BoardPosition { get; set; }
 
+    private Transform model;
     private new MeshRenderer renderer;
     private MaterialPropertyBlock block;
     private Color defaultColor;
@@ -41,7 +44,8 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
     {
         InitBoardPosition();
 
-        renderer = GetComponentInChildren<MeshRenderer>();
+        model = transform.Find("Model");
+        renderer = model.GetComponent<MeshRenderer>();
         block = new MaterialPropertyBlock();
         defaultColor = renderer.material.color;
 
@@ -50,12 +54,28 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 
     public virtual void Destroy()
     {
+        WarpOut();
+        Board.Instance.Deregister(this);
+    }
+
+    protected void WarpOut()
+    {
+        model.DOScaleX(0f, 0.25f);
+        model.DOScaleY(0f, 0.25f);
+
+        DOTween.Sequence()
+            .PrependInterval(0.1f)
+            .Append(model.DOScaleZ(100f, 0.1f))
+            .AppendCallback(() => Destroy(gameObject));
+    }
+
+    protected void BlowUp()
+    {
         var obj = Instantiate(deathParticle, transform.position, Quaternion.identity);
         var particleSystem = obj.GetComponent<ParticleSystem>();
         var main = particleSystem.main;
         main.startColor = defaultColor;
 
-        Board.Instance.Deregister(this);
         Destroy(gameObject);
     }
 
