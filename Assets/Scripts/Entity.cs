@@ -13,6 +13,9 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
     [SerializeField]
     protected string _letter;
     public string Letter => _letter;
+
+    [SerializeField]
+    private GameObject deathParticle;
     
     public EntityType Type;
 
@@ -47,6 +50,11 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 
     public virtual void Destroy()
     {
+        var obj = Instantiate(deathParticle, transform.position, Quaternion.identity);
+        var particleSystem = obj.GetComponent<ParticleSystem>();
+        var main = particleSystem.main;
+        main.startColor = defaultColor;
+
         Board.Instance.Deregister(this);
         Destroy(gameObject);
     }

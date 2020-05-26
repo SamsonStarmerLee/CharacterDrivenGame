@@ -94,9 +94,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _letter: W
+  deathParticle: {fileID: 9128305394446416293, guid: 085596e3249f56940810ec3cdda9752f,
+    type: 3}
   Type: 1
   meshAlphabet: []
   pathfindRange: 10
+  reelBackDuration: 0.2
+  attackDuration: 0.15
+  returnDuration: 0.35
 --- !u!114 &6715861987561341638
 MonoBehaviour:
   m_ObjectHideFlags: 0

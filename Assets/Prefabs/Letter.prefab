@@ -60,6 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _letter: 
+  deathParticle: {fileID: 9128305394446416293, guid: 085596e3249f56940810ec3cdda9752f,
+    type: 3}
   Type: 0
   meshAlphabet:
   - {fileID: 6941503453587140970, guid: efb9fc380b28f334bacdfa4dd1f0bb28, type: 3}
@@ -115,6 +117,9 @@ MonoBehaviour:
   - {fileID: -5633041684971857249, guid: efb9fc380b28f334bacdfa4dd1f0bb28, type: 3}
   - {fileID: -946301928450840285, guid: efb9fc380b28f334bacdfa4dd1f0bb28, type: 3}
   pathfindRange: 10
+  reelBackDuration: 0.2
+  attackDuration: 0.15
+  returnDuration: 0.35
 --- !u!114 &2951760689717763389
 MonoBehaviour:
   m_ObjectHideFlags: 0

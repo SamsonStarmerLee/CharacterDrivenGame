@@ -104,8 +104,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85fcea6e750e5ca41becca9a8d7af180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Solid: 0
   _letter: A
+  deathParticle: {fileID: 9128305394446416293, guid: 085596e3249f56940810ec3cdda9752f,
+    type: 3}
+  Type: 0
+  input: {fileID: 0}
   moveTime: 0.25
   throwRange: 3
   throwTime: 0.25
@@ -125,7 +128,7 @@ PrefabInstance:
     - target: {fileID: 7552664787412783074, guid: cb811748d6433104a8c38f5980f9c6ca,
         type: 3}
       propertyPath: m_Name
-      value: PlayerCharacter
+      value: AWarrior
       objectReference: {fileID: 0}
     - target: {fileID: 7552664787412783075, guid: cb811748d6433104a8c38f5980f9c6ca,
         type: 3}
