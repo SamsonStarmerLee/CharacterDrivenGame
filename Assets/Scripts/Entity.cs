@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts;
 using DG.Tweening;
-using System.Net.Sockets;
 using UnityEngine;
 
 public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
@@ -63,9 +62,19 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
         model.DOScaleX(0f, 0.25f);
         model.DOScaleY(0f, 0.25f);
 
+        //var fadeTween = DOTween.To(
+        //    () => renderer.material.color, 
+        //    x => 
+        //    {
+        //        block.SetColor("_Color", x);
+        //        renderer.SetPropertyBlock(block);
+        //    }, 
+        //    new Color(0, 0, 0, 0), 
+        //    0.1f);
+
         DOTween.Sequence()
-            .PrependInterval(0.1f)
-            .Append(model.DOScaleZ(100f, 0.1f))
+            //.Insert(0.1f, fadeTween)
+            .Insert(0.1f, model.DOScaleZ(100f, 0.1f))
             .AppendCallback(() => Destroy(gameObject));
     }
 
