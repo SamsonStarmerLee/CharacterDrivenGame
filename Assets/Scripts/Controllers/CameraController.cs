@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Actions;
+using Assets.Scripts.Characters;
 using Assets.Scripts.InputManagement;
 using Assets.Scripts.LevelGen;
 using Assets.Scripts.Notifications;
@@ -21,33 +22,6 @@ namespace Assets.Scripts.Controllers
         private float scrollSpeed = 5f;
 
         /// <summary>
-        /// Maximum angular/translation offsets for screenshake.
-        /// </summary>
-        [SerializeField]
-        private float maxYaw, maxPitch, maxRoll, maxOffset;
-
-        /// <summary>
-        /// <see cref="trauma"/> is taken to this power when applied.
-        /// Higher values lead to smoother falloff.
-        /// </summary>
-        [SerializeField, Min(1)]
-        private float traumaExponent = 2;
-
-        /// <summary>
-        /// How much trauma decays per second.
-        /// <see cref="trauma"/> is in 0-1 range.
-        /// </summary>
-        [SerializeField, Min(0f)]
-        private float traumaRecoveryPerSecond = 1f;
-
-        /// <summary>
-        /// The frequency of shaking. Higher values result in more violent shaking.
-        /// Controls the frequency of the perlin noise function.
-        /// </summary>
-        [SerializeField, Min(1)]
-        private float frequency = 25f;
-
-        /// <summary>
         /// Amount of trauma added when the player is hit by an attack.
         /// </summary>
         [SerializeField, Min(0f)]
@@ -56,19 +30,16 @@ namespace Assets.Scripts.Controllers
         private Vector3 focusPoint, viewPosition, focusOffset;
 
         private StateMachine machine = new StateMachine();
-
-        private float seed;
-        private float trauma;
-
         private Transform cameraTransform;
+        private Shaker cameraShaker;
 
         private void Start()
         {
             viewPosition = transform.position;
             Cursor.lockState = CursorLockMode.Confined;
 
-            seed = UnityEngine.Random.value;
             cameraTransform = transform.Find("Camera");
+            cameraShaker = cameraTransform.GetComponent<Shaker>();
 
             machine.ChangeState(new TrackingState(this));
         }
@@ -79,6 +50,7 @@ namespace Assets.Scripts.Controllers
             this.AddObserver(OnJumpToCharacter, RoomGenerator.PlayerSpawnedNotification);
             this.AddObserver(OnDragStart, CharacterController.BeginDragNotification);
             this.AddObserver(OnPlayerDamaged, Notify.Action<DamagePlayerAction>());
+            this.AddObserver(OnGameOver, GameManager.GameOverNotification);
         }
 
         private void OnDisable()
@@ -87,6 +59,7 @@ namespace Assets.Scripts.Controllers
             this.RemoveObserver(OnJumpToCharacter, RoomGenerator.PlayerSpawnedNotification);
             this.RemoveObserver(OnDragStart, CharacterController.BeginDragNotification);
             this.RemoveObserver(OnPlayerDamaged, Notify.Action<DamagePlayerAction>());
+            this.RemoveObserver(OnGameOver, GameManager.GameOverNotification);
         }
 
         private void LateUpdate()
@@ -95,8 +68,6 @@ namespace Assets.Scripts.Controllers
 
             var lookPosition = focusPoint + viewPosition + focusOffset;
             transform.position = lookPosition;
-
-            CameraShake();
         }
 
         private void OnJumpToCharacter(object sender, object args)
@@ -119,34 +90,15 @@ namespace Assets.Scripts.Controllers
 
         private void OnPlayerDamaged(object sender, object args)
         {
-            AddTrauma(traumaOnHit);
+            cameraShaker.AddTrauma(traumaOnHit);
         }
 
-        private void AddTrauma(float amount)
+        private void OnGameOver(object sender, object args)
         {
-            trauma = Mathf.Clamp01(trauma + amount);
-        }
+            var toFocus = args as ICharacter;
 
-        private void CameraShake()
-        {
-            var shake = Mathf.Pow(trauma, traumaExponent);
-            var time = Time.time * frequency;
-
-            float GetPerlinNoiseZeroToOne(float s) =>
-                Mathf.PerlinNoise(s, time) * 2f - 1f;
-
-            var yaw   = maxYaw * shake * GetPerlinNoiseZeroToOne(seed);
-            var pitch = maxPitch * shake * GetPerlinNoiseZeroToOne(seed + 1);
-            var roll  = maxRoll * shake * GetPerlinNoiseZeroToOne(seed + 2);
-
-            var offsetX = maxOffset * shake * GetPerlinNoiseZeroToOne(seed + 3);
-            var offsetY = maxOffset * shake * GetPerlinNoiseZeroToOne(seed + 4);
-            var offsetZ = maxOffset * shake * GetPerlinNoiseZeroToOne(seed + 5);
-
-            cameraTransform.localRotation = Quaternion.Euler(yaw, pitch, roll);
-            cameraTransform.localPosition = new Vector3(offsetX, offsetY, offsetZ);
-
-            trauma = Mathf.Clamp01(trauma - traumaRecoveryPerSecond * Time.deltaTime);
+            focus = (toFocus as MonoBehaviour).transform;
+            machine.ChangeState(new CinematicState { Owner = this });
         }
     }
 }

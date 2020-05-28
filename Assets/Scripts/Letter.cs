@@ -73,7 +73,7 @@ public class Letter : Entity
                 var attackSequence = DOTween.Sequence()
                     .Append(transform.DOMove(reelBack, reelBackDuration))
                     .Append(transform.DOMove(hitPoint, attackDuration).SetEase(Ease.InCubic))
-                    .AppendCallback(() => this.PostNotification(Notify.Action<DamagePlayerAction>(), new DamagePlayerAction(1)))
+                    .AppendCallback(() => this.PostNotification(Notify.Action<DamagePlayerAction>(), new DamagePlayerAction(1, character)))
                     .Append(transform.DOMove(WorldPosition, returnDuration).SetEase(Ease.OutSine))
                     .AppendCallback(() => input.Unlock());
                 

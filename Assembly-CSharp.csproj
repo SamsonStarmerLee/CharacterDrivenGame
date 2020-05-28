@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\Controllers\CameraControllerStates.cs" />
     <Compile Include="Assets\Scripts\Controllers\CharacterController.cs" />
     <Compile Include="Assets\Scripts\Controllers\CharacterControllerStates.cs" />
+    <Compile Include="Assets\Scripts\Effects\Shaker.cs" />
     <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HealthView.cs" />

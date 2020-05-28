@@ -121,5 +121,24 @@ namespace Assets.Scripts.Controllers
                 focusOffset += forwardAxis * camera.y * scrollSpeed * Time.deltaTime;
             }
         }
+
+        private class CinematicState : BaseState
+        {
+            const float Zoom = 8f;
+
+
+
+            public override IState Execute()
+            {
+                var zoomOffset = Owner.cameraTransform.forward * Zoom;
+
+                // TEMP
+                var desired = Owner.focus.position;
+                Owner.focusPoint = Vector3.Lerp(Owner.focusPoint, desired, 0.1f);
+                Owner.focusOffset = Vector3.Lerp(Owner.focusOffset, zoomOffset, 0.1f);
+
+                return null;
+            }
+        }
     }
 }

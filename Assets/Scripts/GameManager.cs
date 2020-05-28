@@ -8,6 +8,7 @@ namespace Assets.Scripts
     {
         public const string ScoreChangedNotification = "ScoreChanged.Notification";
         public const string HealthChangedNotification = "HealthChanged.Notification";
+        public const string GameOverNotification = "GameOver.Notification";
 
         public const int MaxHealth = 3;
 
@@ -37,13 +38,13 @@ namespace Assets.Scripts
             var action = args as DamagePlayerAction;
             
             Health -= action.Damage;
+            this.PostNotification(HealthChangedNotification, this);
 
             if (Health == 0)
             {
                 Debug.Log("YOU DIED!");
+                this.PostNotification(GameOverNotification, action.Damaged);
             }
-
-            this.PostNotification(HealthChangedNotification, this);
         }
 
         private void OnScore(object sender, object args)
