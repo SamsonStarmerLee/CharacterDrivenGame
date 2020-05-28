@@ -3,7 +3,6 @@ using Assets.Scripts.Characters;
 using Assets.Scripts.InputManagement;
 using Assets.Scripts.LevelGen;
 using Assets.Scripts.Notifications;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +12,9 @@ namespace Assets.Scripts.Controllers
     {
         [SerializeField]
         InputSource input;
+
+        [SerializeField]
+        bool disableScroll;
 
         [SerializeField]
         private Transform focus;
