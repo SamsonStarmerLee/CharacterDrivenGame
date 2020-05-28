@@ -47,6 +47,10 @@ namespace Assets.Scripts.Controllers
             cameraShaker = cameraTransform.GetComponent<Shaker>();
 
             machine.ChangeState(new TrackingState(this));
+
+            var height = cinematicBarTop.rectTransform.rect.height;
+            cinematicBarBottom.rectTransform.anchoredPosition += new Vector2(0, -height);
+            cinematicBarTop.rectTransform.anchoredPosition += new Vector2(0, height);
         }
 
         private void OnEnable()

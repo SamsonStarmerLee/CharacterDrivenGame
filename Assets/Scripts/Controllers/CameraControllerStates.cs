@@ -130,8 +130,8 @@ namespace Assets.Scripts.Controllers
 
             public override void Enter()
             {
-                Owner.cinematicBarBottom.rectTransform.DOAnchorPosY(0, 1f);
-                Owner.cinematicBarTop.rectTransform.DOAnchorPosY(0, 1f);
+                Owner.cinematicBarBottom.rectTransform.DOAnchorPosY(0, 0.25f);
+                Owner.cinematicBarTop.rectTransform.DOAnchorPosY(0, 0.25f);
             }
 
             public override IState Execute()
