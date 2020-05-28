@@ -3,7 +3,9 @@ using Assets.Scripts.Characters;
 using Assets.Scripts.InputManagement;
 using Assets.Scripts.LevelGen;
 using Assets.Scripts.Notifications;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Controllers
 {
@@ -26,6 +28,9 @@ namespace Assets.Scripts.Controllers
         /// </summary>
         [SerializeField, Min(0f)]
         private float traumaOnHit = 0.5f;
+
+        [SerializeField]
+        private Image cinematicBarTop, cinematicBarBottom;
 
         private Vector3 focusPoint, viewPosition, focusOffset;
 

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using System.Collections;
+using UnityEngine;
 
 namespace Assets.Scripts.Controllers
 {
@@ -126,10 +128,19 @@ namespace Assets.Scripts.Controllers
         {
             const float Zoom = 8f;
 
-
+            public override void Enter()
+            {
+                Owner.cinematicBarBottom.rectTransform.DOAnchorPosY(0, 1f);
+                Owner.cinematicBarTop.rectTransform.DOAnchorPosY(0, 1f);
+            }
 
             public override IState Execute()
             {
+                if (Owner.focus == null)
+                {
+                    return null;
+                }
+
                 var zoomOffset = Owner.cameraTransform.forward * Zoom;
 
                 // TEMP
@@ -138,6 +149,13 @@ namespace Assets.Scripts.Controllers
                 Owner.focusOffset = Vector3.Lerp(Owner.focusOffset, zoomOffset, 0.1f);
 
                 return null;
+            }
+
+            public override void Exit()
+            {
+                var height = Owner.cinematicBarTop.rectTransform.rect.height;
+                Owner.cinematicBarBottom.rectTransform.DOAnchorPosY(-height, 1f);
+                Owner.cinematicBarTop.rectTransform.DOAnchorPosY(height, 1f);
             }
         }
     }

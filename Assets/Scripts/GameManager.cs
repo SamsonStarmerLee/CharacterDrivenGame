@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts.Actions;
+using Assets.Scripts.Characters;
 using Assets.Scripts.Notifications;
+using System.Collections;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -43,8 +45,24 @@ namespace Assets.Scripts
             if (Health == 0)
             {
                 Debug.Log("YOU DIED!");
+                
+                StartCoroutine(KillCharacter(action));
+
                 this.PostNotification(GameOverNotification, action.Damaged);
             }
+        }
+
+        private static IEnumerator KillCharacter(DamagePlayerAction action)
+        {
+            var character = action.Damaged as ICharacter;
+
+            // Shake damaged character
+            var shaker = (character as MonoBehaviour).GetComponent<Shaker>();
+            shaker.AddTrauma(1f);
+
+            yield return new WaitForSeconds(2f);
+
+            character.Destroy();
         }
 
         private void OnScore(object sender, object args)

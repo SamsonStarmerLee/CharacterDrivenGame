@@ -3,6 +3,13 @@
 public class Shaker : MonoBehaviour
 {
     /// <summary>
+    /// The transform to shake.
+    /// Defaults to self if left unassigned.
+    /// </summary>
+    [SerializeField]
+    private Transform toShake;
+
+    /// <summary>
     /// Maximum translation offset.
     /// </summary>
     [SerializeField, Min(0)]
@@ -42,11 +49,16 @@ public class Shaker : MonoBehaviour
     private void Awake()
     {
         seed = Random.value;
+
+        if (toShake == null)
+        {
+            toShake = transform;
+        }
     }
 
     private void Update()
     {
-        if (trauma == 0)
+        if (trauma == 0 || toShake == null)
         {
             return;
         }
@@ -65,8 +77,8 @@ public class Shaker : MonoBehaviour
         var offsetY = maxOffset.y * shake * GetPerlinNoiseZeroToOne(seed + 4);
         var offsetZ = maxOffset.z * shake * GetPerlinNoiseZeroToOne(seed + 5);
 
-        transform.localRotation = Quaternion.Euler(yaw, pitch, roll);
-        transform.localPosition = new Vector3(offsetX, offsetY, offsetZ);
+        toShake.localRotation = Quaternion.Euler(yaw, pitch, roll);
+        toShake.localPosition = new Vector3(offsetX, offsetY, offsetZ);
 
         trauma = Mathf.Clamp01(trauma - traumaRecoveryPerSecond * Time.deltaTime);
     }

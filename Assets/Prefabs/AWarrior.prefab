@@ -92,6 +92,24 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &5004189367511782704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4229606527181653718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb7bdc3ed72f9254cb55b4df3938b67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toShake: {fileID: 4229606527432289208}
+  maxOffset: {x: 0.25, y: 0, z: 0.25}
+  maxRotation: {x: 0, y: 0, z: 0}
+  traumaExponent: 2
+  traumaRecoveryPerSecond: 0.5
+  frequency: 25
 --- !u!114 &5236916008338403221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +126,7 @@ MonoBehaviour:
   deathParticle: {fileID: 9128305394446416293, guid: 085596e3249f56940810ec3cdda9752f,
     type: 3}
   Type: 0
-  input: {fileID: 0}
+  input: {fileID: 11400000, guid: 3ef8dbe6eabfc8e4e85141d475d52360, type: 2}
   moveTime: 0.25
   throwRange: 3
   throwTime: 0.25
@@ -237,6 +255,12 @@ GameObject:
 --- !u!4 &4229606527181653719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7552664787412783075, guid: cb811748d6433104a8c38f5980f9c6ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 5936553694941219124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4229606527432289208 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7552664787629859468, guid: cb811748d6433104a8c38f5980f9c6ca,
     type: 3}
   m_PrefabInstance: {fileID: 5936553694941219124}
   m_PrefabAsset: {fileID: 0}
