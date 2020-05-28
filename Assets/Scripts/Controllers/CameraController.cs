@@ -43,7 +43,11 @@ namespace Assets.Scripts.Controllers
         private void Start()
         {
             viewPosition = transform.position;
-            Cursor.lockState = CursorLockMode.Confined;
+
+            if (!disableScroll)
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+            }
 
             cameraTransform = transform.Find("Camera");
             cameraShaker = cameraTransform.GetComponent<Shaker>();
