@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Priority_Queue;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Assets.Scripts.Pathfinding
 {
@@ -15,7 +16,8 @@ namespace Assets.Scripts.Pathfinding
             Vector2Int goal, 
             int range, 
             IReadOnlyList<IOccupant> ignore,
-            IMovementCallbacks movement)
+            IMovementCallbacks movement,
+            HashSet<Vector2Int> inRangeOut)
         {
             var cameFrom = new Dictionary<Vector2Int, Vector2Int>();
             var costs = new Dictionary<Vector2Int, int>();
@@ -65,11 +67,10 @@ namespace Assets.Scripts.Pathfinding
                     }
                 }
 
-                // TEMP: Show all reachable squares
+                // Record 'reachable' squares
                 if (costs[current] < WallCost)
                 {
-                    var pos = new Vector3(current.x, 0f, current.y);
-                    Debug.DrawRay(pos, Vector3.up * 1f, Color.black);
+                    inRangeOut.Add(current);
                 }
             }
 

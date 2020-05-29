@@ -1,9 +1,12 @@
 ﻿using Assets.Scripts.Characters;
 using Assets.Scripts.Notifications;
 using Assets.Scripts.Pathfinding;
+using Assets.Scripts.Visuals;
+using DG.Tweening.Plugins;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Scripts.Controllers
@@ -69,6 +72,8 @@ namespace Assets.Scripts.Controllers
                     Board.Instance.ScoreMatches();
                     Board.Instance.CollectItems();
                     Board.Instance.RefreshCharacters();
+
+                    ClearPaths();
                 }
 
                 return null;
@@ -85,6 +90,22 @@ namespace Assets.Scripts.Controllers
                     var tf = (match as MonoBehaviour).transform;
                     this.PostNotification(JumpSelectNotification, tf);
                 }
+            }
+
+            private void ClearPaths()
+            {
+                foreach (var kvp in Owner.paths)
+                {
+                    (var character, var path) = kvp;
+
+                    foreach (var pos in path)
+                    {
+                        Board.Instance
+                            .SetFloorTileOverlay(Overlay.None, pos);
+                    }
+                }
+
+                Owner.paths.Clear();
             }
         }
 
@@ -135,9 +156,11 @@ namespace Assets.Scripts.Controllers
                     Destination, 
                     range, 
                     ignore,
-                    callbacks);
-                
-                DrawPath(path, Color.blue);
+                    callbacks,
+                    Owner.inRangeTiles);
+
+                // Set the active character's path.
+                Owner.paths[Owner.activeCharacter] = path;
 
                 void MoveCharacterToTerminus()
                 {
@@ -155,6 +178,8 @@ namespace Assets.Scripts.Controllers
                 {
                     MoveCharacterToTerminus();
                 }
+
+                DrawRegion();
 
                 // Release to stop dragging.
                 if (Owner.input.Select.Released)
@@ -178,7 +203,67 @@ namespace Assets.Scripts.Controllers
 
             public override void Exit()
             {
+                ClearRangeTiles();
                 this.PostNotification(CompleteDragNotification);
+            }
+
+            private void DrawRegion()
+            {
+                var inRange = Owner.inRangeTiles;
+
+                foreach (var point in inRange)
+                {
+                    var tile = Board.Instance.GetCell(point)?.FloorTile;
+
+                    if (tile == null || tile.Overlay == Overlay.Path_Inactive)
+                    {
+                        continue;
+                    }
+
+                    tile.SetOverlay(Overlay.Range);
+                }
+
+                foreach (var kvp in Owner.paths)
+                {
+                    (var character, var path) = kvp;
+                    
+                    if (path == null || path.Count == 0)
+                    {
+                        continue;
+                    }
+                    
+                    var overlay = character == Owner.activeCharacter 
+                        ? Overlay.Path_Active 
+                        : Overlay.Path_Inactive;
+
+                    foreach (var pos in path)
+                    {
+                        Board.Instance
+                            .SetFloorTileOverlay(overlay, pos);
+                    }
+
+                    Board.Instance.SetFloorTileOverlay(Overlay.Destination, path[0]);
+                }
+            }
+
+            private void ClearRangeTiles()
+            {
+                foreach (var pos in Owner.inRangeTiles)
+                {
+                    var tile = Board.Instance.GetCell(pos)?.FloorTile;
+
+                    if (tile == null || tile.Overlay == Overlay.Path_Inactive)
+                    {
+                        continue;
+                    }
+
+                    var overlay = tile.Overlay == Overlay.Path_Active
+                        ? Overlay.Path_Inactive
+                        : Overlay.None;
+                    tile.SetOverlay(overlay);
+                }
+
+                Owner.inRangeTiles.Clear();
             }
         }
     }

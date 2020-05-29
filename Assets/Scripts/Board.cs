@@ -2,15 +2,17 @@
 using Assets.Scripts.Actions;
 using Assets.Scripts.Characters;
 using Assets.Scripts.Notifications;
+using Assets.Scripts.Visuals;
 using System.Collections.Generic;
 using UnityEngine;
 using static Entity;
 
-internal class Cell
+public class Cell
 {
     public IOccupant Entity = null;
     public IOccupant Item   = null;
     // public Entity Terrain;
+    public FloorTile FloorTile  = null;
 
     public IOccupant PrimaryOccupant => Entity ?? Item;
 
@@ -133,6 +135,12 @@ public class Board
         Any,
         Entity,
         Item,
+    }
+
+    public Cell GetCell(Vector2Int position)
+    {
+        cells.TryGetValue(position, out Cell cell);
+        return cell;
     }
 
     public IOccupant GetAtPosition(Vector2Int position, OccupantType type)
@@ -267,6 +275,27 @@ public class Board
                 item.Destroy();
             } 
         }
+    }
+
+    public void SetFloorTile(FloorTile tile, Vector2Int atPos)
+    {
+        if (!cells.ContainsKey(atPos))
+        {
+            cells[atPos] = new Cell();
+        }
+
+        cells[atPos].FloorTile = tile;
+    }
+
+    public void SetFloorTileOverlay(Overlay overlay, Vector2Int atPos)
+    {
+        if (!cells.ContainsKey(atPos) || cells[atPos].FloorTile == null)
+        {
+            return;
+        }
+
+        var tile = cells[atPos].FloorTile;
+        tile.SetOverlay(overlay);
     }
 
     #endregion

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -23,5 +24,14 @@ namespace Assets.Scripts
 
         public static int ManhattanDist(Vector2Int a, Vector2Int b) =>
             Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y);
+
+        /// <summary>
+        /// Allows KeyValuePair deconstruction (in C#7).
+        /// </summary>
+        public static void Deconstruct<T1, T2>(this KeyValuePair<T1, T2> tuple, out T1 key, out T2 value)
+        {
+            key = tuple.Key;
+            value = tuple.Value;
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using RotaryHeart.Lib.SerializableDictionary;
+﻿using Boo.Lang;
+using RotaryHeart.Lib.SerializableDictionary;
+using System.Collections.Generic;
 using UnityEditorInternal.VersionControl;
 using UnityEngine;
 
@@ -22,6 +24,8 @@ namespace Assets.Scripts.Visuals
         private OverlaySpriteDictionary spriteMap;
 
         private SpriteRenderer overlaySprite;
+        
+        public Overlay Overlay { get; private set; }
 
         private void Awake()
         {
@@ -29,15 +33,14 @@ namespace Assets.Scripts.Visuals
             overlaySprite = overlayObject.GetComponent<SpriteRenderer>();
         }
 
-        public void SetOverlay(Overlay overlay)
+        public void SetOverlay(Overlay ovr)
         {
-            if (overlay == Overlay.None)
-            {
+            if (ovr == Overlay.None)
                 overlaySprite.sprite = null;
-                return;
-            }
+            else
+                overlaySprite.sprite = spriteMap[ovr];
 
-            overlaySprite.sprite = spriteMap[overlay];
+            Overlay = ovr;
         }
     }
 }

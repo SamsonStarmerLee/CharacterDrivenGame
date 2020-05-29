@@ -168,17 +168,19 @@ namespace Assets.Scripts.LevelGen
                 var x = i % roomWidth + atPosition.x;
                 var y = i / roomHeight + atPosition.y;
                 var key = template[i];
+                var boardPos = new Vector2Int(x, y);
 
                 // Spawn floor tiles 
                 // Except under walls or exit/entry
                 if (key != '#' && key != 'E' && key != 'X')
                 {
-                    var tile = CreateTile(room, x, y, '0');
-                    var t = tile.gameObject.GetComponent<FloorTile>();
-                    t.SetOverlay(Overlay.None);
+                    var obj = CreateTile(room, x, y, '0');
+                    var tile = obj.gameObject.GetComponent<FloorTile>();
+                    tile.SetOverlay(Overlay.None);
+                    Board.Instance.SetFloorTile(tile, boardPos);
                 }
                 
-                if (Board.Instance.GetAtPosition(new Vector2Int(x, y), Board.OccupantType.Any) != null)
+                if (Board.Instance.GetAtPosition(boardPos, Board.OccupantType.Any) != null)
                 {
                     continue;
                 }
