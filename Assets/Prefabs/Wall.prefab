@@ -159,8 +159,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60de24e23bdeaa346a981ae6e4e07758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshes:
-  - {fileID: -4097844776799219605, guid: d7b2b28eb6b05de409b1d16e736b4ae3, type: 3}
-  - {fileID: -5505000599535378963, guid: 8e75c8eb4d248cc4d835abcedff4f643, type: 3}
-  - {fileID: 5560280484952494369, guid: 40cbc3280acabfa41ae19975ae64fa78, type: 3}
-  - {fileID: -5239519181318109261, guid: 3269fa903b0951640bcb17074beb1270, type: 3}
+  table:
+    items:
+    - Item: {fileID: -4097844776799219605, guid: d7b2b28eb6b05de409b1d16e736b4ae3,
+        type: 3}
+      ProbabilityWeight: 24.3
+      probabilityPercent: 80.19802
+      probabilityRangeFrom: 0
+      probabilityRangeTo: 24.3
+    - Item: {fileID: -5505000599535378963, guid: 8e75c8eb4d248cc4d835abcedff4f643,
+        type: 3}
+      ProbabilityWeight: 2
+      probabilityPercent: 6.6006603
+      probabilityRangeFrom: 24.3
+      probabilityRangeTo: 26.3
+    - Item: {fileID: 5560280484952494369, guid: 40cbc3280acabfa41ae19975ae64fa78,
+        type: 3}
+      ProbabilityWeight: 2
+      probabilityPercent: 6.6006603
+      probabilityRangeFrom: 26.3
+      probabilityRangeTo: 28.3
+    - Item: {fileID: -5239519181318109261, guid: 3269fa903b0951640bcb17074beb1270,
+        type: 3}
+      ProbabilityWeight: 2
+      probabilityPercent: 6.6006603
+      probabilityRangeFrom: 28.3
+      probabilityRangeTo: 30.3
+    probabilityTotalWeight: 30.3

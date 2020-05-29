@@ -1,17 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using Assets.Scripts.LevelGen;
 using UnityEngine;
 
 namespace Assets.Scripts.Visuals
 {
-    public class MeshRandomizer : MonoBehaviour
+	[System.Serializable]
+	public class MeshItem : PieChanceItem<Mesh> { }
+
+	[System.Serializable]
+	public class MeshTable : PieChanceTable<MeshItem, Mesh> { }
+
+	public class MeshRandomizer : MonoBehaviour
     {
-        [SerializeField]
-        private List<Mesh> meshes;
+        public MeshTable table;
 
         private void Start()
         {
             var filter = GetComponent<MeshFilter>();
-            filter.sharedMesh = meshes[Random.Range(0, meshes.Count)];
+            filter.sharedMesh = table.PickItem();
+        }
+
+        private void OnValidate()
+        {
+            table.ValidateTable();
         }
     }
 }
