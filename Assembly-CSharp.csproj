@@ -110,6 +110,7 @@
     <Compile Include="Assets\Scripts\Pooling\Pooler.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Utility.cs" />
+    <Compile Include="Assets\Scripts\Visuals\MaterialRandomizer.cs" />
     <Compile Include="Assets\Scripts\Visuals\MeshRandomizer.cs" />
     <Compile Include="Assets\Scripts\Visuals\Shaker.cs" />
     <Compile Include="Assets\Scripts\WordFinder.cs" />
