@@ -101,6 +101,9 @@ public class Board
             {
                 Debug.LogError($"Something went wrong trying to deregister entity {entity}" +
                     $" of type {entity.Type}.");
+                Debug.Log($"" +
+                    $"Entities contains: {_entities.Contains(entity)}, " +
+                    $"Items contains: {_items.Contains(entity)}");
             }
         }
 

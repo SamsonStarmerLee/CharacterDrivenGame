@@ -87,7 +87,6 @@
     <Compile Include="Assets\Scripts\Controllers\CameraControllerStates.cs" />
     <Compile Include="Assets\Scripts\Controllers\CharacterController.cs" />
     <Compile Include="Assets\Scripts\Controllers\CharacterControllerStates.cs" />
-    <Compile Include="Assets\Scripts\Effects\Shaker.cs" />
     <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HealthView.cs" />
@@ -96,6 +95,7 @@
     <Compile Include="Assets\Scripts\Input\InputSource.cs" />
     <Compile Include="Assets\Scripts\Letter.cs" />
     <Compile Include="Assets\Scripts\LetterMovementCallbacks.cs" />
+    <Compile Include="Assets\Scripts\LevelGen\RandomTableITem.cs" />
     <Compile Include="Assets\Scripts\LevelGen\RoomGenerator.cs" />
     <Compile Include="Assets\Scripts\LifecycleInterfaces.cs" />
     <Compile Include="Assets\Scripts\Money.cs" />
@@ -110,6 +110,8 @@
     <Compile Include="Assets\Scripts\Pooling\Pooler.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Utility.cs" />
+    <Compile Include="Assets\Scripts\Visuals\MeshRandomizer.cs" />
+    <Compile Include="Assets\Scripts\Visuals\Shaker.cs" />
     <Compile Include="Assets\Scripts\WordFinder.cs" />
     <None Include="Assets\Resources\enable.txt" />
     <None Include="Assets\Resources\Rooms\e1.txt" />

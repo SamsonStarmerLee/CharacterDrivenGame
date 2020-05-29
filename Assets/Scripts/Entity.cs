@@ -43,10 +43,10 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
     {
         InitBoardPosition();
 
-        model = transform.Find("Model");
-        renderer = model.GetComponent<MeshRenderer>();
-        block = new MaterialPropertyBlock();
-        defaultColor = renderer.material.color;
+        //model = transform.Find("Model");
+        //renderer = model.GetComponent<MeshRenderer>();
+        //block = new MaterialPropertyBlock();
+        //defaultColor = renderer.material.color;
 
         Board.Instance.Register(this);
     }
@@ -90,8 +90,8 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 
     public virtual void SetHighlight(bool highlight)
     {
-        block.SetColor("_Color", highlight ? Color.red : defaultColor);
-        renderer.SetPropertyBlock(block);
+        //block.SetColor("_Color", highlight ? Color.red : defaultColor);
+        //renderer.SetPropertyBlock(block);
     }
 
     private void InitBoardPosition()
