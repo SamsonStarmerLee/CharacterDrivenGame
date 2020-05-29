@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Characters;
 using Assets.Scripts.InputManagement;
+using Assets.Scripts.Visuals;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,41 +18,19 @@ namespace Assets.Scripts.Controllers
         private List<DragMovement> movement = new List<DragMovement>();
         private ICharacter activeCharacter;
 
+        private Dictionary<ICharacter, List<Vector2Int>> paths = new Dictionary<ICharacter, List<Vector2Int>>();
+        private HashSet<Vector2Int> inRangeTiles = new HashSet<Vector2Int>();
+
         private void Awake()
         {
-            machine.ChangeState(new IdleState
-            {
-                Owner = this
-            });
+            machine.ChangeState(new IdleState { Owner = this });
         }
 
         private void Update()
         {
-            DrawMovement();
-
             input.Prime();
             machine.Execute();
             activeCharacter?.Tick();
-        }
-
-        private void DrawMovement()
-        {
-            foreach (var move in movement)
-            {
-                DrawPath(move.Path, Color.grey);
-            }
-        }
-
-        private static void DrawPath(IReadOnlyList<Vector2Int> path, Color color)
-        {
-            for (var i = 0; i < path.Count - 1; i++)
-            {
-                var p0 = path[i];
-                var p1 = path[i + 1];
-                var v0 = new Vector3(p0.x, 0f, p0.y);
-                var v1 = new Vector3(p1.x, 0f, p1.y);
-                Debug.DrawLine(v0, v1, color);
-            }
         }
     }
 

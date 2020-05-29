@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 8223012877075539731}
   - component: {fileID: 3693254614624631539}
   - component: {fileID: 6824512781865736904}
+  - component: {fileID: 5984063419068121329}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -117,7 +118,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 46d66b500f905054392317a4dd66acc8, type: 2}
+  - {fileID: 2100000, guid: 0615cc1e0ed1390479d9dbc20de8b75f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,3 +147,42 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6987801122270703905}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &5984063419068121329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6987801122270703905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60de24e23bdeaa346a981ae6e4e07758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  table:
+    items:
+    - Item: {fileID: -4097844776799219605, guid: d7b2b28eb6b05de409b1d16e736b4ae3,
+        type: 3}
+      ProbabilityWeight: 24.3
+      probabilityPercent: 80.19802
+      probabilityRangeFrom: 0
+      probabilityRangeTo: 24.3
+    - Item: {fileID: -5505000599535378963, guid: 8e75c8eb4d248cc4d835abcedff4f643,
+        type: 3}
+      ProbabilityWeight: 2
+      probabilityPercent: 6.6006603
+      probabilityRangeFrom: 24.3
+      probabilityRangeTo: 26.3
+    - Item: {fileID: 5560280484952494369, guid: 40cbc3280acabfa41ae19975ae64fa78,
+        type: 3}
+      ProbabilityWeight: 2
+      probabilityPercent: 6.6006603
+      probabilityRangeFrom: 26.3
+      probabilityRangeTo: 28.3
+    - Item: {fileID: -5239519181318109261, guid: 3269fa903b0951640bcb17074beb1270,
+        type: 3}
+      ProbabilityWeight: 2
+      probabilityPercent: 6.6006603
+      probabilityRangeFrom: 28.3
+      probabilityRangeTo: 30.3
+    probabilityTotalWeight: 30.3

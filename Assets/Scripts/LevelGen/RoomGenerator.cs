@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Notifications;
 using Assets.Scripts.Pooling;
+using Assets.Scripts.Visuals;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -167,15 +168,19 @@ namespace Assets.Scripts.LevelGen
                 var x = i % roomWidth + atPosition.x;
                 var y = i / roomHeight + atPosition.y;
                 var key = template[i];
+                var boardPos = new Vector2Int(x, y);
 
                 // Spawn floor tiles 
                 // Except under walls or exit/entry
                 if (key != '#' && key != 'E' && key != 'X')
                 {
-                    CreateTile(room, x, y, '0');
+                    var obj = CreateTile(room, x, y, '0');
+                    var tile = obj.gameObject.GetComponent<FloorTile>();
+                    tile.SetOverlay(Overlay.None);
+                    Board.Instance.SetFloorTile(tile, boardPos);
                 }
                 
-                if (Board.Instance.GetAtPosition(new Vector2Int(x, y), Board.OccupantType.Any) != null)
+                if (Board.Instance.GetAtPosition(boardPos, Board.OccupantType.Any) != null)
                 {
                     continue;
                 }
