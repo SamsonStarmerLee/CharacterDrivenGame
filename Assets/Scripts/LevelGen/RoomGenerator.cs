@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Notifications;
 using Assets.Scripts.Pooling;
+using Assets.Scripts.Visuals;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -172,7 +173,9 @@ namespace Assets.Scripts.LevelGen
                 // Except under walls or exit/entry
                 if (key != '#' && key != 'E' && key != 'X')
                 {
-                    CreateTile(room, x, y, '0');
+                    var tile = CreateTile(room, x, y, '0');
+                    var t = tile.gameObject.GetComponent<FloorTile>();
+                    t.SetOverlay(Overlay.None);
                 }
                 
                 if (Board.Instance.GetAtPosition(new Vector2Int(x, y), Board.OccupantType.Any) != null)
