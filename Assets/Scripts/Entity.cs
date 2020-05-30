@@ -69,9 +69,7 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 
     protected void BlowUp()
     {
-        var obj = Instantiate(deathParticle, transform.position, Quaternion.identity);
-        var particleSystem = obj.GetComponent<ParticleSystem>();
-
+        Instantiate(deathParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
