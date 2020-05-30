@@ -71,7 +71,6 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
     {
         var obj = Instantiate(deathParticle, transform.position, Quaternion.identity);
         var particleSystem = obj.GetComponent<ParticleSystem>();
-        var main = particleSystem.main;
 
         Destroy(gameObject);
     }

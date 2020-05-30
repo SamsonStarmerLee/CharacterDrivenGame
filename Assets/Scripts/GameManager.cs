@@ -13,6 +13,7 @@ namespace Assets.Scripts
         public const string HealthChangedNotification = "HealthChanged.Notification";
         public const string GameOverNotification = "GameOver.Notification";
         public const string SubmitTurnNotification = "SubmitTurn.Notification";
+        public const string OpenExitNotification = "OpenExit.Notification";
 
         public const int MaxHealth = 3;
 
@@ -87,7 +88,7 @@ namespace Assets.Scripts
 
             if (DoorCountdown == 0)
             {
-                Debug.Log("DOOR OPEN!!! GO GO GO GOGOG");
+                this.PostNotification(OpenExitNotification);
             }
             else if (DoorCountdown > 0)
             {
