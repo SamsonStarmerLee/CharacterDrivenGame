@@ -60,10 +60,10 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
     protected void WarpOut()
     {
         model.DOScaleX(0f, 0.25f);
-        model.DOScaleY(0f, 0.25f);
+        model.DOScaleZ(0f, 0.25f);
 
         DOTween.Sequence()
-            .Insert(0.1f, model.DOScaleZ(100f, 0.1f))
+            .Insert(0.1f, model.DOScaleY(100f, 0.1f))
             .AppendCallback(() => Destroy(gameObject));
     }
 
@@ -72,7 +72,6 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
         var obj = Instantiate(deathParticle, transform.position, Quaternion.identity);
         var particleSystem = obj.GetComponent<ParticleSystem>();
         var main = particleSystem.main;
-        main.startColor = defaultColor;
 
         Destroy(gameObject);
     }
