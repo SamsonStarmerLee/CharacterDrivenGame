@@ -96,40 +96,40 @@ MonoBehaviour:
     items:
     - Item: {fileID: 2100000, guid: e44acab6fb338244aab397d2b4d3d108, type: 2}
       ProbabilityWeight: 21.42
-      probabilityPercent: 70.4142
+      probabilityPercent: 64.09336
       probabilityRangeFrom: 0
       probabilityRangeTo: 21.42
     - Item: {fileID: 2100000, guid: 581c6adca8ae3df44b7009812f55d686, type: 2}
       ProbabilityWeight: 2
-      probabilityPercent: 6.574622
+      probabilityPercent: 5.984441
       probabilityRangeFrom: 21.42
       probabilityRangeTo: 23.42
     - Item: {fileID: 2100000, guid: 2775f4cc208ea064a81cfb6870aef61b, type: 2}
       ProbabilityWeight: 2
-      probabilityPercent: 6.574622
+      probabilityPercent: 5.984441
       probabilityRangeFrom: 23.42
       probabilityRangeTo: 25.42
     - Item: {fileID: 2100000, guid: 2124090db205b284f8a5edd7fd81040c, type: 2}
       ProbabilityWeight: 2
-      probabilityPercent: 6.574622
+      probabilityPercent: 5.984441
       probabilityRangeFrom: 25.42
       probabilityRangeTo: 27.42
     - Item: {fileID: 2100000, guid: fdc9a0d0f8e65424ea00ce5e40497ce9, type: 2}
-      ProbabilityWeight: 1
-      probabilityPercent: 3.287311
+      ProbabilityWeight: 2
+      probabilityPercent: 5.984441
       probabilityRangeFrom: 27.42
-      probabilityRangeTo: 28.42
-    - Item: {fileID: 2100000, guid: 3b80ed6a6cd74284194c78f3be5a435f, type: 2}
-      ProbabilityWeight: 1
-      probabilityPercent: 3.287311
-      probabilityRangeFrom: 28.42
       probabilityRangeTo: 29.42
-    - Item: {fileID: 2100000, guid: da425fa0971ec8645a95c4d7e55f39b8, type: 2}
-      ProbabilityWeight: 1
-      probabilityPercent: 3.287311
+    - Item: {fileID: 2100000, guid: 3b80ed6a6cd74284194c78f3be5a435f, type: 2}
+      ProbabilityWeight: 2
+      probabilityPercent: 5.984441
       probabilityRangeFrom: 29.42
-      probabilityRangeTo: 30.42
-    probabilityTotalWeight: 30.42
+      probabilityRangeTo: 31.42
+    - Item: {fileID: 2100000, guid: da425fa0971ec8645a95c4d7e55f39b8, type: 2}
+      ProbabilityWeight: 2
+      probabilityPercent: 5.984441
+      probabilityRangeFrom: 31.42
+      probabilityRangeTo: 33.42
+    probabilityTotalWeight: 33.42
 --- !u!1 &2528078534727023293
 GameObject:
   m_ObjectHideFlags: 0
