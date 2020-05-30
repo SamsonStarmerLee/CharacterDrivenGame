@@ -43,10 +43,10 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
     {
         InitBoardPosition();
 
-        //model = transform.Find("Model");
-        //renderer = model.GetComponent<MeshRenderer>();
-        //block = new MaterialPropertyBlock();
-        //defaultColor = renderer.material.color;
+        model = transform.Find("Model");
+        renderer = model.GetComponent<MeshRenderer>();
+        block = new MaterialPropertyBlock();
+        defaultColor = renderer.material.color;
 
         Board.Instance.Register(this);
     }
@@ -62,18 +62,7 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
         model.DOScaleX(0f, 0.25f);
         model.DOScaleY(0f, 0.25f);
 
-        //var fadeTween = DOTween.To(
-        //    () => renderer.material.color, 
-        //    x => 
-        //    {
-        //        block.SetColor("_Color", x);
-        //        renderer.SetPropertyBlock(block);
-        //    }, 
-        //    new Color(0, 0, 0, 0), 
-        //    0.1f);
-
         DOTween.Sequence()
-            //.Insert(0.1f, fadeTween)
             .Insert(0.1f, model.DOScaleZ(100f, 0.1f))
             .AppendCallback(() => Destroy(gameObject));
     }
@@ -90,8 +79,8 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 
     public virtual void SetHighlight(bool highlight)
     {
-        //block.SetColor("_Color", highlight ? Color.red : defaultColor);
-        //renderer.SetPropertyBlock(block);
+        block.SetColor("_Color", highlight ? Color.red : defaultColor);
+        renderer.SetPropertyBlock(block);
     }
 
     private void InitBoardPosition()
