@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts;
 using DG.Tweening;
+using System.Linq;
 using UnityEngine;
 
 public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
@@ -56,11 +57,15 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 
     private void OnDisable()
     {
-        Board.Instance.Deregister(this);
+        if (Board.Instance.Entities.Contains(this))
+        {
+            Board.Instance.Deregister(this);
+        }
     }
 
     public virtual void Destroy()
     {
+        Board.Instance.Deregister(this);
         WarpOut();
     }
 
