@@ -68,15 +68,18 @@ namespace Assets.Scripts.InputManagement
             var submitClicked =
                 Input.GetKeyDown(KeyCode.Return) ||
                 Input.GetKeyDown(KeyCode.KeypadEnter) ||
-                Input.GetKeyDown(KeyCode.Space);
+                Input.GetKeyDown(KeyCode.Space) ||
+                Input.GetMouseButtonDown(1);
             var submitHeld =
                 Input.GetKey(KeyCode.Return) ||
                 Input.GetKey(KeyCode.KeypadEnter) ||
-                Input.GetKey(KeyCode.Space);
+                Input.GetKey(KeyCode.Space) ||
+                Input.GetMouseButton(1);
             var submitReleased =
                 Input.GetKeyUp(KeyCode.Return) ||
                 Input.GetKeyUp(KeyCode.KeypadEnter) ||
-                Input.GetKeyUp(KeyCode.Space);
+                Input.GetKeyUp(KeyCode.Space) ||
+                Input.GetMouseButtonUp(1);
 
             Submit = new ButtonState
             (
