@@ -95,7 +95,7 @@
     <Compile Include="Assets\Scripts\Input\InputSource.cs" />
     <Compile Include="Assets\Scripts\Letter.cs" />
     <Compile Include="Assets\Scripts\LetterMovementCallbacks.cs" />
-    <Compile Include="Assets\Scripts\LevelGen\RandomTableItem.cs" />
+    <Compile Include="Assets\Scripts\LevelGen\RandomTableITem.cs" />
     <Compile Include="Assets\Scripts\LevelGen\RoomGenerator.cs" />
     <Compile Include="Assets\Scripts\LifecycleInterfaces.cs" />
     <Compile Include="Assets\Scripts\Money.cs" />
@@ -731,10 +731,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="RotaryHeart.csproj">
-      <Project>{F7A7A7A3-4E68-BAB7-17CD-F53FB745684C}</Project>
-      <Name>RotaryHeart</Name>
-    </ProjectReference>
     <ProjectReference Include="NaughtyAttributes.Editor.csproj">
       <Project>{0C6C58FE-1745-D7ED-ECB2-5A3781C83A14}</Project>
       <Name>NaughtyAttributes.Editor</Name>
@@ -746,6 +742,10 @@
     <ProjectReference Include="NaughtyAttributes.Test.csproj">
       <Project>{B848A2F1-4B08-F455-25C6-A3D3B23A1D00}</Project>
       <Name>NaughtyAttributes.Test</Name>
+    </ProjectReference>
+    <ProjectReference Include="RotaryHeart.csproj">
+      <Project>{F7A7A7A3-4E68-BAB7-17CD-F53FB745684C}</Project>
+      <Name>RotaryHeart</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
