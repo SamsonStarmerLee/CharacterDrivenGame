@@ -26,6 +26,7 @@ namespace Assets.Scripts.LevelGen
 
         [SerializeField]
         private GameObject playerPrefab;
+
         private List<string> roomTemplates = new List<string>();
         private List<string> entryTemplates = new List<string>();
         private List<string> exitTemplates = new List<string>();
@@ -38,9 +39,22 @@ namespace Assets.Scripts.LevelGen
             LoadTemplates("x", exitTemplates);
         }
 
-        private void Start()
+        public void Generate()
         {
-            GenerateDungeon(2, 2);
+            if (rooms.Count == 0)
+            {
+                GenerateDungeon(2, 2);
+            }
+            else
+            {
+                foreach (var vkp in rooms)
+                {
+                    Destroy(vkp.Value.GameObject);
+                }
+
+                rooms.Clear();
+                Board.Instance.ClearFloorReferences();
+            }
 
             // TEMP
             var spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
@@ -49,8 +63,8 @@ namespace Assets.Scripts.LevelGen
             for (var i = 0; i < 3; i++)
             {
                 var character = Instantiate(
-                    playerPrefab, 
-                    spawnPoints[i].transform.position, 
+                    playerPrefab,
+                    spawnPoints[i].transform.position,
                     Quaternion.identity);
 
                 spawned.Add(character.transform);
@@ -58,20 +72,6 @@ namespace Assets.Scripts.LevelGen
 
             var tf = spawned[0];
             this.PostNotification(PlayerSpawnedNotification, tf);
-        }
-
-        private static void LoadTemplates(string prefix, List<string> templates)
-        {
-            var i = 0;
-            while (true)
-            {
-                var r = Resources.Load($"Rooms/{prefix}{i}") as TextAsset;
-                if (r == null) break;
-
-                var room = r.text.Replace("\n", "").Replace("\r", "");
-                templates.Add(room);
-                i++;
-            }
         }
 
         private void GenerateDungeon(int width, int height)
@@ -219,12 +219,24 @@ namespace Assets.Scripts.LevelGen
 
         private GameObject CreateTile(Room room, int x, int y, char key)
         {
-            var tile = pooler.Get(key);
             var position = new Vector3(x, 0f, y);
-            tile.transform.position = position;
-            tile.transform.rotation = Quaternion.identity;
-            tile.transform.parent = room.GameObject.transform;
+            var parent = room.GameObject.transform;
+            var tile = pooler.Get(key, position, Quaternion.identity, parent);
             return tile.gameObject;
+        }
+
+        private static void LoadTemplates(string prefix, List<string> templates)
+        {
+            var i = 0;
+            while (true)
+            {
+                var r = Resources.Load($"Rooms/{prefix}{i}") as TextAsset;
+                if (r == null) break;
+
+                var room = r.text.Replace("\n", "").Replace("\r", "");
+                templates.Add(room);
+                i++;
+            }
         }
     }
 }

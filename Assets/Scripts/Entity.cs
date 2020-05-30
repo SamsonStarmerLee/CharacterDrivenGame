@@ -33,7 +33,7 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
     private MaterialPropertyBlock block;
     private Color defaultColor;
 
-    private void Start()
+    private void OnEnable()
     {
         // TEMP: Perhaps call init from a manager class?
         Init();
@@ -51,10 +51,14 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
         Board.Instance.Register(this);
     }
 
+    private void OnDisable()
+    {
+        Board.Instance.Deregister(this);
+    }
+
     public virtual void Destroy()
     {
         WarpOut();
-        Board.Instance.Deregister(this);
     }
 
     protected void WarpOut()

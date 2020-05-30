@@ -13,9 +13,10 @@ namespace Assets.Scripts.Pooling
     {
         [SerializeField]
         private CharGameObjectDictionary prefabs;
+
         private Dictionary<char, List<Poolable>> pools = new Dictionary<char, List<Poolable>>();
 
-        public Poolable Get(char id)
+        public Poolable Get(char id, Vector3 position, Quaternion rotation, Transform parent)
         {
             if (!prefabs.ContainsKey(id))
             {
@@ -35,12 +36,15 @@ namespace Assets.Scripts.Pooling
             if (lastIndex >= 0)
             {
                 instance = pool[lastIndex];
+                instance.gameObject.transform.position = position;
+                instance.gameObject.transform.rotation = rotation;
+                instance.gameObject.transform.parent = parent;
                 instance.gameObject.SetActive(true);
                 pool.RemoveAt(lastIndex);
             }
             else
             {
-                instance = Instantiate(prefabs[id]).GetComponent<Poolable>();
+                instance = Instantiate(prefabs[id], position, rotation, parent).GetComponent<Poolable>();
                 instance.Id = id;
             }
 

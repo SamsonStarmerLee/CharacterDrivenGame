@@ -43,14 +43,16 @@ namespace Assets.Scripts
 
             foreach (var character in Board.Instance.Characters)
             {
-                if (Utility.ManhattanDist(character.BoardPosition, boardPosition) > 1)
+                var dist = Mathf.Round((character.BoardPosition - boardPosition).magnitude);
+                if (dist > 1)
                 {
+                    Debug.Log(dist);
                     return;
                 }
             }
-
+            
             // If we get here, that means all characters are inside the exit zone.
-            Debug.Log("GO! POO POO");
+            this.PostNotification(GameManager.ExitFloorNotification);
         }
 
         private void OnOpen(object sender, object args)
