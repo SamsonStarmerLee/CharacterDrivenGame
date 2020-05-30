@@ -32,6 +32,11 @@ namespace Assets.Scripts
 
         private void OnSubmit(object sender, object args)
         {
+            if (!open)
+            {
+                return;
+            }
+
             var x = Mathf.RoundToInt(transform.position.x);
             var y = Mathf.RoundToInt(transform.position.z);
             var boardPosition = new Vector2Int(x, y);
