@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Actions;
 using Assets.Scripts.Characters;
 using Assets.Scripts.Notifications;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,12 +12,15 @@ namespace Assets.Scripts
         public const string ScoreChangedNotification = "ScoreChanged.Notification";
         public const string HealthChangedNotification = "HealthChanged.Notification";
         public const string GameOverNotification = "GameOver.Notification";
+        public const string SubmitTurnNotification = "SubmitTurn.Notification";
 
         public const int MaxHealth = 3;
 
         public int Health { get; private set; }
 
         public int Score { get; private set; }
+
+        public int DoorCountdown { get; private set; } = 10;
 
         private void Awake()
         {
@@ -27,12 +31,14 @@ namespace Assets.Scripts
         {
             this.AddObserver(OnAttack, Notify.Action<DamagePlayerAction>());
             this.AddObserver(OnScore, Notify.Action<ScoreAction>());
+            this.AddObserver(OnSubmitTurn, SubmitTurnNotification);
         }
 
         private void OnDisable()
         {
             this.RemoveObserver(OnAttack, Notify.Action<DamagePlayerAction>());
             this.RemoveObserver(OnScore, Notify.Action<ScoreAction>());
+            this.RemoveObserver(OnSubmitTurn, SubmitTurnNotification);
         }
 
         private void OnAttack(object sender, object args)
@@ -73,6 +79,20 @@ namespace Assets.Scripts
             Debug.Log($"Score {action.ScoreChange}! Total score is now {Score}.");
 
             this.PostNotification(ScoreChangedNotification, this);
+        }
+
+        private void OnSubmitTurn(object sender, object args)
+        {
+            DoorCountdown--;
+
+            if (DoorCountdown == 0)
+            {
+                Debug.Log("DOOR OPEN!!! GO GO GO GOGOG");
+            }
+            else if (DoorCountdown > 0)
+            {
+                Debug.Log($"Turns until door opens: {DoorCountdown}");
+            }
         }
     }
 }
