@@ -16,6 +16,9 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
     public string Letter => _letter;
 
     [SerializeField]
+    private Color highlightColor;
+
+    [SerializeField]
     private GameObject deathParticle;
     
     public EntityType Type;
@@ -79,7 +82,7 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 
     public virtual void SetHighlight(bool highlight)
     {
-        block.SetColor("_Color", highlight ? Color.red : defaultColor);
+        block.SetColor("_Color", highlight ? highlightColor : defaultColor);
         renderer.SetPropertyBlock(block);
     }
 

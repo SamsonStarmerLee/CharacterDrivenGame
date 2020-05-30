@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _letter: 
+  highlightColor: {r: 1, g: 0, b: 0.8780918, a: 0}
   deathParticle: {fileID: 9128305394446416293, guid: 085596e3249f56940810ec3cdda9752f,
     type: 3}
   Type: 2
