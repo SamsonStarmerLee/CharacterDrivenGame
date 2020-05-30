@@ -61,7 +61,7 @@ public class Money : Entity
 
         // Shrink and add random rotation to model.
         modelObj.localScale *= Random.Range(0.5f, 0.7f);
-        modelObj.rotation *= Quaternion.Euler(0f, 0f, Random.Range(-randomRotation, randomRotation));
+        modelObj.rotation *= Quaternion.Euler(0f, Random.Range(-randomRotation, randomRotation), 0f);
     }
 
     public override void Destroy()
