@@ -128,6 +128,7 @@
     <None Include="Assets\Resources\Rooms\e2.txt" />
     <None Include="Assets\Resources\Rooms\r4.txt" />
     <None Include="Assets\Resources\Rooms\r6.txt" />
+    <None Include="Assets\Material\Shaders\UnlitShadowCaster.shader" />
     <None Include="Assets\Resources\Rooms\r13.txt" />
     <None Include="Assets\Resources\Rooms\r3.txt" />
     <None Include="Assets\Resources\Rooms\r9.txt" />

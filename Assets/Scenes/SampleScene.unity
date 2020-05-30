@@ -939,7 +939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 3ef8dbe6eabfc8e4e85141d475d52360, type: 2}
-  disableScroll: 1
+  disableScroll: 0
   focus: {fileID: 0}
   scrollMargin: 2
   scrollSpeed: 12
