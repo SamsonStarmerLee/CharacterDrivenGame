@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5651136266581493828}
   - component: {fileID: 5402679243292981005}
   m_Layer: 0
-  m_Name: Region
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,6 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5167658739911986841}
   - component: {fileID: 4302495045192129233}
+  - component: {fileID: 5274216984843411153}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -176,6 +177,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 88
+--- !u!114 &5274216984843411153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5167658739911986846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b34214ef09701a2458447273c108bf16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openColor: {r: 0.56078434, g: 0.972549, b: 0.8862745, a: 0}
 --- !u!1 &7284272717073236608
 GameObject:
   m_ObjectHideFlags: 0

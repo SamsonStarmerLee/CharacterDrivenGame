@@ -98,7 +98,12 @@ public class Board
             {
                 _items.Remove(entity);
             }
-            // TODO: Solid case
+            // TODO: Proper Solid case
+            else if (entity.Type == EntityType.Solid && _entities.Contains(entity))
+            {
+                _entities.Remove(entity);
+            }
+            // TODO
             else
             {
                 Debug.LogError($"Something went wrong trying to deregister entity {entity}" +
@@ -296,6 +301,17 @@ public class Board
 
         var tile = cells[atPos].FloorTile;
         tile.SetOverlay(overlay);
+    }
+
+    public void ClearFloorReferences()
+    {
+        _scorers.Clear();
+        _characters.Clear();
+        _entities.Clear();
+        _items.Clear();
+        _letters.Clear();
+        matches.Clear();
+        cells.Clear();
     }
 
     #endregion

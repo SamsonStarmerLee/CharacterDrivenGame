@@ -46,7 +46,6 @@ namespace Assets.Scripts.Characters
         public override void Destroy()
         {
             BlowUp();
-            Board.Instance.Deregister(this);
         }
 
         public void Tick()

@@ -73,6 +73,8 @@ namespace Assets.Scripts.Controllers
                     Board.Instance.CollectItems();
                     Board.Instance.RefreshCharacters();
 
+                    this.PostNotification(GameManager.SubmitTurnNotification);
+
                     ClearPaths();
                 }
 
