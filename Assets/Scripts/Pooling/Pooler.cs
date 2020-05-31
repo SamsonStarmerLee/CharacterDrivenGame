@@ -18,6 +18,8 @@ namespace Assets.Scripts.Pooling
 
         public Poolable Get(char id, Vector3 position, Quaternion rotation, Transform parent)
         {
+            return Instantiate(prefabs[id], position, rotation, parent).GetComponent<Poolable>();
+
             if (!prefabs.ContainsKey(id))
             {
                 Debug.LogError($"Tried to spawn poolable item with unrecognized ID: {id}");
@@ -53,6 +55,9 @@ namespace Assets.Scripts.Pooling
 
         public void Reclaim(Poolable poolable)
         {
+            Destroy(poolable.gameObject);
+            return;
+
             var id = poolable.Id;
             if (!pools.ContainsKey(id))
             {
@@ -62,6 +67,11 @@ namespace Assets.Scripts.Pooling
             pools[poolable.Id].Add(poolable);
             poolable.transform.parent = null;
             poolable.gameObject.SetActive(false);
+        }
+
+        public void Clear()
+        {
+            pools.Clear();
         }
 
         private void CreatePool(char id)

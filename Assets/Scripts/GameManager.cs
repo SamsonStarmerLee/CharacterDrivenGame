@@ -2,9 +2,10 @@
 using Assets.Scripts.Characters;
 using Assets.Scripts.LevelGen;
 using Assets.Scripts.Notifications;
-using System;
+using Assets.Scripts.Pooling;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
 {
@@ -12,16 +13,22 @@ namespace Assets.Scripts
     {
         public const string ScoreChangedNotification = "ScoreChanged.Notification";
         public const string HealthChangedNotification = "HealthChanged.Notification";
-        public const string GameOverNotification = "GameOver.Notification";
         public const string SubmitTurnNotification = "SubmitTurn.Notification";
 
         public const string OpenExitNotification = "OpenExit.Notification";
         public const string ExitFloorNotification = "ExitFloor.Notification";
 
+        public const string GameOverNotification = "GameOver.Notification";
+        public const string ExitGameNotification = "ExitGame.Notification";
+        public const string RestartNotification = "Restart.Notification";
+
         public const int MaxHealth = 3;
 
         [SerializeField]
         RoomGenerator roomGenerator;
+
+        [SerializeField]
+        Pooler pooler;
 
         public int Health { get; private set; }
 
@@ -40,6 +47,8 @@ namespace Assets.Scripts
             this.AddObserver(OnScore, Notify.Action<ScoreAction>());
             this.AddObserver(OnSubmitTurn, SubmitTurnNotification);
             this.AddObserver(OnExitFloor, ExitFloorNotification);
+            this.AddObserver(OnRestart, RestartNotification);
+            this.AddObserver(OnExitGame, ExitGameNotification);
         }
 
         private void OnDisable()
@@ -48,10 +57,16 @@ namespace Assets.Scripts
             this.RemoveObserver(OnScore, Notify.Action<ScoreAction>());
             this.RemoveObserver(OnSubmitTurn, SubmitTurnNotification);
             this.RemoveObserver(OnExitFloor, ExitFloorNotification);
+            this.RemoveObserver(OnRestart, RestartNotification);
+            this.RemoveObserver(OnExitGame, ExitGameNotification);
         }
 
         private void Start()
         {
+            // Clear 'static' data that may be left over from previous plays.
+            Board.Instance.ClearFloorReferences();
+            pooler.Clear();
+
             roomGenerator.Generate();
         }
 
@@ -131,6 +146,17 @@ namespace Assets.Scripts
 
             Debug.Log("New Room");
             roomGenerator.Generate();
+        }
+
+        private void OnRestart(object sender, object args)
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        private void OnExitGame(object sender, object args)
+        {
+            // TODO: Return to main menu
+            Application.Quit();
         }
     }
 }
