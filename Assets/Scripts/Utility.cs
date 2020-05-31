@@ -33,5 +33,17 @@ namespace Assets.Scripts
             key = tuple.Key;
             value = tuple.Value;
         }
+
+        public static void Shuffle<T>(T[] array)
+        {
+            var p = array.Length;
+            for (var n = p - 1; n > 0; n--)
+            {
+                var r = Random.Range(1, n);
+                T t = array[r];
+                array[r] = array[n];
+                array[n] = t;
+            }
+        }
     }
 }

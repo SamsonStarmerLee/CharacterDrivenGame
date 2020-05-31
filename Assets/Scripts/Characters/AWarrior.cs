@@ -11,6 +11,9 @@ namespace Assets.Scripts.Characters
         [SerializeField]
         InputSource input;
 
+        [SerializeField]
+        private Mesh[] meshAlphabet;
+
         [SerializeField, Min(0f)]
         private float moveTime = 0.25f;
 
@@ -41,6 +44,17 @@ namespace Assets.Scripts.Characters
             {
                 Owner = this
             });
+        }
+
+        public void SetLetter(char letter)
+        {
+            _letter = letter.ToString();
+            name = _letter;
+
+            // This Sucks
+            var mesh = meshAlphabet.First(x => x.name == $"{letter}_Upper");
+            var mf = GetComponentInChildren<MeshFilter>();
+            mf.sharedMesh = mesh;
         }
 
         public override void Destroy()

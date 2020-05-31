@@ -38,14 +38,15 @@ public class Letter : Entity
     {
         base.Init();
 
-        // This sucks
         if (string.IsNullOrWhiteSpace(Letter))
         {
             _letter = Consonants[Random.Range(0, Consonants.Length)].ToString();
             name = _letter;
+
+            // This Sucks
             var mesh = meshAlphabet.First(x => x.name == $"{Letter}_Upper");
-            var meshFilter = GetComponentInChildren<MeshFilter>();
-            meshFilter.sharedMesh = mesh;
+            var mf = GetComponentInChildren<MeshFilter>();
+            mf.sharedMesh = mesh;
         }
     }
 
@@ -66,7 +67,6 @@ public class Letter : Entity
                 var hitPoint = character.WorldPosition - toTarget * hitOffset;
 
                 // TEMP
-                // Lock input while the animation plays out.
                 var input = Resources.FindObjectsOfTypeAll<InputSource>().FirstOrDefault();
                 input.Lock();
 

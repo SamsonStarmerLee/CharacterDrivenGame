@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Notifications;
+﻿using Assets.Scripts.Characters;
+using Assets.Scripts.Notifications;
 using Assets.Scripts.Pooling;
 using Assets.Scripts.Visuals;
 using System;
@@ -60,12 +61,18 @@ namespace Assets.Scripts.LevelGen
             var spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
             var spawned = new List<Transform>();
 
+            var vowels = new[]{ 'A', 'E', 'I', 'O', 'U' };
+            Utility.Shuffle(vowels);
+
             for (var i = 0; i < 3; i++)
             {
                 var character = Instantiate(
                     playerPrefab,
                     spawnPoints[i].transform.position,
                     Quaternion.identity);
+
+                var aWar = character.GetComponent<AWarrior>();
+                aWar.SetLetter(vowels[i]);
 
                 spawned.Add(character.transform);
             }
