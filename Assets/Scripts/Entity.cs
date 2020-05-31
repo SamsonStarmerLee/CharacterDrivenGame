@@ -65,7 +65,11 @@ public abstract class Entity : MonoBehaviour, IOccupant, IDestroy, IInit
 
     public virtual void Destroy()
     {
-        Board.Instance.Deregister(this);
+        if (Board.Instance.Entities.Contains(this))
+        {
+            Board.Instance.Deregister(this);
+        }
+
         WarpOut();
     }
 
