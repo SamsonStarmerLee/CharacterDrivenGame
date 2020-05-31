@@ -1,18 +1,33 @@
 ﻿using Assets.Scripts;
 using Assets.Scripts.Notifications;
+using DG.Tweening;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class GameOverView : MonoBehaviour
 {
     [SerializeField]
-    private GameObject retryButton;
+    private TMP_Text gameOverLogo;
 
     [SerializeField]
-    private GameObject exitButton;
+    private TMP_Text retryButton;
 
-    private bool active = true;
+    [SerializeField]
+    private TMP_Text exitButton;
+
+    [SerializeField]
+    private float logoRevealDelay, optionRevealDelay, fadeInTime;
+
+    private bool active;
+
+    private void Start()
+    {
+        gameOverLogo.alpha = 0;
+        retryButton.alpha = 0;
+        exitButton.alpha = 0;
+    }
 
     private void OnEnable()
     {
@@ -33,7 +48,17 @@ public class GameOverView : MonoBehaviour
 
     private IEnumerator ShowGameOverOptions()
     {
-        yield return null;
+        DG.Tweening.Core.TweenerCore<float, float, DG.Tweening.Plugins.Options.FloatOptions>
+            FadeInText(TMP_Text text) =>
+                DOTween.To(() => text.alpha, x => text.alpha = x, 1f, fadeInTime);
+
+        var fadeIn = DOTween.Sequence()
+            .Insert(logoRevealDelay, FadeInText(gameOverLogo))
+            .Insert(optionRevealDelay, FadeInText(exitButton))
+            .Insert(optionRevealDelay, FadeInText(retryButton));
+
+        if (!fadeIn.IsComplete())
+            yield return null;
 
         active = true;
     }
@@ -49,10 +74,10 @@ public class GameOverView : MonoBehaviour
 
         switch (ped.pointerPress)
         {
-            case var _ when ped.pointerPress == retryButton:
+            case var _ when ped.pointerPress == retryButton.gameObject:
                 this.PostNotification(GameManager.RestartNotification);
                 break;
-            case var _ when ped.pointerPress == exitButton:
+            case var _ when ped.pointerPress == exitButton.gameObject:
                 this.PostNotification(GameManager.ExitGameNotification);
                 break;
         }

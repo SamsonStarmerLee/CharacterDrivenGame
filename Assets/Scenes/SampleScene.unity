@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 284222286}
   - component: {fileID: 284222287}
   m_Layer: 5
-  m_Name: GameOver
+  m_Name: GameOver View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -247,8 +247,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 766c6870a9ceb824e91a8a34f91e249b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  retryButton: {fileID: 768924696}
-  exitButton: {fileID: 767441877}
+  gameOverLogo: {fileID: 1331060253}
+  retryButton: {fileID: 768924698}
+  exitButton: {fileID: 767441879}
+  logoRevealDelay: 3
+  optionRevealDelay: 4
+  fadeInTime: 1
 --- !u!1 &326084113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,6 +1910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomGenerator: {fileID: 1483525357}
+  pooler: {fileID: 11400000, guid: 8211a22d20513374ea736ecc39df37cc, type: 2}
 --- !u!4 &1984706267
 Transform:
   m_ObjectHideFlags: 0
