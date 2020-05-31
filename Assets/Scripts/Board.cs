@@ -4,6 +4,7 @@ using Assets.Scripts.Characters;
 using Assets.Scripts.Notifications;
 using Assets.Scripts.Visuals;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static Entity;
 
@@ -256,6 +257,15 @@ public class Board
 
                 toDestroy.Add(entity);
             }
+
+            foreach (var unused in match.Unused)
+            {
+                if (unused is Letter letter)
+                {
+                    letter.Stun();
+                    Debug.Log(letter.Letter);
+                }
+            }
         }
 
         foreach (var e in toDestroy)
@@ -362,11 +372,13 @@ public class Board
     {
         public readonly string Word;
         public readonly List<IOccupant> Parts;
+        public readonly List<IOccupant> Unused;
 
-        public Match(string word, List<IOccupant> parts)
+        public Match(string word, List<IOccupant> parts, List<IOccupant> unused)
         {
             Word = word;
             Parts = parts;
+            Unused = unused;
         }
     }
 
@@ -483,7 +495,10 @@ public class Board
                     finder.CheckWord(word))
                 {
                     bestLength = word.Length;
-                    match = new Match(word, new List<IOccupant>(wordParts));
+
+                    var used = new List<IOccupant>(wordParts);
+                    var unused = new List<IOccupant>(letters).Except(wordParts).ToList();
+                    match = new Match(word, used, unused);
                 }
             }
         }
