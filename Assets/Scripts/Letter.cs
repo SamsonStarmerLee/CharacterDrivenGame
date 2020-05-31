@@ -6,6 +6,7 @@ using Assets.Scripts.Pathfinding;
 using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 [SelectionBase]
@@ -32,6 +33,11 @@ public class Letter : Entity
     [SerializeField]
     private float returnDuration = 0.35f;
 
+    [SerializeField]
+    private GameObject stunIndicator;
+
+    private int stun;
+
     public IMovementCallbacks MovementCallbacks { get; } = new LetterMovementCallbacks();
 
     public override void Init()
@@ -54,6 +60,13 @@ public class Letter : Entity
     {
         if (Type == EntityType.Solid)
         {
+            return;
+        }
+
+        if (stun > 0)
+        {
+            stun--;
+            stunIndicator.SetActive(stun > 0);
             return;
         }
 
@@ -102,5 +115,11 @@ public class Letter : Entity
                 transform.DOMove(new Vector3(moveTo.x, 0f, moveTo.y), 0.25f);
             }
         }
+    }
+
+    public void Stun()
+    {
+        stun = 2;
+        stunIndicator.SetActive(true);
     }
 }
