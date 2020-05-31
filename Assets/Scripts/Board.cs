@@ -318,7 +318,7 @@ public class Board
 
     #region Private
 
-    private const int MinimumLength = 2;
+    private const int MinimumLength = 3;
 
     private Dictionary<Vector2Int, Cell> cells = new Dictionary<Vector2Int, Cell>();
 
