@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Characters;
 using Assets.Scripts.InputManagement;
-using Assets.Scripts.Visuals;
+using Assets.Scripts.Notifications;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,7 +23,23 @@ namespace Assets.Scripts.Controllers
 
         private void Awake()
         {
+            input.Unlock();
             machine.ChangeState(new IdleState { Owner = this });
+        }
+
+        private void OnEnable()
+        {
+            this.AddObserver(OnGameOver, GameManager.GameOverNotification);
+        }
+
+        private void OnDisable()
+        {
+            this.RemoveObserver(OnGameOver, GameManager.GameOverNotification);
+        }
+
+        private void OnGameOver(object sender, object args)
+        {
+            input.Lock();
         }
 
         private void Update()

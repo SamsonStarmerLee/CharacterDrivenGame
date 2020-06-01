@@ -1,7 +1,6 @@
 ﻿using Assets.Scripts;
 using Assets.Scripts.Notifications;
 using DG.Tweening;
-using NaughtyAttributes;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
