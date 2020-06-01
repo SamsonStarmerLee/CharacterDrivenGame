@@ -1171,6 +1171,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125f82320aaeee84c9d5164054505540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  default: {fileID: 21300000, guid: 6c7506af87dedc047af1533281cea358, type: 3}
+  hovered: {fileID: 21300000, guid: 89acb8efd1352944fbbdff83f3ef0230, type: 3}
+  clicked: {fileID: 21300000, guid: eceb1e8dcbeeab440ad5026eb5cacbb4, type: 3}
 --- !u!1 &836939633
 GameObject:
   m_ObjectHideFlags: 0
@@ -2542,6 +2545,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125f82320aaeee84c9d5164054505540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  default: {fileID: 21300000, guid: 74a813ff7df3baa43bbbd5d21f2e680f, type: 3}
+  hovered: {fileID: 21300000, guid: 1c3a77329360c084e8e76a27ba051170, type: 3}
+  clicked: {fileID: 21300000, guid: a4b79e4f837a65b4aa63bdc4276353ee, type: 3}
 --- !u!1 &1984706265
 GameObject:
   m_ObjectHideFlags: 0

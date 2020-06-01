@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts;
 using Assets.Scripts.Notifications;
 using DG.Tweening;
+using NaughtyAttributes;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,9 +12,11 @@ public class GameOverView : MonoBehaviour
     [SerializeField]
     private Image gameOverLogo;
 
+    [Header("Retry Button")]
     [SerializeField]
     private Image retryButton;
 
+    [Header("Quit Button")]
     [SerializeField]
     private Image quitButton;
 

@@ -87,10 +87,7 @@ namespace Assets.Scripts
 
             if (Health == 0)
             {
-                Debug.Log("YOU DIED!");
-                
                 StartCoroutine(KillCharacter(action));
-
                 this.PostNotification(GameOverNotification, action.Damaged);
             }
         }
