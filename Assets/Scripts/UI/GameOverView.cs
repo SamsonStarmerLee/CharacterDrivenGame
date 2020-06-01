@@ -2,20 +2,20 @@
 using Assets.Scripts.Notifications;
 using DG.Tweening;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GameOverView : MonoBehaviour
 {
     [SerializeField]
-    private TMP_Text gameOverLogo;
+    private Image gameOverLogo;
 
     [SerializeField]
-    private TMP_Text retryButton;
+    private Image retryButton;
 
     [SerializeField]
-    private TMP_Text exitButton;
+    private Image quitButton;
 
     [SerializeField]
     private float logoRevealDelay, optionRevealDelay, fadeInTime;
@@ -24,9 +24,9 @@ public class GameOverView : MonoBehaviour
 
     private void Start()
     {
-        gameOverLogo.alpha = 0;
-        retryButton.alpha = 0;
-        exitButton.alpha = 0;
+        gameOverLogo.color = new Color(1, 1, 1, 0);
+        retryButton.color = new Color(1, 1, 1, 0);
+        quitButton.color = new Color(1, 1, 1, 0);
     }
 
     private void OnEnable()
@@ -48,14 +48,10 @@ public class GameOverView : MonoBehaviour
 
     private IEnumerator ShowGameOverOptions()
     {
-        DG.Tweening.Core.TweenerCore<float, float, DG.Tweening.Plugins.Options.FloatOptions>
-            FadeInText(TMP_Text text) =>
-                DOTween.To(() => text.alpha, x => text.alpha = x, 1f, fadeInTime);
-
         var fadeIn = DOTween.Sequence()
-            .Insert(logoRevealDelay, FadeInText(gameOverLogo))
-            .Insert(optionRevealDelay, FadeInText(exitButton))
-            .Insert(optionRevealDelay, FadeInText(retryButton));
+            .Insert(logoRevealDelay, gameOverLogo.DOColor(Color.white, fadeInTime))
+            .Insert(optionRevealDelay, quitButton.DOColor(Color.white, fadeInTime))
+            .Insert(optionRevealDelay, retryButton.DOColor(Color.white, fadeInTime));
 
         if (!fadeIn.IsComplete())
             yield return null;
@@ -77,7 +73,7 @@ public class GameOverView : MonoBehaviour
             case var _ when ped.pointerPress == retryButton.gameObject:
                 this.PostNotification(GameManager.RestartNotification);
                 break;
-            case var _ when ped.pointerPress == exitButton.gameObject:
+            case var _ when ped.pointerPress == quitButton.gameObject:
                 this.PostNotification(GameManager.ExitGameNotification);
                 break;
         }
