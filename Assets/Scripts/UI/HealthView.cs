@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Notifications;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,10 +7,10 @@ namespace Assets.Scripts
     public class HealthView : MonoBehaviour
     {
         [SerializeField]
-        List<Image> slots;
+        Image image;
 
         [SerializeField]
-        Sprite full, empty;
+        Sprite[] healthStages;
 
         private void OnEnable()
         {
@@ -25,24 +24,15 @@ namespace Assets.Scripts
 
         private void OnHealthChanged(object sender, object args)
         {
-            var game = (args as GameManager).Health;
+            var health = (args as GameManager).Health;
 
-            for (var i = 0; i < game; ++i)
-            { 
-                SetSpriteForHealthSlot(full, i);
-            }
-
-            for (var i = game; i < GameManager.MaxHealth; ++i)
+            if (health <= 0)
             {
-                SetSpriteForHealthSlot(empty, i);
+                image.sprite = null;
             }
-        }
-
-        private void SetSpriteForHealthSlot(Sprite sprite, int index)
-        {
-            if (index >= 0 && index < slots.Count)
+            else
             {
-                slots[index].sprite = sprite;
+                image.sprite = healthStages[health - 1];
             }
         }
     }
