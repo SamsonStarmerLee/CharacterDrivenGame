@@ -233,15 +233,26 @@ public class Board
             }
         }
 
+        // TODO: Figure out why I am getting duplicate words.
+        // NOTE: This filters out duplicate words, which means a horizontal+vertical
+        // match of the same word will fail. 
+        matches = matches
+            .GroupBy(x => x.Word)
+            .Select(g => g.FirstOrDefault())
+            .ToList();
+
         SetMatchHighlighting(true);
     }
 
     public void ScoreMatches()
     {
         var toDestroy = new List<IOccupant>();
+        var s = Random.Range(0, int.MaxValue);
 
         foreach (var match in matches)
         {
+            Debug.Log($"{s}: {match.Word}");
+
             var score = ScoreMatch(match);
 
             this.PostNotification(
@@ -263,7 +274,6 @@ public class Board
                 if (unused is Letter letter)
                 {
                     letter.Stun();
-                    Debug.Log(letter.Letter);
                 }
             }
         }
@@ -416,6 +426,7 @@ public class Board
             }
         }
 
+        // Return all matches filtered by distinct words.
         return allMatches;
     }
 
@@ -461,6 +472,7 @@ public class Board
         var l = word.Length - MinimumLength + 1;
         var triangularScore = l * (l + 1) / 2;
 
+        Debug.Log($"Word: {word}, Score: {triangularScore}");
         // TODO: Special characters, abilities, etc.
 
         return triangularScore;

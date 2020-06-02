@@ -13,6 +13,7 @@ namespace Assets.Scripts
     {
         public const string ScoreChangedNotification = "ScoreChanged.Notification";
         public const string HealthChangedNotification = "HealthChanged.Notification";
+        public const string FloorChangedNotification = "FloorChanged.Notification";
         public const string SubmitTurnNotification = "SubmitTurn.Notification";
 
         public const string OpenExitNotification = "OpenExit.Notification";
@@ -36,6 +37,8 @@ namespace Assets.Scripts
         public int Score { get; private set; }
 
         public int DoorCountdown { get; private set; } = 9;
+
+        public int Floor { get; private set; } = 1;
 
         private void Awake()
         {
@@ -109,10 +112,8 @@ namespace Assets.Scripts
         private void OnScore(object sender, object args)
         {
             var action = args as ScoreAction;
+            
             Score += action.ScoreChange;
-
-            Debug.Log($"Score {action.ScoreChange}! Total score is now {Score}.");
-
             this.PostNotification(ScoreChangedNotification, this);
         }
 
@@ -138,12 +139,13 @@ namespace Assets.Scripts
 
         private IEnumerator GenerateNewFloor()
         {
-            Debug.Log("EXIT");
             roomGenerator.Generate();
 
             yield return new WaitForSeconds(1f);
 
-            Debug.Log("New Room");
+            Floor++;
+            this.PostNotification(FloorChangedNotification, this);
+
             roomGenerator.Generate();
         }
 
