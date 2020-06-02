@@ -17,6 +17,7 @@ namespace Assets.Scripts
 
         public const string OpenExitNotification = "OpenExit.Notification";
         public const string ExitFloorNotification = "ExitFloor.Notification";
+        public const string DoorCountdownNotification = "DoorCountdown.Notification";
 
         public const string GameOverNotification = "GameOver.Notification";
         public const string ExitGameNotification = "ExitGame.Notification";
@@ -34,7 +35,7 @@ namespace Assets.Scripts
 
         public int Score { get; private set; }
 
-        public int DoorCountdown { get; private set; } = 1;
+        public int DoorCountdown { get; private set; } = 9;
 
         private void Awake()
         {
@@ -119,13 +120,14 @@ namespace Assets.Scripts
         {
             DoorCountdown--;
 
+            if (DoorCountdown >= 0)
+            {
+                this.PostNotification(DoorCountdownNotification, this);
+            }
+
             if (DoorCountdown == 0)
             {
                 this.PostNotification(OpenExitNotification);
-            }
-            else if (DoorCountdown > 0)
-            {
-                Debug.Log($"Turns until door opens: {DoorCountdown}");
             }
         }
 

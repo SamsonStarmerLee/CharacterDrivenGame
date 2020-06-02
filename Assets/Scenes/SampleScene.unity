@@ -1698,6 +1698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1136072912}
   - component: {fileID: 1136072913}
+  - component: {fileID: 1136072914}
   m_Layer: 5
   m_Name: Door View
   m_TagString: Untagged
@@ -1751,6 +1752,33 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
+--- !u!114 &1136072914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136072911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f5a78fd9388ab41984ed5b312ccec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorImage: {fileID: 1596591368}
+  doorOpen: {fileID: 21300000, guid: 2beffcd4cf5714346a78adae2e6f2d11, type: 3}
+  doorClosed: {fileID: 21300000, guid: 8b26104a238376949856e2a287eaa149, type: 3}
+  countdownImages:
+  - {fileID: 1614732645}
+  - {fileID: 1495507440}
+  - {fileID: 783279401}
+  - {fileID: 356626974}
+  - {fileID: 1656830987}
+  - {fileID: 1004976376}
+  - {fileID: 281396594}
+  - {fileID: 596334198}
+  - {fileID: 1471710284}
+  cdFull: {fileID: 21300000, guid: f47d6d58e04b0b74381422938896cc3b, type: 3}
+  cdEmpty: {fileID: 21300000, guid: 53f5130dfa2927248872eecd9818598c, type: 3}
 --- !u!1 &1297173719
 GameObject:
   m_ObjectHideFlags: 0

@@ -112,6 +112,7 @@
     <Compile Include="Assets\Scripts\UI\ClickableUI.cs" />
     <Compile Include="Assets\Scripts\UI\GameOverView.cs" />
     <Compile Include="Assets\Scripts\UI\HealthView.cs" />
+    <Compile Include="Assets\Scripts\UI\UIDoorView.cs" />
     <Compile Include="Assets\Scripts\Utility.cs" />
     <Compile Include="Assets\Scripts\Visuals\FloorTile.cs" />
     <Compile Include="Assets\Scripts\Visuals\MaterialRandomizer.cs" />
