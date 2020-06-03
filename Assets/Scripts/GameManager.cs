@@ -143,8 +143,13 @@ namespace Assets.Scripts
 
             yield return new WaitForSeconds(1f);
 
+            // Notify about the new floor
             Floor++;
             this.PostNotification(FloorChangedNotification, this);
+
+            // Heal 1 health
+            Health = Mathf.Clamp(Health + 1, 0, MaxHealth);
+            this.PostNotification(HealthChangedNotification, this);
 
             roomGenerator.Generate();
         }
