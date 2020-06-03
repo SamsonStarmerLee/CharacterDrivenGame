@@ -251,13 +251,11 @@ public class Board
 
         foreach (var match in matches)
         {
-            Debug.Log($"{s}: {match.Word}");
-
             var score = ScoreMatch(match);
 
             this.PostNotification(
                 Notify.Action<ScoreAction>(),
-                new ScoreAction(score));
+                new ScoreAction(score, match.Word));
 
             foreach (var entity in match.Parts)
             {
@@ -472,7 +470,6 @@ public class Board
         var l = word.Length - MinimumLength + 1;
         var triangularScore = l * (l + 1) / 2;
 
-        Debug.Log($"Word: {word}, Score: {triangularScore}");
         // TODO: Special characters, abilities, etc.
 
         return triangularScore;

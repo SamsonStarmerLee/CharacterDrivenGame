@@ -109,6 +109,7 @@
     <Compile Include="Assets\Scripts\Pooling\Poolable.cs" />
     <Compile Include="Assets\Scripts\Pooling\Pooler.cs" />
     <Compile Include="Assets\Scripts\StateMachine.cs" />
+    <Compile Include="Assets\Scripts\StatsManager.cs" />
     <Compile Include="Assets\Scripts\UI\ClickableUI.cs" />
     <Compile Include="Assets\Scripts\UI\GameOverView.cs" />
     <Compile Include="Assets\Scripts\UI\HealthView.cs" />

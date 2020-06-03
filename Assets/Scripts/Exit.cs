@@ -46,7 +46,6 @@ namespace Assets.Scripts
                 var dist = Mathf.Round((character.BoardPosition - boardPosition).magnitude);
                 if (dist > 1)
                 {
-                    Debug.Log(dist);
                     return;
                 }
             }

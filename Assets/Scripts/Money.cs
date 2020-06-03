@@ -69,7 +69,7 @@ public class Money : Entity
         // TEMP? This should probably not be inside destroy.
         this.PostNotification(
             Notify.Action<ScoreAction>(), 
-            new ScoreAction(value));
+            new ScoreAction(value, null));
 
         base.Destroy();
     }
