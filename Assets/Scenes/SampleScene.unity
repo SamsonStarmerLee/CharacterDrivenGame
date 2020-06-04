@@ -3217,6 +3217,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: acb5870263727ed4ea67444a4d0a3e96, type: 3}
   - {fileID: 8300000, guid: f16c06322ecc5fb4e98e57b72f624b02, type: 3}
   deathSfx: {fileID: 8300000, guid: a3445002b70aad8469a62ee070616847, type: 3}
+  matchSfx:
+  - {fileID: 8300000, guid: 2aed841e6c326b84c9a37ba722194b06, type: 3}
+  - {fileID: 8300000, guid: 411734719d8d59d4889e74e88606cd59, type: 3}
+  - {fileID: 8300000, guid: 4c78ef2d39252f5459244be12761dfb9, type: 3}
+  - {fileID: 8300000, guid: 143a0cf667d0adb409690dc198dce171, type: 3}
+  - {fileID: 8300000, guid: 5b2dc907259b4a64f88062a70f52aa02, type: 3}
+  matchOverlaySfx:
+  - {fileID: 8300000, guid: a40cb5fdda752a149a235b464614fda9, type: 3}
+  - {fileID: 8300000, guid: 40d63e196e8f1164d96a5a2b118853b8, type: 3}
 --- !u!4 &1984706267
 Transform:
   m_ObjectHideFlags: 0

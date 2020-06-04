@@ -3,7 +3,9 @@ using Assets.Scripts.Characters;
 using Assets.Scripts.LevelGen;
 using Assets.Scripts.Notifications;
 using Assets.Scripts.Pooling;
+using NaughtyAttributes;
 using System.Collections;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -32,12 +34,19 @@ namespace Assets.Scripts
         [SerializeField]
         private Pooler pooler;
 
-        [SerializeField]
+        [SerializeField, BoxGroup("Audio")]
         private AudioClip[] damageSfx;
 
-        [SerializeField]
+        [SerializeField, BoxGroup("Audio")]
         private AudioClip deathSfx;
 
+        [SerializeField, BoxGroup("Audio")]
+        private AudioClip[] matchSfx;
+
+        [SerializeField, BoxGroup("Audio")]
+        private AudioClip[] matchOverlaySfx;
+
+        private int matchPosition;
         private AudioSource audioSource;
 
         public int Health { get; private set; }
@@ -127,7 +136,16 @@ namespace Assets.Scripts
         private void OnScore(object sender, object args)
         {
             var action = args as ScoreAction;
-            
+
+            // Play layered sfx for matching a word, pitched up based on score.
+            matchPosition = (matchPosition += Random.Range(0, 3)) % matchSfx.Length;
+            var sfx = matchSfx[matchPosition];
+            audioSource.pitch = Random.Range(0.7f, 0.9f) + (action.Word.Length * 0.25f);
+            audioSource.PlayOneShot(sfx, 0.8f);
+
+            sfx = matchOverlaySfx[Random.Range(0, matchOverlaySfx.Length)];
+            audioSource.PlayOneShot(sfx, 1.25f);
+
             Score += action.ScoreChange;
             this.PostNotification(ScoreChangedNotification, this);
         }
