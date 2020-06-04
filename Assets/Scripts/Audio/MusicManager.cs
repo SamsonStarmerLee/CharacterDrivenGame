@@ -56,12 +56,12 @@ namespace Assets.Scripts.Audio
 
         private void OnEnable()
         {
-            this.AddObserver(OnFloorChange, GameManager.SubmitTurnNotification);
+            this.AddObserver(OnFloorChange, GameManager.ExitFloorNotification);
         }
 
         private void OnDisable()
         {
-            this.RemoveObserver(OnFloorChange, GameManager.SubmitTurnNotification);
+            this.RemoveObserver(OnFloorChange, GameManager.ExitFloorNotification);
         }
 
         private void Update()
