@@ -151,6 +151,10 @@ namespace Assets.Scripts
             Health = Mathf.Clamp(Health + 1, 0, MaxHealth);
             this.PostNotification(HealthChangedNotification, this);
 
+            // 'Refill' door countdown
+            DoorCountdown = 9;
+            this.PostNotification(DoorCountdownNotification, this);
+
             roomGenerator.Generate();
         }
 
