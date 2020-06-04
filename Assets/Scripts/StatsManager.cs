@@ -37,15 +37,8 @@ namespace Assets.Scripts
 
         private void Load()
         {
-            if (!File.Exists(savePath))
-            {
-                SaveScore();
-            }
-
-            if (!File.Exists(wordsPath))
-            {
-                SaveWords();
-            }
+            if (!File.Exists(savePath))  SaveScore();
+            if (!File.Exists(wordsPath)) SaveWords();
 
             using (var reader = new StreamReader(File.Open(savePath, FileMode.Open)))
             {
