@@ -64,6 +64,7 @@ namespace Assets.Scripts.Controllers
                 // Confirm movement and score matches.
                 if (Owner.input.Submit.Clicked)
                 {
+                    // Play the submit turn sfx, at a lower pitch if no actions have been taken.
                     var haveMeaningfulAction = Owner.movement.Count != 0;
                     if (haveMeaningfulAction)
                         Owner.PlaySfx(Owner.submitTurnSfx, 0.95f, 1.15f);
