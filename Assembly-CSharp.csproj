@@ -79,6 +79,7 @@
     <Compile Include="Assets\Rotary Heart\SerializableDictionaryLite\SerializableDictionaryBase.cs" />
     <Compile Include="Assets\Scripts\Actions\DamagePlayerAction.cs" />
     <Compile Include="Assets\Scripts\Actions\ScoreAction.cs" />
+    <Compile Include="Assets\Scripts\Audio\MusicManager.cs" />
     <Compile Include="Assets\Scripts\Board.cs" />
     <Compile Include="Assets\Scripts\Characters\AWarrior.cs" />
     <Compile Include="Assets\Scripts\Characters\AWarriorStates.cs" />
