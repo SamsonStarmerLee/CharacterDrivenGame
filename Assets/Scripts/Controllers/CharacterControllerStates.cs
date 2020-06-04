@@ -116,6 +116,12 @@ namespace Assets.Scripts.Controllers
             {
                 var tf = (Owner.activeCharacter as MonoBehaviour).transform;
                 this.PostNotification(BeginDragNotification, tf);
+
+                // Play pick up sfx
+                var options = Owner.grabCharacterSfx;
+                var sfx = options[Random.Range(0, options.Length)];
+                Owner.audioSource.pitch = Random.Range(0.95f, 1.05f);
+                Owner.audioSource.PlayOneShot(sfx);
             }
 
             public override IState Execute()
@@ -177,6 +183,12 @@ namespace Assets.Scripts.Controllers
                         {
                             item.Touch();
                         }
+
+                        // Play drag sfx for each tile traversed
+                        var options = Owner.dragCharacterSfx;
+                        var sfx = options[Random.Range(0, options.Length)];
+                        Owner.audioSource.pitch = Random.Range(0.9f, 1.1f);
+                        Owner.audioSource.PlayOneShot(sfx, 0.5f);
                     }
                     else if (forceDown)
                     {
@@ -206,10 +218,6 @@ namespace Assets.Scripts.Controllers
                             Path = path,
                         });
                     }
-
-                    var options = Owner.placeCharacterSfx;
-                    var sfx = options[Random.Range(0, options.Length)];
-                    Owner.audioSource.PlayOneShot(sfx);
                     
                     return new IdleState { Owner = Owner };
                 }
@@ -221,6 +229,17 @@ namespace Assets.Scripts.Controllers
             {
                 ClearRangeTiles();
                 this.PostNotification(CompleteDragNotification);
+
+                // Play drop sound effects
+                var options = Owner.placeCharacterSfx;
+                var sfx = options[Random.Range(0, options.Length)];
+                Owner.audioSource.pitch = Random.Range(0.85f, 1.15f);
+                Owner.audioSource.PlayOneShot(sfx);
+
+                options = Owner.placeCharacterOverlaySfx;
+                sfx = options[Random.Range(0, options.Length)];
+                Owner.audioSource.pitch = Random.Range(0.85f, 1.15f);
+                Owner.audioSource.PlayOneShot(sfx, 0.75f);
             }
 
             private void DrawRegion()

@@ -2829,6 +2829,24 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ecee3bae7f8106842aa602cf8f4ece62, type: 3}
   - {fileID: 8300000, guid: 2c7a82ed878a3ea4bb7814246775c165, type: 3}
   - {fileID: 8300000, guid: cd236959e73f821429ce9ec67612df2f, type: 3}
+  placeCharacterOverlaySfx:
+  - {fileID: 8300000, guid: d7549cadcfb284e45b0c512717339063, type: 3}
+  - {fileID: 8300000, guid: ebad86f8bf0d78646a3b2a1bc2183734, type: 3}
+  - {fileID: 8300000, guid: 4528bb52b08acad45b2e4e4b5a7cc84f, type: 3}
+  - {fileID: 8300000, guid: 2d9862888ed33d347af12e21154acdc2, type: 3}
+  - {fileID: 8300000, guid: 218de5277427cd445aa4e2faeb11208f, type: 3}
+  grabCharacterSfx:
+  - {fileID: 8300000, guid: b5ae29ddd9c3d4044a57b8437568c7ae, type: 3}
+  - {fileID: 8300000, guid: 005395866a342b042af370be9eaa75a3, type: 3}
+  - {fileID: 8300000, guid: ea82d4ad4af2eb542bc27a1acfa8454f, type: 3}
+  - {fileID: 8300000, guid: 2b8e71be81cd39f44954d79d1584d5f4, type: 3}
+  - {fileID: 8300000, guid: 85a96220ee6867041986502f20b924c8, type: 3}
+  dragCharacterSfx:
+  - {fileID: 8300000, guid: d0762ca01123c384a94983d80eba3963, type: 3}
+  - {fileID: 8300000, guid: e33b87ef225e48d4d8d72f5bf9975408, type: 3}
+  - {fileID: 8300000, guid: 6bcfc60bf1da6034297037870d7f9899, type: 3}
+  - {fileID: 8300000, guid: 9b6707a53a40dd64884790a97e8fe1d4, type: 3}
+  - {fileID: 8300000, guid: 21f8037494cc27f489a77220ddb35b42, type: 3}
 --- !u!4 &1693656326
 Transform:
   m_ObjectHideFlags: 0

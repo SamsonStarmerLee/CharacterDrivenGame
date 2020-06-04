@@ -17,6 +17,15 @@ namespace Assets.Scripts.Controllers
         [SerializeField]
         private AudioClip[] placeCharacterSfx;
 
+        [SerializeField]
+        private AudioClip[] placeCharacterOverlaySfx;
+
+        [SerializeField]
+        private AudioClip[] grabCharacterSfx;
+
+        [SerializeField]
+        private AudioClip[] dragCharacterSfx;
+
         private StateMachine machine = new StateMachine();
         private List<DragMovement> movement = new List<DragMovement>();
         private ICharacter activeCharacter;
