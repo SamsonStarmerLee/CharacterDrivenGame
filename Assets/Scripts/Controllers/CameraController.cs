@@ -25,6 +25,9 @@ namespace Assets.Scripts.Controllers
         [SerializeField]
         private float scrollSpeed = 5f;
 
+        [SerializeField]
+        private float scrollExtentTop, scrollExtentBot, scrollExtentLeft, scrollExtentRight;
+
         /// <summary>
         /// Amount of trauma added when the player is hit by an attack.
         /// </summary>
@@ -39,6 +42,7 @@ namespace Assets.Scripts.Controllers
         private StateMachine machine = new StateMachine();
         private Transform cameraTransform;
         private Shaker cameraShaker;
+        private bool windowHasFocus;
 
         private void Start()
         {
@@ -82,7 +86,12 @@ namespace Assets.Scripts.Controllers
             machine.Execute();
 
             var lookPosition = focusPoint + viewPosition + focusOffset;
-            transform.position = lookPosition;
+            var x = Mathf.Clamp(lookPosition.x, -scrollExtentLeft, scrollExtentRight);
+            var z = Mathf.Clamp(lookPosition.z, -scrollExtentBot, scrollExtentTop);
+            var corrected = new Vector3(x, lookPosition.y, z);
+            focusOffset = corrected - focusPoint - viewPosition;
+
+            transform.position = corrected;
         }
 
         private void OnJumpToCharacter(object sender, object args)
@@ -114,6 +123,11 @@ namespace Assets.Scripts.Controllers
 
             focus = (toFocus as MonoBehaviour).transform;
             machine.ChangeState(new CinematicState { Owner = this });
+        }
+
+        private void OnApplicationFocus(bool focus)
+        {
+            windowHasFocus = focus;   
         }
     }
 }

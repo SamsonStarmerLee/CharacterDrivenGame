@@ -80,6 +80,11 @@ namespace Assets.Scripts.Controllers
 
             private void ScreenEdgeScroll()
             {
+                if (!Owner.windowHasFocus)
+                {
+                    return;
+                }
+
                 var transform = Owner.transform;
                 var scrollMargin = Owner.scrollMargin;
                 var scrollSpeed = Owner.scrollSpeed;

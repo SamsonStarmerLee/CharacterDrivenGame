@@ -1789,7 +1789,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.40392157, g: 0.5294118, b: 0.59607846, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1965,6 +1965,10 @@ MonoBehaviour:
   focus: {fileID: 0}
   scrollMargin: 2
   scrollSpeed: 12
+  scrollExtentTop: 0
+  scrollExtentBot: 22
+  scrollExtentLeft: 18
+  scrollExtentRight: 3
   traumaOnHit: 0.5
   cinematicBarTop: {fileID: 674614297}
   cinematicBarBottom: {fileID: 1640546260}
