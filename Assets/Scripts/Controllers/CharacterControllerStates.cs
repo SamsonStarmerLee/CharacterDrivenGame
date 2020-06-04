@@ -2,7 +2,6 @@
 using Assets.Scripts.Notifications;
 using Assets.Scripts.Pathfinding;
 using Assets.Scripts.Visuals;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -83,7 +82,7 @@ namespace Assets.Scripts.Controllers
             {
                 var pressed = Owner.input.AlphabeticalHeld.ToString();
                 var match = Board.Instance.Characters.FirstOrDefault(x =>
-                    string.Equals(x.Letter, pressed, StringComparison.OrdinalIgnoreCase));
+                    string.Equals(x.Letter, pressed, System.StringComparison.OrdinalIgnoreCase));
 
                 if (match != null)
                 {
@@ -162,14 +161,16 @@ namespace Assets.Scripts.Controllers
                 // Set the active character's path.
                 Owner.paths[Owner.activeCharacter] = path;
 
-                void MoveCharacterToTerminus()
+                void MoveCharacterToTerminus(bool raised, bool forceDown = false)
                 {
                     var terminus = path[0];
                     if (character.BoardPosition != terminus)
                     {
                         Board.Instance.MoveOccupant(character, terminus);
                         Board.Instance.CheckForMatches();
-                        character.WorldPosition = new Vector3(terminus.x, 0f, terminus.y);
+
+                        var height = raised ? 0.5f : 0.0f;
+                        character.WorldPosition = new Vector3(terminus.x, height, terminus.y);
 
                         var i = Board.Instance.GetAtPosition(terminus, Board.OccupantType.Item);
                         if (i is Money item)
@@ -177,12 +178,17 @@ namespace Assets.Scripts.Controllers
                             item.Touch();
                         }
                     }
+                    else if (forceDown)
+                    {
+                        var pos = character.BoardPosition;
+                        character.WorldPosition = new Vector3(pos.x, 0.0f, pos.y);
+                    }
                 }
 
                 // Move agent into position.
                 if (path.Count != 0)
                 {
-                    MoveCharacterToTerminus();
+                    MoveCharacterToTerminus(true);
                 }
 
                 DrawRegion();
@@ -192,7 +198,7 @@ namespace Assets.Scripts.Controllers
                 {
                     if (path.Count != 0)
                     {
-                        MoveCharacterToTerminus();
+                        MoveCharacterToTerminus(false, true);
 
                         Owner.movement.Add(new DragMovement
                         {
@@ -200,6 +206,10 @@ namespace Assets.Scripts.Controllers
                             Path = path,
                         });
                     }
+
+                    var options = Owner.placeCharacterSfx;
+                    var sfx = options[Random.Range(0, options.Length)];
+                    Owner.audioSource.PlayOneShot(sfx);
                     
                     return new IdleState { Owner = Owner };
                 }

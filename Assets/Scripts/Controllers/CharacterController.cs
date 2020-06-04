@@ -14,6 +14,9 @@ namespace Assets.Scripts.Controllers
         [SerializeField]
         private LayerMask movementLayerMask;
 
+        [SerializeField]
+        private AudioClip[] placeCharacterSfx;
+
         private StateMachine machine = new StateMachine();
         private List<DragMovement> movement = new List<DragMovement>();
         private ICharacter activeCharacter;
@@ -21,10 +24,14 @@ namespace Assets.Scripts.Controllers
         private Dictionary<ICharacter, List<Vector2Int>> paths = new Dictionary<ICharacter, List<Vector2Int>>();
         private HashSet<Vector2Int> inRangeTiles = new HashSet<Vector2Int>();
 
+        private AudioSource audioSource;
+
         private void Awake()
         {
             input.Unlock();
             machine.ChangeState(new IdleState { Owner = this });
+
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void OnEnable()

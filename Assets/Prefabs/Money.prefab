@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &8148884835528154450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6570712612793301155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bc412d91c6397640b2dbdf01fb733c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _letter: 
-  highlightColor: {r: 1, g: 0, b: 0.8780918, a: 0}
-  deathParticle: {fileID: 9128305394446416293, guid: 085596e3249f56940810ec3cdda9752f,
-    type: 3}
-  Type: 2
-  currencyMeshes:
-  - {fileID: -1193481069236124594, guid: 110fdd3721b3e5c47a080495b2b15530, type: 3}
-  - {fileID: -300185216723997041, guid: 110fdd3721b3e5c47a080495b2b15530, type: 3}
-  - {fileID: 8795136783743564064, guid: 110fdd3721b3e5c47a080495b2b15530, type: 3}
-  - {fileID: 12645484144612852, guid: 110fdd3721b3e5c47a080495b2b15530, type: 3}
-  - {fileID: -5602521969845122751, guid: 110fdd3721b3e5c47a080495b2b15530, type: 3}
-  randomRotation: 30
-  pickupSfx:
-  - {fileID: 8300000, guid: 1d8a521a632abe948b3a115961af82a3, type: 3}
-  - {fileID: 8300000, guid: 56270ad4d776a59448cec0635b55cd54, type: 3}
-  touchSfx:
-  - {fileID: 8300000, guid: 804a13c6f4a7706478b5b7d45143e91a, type: 3}
-  - {fileID: 8300000, guid: 920504f67c8ccac4db9c4084de321bb2, type: 3}
 --- !u!82 &2701568851434543274
 AudioSource:
   m_ObjectHideFlags: 0
@@ -127,6 +97,38 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8148884835528154450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570712612793301155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc412d91c6397640b2dbdf01fb733c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _letter: 
+  highlightColor: {r: 1, g: 0, b: 0.8780918, a: 0}
+  deathParticle: {fileID: 9128305394446416293, guid: 085596e3249f56940810ec3cdda9752f,
+    type: 3}
+  Type: 2
+  currencyMeshes:
+  - {fileID: -1193481069236124594, guid: 110fdd3721b3e5c47a080495b2b15530, type: 3}
+  - {fileID: -300185216723997041, guid: 110fdd3721b3e5c47a080495b2b15530, type: 3}
+  - {fileID: 8795136783743564064, guid: 110fdd3721b3e5c47a080495b2b15530, type: 3}
+  - {fileID: 12645484144612852, guid: 110fdd3721b3e5c47a080495b2b15530, type: 3}
+  - {fileID: -5602521969845122751, guid: 110fdd3721b3e5c47a080495b2b15530, type: 3}
+  randomRotation: 30
+  pickupSfx:
+  - {fileID: 8300000, guid: 1d8a521a632abe948b3a115961af82a3, type: 3}
+  - {fileID: 8300000, guid: 56270ad4d776a59448cec0635b55cd54, type: 3}
+  - {fileID: 8300000, guid: 4c02ab61d12a9c945825f4599397f3f9, type: 3}
+  - {fileID: 8300000, guid: dc7d29bc13119e94e877b1bc180451e3, type: 3}
+  touchSfx:
+  - {fileID: 8300000, guid: 804a13c6f4a7706478b5b7d45143e91a, type: 3}
+  - {fileID: 8300000, guid: 920504f67c8ccac4db9c4084de321bb2, type: 3}
 --- !u!1001 &3746899048446965569
 PrefabInstance:
   m_ObjectHideFlags: 0
