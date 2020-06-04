@@ -19,6 +19,16 @@ namespace Assets.Scripts.UI
         [SerializeField]
         private Sprite cdFull, cdEmpty;
 
+        [SerializeField]
+        private AudioClip[] doorOpenSfx;
+
+        private AudioSource audioSource;
+
+        private void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
         private void OnEnable()
         {
             this.AddObserver(OnDoorCountdown, GameManager.DoorCountdownNotification);
@@ -65,6 +75,9 @@ namespace Assets.Scripts.UI
         private void OnFloorExitOpened(object sender, object args)
         {
             doorImage.sprite = doorOpen;
+
+            var sfx = doorOpenSfx[Random.Range(0, doorOpenSfx.Length)];
+            audioSource.PlayOneShot(sfx);
         }
 
         private void OnNewFloor(object sender, object args)

@@ -15,6 +15,14 @@ public class Money : Entity
     [SerializeField]
     private float randomRotation;
 
+    [SerializeField]
+    private AudioClip[] pickupSfx;
+
+    [SerializeField]
+    private AudioClip[] touchSfx;
+
+    private AudioSource audioSource;
+
     public override void Init()
     {
         base.Init();
@@ -62,6 +70,8 @@ public class Money : Entity
         // Shrink and add random rotation to model.
         modelObj.localScale *= Random.Range(0.5f, 0.7f);
         modelObj.rotation *= Quaternion.Euler(0f, Random.Range(-randomRotation, randomRotation), 0f);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override void Destroy()
@@ -71,6 +81,16 @@ public class Money : Entity
             Notify.Action<ScoreAction>(), 
             new ScoreAction(value, null));
 
+        // Play pickup sound effect
+        var sfx = pickupSfx[Random.Range(0, pickupSfx.Length)];
+        audioSource.PlayOneShot(sfx);
+
         base.Destroy();
+    }
+
+    public void Touch()
+    {
+        var sfx = touchSfx[Random.Range(0, touchSfx.Length)];
+        audioSource.PlayOneShot(sfx);
     }
 }

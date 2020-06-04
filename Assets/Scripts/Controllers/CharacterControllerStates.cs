@@ -170,6 +170,12 @@ namespace Assets.Scripts.Controllers
                         Board.Instance.MoveOccupant(character, terminus);
                         Board.Instance.CheckForMatches();
                         character.WorldPosition = new Vector3(terminus.x, 0f, terminus.y);
+
+                        var i = Board.Instance.GetAtPosition(terminus, Board.OccupantType.Item);
+                        if (i is Money item)
+                        {
+                            item.Touch();
+                        }
                     }
                 }
 
