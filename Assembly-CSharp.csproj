@@ -112,9 +112,9 @@
     <Compile Include="Assets\Scripts\StateMachine.cs" />
     <Compile Include="Assets\Scripts\StatsManager.cs" />
     <Compile Include="Assets\Scripts\UI\ClickableUI.cs" />
-    <Compile Include="Assets\Scripts\UI\GameOverView.cs" />
     <Compile Include="Assets\Scripts\UI\HealthView.cs" />
     <Compile Include="Assets\Scripts\UI\UIDoorView.cs" />
+    <Compile Include="Assets\Scripts\UI\UIGameOverView.cs" />
     <Compile Include="Assets\Scripts\UI\UIScoreView.cs" />
     <Compile Include="Assets\Scripts\Utility.cs" />
     <Compile Include="Assets\Scripts\Visuals\FloorTile.cs" />
