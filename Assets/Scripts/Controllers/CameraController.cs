@@ -62,7 +62,7 @@ namespace Assets.Scripts.Controllers
         private void OnEnable()
         {
             this.AddObserver(OnJumpToCharacter, CharacterController.JumpSelectNotification);
-            this.AddObserver(OnJumpToCharacter, RoomGenerator.PlayerSpawnedNotification);
+            this.AddObserver(OnJumpToCharacter, GameManager.PlayerSpawnedNotification);
             this.AddObserver(OnDragStart, CharacterController.BeginDragNotification);
             this.AddObserver(OnPlayerDamaged, Notify.Action<DamagePlayerAction>());
             this.AddObserver(OnGameOver, GameManager.GameOverNotification);
@@ -71,7 +71,7 @@ namespace Assets.Scripts.Controllers
         private void OnDisable()
         {
             this.RemoveObserver(OnJumpToCharacter, CharacterController.JumpSelectNotification);
-            this.RemoveObserver(OnJumpToCharacter, RoomGenerator.PlayerSpawnedNotification);
+            this.RemoveObserver(OnJumpToCharacter, GameManager.PlayerSpawnedNotification);
             this.RemoveObserver(OnDragStart, CharacterController.BeginDragNotification);
             this.RemoveObserver(OnPlayerDamaged, Notify.Action<DamagePlayerAction>());
             this.RemoveObserver(OnGameOver, GameManager.GameOverNotification);

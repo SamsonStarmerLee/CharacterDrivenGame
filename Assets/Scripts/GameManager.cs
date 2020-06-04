@@ -5,6 +5,7 @@ using Assets.Scripts.Notifications;
 using Assets.Scripts.Pooling;
 using NaughtyAttributes;
 using System.Collections;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,6 +19,7 @@ namespace Assets.Scripts
         public const string FloorChangedNotification = "FloorChanged.Notification";
         public const string SubmitTurnNotification = "SubmitTurn.Notification";
 
+        public const string PlayerSpawnedNotification = "PlayerSpawned.Notification";
         public const string OpenExitNotification = "OpenExit.Notification";
         public const string ExitFloorNotification = "ExitFloor.Notification";
         public const string DoorCountdownNotification = "DoorCountdown.Notification";
@@ -34,6 +36,12 @@ namespace Assets.Scripts
         [SerializeField]
         private Pooler pooler;
 
+        [SerializeField]
+        private Animator crossfade;
+
+        [SerializeField]
+        private GameObject playerPrefab;
+
         [SerializeField, BoxGroup("Audio")]
         private AudioClip[] damageSfx;
 
@@ -45,6 +53,9 @@ namespace Assets.Scripts
 
         [SerializeField, BoxGroup("Audio")]
         private AudioClip[] matchOverlaySfx;
+
+        [SerializeField, BoxGroup("Audio")]
+        private AudioClip stairsSfx;
 
         private int matchPosition;
         private AudioSource audioSource;
@@ -90,6 +101,31 @@ namespace Assets.Scripts
             pooler.Clear();
 
             roomGenerator.Generate();
+
+            // Spawn player characters
+            {
+                // TEMP
+                var spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
+                var spawned = new List<Transform>();
+
+                var vowels = new[] { 'A', 'E', 'I', 'O', 'U' };
+                Utility.Shuffle(vowels);
+
+                for (var i = 0; i < 3; i++)
+                {
+                    var character = Instantiate(
+                        playerPrefab,
+                        spawnPoints[i].transform.position,
+                        Quaternion.identity);
+                    var aWar = character.GetComponent<AWarrior>();
+                    aWar.SetLetter(vowels[i]);
+
+                    spawned.Add(character.transform);
+                }
+
+                var tf = spawned[0];
+                this.PostNotification(PlayerSpawnedNotification, tf);
+            }
         }
 
         private void Update()
@@ -167,14 +203,31 @@ namespace Assets.Scripts
 
         private void OnExitFloor(object sender, object args)
         {
-            StartCoroutine(GenerateNewFloor());
+            StartCoroutine(Poopy());
         }
 
-        private IEnumerator GenerateNewFloor()
+        private IEnumerator Poopy()
         {
-            roomGenerator.Generate();
+            crossfade.SetTrigger("FadeOut");
+            audioSource.PlayOneShot(stairsSfx);
 
             yield return new WaitForSeconds(1f);
+
+            Board.Instance.ClearFloorReferences();
+            roomGenerator.Generate();
+
+            yield return new WaitForEndOfFrame();
+
+            // Reposition player characters
+            var characters = GameObject.FindObjectsOfType<AWarrior>();
+            var spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
+
+            for (var i = 0; i < characters.Length; i++)
+            {
+                characters[i].WorldPosition = spawnPoints[i].transform.position;
+                (characters[i] as Entity).Init();
+            }
+            this.PostNotification(PlayerSpawnedNotification, characters[0].transform);
 
             // Notify about the new floor
             Floor++;
@@ -188,7 +241,7 @@ namespace Assets.Scripts
             DoorCountdown = 9;
             this.PostNotification(DoorCountdownNotification, this);
 
-            roomGenerator.Generate();
+            crossfade.SetTrigger("FadeIn");
         }
 
         private void OnRestart(object sender, object args)

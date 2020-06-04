@@ -1,6 +1,4 @@
-﻿using Assets.Scripts.Characters;
-using Assets.Scripts.Notifications;
-using Assets.Scripts.Pooling;
+﻿using Assets.Scripts.Pooling;
 using Assets.Scripts.Visuals;
 using System;
 using System.Collections.Generic;
@@ -17,16 +15,11 @@ namespace Assets.Scripts.LevelGen
             public GameObject[] Tiles = new GameObject[100];
         }
 
-        public const string PlayerSpawnedNotification = "PlayerSpawned.Notification";
-
         private const int roomWidth = 10;
         private const int roomHeight = 10;
 
         [SerializeField]
         private Pooler pooler;
-
-        [SerializeField]
-        private GameObject playerPrefab;
 
         private List<string> roomTemplates = new List<string>();
         private List<string> entryTemplates = new List<string>();
@@ -42,11 +35,7 @@ namespace Assets.Scripts.LevelGen
 
         public void Generate()
         {
-            if (rooms.Count == 0)
-            {
-                GenerateDungeon(2, 2);
-            }
-            else
+            // Clear extant dungeon
             {
                 foreach (var vkp in rooms)
                 {
@@ -57,28 +46,7 @@ namespace Assets.Scripts.LevelGen
                 Board.Instance.ClearFloorReferences();
             }
 
-            // TEMP
-            var spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
-            var spawned = new List<Transform>();
-
-            var vowels = new[]{ 'A', 'E', 'I', 'O', 'U' };
-            Utility.Shuffle(vowels);
-
-            for (var i = 0; i < 3; i++)
-            {
-                var character = Instantiate(
-                    playerPrefab,
-                    spawnPoints[i].transform.position,
-                    Quaternion.identity);
-
-                var aWar = character.GetComponent<AWarrior>();
-                aWar.SetLetter(vowels[i]);
-
-                spawned.Add(character.transform);
-            }
-
-            var tf = spawned[0];
-            this.PostNotification(PlayerSpawnedNotification, tf);
+            GenerateDungeon(2, 2);
         }
 
         private void GenerateDungeon(int width, int height)
