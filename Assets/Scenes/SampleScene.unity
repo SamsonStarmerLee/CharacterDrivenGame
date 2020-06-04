@@ -161,7 +161,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 38ddb4f44f520514095d80bc761404e4, type: 3}
   - {fileID: 8300000, guid: 2b6c29449817de246b60c8eccc2baf03, type: 3}
   - {fileID: 8300000, guid: f78947098d989674fad4ae588b7c6ca2, type: 3}
-  - {fileID: 8300000, guid: 85cb40a2ff307414a8e62a4c1e89e148, type: 3}
   mixer: {fileID: 24100000, guid: a67739f3344bb524399c73e1476b6d0e, type: 2}
 --- !u!4 &149487089
 Transform:
