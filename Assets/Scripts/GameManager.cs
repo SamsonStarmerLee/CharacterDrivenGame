@@ -27,10 +27,18 @@ namespace Assets.Scripts
         public const int MaxHealth = 3;
 
         [SerializeField]
-        RoomGenerator roomGenerator;
+        private RoomGenerator roomGenerator;
 
         [SerializeField]
-        Pooler pooler;
+        private Pooler pooler;
+
+        [SerializeField]
+        private AudioClip[] damageSfx;
+
+        [SerializeField]
+        private AudioClip deathSfx;
+
+        private AudioSource audioSource;
 
         public int Health { get; private set; }
 
@@ -43,6 +51,7 @@ namespace Assets.Scripts
         private void Awake()
         {
             Health = MaxHealth;
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void OnEnable()
@@ -89,6 +98,9 @@ namespace Assets.Scripts
             Health -= action.Damage;
             this.PostNotification(HealthChangedNotification, this);
 
+            var sfx = damageSfx[Random.Range(0, damageSfx.Length)];
+            audioSource.PlayOneShot(sfx, 0.8f);
+
             if (Health == 0)
             {
                 StartCoroutine(KillCharacter(action));
@@ -96,7 +108,7 @@ namespace Assets.Scripts
             }
         }
 
-        private static IEnumerator KillCharacter(DamagePlayerAction action)
+        private IEnumerator KillCharacter(DamagePlayerAction action)
         {
             var character = action.Damaged as ICharacter;
 
@@ -104,7 +116,10 @@ namespace Assets.Scripts
             var shaker = (character as MonoBehaviour).GetComponent<Shaker>();
             shaker.AddTrauma(1f);
 
-            yield return new WaitForSeconds(2f);
+            // Sfx
+            audioSource.PlayOneShot(deathSfx);
+
+            yield return new WaitForSeconds(2.5f);
 
             character.Destroy();
         }
