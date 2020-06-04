@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Characters;
 using Assets.Scripts.InputManagement;
 using Assets.Scripts.Notifications;
+using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,16 +15,16 @@ namespace Assets.Scripts.Controllers
         [SerializeField]
         private LayerMask movementLayerMask;
 
-        [SerializeField]
+        [SerializeField, BoxGroup("Audio")]
         private AudioClip[] placeCharacterSfx;
 
-        [SerializeField]
+        [SerializeField, BoxGroup("Audio")]
         private AudioClip[] placeCharacterOverlaySfx;
 
-        [SerializeField]
+        [SerializeField, BoxGroup("Audio")]
         private AudioClip[] grabCharacterSfx;
 
-        [SerializeField]
+        [SerializeField, BoxGroup("Audio")]
         private AudioClip[] dragCharacterSfx;
 
         private StateMachine machine = new StateMachine();
