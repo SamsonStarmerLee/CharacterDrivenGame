@@ -45,7 +45,7 @@ namespace Assets.Scripts
                 var totalScore = reader.ReadLine();
                 var totalFloors = reader.ReadLine();
 
-                Debug.Log($"TotalScore: {totalScore}, TotalFloors: {totalFloors}.");
+                // TODO: Do something with this.
             }
 
             using (var reader = new StreamReader(File.Open(wordsPath, FileMode.Open)))

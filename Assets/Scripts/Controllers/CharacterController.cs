@@ -27,6 +27,9 @@ namespace Assets.Scripts.Controllers
         [SerializeField, BoxGroup("Audio")]
         private AudioClip[] dragCharacterSfx;
 
+        [SerializeField, BoxGroup("Audio")]
+        private AudioClip[] submitTurnSfx;
+
         private StateMachine machine = new StateMachine();
         private List<DragMovement> movement = new List<DragMovement>();
         private ICharacter activeCharacter;
@@ -64,6 +67,14 @@ namespace Assets.Scripts.Controllers
             input.Prime();
             machine.Execute();
             activeCharacter?.Tick();
+        }
+
+        private void PlaySfx(AudioClip[] clips, float pitchMin, float pitchMax, float volume = 1f)
+        {
+            // Play drag sfx for each tile traversed
+            var sfx = clips[Random.Range(0, clips.Length)];
+            audioSource.pitch = Random.Range(pitchMin, pitchMax);
+            audioSource.PlayOneShot(sfx, volume);
         }
     }
 

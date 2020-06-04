@@ -4,6 +4,7 @@ using Assets.Scripts.Pathfinding;
 using Assets.Scripts.Visuals;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace Assets.Scripts.Controllers
@@ -63,6 +64,12 @@ namespace Assets.Scripts.Controllers
                 // Confirm movement and score matches.
                 if (Owner.input.Submit.Clicked)
                 {
+                    var haveMeaningfulAction = Owner.movement.Count != 0;
+                    if (haveMeaningfulAction)
+                        Owner.PlaySfx(Owner.submitTurnSfx, 0.95f, 1.15f);
+                    else
+                        Owner.PlaySfx(Owner.submitTurnSfx, 0.5f, 0.6f);
+
                     Owner.movement.Clear();
                     Owner.activeCharacter = null;
 
@@ -118,23 +125,16 @@ namespace Assets.Scripts.Controllers
                 this.PostNotification(BeginDragNotification, tf);
 
                 // Play pick up sfx
-                var options = Owner.grabCharacterSfx;
-                var sfx = options[Random.Range(0, options.Length)];
-                Owner.audioSource.pitch = Random.Range(0.95f, 1.05f);
-                Owner.audioSource.PlayOneShot(sfx);
+                Owner.PlaySfx(Owner.grabCharacterSfx, 0.95f, 1.15f);
             }
 
             public override IState Execute()
             {
-                if (Owner.input.Locked)
-                {
-                    return null;
-                }
-
-                if (!GetMousePosition(
-                    Owner.movementLayerMask, 
-                    out Vector2Int Destination, 
-                    out Vector3 _))
+                if (Owner.input.Locked ||
+                    !GetMousePosition(
+                        Owner.movementLayerMask, 
+                        out Vector2Int Destination, 
+                        out Vector3 _))
                 {
                     return null;
                 }
@@ -185,10 +185,7 @@ namespace Assets.Scripts.Controllers
                         }
 
                         // Play drag sfx for each tile traversed
-                        var options = Owner.dragCharacterSfx;
-                        var sfx = options[Random.Range(0, options.Length)];
-                        Owner.audioSource.pitch = Random.Range(0.9f, 1.1f);
-                        Owner.audioSource.PlayOneShot(sfx, 0.5f);
+                        Owner.PlaySfx(Owner.dragCharacterSfx, 0.95f, 1.15f, 0.5f);
                     }
                     else if (forceDown)
                     {
@@ -231,15 +228,8 @@ namespace Assets.Scripts.Controllers
                 this.PostNotification(CompleteDragNotification);
 
                 // Play drop sound effects
-                var options = Owner.placeCharacterSfx;
-                var sfx = options[Random.Range(0, options.Length)];
-                Owner.audioSource.pitch = Random.Range(0.85f, 1.15f);
-                Owner.audioSource.PlayOneShot(sfx);
-
-                options = Owner.placeCharacterOverlaySfx;
-                sfx = options[Random.Range(0, options.Length)];
-                Owner.audioSource.pitch = Random.Range(0.85f, 1.15f);
-                Owner.audioSource.PlayOneShot(sfx, 0.75f);
+                Owner.PlaySfx(Owner.placeCharacterSfx, 0.95f, 1.15f);
+                Owner.PlaySfx(Owner.placeCharacterOverlaySfx, 0.95f, 1.15f, 0.75f);
             }
 
             private void DrawRegion()

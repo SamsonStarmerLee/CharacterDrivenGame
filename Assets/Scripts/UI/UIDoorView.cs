@@ -77,7 +77,7 @@ namespace Assets.Scripts.UI
             doorImage.sprite = doorOpen;
 
             var sfx = doorOpenSfx[Random.Range(0, doorOpenSfx.Length)];
-            audioSource.PlayOneShot(sfx);
+            audioSource.PlayOneShot(sfx, 0.75f);
         }
 
         private void OnNewFloor(object sender, object args)
