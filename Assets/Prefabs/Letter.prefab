@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _letter: 
-  highlightColor: {r: 1, g: 0, b: 0.9897561, a: 0}
+  highlightColor: {r: 0.23921569, g: 0.8862745, b: 0.42745098, a: 1}
   deathParticle: {fileID: 9128305394446416293, guid: 085596e3249f56940810ec3cdda9752f,
     type: 3}
   Type: 0

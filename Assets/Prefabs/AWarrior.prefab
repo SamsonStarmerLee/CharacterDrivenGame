@@ -43,7 +43,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9056604, g: 0.8415806, b: 0.8843005, a: 1}
-  m_Intensity: 0.3
+  m_Intensity: 0.5
   m_Range: 20
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _letter: A
-  highlightColor: {r: 0.02277422, g: 1, b: 0, a: 1}
+  highlightColor: {r: 0.7019608, g: 0.9716981, b: 0.69411767, a: 1}
   deathParticle: {fileID: 9128305394446416293, guid: 085596e3249f56940810ec3cdda9752f,
     type: 3}
   Type: 0
@@ -195,6 +195,11 @@ PrefabInstance:
     - target: {fileID: 2951760689717763389, guid: cb811748d6433104a8c38f5980f9c6ca,
         type: 3}
       propertyPath: Id
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246559996984366866, guid: cb811748d6433104a8c38f5980f9c6ca,
+        type: 3}
+      propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7552664787412783074, guid: cb811748d6433104a8c38f5980f9c6ca,
