@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ClickableUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    // TODO: Add object-specific observable subscriptions.
     public const string ClickedNotification = "ClickableUI.ClickedNotification";
 
     [SerializeField]

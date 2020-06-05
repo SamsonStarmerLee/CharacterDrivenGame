@@ -4,6 +4,7 @@ using Assets.Scripts.Notifications;
 using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Controllers
 {
@@ -14,6 +15,9 @@ namespace Assets.Scripts.Controllers
 
         [SerializeField]
         private LayerMask movementLayerMask;
+
+        [SerializeField]
+        private ClickableUI buyLetterButton;
 
         [SerializeField, BoxGroup("Audio")]
         private AudioClip[] placeCharacterSfx;
@@ -50,16 +54,29 @@ namespace Assets.Scripts.Controllers
         private void OnEnable()
         {
             this.AddObserver(OnGameOver, GameManager.GameOverNotification);
+            this.AddObserver(OnUIClick, ClickableUI.ClickedNotification);
         }
 
         private void OnDisable()
         {
             this.RemoveObserver(OnGameOver, GameManager.GameOverNotification);
+            this.RemoveObserver(OnUIClick, ClickableUI.ClickedNotification);
         }
 
         private void OnGameOver(object sender, object args)
         {
             input.Lock();
+        }
+
+        private void OnUIClick(object sender, object args)
+        {
+            var state = machine.CurrentState;
+
+            if (args  is PointerEventData ped && 
+                state is IClickableHandlerState handler)
+            {
+                handler.OnClick(ped);
+            }
         }
 
         private void Update()

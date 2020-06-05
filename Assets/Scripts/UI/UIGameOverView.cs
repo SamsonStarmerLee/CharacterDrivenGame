@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GameOverView : MonoBehaviour
+public class UIGameOverView : MonoBehaviour
 {
     [SerializeField]
     private Image gameOverLogo;

@@ -6,7 +6,6 @@ using Assets.Scripts.Pooling;
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -143,7 +142,7 @@ namespace Assets.Scripts
             Health -= action.Damage;
             this.PostNotification(HealthChangedNotification, this);
 
-            var sfx = damageSfx[Random.Range(0, damageSfx.Length)];
+            var sfx = damageSfx[UnityEngine.Random.Range(0, damageSfx.Length)];
             audioSource.PlayOneShot(sfx, 0.8f);
 
             if (Health == 0)
@@ -174,12 +173,12 @@ namespace Assets.Scripts
             var action = args as ScoreAction;
 
             // Play layered sfx for matching a word, pitched up based on score.
-            matchPosition = (matchPosition += Random.Range(0, 3)) % matchSfx.Length;
+            matchPosition = (matchPosition += UnityEngine.Random.Range(0, 3)) % matchSfx.Length;
             var sfx = matchSfx[matchPosition];
-            audioSource.pitch = Random.Range(0.7f, 0.9f) + (action.Word.Length * 0.25f);
+            audioSource.pitch = UnityEngine.Random.Range(0.7f, 0.9f) + (action.Word.Length * 0.25f);
             audioSource.PlayOneShot(sfx, 0.8f);
 
-            sfx = matchOverlaySfx[Random.Range(0, matchOverlaySfx.Length)];
+            sfx = matchOverlaySfx[UnityEngine.Random.Range(0, matchOverlaySfx.Length)];
             audioSource.PlayOneShot(sfx, 1.25f);
 
             Score += action.ScoreChange;
@@ -203,10 +202,10 @@ namespace Assets.Scripts
 
         private void OnExitFloor(object sender, object args)
         {
-            StartCoroutine(Poopy());
+            StartCoroutine(GenerateNewFloor());
         }
 
-        private IEnumerator Poopy()
+        private IEnumerator GenerateNewFloor()
         {
             crossfade.SetTrigger("FadeOut");
             audioSource.PlayOneShot(stairsSfx);

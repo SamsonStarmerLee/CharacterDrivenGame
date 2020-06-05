@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Controllers
 {
@@ -30,7 +31,12 @@ namespace Assets.Scripts.Controllers
             public virtual void Exit() { }
         }
 
-        private class IdleState : BaseState
+        private interface IClickableHandlerState
+        {
+            void OnClick(PointerEventData pointerEventData);
+        }
+
+        private class IdleState : BaseState, IClickableHandlerState
         {
             public override IState Execute()
             {
@@ -84,6 +90,11 @@ namespace Assets.Scripts.Controllers
                 }
 
                 return null;
+            }
+
+            public void OnClick(PointerEventData pointerEventData)
+            {
+                Owner.machine.ChangeState(new BuyLetterState { Owner = Owner });
             }
 
             private void CheckJumpSelect()
@@ -290,6 +301,14 @@ namespace Assets.Scripts.Controllers
                 }
 
                 Owner.inRangeTiles.Clear();
+            }
+        }
+
+        private class BuyLetterState : BaseState, IClickableHandlerState
+        {
+            public void OnClick(PointerEventData pointerEventData)
+            {
+                Owner.machine.ChangeState(new IdleState { Owner = Owner });
             }
         }
     }
