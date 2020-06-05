@@ -11,6 +11,9 @@ public class UIGameOverView : MonoBehaviour
     [SerializeField]
     private Image gameOverLogo;
 
+    [SerializeField]
+    private Image backdrop;
+
     [Header("Retry Button")]
     [SerializeField]
     private Image retryButton;
@@ -51,6 +54,7 @@ public class UIGameOverView : MonoBehaviour
     private IEnumerator ShowGameOverOptions()
     {
         var fadeIn = DOTween.Sequence()
+            .Insert(logoRevealDelay, backdrop.DOColor(new Color(0, 0, 0, 0.70f), fadeInTime))
             .Insert(logoRevealDelay, gameOverLogo.DOColor(Color.white, fadeInTime))
             .Insert(optionRevealDelay, quitButton.DOColor(Color.white, fadeInTime))
             .Insert(optionRevealDelay, retryButton.DOColor(Color.white, fadeInTime));
