@@ -89,10 +89,13 @@ namespace Assets.Scripts
             var gameScore  = gm.Score;
             var gameFloors = gm.Floor;
 
-            using (var reader = new StreamReader(File.Open(savePath, FileMode.Open)))
+            if (File.Exists(savePath))
             {
-                gameScore  += int.Parse(reader.ReadLine());
-                gameFloors += int.Parse(reader.ReadLine()) - 1;
+                using (var reader = new StreamReader(File.Open(savePath, FileMode.Open)))
+                {
+                    gameScore  += int.Parse(reader.ReadLine());
+                    gameFloors += int.Parse(reader.ReadLine()) - 1;
+                }
             }
 
             using (var writer = new StreamWriter(File.Open(savePath, FileMode.Create)))
