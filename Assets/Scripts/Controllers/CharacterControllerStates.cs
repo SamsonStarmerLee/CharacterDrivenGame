@@ -94,7 +94,7 @@ namespace Assets.Scripts.Controllers
 
             public void OnClick(PointerEventData pointerEventData)
             {
-                Owner.machine.ChangeState(new BuyLetterState { Owner = Owner });
+                //Owner.machine.ChangeState(new BuyLetterState { Owner = Owner });
             }
 
             private void CheckJumpSelect()

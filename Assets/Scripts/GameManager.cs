@@ -172,14 +172,17 @@ namespace Assets.Scripts
         {
             var action = args as ScoreAction;
 
-            // Play layered sfx for matching a word, pitched up based on score.
-            matchPosition = (matchPosition += UnityEngine.Random.Range(0, 3)) % matchSfx.Length;
-            var sfx = matchSfx[matchPosition];
-            audioSource.pitch = UnityEngine.Random.Range(0.7f, 0.9f) + (action.Word.Length * 0.25f);
-            audioSource.PlayOneShot(sfx, 0.8f);
+            if (!string.IsNullOrWhiteSpace(action.Word))
+            {
+                // Play layered sfx for matching a word, pitched up based on score.
+                matchPosition = (matchPosition += UnityEngine.Random.Range(0, 3)) % matchSfx.Length;
+                var sfx = matchSfx[matchPosition];
+                audioSource.pitch = UnityEngine.Random.Range(0.7f, 0.9f) + (action.Word.Length * 0.25f);
+                audioSource.PlayOneShot(sfx, 0.8f);
 
-            sfx = matchOverlaySfx[UnityEngine.Random.Range(0, matchOverlaySfx.Length)];
-            audioSource.PlayOneShot(sfx, 1.25f);
+                sfx = matchOverlaySfx[UnityEngine.Random.Range(0, matchOverlaySfx.Length)];
+                audioSource.PlayOneShot(sfx, 1.25f);
+            }
 
             Score += action.ScoreChange;
             this.PostNotification(ScoreChangedNotification, this);
