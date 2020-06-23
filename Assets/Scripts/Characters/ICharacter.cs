@@ -9,7 +9,5 @@ namespace Assets.Scripts.Characters
         bool HasActed { get; set; }
 
         IMovementCallbacks MovementCallbacks { get; }
-
-        void Tick();
     }
 }

@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.InputManagement;
-using Assets.Scripts.Pathfinding;
+﻿using Assets.Scripts.Pathfinding;
 using System.Linq;
 using UnityEngine;
 
@@ -9,23 +8,13 @@ namespace Assets.Scripts.Characters
     public partial class AWarrior : Entity, ICharacter, IScorer
     {
         [SerializeField]
-        InputSource input;
-
-        [SerializeField]
         private Mesh[] meshAlphabet;
 
         [SerializeField, Min(0f)]
         private float moveTime = 0.25f;
 
-        [SerializeField, Min(1)]
-        private int throwRange = 3;
-
-        [SerializeField, Min(0f)]
-        private float throwTime = 0.25f;
-
         [SerializeField, Min(0)]
         private int _movementRange = 6;
-        private StateMachine machine = new StateMachine();
 
         public int MovementRange => _movementRange;
 
@@ -33,25 +22,12 @@ namespace Assets.Scripts.Characters
 
         public IMovementCallbacks MovementCallbacks { get; } = new LetterMovementCallbacks();
 
-        public override void Init()
-        {
-            base.Init();
-
-            // TEMP
-            input = Resources.FindObjectsOfTypeAll<InputSource>().FirstOrDefault();
-
-            machine.ChangeState(new IdleState
-            {
-                Owner = this
-            });
-        }
-
         public void SetLetter(char letter)
         {
             _letter = letter.ToString();
             name = _letter;
 
-            // This Sucks
+            // TODO: Replace this with a scriptableobject or something
             var mesh = meshAlphabet.First(x => x.name == $"{letter}_Upper");
             var mf = GetComponentInChildren<MeshFilter>();
             mf.sharedMesh = mesh;
@@ -60,11 +36,6 @@ namespace Assets.Scripts.Characters
         public override void Destroy()
         {
             BlowUp();
-        }
-
-        public void Tick()
-        {
-            machine.Execute();
         }
     }
 }
