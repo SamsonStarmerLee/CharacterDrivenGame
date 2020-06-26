@@ -29,14 +29,10 @@ namespace Assets.Scripts.Controllers
             {
                 if (Owner.focus == null || CheckScrolling())
                 {
-                    return new ScrollingState
-                    {
-                        Owner = Owner
-                    };
+                    return new ScrollingState(Owner);
                 }
 
                 TrackFocus();
-
                 return null;
             }
 
@@ -63,7 +59,7 @@ namespace Assets.Scripts.Controllers
 
             private void TrackFocus()
             {
-                // TEMP
+                // TODO: There is probably a better solution than this framerate-dependant lerp.
                 var desired = Owner.focus.position;
                 Owner.focusPoint = Vector3.Lerp(Owner.focusPoint, desired, 0.002f);
             }
@@ -71,6 +67,11 @@ namespace Assets.Scripts.Controllers
 
         private class ScrollingState : BaseState
         {
+            public ScrollingState(CameraController owner)
+            {
+                Owner = owner;
+            }
+
             public override IState Execute()
             {
                 ScreenEdgeScroll();
@@ -136,6 +137,11 @@ namespace Assets.Scripts.Controllers
         private class CinematicState : BaseState
         {
             const float Zoom = 8f;
+
+            public CinematicState(CameraController owner)
+            {
+                Owner = owner;
+            }
 
             public override void Enter()
             {

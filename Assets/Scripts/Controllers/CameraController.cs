@@ -122,7 +122,7 @@ namespace Assets.Scripts.Controllers
             var toFocus = args as ICharacter;
 
             focus = (toFocus as MonoBehaviour).transform;
-            machine.ChangeState(new CinematicState { Owner = this });
+            machine.ChangeState(new CinematicState(this));
         }
 
         private void OnApplicationFocus(bool focus)

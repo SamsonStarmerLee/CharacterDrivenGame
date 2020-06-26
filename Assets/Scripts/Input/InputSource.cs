@@ -21,19 +21,22 @@ namespace Assets.Scripts.InputManagement
     public class InputSource : ScriptableObject
     {
         public Vector2 SelectPosition { get; private set; }
+
         public ButtonState Select { get; private set; }
 
         public Vector2 DismissPosition { get; private set; }
+
         public ButtonState Dismiss { get; private set; }
 
         public ButtonState Submit { get; private set; }
 
         public Vector2 CameraAxis { get; private set; }
 
-        public ButtonState[] _numbers = new ButtonState[10];
+        private ButtonState[] _numbers = new ButtonState[10];
         public IReadOnlyList<ButtonState> Numbers => _numbers;
 
         public bool AnyAlphabeticalKeyClicked { get; private set; }
+
         public char AlphabeticalHeld { get; private set; }
 
         /// <summary>

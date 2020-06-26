@@ -18,10 +18,9 @@ namespace Assets.Scripts.Audio
         private AudioMixer mixer;
 
         private AudioSource source;
-
-        private bool activeIsMusic = true;
         private int musicTrackPosition;
         private int ambientTrackPosition;
+        private bool activeIsMusic = true;
 
         private static MusicManager _instance = null;
         public static MusicManager Instance
@@ -84,7 +83,7 @@ namespace Assets.Scripts.Audio
 
         public IEnumerator ChangeTracks()
         {
-            yield return StartCoroutine(FadeMixerGroup.StartFade(mixer, "MusicVolume", 3f, -80f));
+            yield return StartCoroutine(StartFade(mixer, "MusicVolume", 3f, -80f));
 
             musicTrackPosition++;
             musicTrackPosition %= musicTracks.Count;
@@ -92,12 +91,9 @@ namespace Assets.Scripts.Audio
             source.Play();
             activeIsMusic = true;
 
-            yield return StartCoroutine(FadeMixerGroup.StartFade(mixer, "MusicVolume", 1f, 0f));
+            yield return StartCoroutine(StartFade(mixer, "MusicVolume", 1f, 0f));
         }
-    }
 
-    public static class FadeMixerGroup
-    {
         public static IEnumerator StartFade(AudioMixer mixer, string param, float duration, float target)
         {
             var time = 0f;

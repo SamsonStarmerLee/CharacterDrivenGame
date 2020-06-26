@@ -37,13 +37,13 @@ public class UIGameOverView : MonoBehaviour
     private void OnEnable()
     {
         this.AddObserver(OnGameOver, GameManager.GameOverNotification);
-        this.AddObserver(OnUIClick, ClickableUI.ClickedNotification);
+        this.AddObserver(OnUIClick, ClickableUI.ClickableClickNotification);
     }
 
     private void OnDisable()
     {
         this.RemoveObserver(OnGameOver, GameManager.GameOverNotification);
-        this.RemoveObserver(OnUIClick, ClickableUI.ClickedNotification);
+        this.RemoveObserver(OnUIClick, ClickableUI.ClickableClickNotification);
     }
 
     private void OnGameOver(object sender, object args)

@@ -19,13 +19,19 @@ namespace Assets.Scripts.Pathfinding
             IMovementCallbacks movement,
             HashSet<Vector2Int> inRangeOut)
         {
+            /* 
+            Abnormal A* considerations:
+            - Return a best-fit path inside a range.
+            - Handle the destination being impossible to reach, but still return a path.
+            - Handle the destination being outside range.
+             */
+
             var cameFrom = new Dictionary<Vector2Int, Vector2Int>();
             var costs = new Dictionary<Vector2Int, int>();
             var distFromOrigin = new Dictionary<Vector2Int, int>();
             var frontier = new SimplePriorityQueue<Vector2Int>();
 
             frontier.Enqueue(origin, 0);
-
             cameFrom[origin] = origin;
             costs[origin] = 0;
             distFromOrigin[origin] = 0;
@@ -97,90 +103,9 @@ namespace Assets.Scripts.Pathfinding
             }
         }
 
-        public static List<Vector2Int> GenerateAStar(
-            Vector2Int origin, 
-            Vector2Int goal, 
-            int range, 
-            IReadOnlyList<IOccupant> ignore,
-            IMovementCallbacks movement)
-        {
-            var cameFrom = new Dictionary<Vector2Int, Vector2Int>();
-            var costs = new Dictionary<Vector2Int, int>();
-            var distFromOrigin = new Dictionary<Vector2Int, int>();
-            var frontier = new SimplePriorityQueue<Vector2Int>();
-
-            cameFrom[origin] = origin;
-            costs[origin] = 0;
-            distFromOrigin[origin] = 0;
-
-            frontier.Enqueue(origin, 0);
-
-            // In case we do not reach the goal, 
-            // we want to record whichever place got closest.
-            var shortestDistToGoal = int.MaxValue;
-            var closest = origin;
-
-            while (frontier.Count > 0)
-            {
-                var current = frontier.Dequeue();
-
-                if (current == goal)
-                {
-                    // Early exit 
-                    break;
-                }
-
-                foreach (var next in GetNeighbours(current))
-                {
-                    var distOrigin = distFromOrigin[current] + 1;
-                    var cost = costs[current] + movement.GetCost(next, ignore);
-
-                    if (distOrigin > range)
-                    {
-                        continue;
-                    }
-
-                    if (!costs.ContainsKey(next) || cost < costs[next])
-                    {
-                        cameFrom[next] = current;
-                        costs[next] = cost;
-                        distFromOrigin[next] = distOrigin;
-
-                        var estDistToGoal = ManhattanDist(next, goal);
-                        var fScore = cost + estDistToGoal;
-                        frontier.Enqueue(next, fScore);
-
-                        if (estDistToGoal < shortestDistToGoal)
-                        {
-                            closest = next;
-                            shortestDistToGoal = estDistToGoal;
-                        }
-                    }
-                }
-            }
-
-            // Compose Path
-            {
-                var path = new List<Vector2Int>();
-                var reachedGoal = distFromOrigin.ContainsKey(goal);
-                var position = reachedGoal ? goal : closest;
-
-                while (position != origin &&
-                       cameFrom.TryGetValue(position, out Vector2Int previous))
-                {
-                    if (costs[position] < WallCost)
-                    {
-                        path.Add(position);
-                    }
-
-                    position = previous;
-                }
-
-                path.Reverse();
-                return path;
-            }
-        }
-
+        /// <summary>
+        /// Given multiple goal positions, returns the path to the closest goal.
+        /// </summary>
         public static List<Vector2Int> GenerateAStarClosest(
             Vector2Int origin,
             IReadOnlyList<Vector2Int> goals,

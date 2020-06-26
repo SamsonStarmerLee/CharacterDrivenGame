@@ -4,7 +4,6 @@ using Assets.Scripts.Pathfinding;
 using Assets.Scripts.Visuals;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -38,6 +37,11 @@ namespace Assets.Scripts.Controllers
 
         private class IdleState : BaseState, IClickableHandlerState
         {
+            public IdleState(CharacterController owner)
+            {
+                Owner = owner;
+            }
+
             public override IState Execute()
             {
                 if (Owner.input.Locked)
@@ -53,10 +57,9 @@ namespace Assets.Scripts.Controllers
                     {
                         Owner.activeCharacter = character;
 
-                        return new DraggingState
+                        return new DraggingState(Owner)
                         {
                             From = entity.BoardPosition,
-                            Owner = Owner,
                         };
                     }
                 }
@@ -130,6 +133,11 @@ namespace Assets.Scripts.Controllers
         private class DraggingState : BaseState
         {
             public Vector2Int From;
+
+            public DraggingState(CharacterController owner)
+            {
+                Owner = owner;
+            }
 
             public override void Enter()
             {
@@ -228,7 +236,7 @@ namespace Assets.Scripts.Controllers
                         });
                     }
                     
-                    return new IdleState { Owner = Owner };
+                    return new IdleState(Owner);
                 }
 
                 return null;
@@ -244,6 +252,7 @@ namespace Assets.Scripts.Controllers
                 Owner.PlaySfx(Owner.placeCharacterOverlaySfx, 0.95f, 1.15f, 0.75f);
             }
 
+            // TODO: Re-do tile drawing
             private void DrawRegion()
             {
                 var inRange = Owner.inRangeTiles;
@@ -306,9 +315,14 @@ namespace Assets.Scripts.Controllers
 
         private class BuyLetterState : BaseState, IClickableHandlerState
         {
+            public BuyLetterState(CharacterController owner)
+            {
+                Owner = owner;
+            }
+
             public void OnClick(PointerEventData pointerEventData)
             {
-                Owner.machine.ChangeState(new IdleState { Owner = Owner });
+                Owner.machine.ChangeState(new IdleState(Owner));
             }
         }
     }

@@ -11,7 +11,7 @@ namespace Assets.Scripts.Controllers
     public partial class CharacterController : MonoBehaviour
     {
         [SerializeField]
-        InputSource input;
+        private InputSource input;
 
         [SerializeField]
         private LayerMask movementLayerMask;
@@ -46,7 +46,7 @@ namespace Assets.Scripts.Controllers
         private void Awake()
         {
             input.Unlock();
-            machine.ChangeState(new IdleState { Owner = this });
+            machine.ChangeState(new IdleState(this));
 
             audioSource = GetComponent<AudioSource>();
         }
@@ -83,7 +83,6 @@ namespace Assets.Scripts.Controllers
         {
             input.Prime();
             machine.Execute();
-            activeCharacter?.Tick();
         }
 
         private void PlaySfx(AudioClip[] clips, float pitchMin, float pitchMax, float volume = 1f)

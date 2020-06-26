@@ -99,12 +99,11 @@ public class Board
             {
                 _items.Remove(entity);
             }
-            // TODO: Proper Solid case
             else if (entity.Type == EntityType.Solid && _entities.Contains(entity))
             {
+                // TODO: Proper Solid case (i.e. not using the entities collection).
                 _entities.Remove(entity);
             }
-            // TODO
             else
             {
                 Debug.LogError($"Something went wrong trying to deregister entity {entity}" +

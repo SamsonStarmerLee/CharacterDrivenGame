@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{DF27587E-4707-F0C7-0D1E-95E6F487F51B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -82,7 +83,6 @@
     <Compile Include="Assets\Scripts\Audio\MusicManager.cs" />
     <Compile Include="Assets\Scripts\Board.cs" />
     <Compile Include="Assets\Scripts\Characters\AWarrior.cs" />
-    <Compile Include="Assets\Scripts\Characters\AWarriorStates.cs" />
     <Compile Include="Assets\Scripts\Characters\ICharacter.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraController.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraControllerStates.cs" />
@@ -96,7 +96,7 @@
     <Compile Include="Assets\Scripts\Input\InputSource.cs" />
     <Compile Include="Assets\Scripts\Letter.cs" />
     <Compile Include="Assets\Scripts\LetterMovementCallbacks.cs" />
-    <Compile Include="Assets\Scripts\LevelGen\RandomTableITem.cs" />
+    <Compile Include="Assets\Scripts\LevelGen\RandomTableItem.cs" />
     <Compile Include="Assets\Scripts\LevelGen\RoomGenerator.cs" />
     <Compile Include="Assets\Scripts\LifecycleInterfaces.cs" />
     <Compile Include="Assets\Scripts\Money.cs" />
