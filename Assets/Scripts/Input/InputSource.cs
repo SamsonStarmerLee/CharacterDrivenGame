@@ -32,12 +32,12 @@ namespace Assets.Scripts.InputManagement
 
         public Vector2 CameraAxis { get; private set; }
 
-        private ButtonState[] _numbers = new ButtonState[10];
-        public IReadOnlyList<ButtonState> Numbers => _numbers;
-
         public bool AnyAlphabeticalKeyClicked { get; private set; }
 
         public char AlphabeticalHeld { get; private set; }
+
+        public IReadOnlyList<ButtonState> Numbers => _numbers;
+        private ButtonState[] _numbers = new ButtonState[10];
 
         /// <summary>
         /// The InputSource can be 'locked' any number of times. Those locking sources are responsible for unlocking.

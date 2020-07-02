@@ -1,7 +1,6 @@
 ﻿using Assets.Scripts.Actions;
 using Assets.Scripts.Characters;
 using Assets.Scripts.InputManagement;
-using Assets.Scripts.LevelGen;
 using Assets.Scripts.Notifications;
 using UnityEngine;
 using UnityEngine.UI;

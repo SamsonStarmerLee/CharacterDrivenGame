@@ -18,7 +18,7 @@ namespace Assets.Scripts.Pooling
 
         public Poolable Get(char id, Vector3 position, Quaternion rotation, Transform parent)
         {
-            // TODO: Renable pooling
+            // TODO: Re-enable pooling.
             return Instantiate(prefabs[id], position, rotation, parent).GetComponent<Poolable>();
 
             if (!prefabs.ContainsKey(id))
@@ -56,6 +56,7 @@ namespace Assets.Scripts.Pooling
 
         public void Reclaim(Poolable poolable)
         {
+            // TODO: Re-enable pooling.
             Destroy(poolable.gameObject);
             return;
 
