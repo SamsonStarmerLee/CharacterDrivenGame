@@ -9,21 +9,27 @@ namespace Assets.Scripts.Controllers
 {
     public partial class CameraController : MonoBehaviour
     {
+        /// <summary>
+        /// The global (asset-based) source of input.
+        /// </summary>
         [SerializeField]
         InputSource input;
 
-        [SerializeField]
-        bool disableScroll;
-
-        [SerializeField]
-        private Transform focus;
-
+        /// <summary>
+        /// Padding around the screen borders which will trigger screen-edge scrolling.
+        /// </summary>
         [SerializeField]
         private float scrollMargin = 1f;
 
+        /// <summary>
+        /// How quickly the camera scrolls.
+        /// </summary>
         [SerializeField]
         private float scrollSpeed = 5f;
 
+        /// <summary>
+        /// The maximum/minimum distance the camera can scroll on each axis.
+        /// </summary>
         [SerializeField]
         private float scrollExtentTop, scrollExtentBot, scrollExtentLeft, scrollExtentRight;
 
@@ -33,11 +39,14 @@ namespace Assets.Scripts.Controllers
         [SerializeField, Min(0f)]
         private float traumaOnHit = 0.5f;
 
+        /// <summary>
+        /// Images used to display cinematic bars during gameover.
+        /// </summary>
         [SerializeField]
         private Image cinematicBarTop, cinematicBarBottom;
 
+        private Transform focus;
         private Vector3 focusPoint, viewPosition, focusOffset;
-
         private StateMachine machine = new StateMachine();
         private Transform cameraTransform;
         private Shaker cameraShaker;
@@ -45,12 +54,9 @@ namespace Assets.Scripts.Controllers
 
         private void Start()
         {
-            viewPosition = transform.position;
+            Cursor.lockState = CursorLockMode.Confined;
 
-            if (!disableScroll)
-            {
-                Cursor.lockState = CursorLockMode.Confined;
-            }
+            viewPosition = transform.position;
 
             cameraTransform = transform.Find("Camera");
             cameraShaker = cameraTransform.GetComponent<Shaker>();
@@ -126,7 +132,13 @@ namespace Assets.Scripts.Controllers
 
         private void OnApplicationFocus(bool focus)
         {
-            windowHasFocus = focus;   
+            windowHasFocus = focus;
+        }
+
+        private void OnMouseDown()
+        {
+            // Unity can only confine the cursor inside WebGL builds inside OnMouseDown/OnKeyDown events.
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 }

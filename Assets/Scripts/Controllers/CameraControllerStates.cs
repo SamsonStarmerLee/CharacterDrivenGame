@@ -38,11 +38,6 @@ namespace Assets.Scripts.Controllers
 
             private bool CheckScrolling()
             {
-                if (Owner.disableScroll)
-                {
-                    return false;
-                }
-
                 var input = Owner.input;
                 var mousePos = input.SelectPosition;
                 var scrolling = false;
