@@ -205,7 +205,7 @@ namespace Assets.Scripts.LevelGen
             var i = 0;
             while (true)
             {
-                var r = Resources.Load($"Rooms/{prefix}{i}") as TextAsset;
+                var r = (TextAsset)Resources.Load($"Rooms/{prefix}{i}", typeof(TextAsset));
                 if (r == null) break;
 
                 var room = r.text.Replace("\n", "").Replace("\r", "");

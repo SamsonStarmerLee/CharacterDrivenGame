@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
-/// <summary>
-/// SOWPODS
-/// </summary>
 
 public class WordFinder : MonoBehaviour
 {
@@ -12,14 +9,19 @@ public class WordFinder : MonoBehaviour
 
     private void Awake()
     {
-        var r = Resources.Load("enable") as TextAsset;
-        var words = r.text.Split(Environment.NewLine.ToCharArray());
+        var r = (TextAsset)Resources.Load("wordlist", typeof(TextAsset));
+        var words = r.text
+            .Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries)
+            .Select(word => string.Concat(word.Where(c => !char.IsWhiteSpace(c))))
+            .ToList();
+
         wordList = new HashSet<string>(words);
         Resources.UnloadAsset(r);
     }
 
     public bool CheckWord(string word)
     {
-        return wordList.Contains(word.ToLower());
+        var wordLower = word.ToLower();
+        return wordList.Contains(wordLower);
     }
 }

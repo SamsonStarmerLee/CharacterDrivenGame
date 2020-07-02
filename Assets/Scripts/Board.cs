@@ -232,7 +232,6 @@ public class Board
             }
         }
 
-        // TODO: Figure out why I am getting duplicate words.
         // NOTE: This filters out duplicate words, which means a horizontal+vertical
         // match of the same word will fail. 
         matches = matches
@@ -246,7 +245,6 @@ public class Board
     public void ScoreMatches()
     {
         var toDestroy = new List<IOccupant>();
-        var s = Random.Range(0, int.MaxValue);
 
         foreach (var match in matches)
         {

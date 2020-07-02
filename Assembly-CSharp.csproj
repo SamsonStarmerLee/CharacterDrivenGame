@@ -122,7 +122,7 @@
     <Compile Include="Assets\Scripts\Visuals\Shaker.cs" />
     <Compile Include="Assets\Scripts\WordFinder.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
-    <None Include="Assets\Resources\enable.txt" />
+    <None Include="Assets\Resources\wordlist.txt" />
     <None Include="Assets\Resources\Rooms\e1.txt" />
     <None Include="Assets\Resources\Rooms\r1.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
