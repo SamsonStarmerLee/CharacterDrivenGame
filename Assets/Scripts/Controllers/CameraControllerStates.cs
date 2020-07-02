@@ -76,7 +76,7 @@ namespace Assets.Scripts.Controllers
 
             private void ScreenEdgeScroll()
             {
-                if (!Owner.windowHasFocus)
+                if (Owner.scrollDisabled || !Owner.windowHasFocus)
                 {
                     return;
                 }

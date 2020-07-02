@@ -51,10 +51,15 @@ namespace Assets.Scripts.Controllers
         private Transform cameraTransform;
         private Shaker cameraShaker;
         private bool windowHasFocus;
+        private bool scrollDisabled;
 
         private void Start()
         {
-            Cursor.lockState = CursorLockMode.Confined;
+            scrollDisabled = Application.platform == RuntimePlatform.WebGLPlayer;
+            if (!scrollDisabled)
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+            }
 
             viewPosition = transform.position;
 
