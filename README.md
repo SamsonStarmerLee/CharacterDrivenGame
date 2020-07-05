@@ -7,7 +7,7 @@ If you would like to play this, you can do so [Here](https://samson.itch.io/a-ch
 ### Credits
 
 Programming/Design/Sound Editing:
-- (Me)[https://twitter.com/itisSamson]
+- [Me](https://twitter.com/itisSamson)
 
 Art:
 - Ashleigh Starmer-Lee [@catshriek](https://twitter.com/catshriek)
