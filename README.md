@@ -1,5 +1,5 @@
 # A Character Driven Experience
-The code behind the worlds most character-driven game.
+The code behind the world's most character-driven game.
 
 If you would like to play this, you can do so [Here](https://samson.itch.io/a-character-driven-experience).
 
